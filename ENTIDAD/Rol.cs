@@ -10,15 +10,14 @@ namespace ENTIDAD
     {
         public string IdRol {  get; set; }
         public string TipoRol { get; set; }
-
         public Rol()
         {
         }
 
-        public Rol(string IdRol, string TipoRol)
+        public Rol(string idRol, string tipoRol)
         {
-            this.IdRol = IdRol;
-            this.TipoRol = TipoRol;
+            IdRol = idRol;
+            TipoRol = tipoRol;
         }
 
         public override string ToString()

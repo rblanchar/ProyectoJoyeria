@@ -23,6 +23,7 @@ namespace Presentacion
 
         private void button1_Click(object sender, EventArgs e)
         {
+            this.Close();
             new FrmMenuSuper().Show();
         }
 
@@ -34,7 +35,7 @@ namespace Presentacion
             foreach ( var item in servicioUsuario.Consultar())
             {
                 Grilla_Usuarios.Rows.Add(item.Identificacion, item.Nombre.ToUpper(), item.Apellido.ToUpper(), item.Direccion.ToUpper(),
-                    item.Correo.ToUpper(), item.NumTelefono, item.NombreUsuario, item.Contraseña.ToUpper(),item.rol.TipoRol.ToUpper());
+                    item.Correo.ToUpper(), item.NumTelefono, item.NombreUsuario, item.Contraseña,item.rol.TipoRol.ToUpper());
             }
         }
 

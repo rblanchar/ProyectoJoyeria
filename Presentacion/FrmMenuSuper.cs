@@ -33,5 +33,10 @@ namespace Presentacion
             this.Close();
             new FrmRegistrarRol().Show();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            new FrmListarUsuarios().Show();
+        }
     }
 }

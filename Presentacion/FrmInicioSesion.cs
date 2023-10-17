@@ -88,7 +88,6 @@ namespace Presentacion
             {
                 this.Close();
                 new FrmMenuVendedor().Show();
-
             }
 
 

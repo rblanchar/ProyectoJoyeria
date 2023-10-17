@@ -42,3 +42,4 @@ D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\bin\Debug\DATO
 D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\obj\Debug\Presentacion.csproj.CoreCompileInputs.cache
 D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\obj\Debug\Presentacion.csproj.CopyComplete
 D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\obj\Debug\Presentacion.FrmListarUsuarios.resources
+D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\obj\Debug\Presentacion.FrmFacturadeVenta.resources

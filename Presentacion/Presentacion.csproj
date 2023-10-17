@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmFacturadeVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmFacturadeVenta.Designer.cs">
+      <DependentUpon>FrmFacturadeVenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmGestionUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +96,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmFacturadeVenta.resx">
+      <DependentUpon>FrmFacturadeVenta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmGestionUsuario.resx">
       <DependentUpon>FrmGestionUsuario.cs</DependentUpon>
     </EmbeddedResource>

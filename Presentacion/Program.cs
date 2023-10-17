@@ -15,13 +15,12 @@ namespace Presentacion
 
         static void Main()
         {
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //FrmInicioSesion
             //FrmGestionUsuario
             //FrmListarUsuarios
-            FrmListarUsuarios main = new FrmListarUsuarios();
+            FrmInicioSesion main = new FrmInicioSesion();
             main.Show();
             Application.Run();
         }
