@@ -1,26 +1,19 @@
-﻿using LOGICA;
+﻿using ENTIDAD;
+using LOGICA;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using ENTIDAD;
 
 namespace Presentacion
 {
     public partial class FrmRegistrarRol : Form
     {
-        private ServicioRol servicioRol  = new ServicioRol();
+        private ServicioRol servicioRol = new ServicioRol();
         private ServicioLecturaIdRol servicioLecturaIdRol = new ServicioLecturaIdRol();
-        
+
         public FrmRegistrarRol()
         {
             InitializeComponent();
-            
+
         }
 
         private void btn_Regresar_Click(object sender, EventArgs e)
@@ -69,7 +62,7 @@ namespace Presentacion
                 Guardar(new Rol(txt_IdRol.Text, txt_NombreRol.Text));
                 cancelar();
                 FrmRegistrarRol_Load(this, EventArgs.Empty);
-            }   
+            }
             else
             {
                 MessageBox.Show("Este IdRol ya existe!");
@@ -87,11 +80,11 @@ namespace Presentacion
 
         private void FrmRegistrarRol_Load(object sender, EventArgs e)
         {
-            string filename = "Rol.txt"; 
-            var numero= servicioLecturaIdRol.IncrementarId(filename);
+            string filename = "Rol.txt";
+            var numero = servicioLecturaIdRol.IncrementarId(filename);
 
             txt_IdRol.Text = numero;
- 
+
         }
     }
 }

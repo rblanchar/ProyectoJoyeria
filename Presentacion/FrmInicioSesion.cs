@@ -1,19 +1,13 @@
 ﻿using LOGICA;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Presentacion
 {
     public partial class FrmInicioSesion : Form
     {
-        ServicioUsuario servicioUsuario= new ServicioUsuario();
+        ServicioUsuario servicioUsuario = new ServicioUsuario();
         public FrmInicioSesion()
         {
             InitializeComponent();
@@ -26,7 +20,7 @@ namespace Presentacion
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void txt_user_Click(object sender, EventArgs e)
@@ -36,12 +30,12 @@ namespace Presentacion
                 txt_user.Text = "";
                 txt_user.ForeColor = Color.Black;
             }
-            if (txt_pass.Text=="")
+            if (txt_pass.Text == "")
             {
                 txt_pass.Text = "********";
                 txt_pass.ForeColor = Color.Gray;
             }
-            
+
         }
 
         private void txt_pass_Click(object sender, EventArgs e)
@@ -82,13 +76,13 @@ namespace Presentacion
             {
                 this.Close();
                 FrmMenuSuper super = new FrmMenuSuper();
-                super.Show();             
+                super.Show();
             }
             else if (servicioUsuario.Loguin(usuario, contraseña) == 2)
             {
                 this.Close();
                 new FrmMenuAdmin().Show();
-                
+
             }
             else if (servicioUsuario.Loguin(usuario, contraseña) == 3)
             {

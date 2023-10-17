@@ -1,15 +1,7 @@
 ﻿using ENTIDAD;
 using LOGICA;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Presentacion
 {
@@ -168,9 +160,9 @@ namespace Presentacion
                 {
                     Habilitar();
                     btn_Guardar.Text = "Registrar";
-                    
+
                 }
-                else if (Opcion =="CONSULTAR")
+                else if (Opcion == "CONSULTAR")
                 {
                     limpiar();
                     DesHabilitar();
@@ -202,19 +194,19 @@ namespace Presentacion
 
         private void btn_Guardar_Click(object sender, EventArgs e)
         {
-            if (btn_Guardar.Text=="Registrar")
+            if (btn_Guardar.Text == "Registrar")
             {
                 Usuario usuario = new Usuario();
                 usuario.Identificacion = txt_id.Text;
-                usuario.Nombre= txt_nombre.Text;
-                usuario.Apellido= txt_apellidos.Text;
+                usuario.Nombre = txt_nombre.Text;
+                usuario.Apellido = txt_apellidos.Text;
                 usuario.Direccion = txt_direccion.Text;
                 usuario.Correo = txt_correo.Text;
                 usuario.NumTelefono = txt_telefono.Text;
                 usuario.NombreUsuario = txt_usuario.Text;
                 usuario.Contraseña = txt_contraseña.Text;
                 usuario.rol = servicioRol.BuscarId(
-                    cmb_tipo.SelectedValue.ToString() );
+                    cmb_tipo.SelectedValue.ToString());
 
                 Guardar(usuario);
                 limpiar();
@@ -239,9 +231,9 @@ namespace Presentacion
                     if (partes[1] == "CLIENTE")
                     {
                         Habilitar();
-                    btn_Guardar.Text = "Registrar";
-                    txt_usuario.Enabled = false;
-                    txt_contraseña.Enabled = false;
+                        btn_Guardar.Text = "Registrar";
+                        txt_usuario.Enabled = false;
+                        txt_contraseña.Enabled = false;
                     }
             }
         }
