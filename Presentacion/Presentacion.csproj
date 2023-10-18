@@ -102,22 +102,5 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRegistrarRol.resx">
       <DependentUpon>FrmRegistrarRol.cs</DependentUpon>
-
-
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ENTIDAD\ENTIDAD.csproj">
-      <Project>{d0727854-1e93-45b2-b0e1-d29447598df7}</Project>
-      <Name>ENTIDAD</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\LOGICA\LOGICA.csproj">
-      <Project>{57653a0c-baf6-4082-891f-47525f08dedf}</Project>
-      <Name>LOGICA</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+   
 </Project>
