@@ -74,7 +74,7 @@
             this.label19.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 4.9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.Color.Black;
-            this.label19.Location = new System.Drawing.Point(443, 213);
+            this.label19.Location = new System.Drawing.Point(505, 222);
             this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(203, 6);
@@ -90,7 +90,7 @@
             this.label18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 4.9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.Black;
-            this.label18.Location = new System.Drawing.Point(443, 174);
+            this.label18.Location = new System.Drawing.Point(505, 183);
             this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(215, 6);
@@ -106,7 +106,7 @@
             this.label17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 4.9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.Black;
-            this.label17.Location = new System.Drawing.Point(443, 134);
+            this.label17.Location = new System.Drawing.Point(505, 143);
             this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(171, 6);
@@ -300,7 +300,7 @@
             this.txt_correo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_correo.Enabled = false;
             this.txt_correo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_correo.Location = new System.Drawing.Point(444, 197);
+            this.txt_correo.Location = new System.Drawing.Point(506, 206);
             this.txt_correo.Margin = new System.Windows.Forms.Padding(2);
             this.txt_correo.Name = "txt_correo";
             this.txt_correo.Size = new System.Drawing.Size(155, 14);
@@ -324,7 +324,7 @@
             this.txt_apellidos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_apellidos.Enabled = false;
             this.txt_apellidos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_apellidos.Location = new System.Drawing.Point(444, 155);
+            this.txt_apellidos.Location = new System.Drawing.Point(506, 164);
             this.txt_apellidos.Margin = new System.Windows.Forms.Padding(2);
             this.txt_apellidos.Name = "txt_apellidos";
             this.txt_apellidos.Size = new System.Drawing.Size(155, 14);
@@ -348,7 +348,7 @@
             this.txt_id.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_id.Enabled = false;
             this.txt_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_id.Location = new System.Drawing.Point(444, 118);
+            this.txt_id.Location = new System.Drawing.Point(506, 127);
             this.txt_id.Margin = new System.Windows.Forms.Padding(2);
             this.txt_id.Name = "txt_id";
             this.txt_id.Size = new System.Drawing.Size(127, 14);
@@ -405,7 +405,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(359, 197);
+            this.label7.Location = new System.Drawing.Point(409, 204);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(50, 15);
@@ -427,7 +427,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(359, 158);
+            this.label5.Location = new System.Drawing.Point(409, 158);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(66, 15);
@@ -449,7 +449,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(359, 119);
+            this.label3.Location = new System.Drawing.Point(409, 121);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(93, 15);
@@ -512,7 +512,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(661, 399);
+            this.ClientSize = new System.Drawing.Size(745, 399);
             this.Controls.Add(this.cmb_Opcion);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.label19);

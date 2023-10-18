@@ -193,7 +193,7 @@ namespace Presentacion
                 if (Opcion == "MODIFICAR")
                 {
                     limpiar();
-                    DesHabilitar();
+                    Habilitar();
                     txt_id.Enabled = true;
                     btn_Guardar.Text = "Modificar";
                     btn_Guardar.Enabled = true;
@@ -246,7 +246,7 @@ namespace Presentacion
                     txt_contraseña.Text = usuario.Contraseña;
                     cmb_tipo.SelectedValue = usuario.rol.IdRol.ToString();
 
-                    
+                   
                 }
                 else
                 {
@@ -257,6 +257,7 @@ namespace Presentacion
             else if (btn_Guardar.Text == "Modificar")
             {
                 // Modifica el usuario existente con los datos de los campos de texto
+            
                 Usuario usuario = new Usuario();
                 usuario.Identificacion = txt_id.Text;
                 usuario.Nombre = txt_nombre.Text;
@@ -267,6 +268,7 @@ namespace Presentacion
                 usuario.NombreUsuario = txt_usuario.Text;
                 usuario.Contraseña = txt_contraseña.Text;
                 usuario.rol = servicioRol.BuscarId(cmb_tipo.SelectedValue.ToString());
+              
 
                 // Llama a la función de modificar en el servicio
                 var msg = modificarUsuario.Modificar(usuario);
@@ -284,6 +286,7 @@ namespace Presentacion
 
                 if (usuario != null)
                 {
+                    
                     txt_nombre.Text = usuario.Nombre;
                     txt_apellidos.Text = usuario.Apellido;
                     txt_direccion.Text = usuario.Direccion;
@@ -292,9 +295,11 @@ namespace Presentacion
                     txt_usuario.Text = usuario.NombreUsuario;
                     txt_contraseña.Text = usuario.Contraseña;
                     cmb_tipo.SelectedValue = usuario.rol.IdRol.ToString();
+                    
                     var msg = eliminarUsuario.Eliminar(usuario);
                     MessageBox.Show(msg);
                     limpiar();
+
                 }
                 else
                 {
@@ -341,7 +346,8 @@ namespace Presentacion
                     txt_usuario.Text = usuario.NombreUsuario;
                     txt_contraseña.Text = usuario.Contraseña;
                     cmb_tipo.SelectedValue = usuario.rol.IdRol.ToString();
-                    Habilitar();
+                  
+
                 }
                 else
                 {
