@@ -9,6 +9,8 @@ namespace Presentacion
     {
         private ServicioRol servicioRol = new ServicioRol();
         private ServicioUsuario servicioUsuario = new ServicioUsuario();
+        private ModificarUsuario modificarUsuario = new ModificarUsuario();
+        private EliminarUsuario eliminarUsuario = new EliminarUsuario();
         public FrmGestionUsuario()
         {
             InitializeComponent();
@@ -183,7 +185,7 @@ namespace Presentacion
                 if (Opcion == "MODIFICAR")
                 {
                     limpiar();
-                    DesHabilitar();
+                    Habilitar();
                     txt_id.Enabled = true;
                     btn_Guardar.Text = "Modificar";
                     btn_Guardar.Enabled = true;
@@ -218,6 +220,85 @@ namespace Presentacion
                 MessageBox.Show(msg);
 
             }
+
+           if (btn_Guardar.Text == "Consultar")
+            {
+                string id = txt_id.Text;
+                Usuario usuario = servicioUsuario.BuscarId(id);
+
+                if (usuario != null)
+                {
+                    // Llena los cuadros de texto con los datos consultados
+                    txt_nombre.Text = usuario.Nombre;
+                    txt_apellidos.Text = usuario.Apellido;
+                    txt_direccion.Text = usuario.Direccion;
+                    txt_correo.Text = usuario.Correo;
+                    txt_telefono.Text = usuario.NumTelefono;
+                    txt_usuario.Text = usuario.NombreUsuario;
+                    txt_contraseña.Text = usuario.Contraseña;
+                    cmb_tipo.SelectedValue = usuario.rol.IdRol.ToString();
+
+                   
+                }
+                else
+                {
+                    MessageBox.Show("Usuario no encontrado.");
+                }
+            }
+
+            else if (btn_Guardar.Text == "Modificar")
+            {
+                // Modifica el usuario existente con los datos de los campos de texto
+            
+                Usuario usuario = new Usuario();
+                usuario.Identificacion = txt_id.Text;
+                usuario.Nombre = txt_nombre.Text;
+                usuario.Apellido = txt_apellidos.Text;
+                usuario.Direccion = txt_direccion.Text;
+                usuario.Correo = txt_correo.Text;
+                usuario.NumTelefono = txt_telefono.Text;
+                usuario.NombreUsuario = txt_usuario.Text;
+                usuario.Contraseña = txt_contraseña.Text;
+                usuario.rol = servicioRol.BuscarId(cmb_tipo.SelectedValue.ToString());
+              
+
+                // Llama a la función de modificar en el servicio
+                var msg = modificarUsuario.Modificar(usuario);
+
+                MessageBox.Show(msg);
+                limpiar();
+            }
+
+            else if (btn_Guardar.Text == "Eliminar")
+            {
+               
+
+                var id = txt_id.Text;
+                Usuario usuario = servicioUsuario.BuscarId(id);
+
+                if (usuario != null)
+                {
+                    
+                    txt_nombre.Text = usuario.Nombre;
+                    txt_apellidos.Text = usuario.Apellido;
+                    txt_direccion.Text = usuario.Direccion;
+                    txt_correo.Text = usuario.Correo;
+                    txt_telefono.Text = usuario.NumTelefono;
+                    txt_usuario.Text = usuario.NombreUsuario;
+                    txt_contraseña.Text = usuario.Contraseña;
+                    cmb_tipo.SelectedValue = usuario.rol.IdRol.ToString();
+                    
+                    var msg = eliminarUsuario.Eliminar(usuario);
+                    MessageBox.Show(msg);
+                    limpiar();
+
+                }
+                else
+                {
+                    MessageBox.Show("Usuario no encontrado.");
+                }
+            }
+
         }
 
         private void cmb_tipo_SelectedIndexChanged(object sender, EventArgs e)
@@ -235,6 +316,35 @@ namespace Presentacion
                         txt_usuario.Enabled = false;
                         txt_contraseña.Enabled = false;
                     }
+            }
+        }
+
+        private void txt_id_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                // Realiza la búsqueda cuando se presiona Enter
+                string id = txt_id.Text;
+                Usuario usuario = servicioUsuario.BuscarId(id);
+
+                if (usuario != null)
+                {
+                    // Llena los cuadros de texto con los datos consultados
+                    txt_nombre.Text = usuario.Nombre;
+                    txt_apellidos.Text = usuario.Apellido;
+                    txt_direccion.Text = usuario.Direccion;
+                    txt_correo.Text = usuario.Correo;
+                    txt_telefono.Text = usuario.NumTelefono;
+                    txt_usuario.Text = usuario.NombreUsuario;
+                    txt_contraseña.Text = usuario.Contraseña;
+                    cmb_tipo.SelectedValue = usuario.rol.IdRol.ToString();
+                  
+
+                }
+                else
+                {
+                    MessageBox.Show("Usuario no encontrado.");
+                }
             }
         }
     }

@@ -92,5 +92,46 @@ namespace Presentacion
 
 
         }
+
+        private void txt_user_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter) 
+            {
+                ValidarCredencialesYRedirigir();
+            }
+        }
+
+        private void txt_pass_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                ValidarCredencialesYRedirigir();
+            }
+        }
+
+
+        private void ValidarCredencialesYRedirigir()
+        {
+            string contraseña = txt_pass.Text;
+            string usuario = txt_user.Text;
+
+            if (servicioUsuario.Loguin(usuario, contraseña) == 1)
+            {
+                this.Close();
+                FrmMenuSuper super = new FrmMenuSuper();
+                super.Show();
+            }
+            else if (servicioUsuario.Loguin(usuario, contraseña) == 2)
+            {
+                this.Close();
+                new FrmMenuAdmin().Show();
+            }
+            else if (servicioUsuario.Loguin(usuario, contraseña) == 3)
+            {
+                this.Close();
+                new FrmMenuVendedor().Show();
+            }
+        }
+
     }
 }

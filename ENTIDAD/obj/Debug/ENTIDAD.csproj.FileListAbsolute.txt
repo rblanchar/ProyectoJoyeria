@@ -4,9 +4,18 @@ D:\Ingenieria de Sistemas\Semestre lV\C#\Proyecto_Joyeria\SolucionJoyeria\ENTIDA
 D:\Ingenieria de Sistemas\Semestre lV\C#\Proyecto_Joyeria\SolucionJoyeria\ENTIDAD\obj\Debug\ENTIDAD.csproj.CoreCompileInputs.cache
 D:\Ingenieria de Sistemas\Semestre lV\C#\Proyecto_Joyeria\SolucionJoyeria\ENTIDAD\obj\Debug\ENTIDAD.dll
 D:\Ingenieria de Sistemas\Semestre lV\C#\Proyecto_Joyeria\SolucionJoyeria\ENTIDAD\obj\Debug\ENTIDAD.pdb
+<<<<<<< HEAD
 D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\ENTIDAD\bin\Debug\ENTIDAD.dll
 D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\ENTIDAD\bin\Debug\ENTIDAD.pdb
 D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\ENTIDAD\obj\Debug\ENTIDAD.csproj.AssemblyReference.cache
 D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\ENTIDAD\obj\Debug\ENTIDAD.csproj.CoreCompileInputs.cache
 D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\ENTIDAD\obj\Debug\ENTIDAD.dll
 D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\ENTIDAD\obj\Debug\ENTIDAD.pdb
+=======
+C:\Users\hp\source\repos\ProyectoJoyeria\ENTIDAD\bin\Debug\ENTIDAD.dll
+C:\Users\hp\source\repos\ProyectoJoyeria\ENTIDAD\bin\Debug\ENTIDAD.pdb
+C:\Users\hp\source\repos\ProyectoJoyeria\ENTIDAD\obj\Debug\ENTIDAD.csproj.AssemblyReference.cache
+C:\Users\hp\source\repos\ProyectoJoyeria\ENTIDAD\obj\Debug\ENTIDAD.csproj.CoreCompileInputs.cache
+C:\Users\hp\source\repos\ProyectoJoyeria\ENTIDAD\obj\Debug\ENTIDAD.dll
+C:\Users\hp\source\repos\ProyectoJoyeria\ENTIDAD\obj\Debug\ENTIDAD.pdb
+>>>>>>> origin/Andres
