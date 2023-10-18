@@ -193,6 +193,7 @@ namespace Presentacion
                 if (Opcion == "MODIFICAR")
                 {
                     limpiar();
+                    
                     Habilitar();
                     txt_id.Enabled = true;
                     btn_Guardar.Text = "Modificar";
