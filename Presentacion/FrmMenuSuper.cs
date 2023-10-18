@@ -38,5 +38,11 @@ namespace Presentacion
         {
             new FrmListarUsuarios().Show();
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            new FrmListarUsuarios().Show();
+        }
     }
 }
