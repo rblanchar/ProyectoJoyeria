@@ -74,6 +74,7 @@
             this.label19.Enabled = false;
             this.label19.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 4.9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            
             this.label19.ForeColor = System.Drawing.Color.Black;
             this.label19.Location = new System.Drawing.Point(505, 222);
             this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -89,7 +90,9 @@
             this.label18.BackColor = System.Drawing.Color.Transparent;
             this.label18.Enabled = false;
             this.label18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 4.9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            
             this.label18.ForeColor = System.Drawing.Color.Black;
             this.label18.Location = new System.Drawing.Point(505, 183);
             this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
