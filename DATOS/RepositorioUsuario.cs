@@ -34,6 +34,42 @@ namespace DATOS
             }
         }
 
+        public void ActualizarUsuario(Usuario usuario)
+        {
+          
+            var lineas = File.ReadAllLines(fileName);
+            for (int i = 0; i < lineas.Length; i++)
+            {
+                string[] partes = lineas[i].Split(';');
+                if (partes.Length == 9 && partes[0] == usuario.Identificacion)
+                {
+                    // Actualiza la línea con los nuevos datos del usuario
+                    lineas[i] = $"{usuario.Identificacion};{usuario.Nombre};{usuario.Apellido};{usuario.Direccion};{usuario.Correo};{usuario.NumTelefono};{usuario.NombreUsuario};{usuario.Contraseña};{usuario.rol.IdRol}";
+                }
+            }
+
+            // Vuelve a escribir todas las líneas en el archivo
+            File.WriteAllLines(fileName, lineas);
+        }
+
+        public void EliminarUsuario(Usuario usuario)
+        {
+           
+            var lineas = File.ReadAllLines(fileName);
+            var nuevasLineas = new List<string>();
+            foreach (var linea in lineas)
+            {
+                string[] partes = linea.Split(';');
+                if (partes.Length == 9 && partes[0] != usuario.Identificacion)
+                {
+                    nuevasLineas.Add(linea);
+                }
+            }
+
+            // Vuelve a escribir las líneas restantes en el archivo
+            File.WriteAllLines(fileName, nuevasLineas);
+        }
+
         private Usuario Mapear(string datos)
         {
             if (datos == "" || datos == null)

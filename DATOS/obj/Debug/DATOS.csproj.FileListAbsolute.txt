@@ -7,3 +7,12 @@ D:\Ingenieria de Sistemas\Semestre lV\C#\Proyecto_Joyeria\SolucionJoyeria\DATOS\
 D:\Ingenieria de Sistemas\Semestre lV\C#\Proyecto_Joyeria\SolucionJoyeria\DATOS\bin\Debug\ENTIDAD.dll
 D:\Ingenieria de Sistemas\Semestre lV\C#\Proyecto_Joyeria\SolucionJoyeria\DATOS\bin\Debug\ENTIDAD.pdb
 D:\Ingenieria de Sistemas\Semestre lV\C#\Proyecto_Joyeria\SolucionJoyeria\DATOS\obj\Debug\DATOS.csproj.CopyComplete
+C:\Users\hp\source\repos\ProyectoJoyeria\DATOS\bin\Debug\DATOS.dll
+C:\Users\hp\source\repos\ProyectoJoyeria\DATOS\bin\Debug\DATOS.pdb
+C:\Users\hp\source\repos\ProyectoJoyeria\DATOS\bin\Debug\ENTIDAD.dll
+C:\Users\hp\source\repos\ProyectoJoyeria\DATOS\bin\Debug\ENTIDAD.pdb
+C:\Users\hp\source\repos\ProyectoJoyeria\DATOS\obj\Debug\DATOS.csproj.AssemblyReference.cache
+C:\Users\hp\source\repos\ProyectoJoyeria\DATOS\obj\Debug\DATOS.csproj.CoreCompileInputs.cache
+C:\Users\hp\source\repos\ProyectoJoyeria\DATOS\obj\Debug\DATOS.csproj.CopyComplete
+C:\Users\hp\source\repos\ProyectoJoyeria\DATOS\obj\Debug\DATOS.dll
+C:\Users\hp\source\repos\ProyectoJoyeria\DATOS\obj\Debug\DATOS.pdb

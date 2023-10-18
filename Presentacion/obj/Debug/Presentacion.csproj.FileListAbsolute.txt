@@ -20,3 +20,25 @@ D:\Ingenieria de Sistemas\Semestre lV\C#\Proyecto_Joyeria\SolucionJoyeria\Presen
 D:\Ingenieria de Sistemas\Semestre lV\C#\Proyecto_Joyeria\SolucionJoyeria\Presentacion\obj\Debug\Presentacion.FrmGestionUsuario.resources
 D:\Ingenieria de Sistemas\Semestre lV\C#\Proyecto_Joyeria\SolucionJoyeria\Presentacion\obj\Debug\Presentacion.FrmMenuAdmin.resources
 D:\Ingenieria de Sistemas\Semestre lV\C#\Proyecto_Joyeria\SolucionJoyeria\Presentacion\obj\Debug\Presentacion.FrmMenuVendedor.resources
+C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.csproj.AssemblyReference.cache
+C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.csproj.SuggestedBindingRedirects.cache
+C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.FrmGestionUsuario.resources
+C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.FrmInicioSesion.resources
+C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.FrmMenuAdmin.resources
+C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.FrmMenuSuper.resources
+C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.FrmMenuVendedor.resources
+C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.FrmRegistrarRol.resources
+C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.csproj.GenerateResource.cache
+C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.exe
+C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.pdb
+C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\bin\Debug\Presentacion.exe.config
+C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\bin\Debug\Presentacion.exe
+C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\bin\Debug\Presentacion.pdb
+C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\bin\Debug\ENTIDAD.dll
+C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\bin\Debug\LOGICA.dll
+C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\bin\Debug\DATOS.dll
+C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\bin\Debug\ENTIDAD.pdb
+C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\bin\Debug\LOGICA.pdb
+C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\bin\Debug\DATOS.pdb
+C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.csproj.CoreCompileInputs.cache
+C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.csproj.CopyComplete

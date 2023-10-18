@@ -19,7 +19,7 @@ namespace LOGICA
             repositorio = new RepositorioUsuario(fileName);
             RefrescarLista();
         }
-        void RefrescarLista()
+        public void RefrescarLista()
         {
             usuarios = repositorio.ConsultarTodos();
         }
@@ -66,5 +66,8 @@ namespace LOGICA
 
             return 0;
         }
+
+       
+
     }
 }
