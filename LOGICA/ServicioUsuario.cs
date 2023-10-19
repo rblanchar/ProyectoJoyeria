@@ -13,7 +13,7 @@ namespace LOGICA
         private string fileName = "usuario.txt";
         RepositorioUsuario repositorio;
 
-        private List<Usuario> usuarios;
+        public List<Usuario> usuarios;
         public ServicioUsuario()
         {
             repositorio = new RepositorioUsuario(fileName);

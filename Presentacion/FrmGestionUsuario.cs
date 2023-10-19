@@ -223,33 +223,12 @@ namespace Presentacion
 
            if (btn_Guardar.Text == "Consultar")
             {
-                string id = txt_id.Text;
-                Usuario usuario = servicioUsuario.BuscarId(id);
-
-                if (usuario != null)
-                {
-                    // Llena los cuadros de texto con los datos consultados
-                    txt_nombre.Text = usuario.Nombre;
-                    txt_apellidos.Text = usuario.Apellido;
-                    txt_direccion.Text = usuario.Direccion;
-                    txt_correo.Text = usuario.Correo;
-                    txt_telefono.Text = usuario.NumTelefono;
-                    txt_usuario.Text = usuario.NombreUsuario;
-                    txt_contraseña.Text = usuario.Contraseña;
-                    cmb_tipo.SelectedValue = usuario.rol.IdRol.ToString();
-
-                   
-                }
-                else
-                {
-                    MessageBox.Show("Usuario no encontrado.");
-                }
+                consultar();
             }
 
             else if (btn_Guardar.Text == "Modificar")
             {
-                // Modifica el usuario existente con los datos de los campos de texto
-            
+           
                 Usuario usuario = new Usuario();
                 usuario.Identificacion = txt_id.Text;
                 usuario.Nombre = txt_nombre.Text;
@@ -260,9 +239,7 @@ namespace Presentacion
                 usuario.NombreUsuario = txt_usuario.Text;
                 usuario.Contraseña = txt_contraseña.Text;
                 usuario.rol = servicioRol.BuscarId(cmb_tipo.SelectedValue.ToString());
-              
 
-                // Llama a la función de modificar en el servicio
                 var msg = modificarUsuario.Modificar(usuario);
 
                 MessageBox.Show(msg);
@@ -323,28 +300,36 @@ namespace Presentacion
         {
             if (e.KeyCode == Keys.Enter)
             {
-                // Realiza la búsqueda cuando se presiona Enter
-                string id = txt_id.Text;
-                Usuario usuario = servicioUsuario.BuscarId(id);
+                consultar();
+            }
+        }
+        public void consultar()
+        {
+            string id = txt_id.Text;
+            Usuario usuario = servicioUsuario.BuscarId(id);
 
-                if (usuario != null)
-                {
-                    // Llena los cuadros de texto con los datos consultados
-                    txt_nombre.Text = usuario.Nombre;
-                    txt_apellidos.Text = usuario.Apellido;
-                    txt_direccion.Text = usuario.Direccion;
-                    txt_correo.Text = usuario.Correo;
-                    txt_telefono.Text = usuario.NumTelefono;
-                    txt_usuario.Text = usuario.NombreUsuario;
-                    txt_contraseña.Text = usuario.Contraseña;
-                    cmb_tipo.SelectedValue = usuario.rol.IdRol.ToString();
-                  
+            if (usuario != null)
+            {
+                txt_nombre.Text = usuario.Nombre;
+                txt_apellidos.Text = usuario.Apellido;
+                txt_direccion.Text = usuario.Direccion;
+                txt_correo.Text = usuario.Correo;
+                txt_telefono.Text = usuario.NumTelefono;
+                txt_usuario.Text = usuario.NombreUsuario;
+                txt_contraseña.Text = usuario.Contraseña;
 
-                }
-                else
+                foreach (var item in servicioUsuario.usuarios)
                 {
-                    MessageBox.Show("Usuario no encontrado.");
+                    if (item.rol == usuario.rol)
+                    {
+
+                        cmb_tipo.Text = item.rol.TipoRol.ToString();
+                    }
                 }
+            }
+            else
+            {
+                MessageBox.Show("Usuario no encontrado.");
             }
         }
     }
