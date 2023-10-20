@@ -1,15 +1,3 @@
-D:\Ingenieria de Sistemas\Semestre lV\C#\Proyecto_Joyeria\SolucionJoyeria\LOGICA\bin\Debug\LOGICA.dll
-D:\Ingenieria de Sistemas\Semestre lV\C#\Proyecto_Joyeria\SolucionJoyeria\LOGICA\bin\Debug\LOGICA.pdb
-D:\Ingenieria de Sistemas\Semestre lV\C#\Proyecto_Joyeria\SolucionJoyeria\LOGICA\obj\Debug\LOGICA.csproj.AssemblyReference.cache
-D:\Ingenieria de Sistemas\Semestre lV\C#\Proyecto_Joyeria\SolucionJoyeria\LOGICA\obj\Debug\LOGICA.csproj.CoreCompileInputs.cache
-D:\Ingenieria de Sistemas\Semestre lV\C#\Proyecto_Joyeria\SolucionJoyeria\LOGICA\obj\Debug\LOGICA.dll
-D:\Ingenieria de Sistemas\Semestre lV\C#\Proyecto_Joyeria\SolucionJoyeria\LOGICA\obj\Debug\LOGICA.pdb
-D:\Ingenieria de Sistemas\Semestre lV\C#\Proyecto_Joyeria\SolucionJoyeria\LOGICA\bin\Debug\DATOS.dll
-D:\Ingenieria de Sistemas\Semestre lV\C#\Proyecto_Joyeria\SolucionJoyeria\LOGICA\bin\Debug\ENTIDAD.dll
-D:\Ingenieria de Sistemas\Semestre lV\C#\Proyecto_Joyeria\SolucionJoyeria\LOGICA\bin\Debug\DATOS.pdb
-D:\Ingenieria de Sistemas\Semestre lV\C#\Proyecto_Joyeria\SolucionJoyeria\LOGICA\bin\Debug\ENTIDAD.pdb
-D:\Ingenieria de Sistemas\Semestre lV\C#\Proyecto_Joyeria\SolucionJoyeria\LOGICA\obj\Debug\LOGICA.csproj.CopyComplete
-<<<<<<< HEAD
 D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\LOGICA\bin\Debug\LOGICA.dll
 D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\LOGICA\bin\Debug\LOGICA.pdb
 D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\LOGICA\bin\Debug\DATOS.dll
@@ -21,16 +9,3 @@ D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\LOGICA\obj\Debug\LOGICA.csp
 D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\LOGICA\obj\Debug\LOGICA.csproj.CopyComplete
 D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\LOGICA\obj\Debug\LOGICA.dll
 D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\LOGICA\obj\Debug\LOGICA.pdb
-=======
-C:\Users\hp\source\repos\ProyectoJoyeria\LOGICA\bin\Debug\LOGICA.dll
-C:\Users\hp\source\repos\ProyectoJoyeria\LOGICA\bin\Debug\LOGICA.pdb
-C:\Users\hp\source\repos\ProyectoJoyeria\LOGICA\bin\Debug\DATOS.dll
-C:\Users\hp\source\repos\ProyectoJoyeria\LOGICA\bin\Debug\ENTIDAD.dll
-C:\Users\hp\source\repos\ProyectoJoyeria\LOGICA\bin\Debug\DATOS.pdb
-C:\Users\hp\source\repos\ProyectoJoyeria\LOGICA\bin\Debug\ENTIDAD.pdb
-C:\Users\hp\source\repos\ProyectoJoyeria\LOGICA\obj\Debug\LOGICA.csproj.AssemblyReference.cache
-C:\Users\hp\source\repos\ProyectoJoyeria\LOGICA\obj\Debug\LOGICA.csproj.CoreCompileInputs.cache
-C:\Users\hp\source\repos\ProyectoJoyeria\LOGICA\obj\Debug\LOGICA.csproj.CopyComplete
-C:\Users\hp\source\repos\ProyectoJoyeria\LOGICA\obj\Debug\LOGICA.dll
-C:\Users\hp\source\repos\ProyectoJoyeria\LOGICA\obj\Debug\LOGICA.pdb
->>>>>>> origin/Andres

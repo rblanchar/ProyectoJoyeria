@@ -1,36 +1,3 @@
-D:\Ingenieria de Sistemas\Semestre lV\C#\Proyecto_Joyeria\SolucionJoyeria\Presentacion\bin\Debug\Presentacion.exe.config
-D:\Ingenieria de Sistemas\Semestre lV\C#\Proyecto_Joyeria\SolucionJoyeria\Presentacion\bin\Debug\Presentacion.exe
-D:\Ingenieria de Sistemas\Semestre lV\C#\Proyecto_Joyeria\SolucionJoyeria\Presentacion\bin\Debug\Presentacion.pdb
-D:\Ingenieria de Sistemas\Semestre lV\C#\Proyecto_Joyeria\SolucionJoyeria\Presentacion\bin\Debug\ENTIDAD.dll
-D:\Ingenieria de Sistemas\Semestre lV\C#\Proyecto_Joyeria\SolucionJoyeria\Presentacion\bin\Debug\LOGICA.dll
-D:\Ingenieria de Sistemas\Semestre lV\C#\Proyecto_Joyeria\SolucionJoyeria\Presentacion\bin\Debug\ENTIDAD.pdb
-D:\Ingenieria de Sistemas\Semestre lV\C#\Proyecto_Joyeria\SolucionJoyeria\Presentacion\bin\Debug\LOGICA.pdb
-D:\Ingenieria de Sistemas\Semestre lV\C#\Proyecto_Joyeria\SolucionJoyeria\Presentacion\obj\Debug\Presentacion.csproj.AssemblyReference.cache
-D:\Ingenieria de Sistemas\Semestre lV\C#\Proyecto_Joyeria\SolucionJoyeria\Presentacion\obj\Debug\Presentacion.Properties.Resources.resources
-D:\Ingenieria de Sistemas\Semestre lV\C#\Proyecto_Joyeria\SolucionJoyeria\Presentacion\obj\Debug\Presentacion.csproj.GenerateResource.cache
-D:\Ingenieria de Sistemas\Semestre lV\C#\Proyecto_Joyeria\SolucionJoyeria\Presentacion\obj\Debug\Presentacion.csproj.CoreCompileInputs.cache
-D:\Ingenieria de Sistemas\Semestre lV\C#\Proyecto_Joyeria\SolucionJoyeria\Presentacion\obj\Debug\Presentacion.csproj.CopyComplete
-D:\Ingenieria de Sistemas\Semestre lV\C#\Proyecto_Joyeria\SolucionJoyeria\Presentacion\obj\Debug\Presentacion.exe
-D:\Ingenieria de Sistemas\Semestre lV\C#\Proyecto_Joyeria\SolucionJoyeria\Presentacion\obj\Debug\Presentacion.pdb
-D:\Ingenieria de Sistemas\Semestre lV\C#\Proyecto_Joyeria\SolucionJoyeria\Presentacion\obj\Debug\Presentacion.FrmInicioSesion.resources
-D:\Ingenieria de Sistemas\Semestre lV\C#\Proyecto_Joyeria\SolucionJoyeria\Presentacion\bin\Debug\DATOS.dll
-D:\Ingenieria de Sistemas\Semestre lV\C#\Proyecto_Joyeria\SolucionJoyeria\Presentacion\bin\Debug\DATOS.pdb
-D:\Ingenieria de Sistemas\Semestre lV\C#\Proyecto_Joyeria\SolucionJoyeria\Presentacion\obj\Debug\Presentacion.FrmRegistrarRol.resources
-D:\Ingenieria de Sistemas\Semestre lV\C#\Proyecto_Joyeria\SolucionJoyeria\Presentacion\obj\Debug\Presentacion.FrmMenuSuper.resources
-D:\Ingenieria de Sistemas\Semestre lV\C#\Proyecto_Joyeria\SolucionJoyeria\Presentacion\obj\Debug\Presentacion.FrmGestionUsuario.resources
-D:\Ingenieria de Sistemas\Semestre lV\C#\Proyecto_Joyeria\SolucionJoyeria\Presentacion\obj\Debug\Presentacion.FrmMenuAdmin.resources
-D:\Ingenieria de Sistemas\Semestre lV\C#\Proyecto_Joyeria\SolucionJoyeria\Presentacion\obj\Debug\Presentacion.FrmMenuVendedor.resources
-<<<<<<< HEAD
-D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\obj\Debug\Presentacion.csproj.AssemblyReference.cache
-D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\obj\Debug\Presentacion.FrmGestionUsuario.resources
-D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\obj\Debug\Presentacion.FrmInicioSesion.resources
-D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\obj\Debug\Presentacion.FrmMenuAdmin.resources
-D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\obj\Debug\Presentacion.FrmMenuSuper.resources
-D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\obj\Debug\Presentacion.FrmMenuVendedor.resources
-D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\obj\Debug\Presentacion.FrmRegistrarRol.resources
-D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\obj\Debug\Presentacion.csproj.GenerateResource.cache
-D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\obj\Debug\Presentacion.exe
-D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\obj\Debug\Presentacion.pdb
 D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\bin\Debug\Presentacion.exe.config
 D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\bin\Debug\Presentacion.exe
 D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\bin\Debug\Presentacion.pdb
@@ -40,32 +7,18 @@ D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\bin\Debug\DATO
 D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\bin\Debug\ENTIDAD.pdb
 D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\bin\Debug\LOGICA.pdb
 D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\bin\Debug\DATOS.pdb
+D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\obj\Debug\Presentacion.csproj.AssemblyReference.cache
+D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\obj\Debug\Presentacion.FrmFacturadeVenta.resources
+D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\obj\Debug\Presentacion.FrmGestionProducto.resources
+D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\obj\Debug\Presentacion.FrmGestionUsuario.resources
+D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\obj\Debug\Presentacion.FrmInicioSesion.resources
+D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\obj\Debug\Presentacion.FrmListarUsuarios.resources
+D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\obj\Debug\Presentacion.FrmMenuAdmin.resources
+D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\obj\Debug\Presentacion.FrmMenuSuper.resources
+D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\obj\Debug\Presentacion.FrmMenuVendedor.resources
+D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\obj\Debug\Presentacion.FrmRegistrarRol.resources
+D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\obj\Debug\Presentacion.csproj.GenerateResource.cache
 D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\obj\Debug\Presentacion.csproj.CoreCompileInputs.cache
 D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\obj\Debug\Presentacion.csproj.CopyComplete
-D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\obj\Debug\Presentacion.FrmListarUsuarios.resources
-D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\obj\Debug\Presentacion.FrmFacturadeVenta.resources
-=======
-C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.csproj.AssemblyReference.cache
-C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.csproj.SuggestedBindingRedirects.cache
-C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.FrmGestionUsuario.resources
-C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.FrmInicioSesion.resources
-C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.FrmMenuAdmin.resources
-C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.FrmMenuSuper.resources
-C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.FrmMenuVendedor.resources
-C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.FrmRegistrarRol.resources
-C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.csproj.GenerateResource.cache
-C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.exe
-C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.pdb
-C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\bin\Debug\Presentacion.exe.config
-C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\bin\Debug\Presentacion.exe
-C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\bin\Debug\Presentacion.pdb
-C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\bin\Debug\ENTIDAD.dll
-C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\bin\Debug\LOGICA.dll
-C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\bin\Debug\DATOS.dll
-C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\bin\Debug\ENTIDAD.pdb
-C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\bin\Debug\LOGICA.pdb
-C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\bin\Debug\DATOS.pdb
-C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.csproj.CoreCompileInputs.cache
-C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.csproj.CopyComplete
->>>>>>> origin/Andres
-D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\obj\Debug\Presentacion.FrmGestionProducto.resources
+D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\obj\Debug\Presentacion.exe
+D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\obj\Debug\Presentacion.pdb
