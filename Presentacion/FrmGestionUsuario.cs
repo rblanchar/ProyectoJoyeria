@@ -45,6 +45,9 @@ namespace Presentacion
         private void btn_Cancelar_Click(object sender, EventArgs e)
         {
             limpiar();
+            cmb_Opcion.Enabled = true;
+            cmb_Opcion.Text = string.Empty;
+            cmb_Opcion.Focus();
         }
         void limpiar()
         {
@@ -60,8 +63,7 @@ namespace Presentacion
             txt_contraseña.Text = string.Empty;
             btn_Guardar.Text = string.Empty;
             DesHabilitar();
-            cmb_Opcion.SelectedItem = null;
-            cmb_Opcion.Focus();
+            
         }
 
         private void FrmGestionUsuario_Load(object sender, EventArgs e)
@@ -114,17 +116,6 @@ namespace Presentacion
             }
         }
 
-        private void cmb_Opcion_Click(object sender, EventArgs e)
-        {
-            //if (cmb_Opcion.SelectedItem != null)
-            //{
-            //    string Opcion = cmb_Opcion.SelectedItem.ToString();
-            //    if (Opcion== "REGISTRAR")
-            //    {
-            //        HabilitarRegistrar();
-            //    }
-            //}
-        }
         void Habilitar()
         {
             cmb_tipo.Enabled = true;
@@ -169,8 +160,6 @@ namespace Presentacion
                     limpiar();
                     DesHabilitar();
                     txt_id.Enabled = true;
-                    btn_Guardar.Text = "Consultar";
-                    btn_Guardar.Enabled = true;
                     txt_id.Focus();
                 }
                 else if (Opcion == "ELIMINAR")
@@ -178,17 +167,13 @@ namespace Presentacion
                     limpiar();
                     DesHabilitar();
                     txt_id.Enabled = true;
-                    btn_Guardar.Text = "Eliminar";
-                    btn_Guardar.Enabled = true;
                     txt_id.Focus();
                 }
                 if (Opcion == "MODIFICAR")
                 {
                     limpiar();
-                    Habilitar();
+                    DesHabilitar();
                     txt_id.Enabled = true;
-                    btn_Guardar.Text = "Modificar";
-                    btn_Guardar.Enabled = true;
                     txt_id.Focus();
                 }
             }
@@ -221,61 +206,69 @@ namespace Presentacion
 
             }
 
-           if (btn_Guardar.Text == "Consultar")
+           if (btn_Guardar.Text == "Modificar")
             {
-                consultar();
-            }
+                DialogResult respuesta = MessageBox.Show("¿Estas seguro de Modificar este registro?", "Advertencia", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
-            else if (btn_Guardar.Text == "Modificar")
-            {
-           
-                Usuario usuario = new Usuario();
-                usuario.Identificacion = txt_id.Text;
-                usuario.Nombre = txt_nombre.Text;
-                usuario.Apellido = txt_apellidos.Text;
-                usuario.Direccion = txt_direccion.Text;
-                usuario.Correo = txt_correo.Text;
-                usuario.NumTelefono = txt_telefono.Text;
-                usuario.NombreUsuario = txt_usuario.Text;
-                usuario.Contraseña = txt_contraseña.Text;
-                usuario.rol = servicioRol.BuscarId(cmb_tipo.SelectedValue.ToString());
+                if (respuesta == DialogResult.OK)
+                {
+                    Usuario usuario = new Usuario();
+                    usuario.Identificacion = txt_id.Text;
+                    usuario.Nombre = txt_nombre.Text;
+                    usuario.Apellido = txt_apellidos.Text;
+                    usuario.Direccion = txt_direccion.Text;
+                    usuario.Correo = txt_correo.Text;
+                    usuario.NumTelefono = txt_telefono.Text;
+                    usuario.NombreUsuario = txt_usuario.Text;
+                    usuario.Contraseña = txt_contraseña.Text;
+                    usuario.rol = servicioRol.BuscarId(cmb_tipo.SelectedValue.ToString());
 
-                var msg = modificarUsuario.Modificar(usuario);
-
-                MessageBox.Show(msg);
-                limpiar();
+                    var msg = modificarUsuario.Modificar(usuario);
+                    servicioUsuario.RefrescarLista();
+                    MessageBox.Show(msg);
+                    limpiar();
+                    cmb_Opcion.Text = string.Empty;
+                    cmb_Opcion.Enabled = true;
+                    cmb_Opcion.Focus();
+                }
             }
 
             else if (btn_Guardar.Text == "Eliminar")
             {
-               
-
-                var id = txt_id.Text;
-                Usuario usuario = servicioUsuario.BuscarId(id);
-
-                if (usuario != null)
+                DialogResult respuesta = MessageBox.Show("¿Estas seguro de Eliminar este registro?", "Advertencia", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                
+                if (respuesta == DialogResult.OK)
                 {
-                    
-                    txt_nombre.Text = usuario.Nombre;
-                    txt_apellidos.Text = usuario.Apellido;
-                    txt_direccion.Text = usuario.Direccion;
-                    txt_correo.Text = usuario.Correo;
-                    txt_telefono.Text = usuario.NumTelefono;
-                    txt_usuario.Text = usuario.NombreUsuario;
-                    txt_contraseña.Text = usuario.Contraseña;
-                    cmb_tipo.SelectedValue = usuario.rol.IdRol.ToString();
-                    
-                    var msg = eliminarUsuario.Eliminar(usuario);
-                    MessageBox.Show(msg);
-                    limpiar();
 
-                }
-                else
-                {
-                    MessageBox.Show("Usuario no encontrado.");
+                    var id = txt_id.Text;
+                    Usuario usuario = servicioUsuario.BuscarId(id);
+
+                    if (usuario != null)
+                    {
+
+                        txt_nombre.Text = usuario.Nombre;
+                        txt_apellidos.Text = usuario.Apellido;
+                        txt_direccion.Text = usuario.Direccion;
+                        txt_correo.Text = usuario.Correo;
+                        txt_telefono.Text = usuario.NumTelefono;
+                        txt_usuario.Text = usuario.NombreUsuario;
+                        txt_contraseña.Text = usuario.Contraseña;
+                        cmb_tipo.SelectedValue = usuario.rol.IdRol.ToString();
+
+                        var msg = eliminarUsuario.Eliminar(usuario);
+                        MessageBox.Show(msg);
+                        limpiar();
+                        cmb_Opcion.Text = string.Empty;
+                        cmb_Opcion.Enabled = true;
+                        cmb_Opcion.Focus();
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Usuario no encontrado.");
+                    }
                 }
             }
-
         }
 
         private void cmb_tipo_SelectedIndexChanged(object sender, EventArgs e)
@@ -300,12 +293,47 @@ namespace Presentacion
         {
             if (e.KeyCode == Keys.Enter)
             {
-                consultar();
+                string id = txt_id.Text;
+
+                if (consultar(id) != false)
+                {
+                    if (cmb_Opcion.SelectedItem != null)
+                    {
+                        string Opcion = cmb_Opcion.SelectedItem.ToString();
+
+                        if (Opcion == "REGISTRAR")
+                        {
+                            MessageBox.Show("Este usuario se encuentra registrado en la Base de Datos!");
+                            limpiar();
+                            cmb_Opcion.Text = string.Empty;
+                            cmb_Opcion.Enabled = true;
+                            cmb_Opcion.Focus();
+                        }
+
+                        else if (Opcion == "MODIFICAR")
+                        {
+                            Habilitar();
+                            btn_Guardar.Text = "Modificar";
+                            btn_Guardar.Enabled = true;
+                            txt_id.Focus();
+                            cmb_Opcion.Enabled = false;
+                        }
+                        else if (Opcion == "ELIMINAR")
+                        {
+                            DesHabilitar();
+                            btn_Guardar.Text = "Eliminar";
+                            btn_Guardar.Enabled = true;
+                            txt_id.Focus();
+                            cmb_Opcion.Enabled = false;
+                        }
+                    }
+
+                }              
             }
         }
-        public void consultar()
+        public bool consultar(string id)
         {
-            string id = txt_id.Text;
+            
             Usuario usuario = servicioUsuario.BuscarId(id);
 
             if (usuario != null)
@@ -324,13 +352,13 @@ namespace Presentacion
                     {
 
                         cmb_tipo.Text = item.rol.TipoRol.ToString();
+                        return true;
                     }
                 }
             }
-            else
-            {
-                MessageBox.Show("Usuario no encontrado.");
-            }
+            
+            return false;
+
         }
     }
 }

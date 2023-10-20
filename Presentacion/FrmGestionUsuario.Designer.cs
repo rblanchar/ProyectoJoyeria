@@ -505,7 +505,7 @@
             this.cmb_Opcion.Size = new System.Drawing.Size(101, 23);
             this.cmb_Opcion.TabIndex = 0;
             this.cmb_Opcion.SelectedIndexChanged += new System.EventHandler(this.cmb_Opcion_SelectedIndexChanged);
-            this.cmb_Opcion.Click += new System.EventHandler(this.cmb_Opcion_Click);
+            //this.cmb_Opcion.Click += new System.EventHandler(this.cmb_Opcion_Click);
             // 
             // FrmGestionUsuario
             // 
