@@ -1,6 +1,7 @@
 ﻿using ENTIDAD;
 using LOGICA;
 using System;
+using System.Drawing.Text;
 using System.Windows.Forms;
 
 namespace Presentacion
@@ -77,6 +78,7 @@ namespace Presentacion
             {
                 e.Handled = true;
             }
+
         }
 
         private void txt_direccion_KeyPress(object sender, KeyPressEventArgs e)
@@ -197,8 +199,15 @@ namespace Presentacion
 
                 Guardar(usuario);
                 limpiar();
+                Activar_cmb_Opcion();
             }
 
+             void Activar_cmb_Opcion()
+            {
+                cmb_Opcion.Text = string.Empty;
+                cmb_Opcion.Enabled = true;
+                cmb_Opcion.Focus();
+            }
             void Guardar(Usuario usuario)
             {
                 var msg = servicioUsuario.Guardar(usuario);
@@ -219,17 +228,23 @@ namespace Presentacion
                     usuario.Direccion = txt_direccion.Text;
                     usuario.Correo = txt_correo.Text;
                     usuario.NumTelefono = txt_telefono.Text;
-                    usuario.NombreUsuario = txt_usuario.Text;
-                    usuario.Contraseña = txt_contraseña.Text;
+                    if (cmb_tipo.Text.ToString()=="CLIENTE")
+                    {
+                        usuario.NombreUsuario = "";
+                        usuario.Contraseña = "";
+                    }
+                    else
+                    {
+                        usuario.NombreUsuario = txt_usuario.Text;
+                        usuario.Contraseña = txt_contraseña.Text;
+                    }
                     usuario.rol = servicioRol.BuscarId(cmb_tipo.SelectedValue.ToString());
 
                     var msg = modificarUsuario.Modificar(usuario);
                     servicioUsuario.RefrescarLista();
                     MessageBox.Show(msg);
                     limpiar();
-                    cmb_Opcion.Text = string.Empty;
-                    cmb_Opcion.Enabled = true;
-                    cmb_Opcion.Focus();
+                    Activar_cmb_Opcion();
                 }
             }
 
@@ -258,9 +273,7 @@ namespace Presentacion
                         var msg = eliminarUsuario.Eliminar(usuario);
                         MessageBox.Show(msg);
                         limpiar();
-                        cmb_Opcion.Text = string.Empty;
-                        cmb_Opcion.Enabled = true;
-                        cmb_Opcion.Focus();
+                        Activar_cmb_Opcion();
 
                     }
                     else
@@ -282,16 +295,21 @@ namespace Presentacion
                     if (partes[1] == "CLIENTE")
                     {
                         Habilitar();
-                        btn_Guardar.Text = "Registrar";
+                        txt_id.Enabled = false;
                         txt_usuario.Enabled = false;
                         txt_contraseña.Enabled = false;
+                    }
+                    else
+                    {
+                        txt_usuario.Enabled = true;
+                        txt_contraseña.Enabled = true;
                     }
             }
         }
 
-        private void txt_id_KeyDown(object sender, KeyEventArgs e)
+        public void txt_id_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
             {
                 string id = txt_id.Text;
 
@@ -315,7 +333,7 @@ namespace Presentacion
                             Habilitar();
                             btn_Guardar.Text = "Modificar";
                             btn_Guardar.Enabled = true;
-                            txt_id.Focus();
+                            txt_id.Enabled = false;
                             cmb_Opcion.Enabled = false;
                         }
                         else if (Opcion == "ELIMINAR")
@@ -359,6 +377,15 @@ namespace Presentacion
             
             return false;
 
+        }
+
+        private void txt_id_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyCode == Keys.Tab)
+            {
+                KeyEventArgs keyEventArgs = new KeyEventArgs(Keys.Tab); // Puedes usar la tecla que desees
+                this.txt_id_KeyDown(this, keyEventArgs);
+            }
         }
     }
 }
