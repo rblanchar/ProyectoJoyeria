@@ -68,3 +68,4 @@ C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\bin\Debug\DATOS.pdb
 C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.csproj.CoreCompileInputs.cache
 C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.csproj.CopyComplete
 >>>>>>> origin/Andres
+D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\obj\Debug\Presentacion.FrmGestionProducto.resources
