@@ -21,7 +21,8 @@ namespace Presentacion
             //FrmGestionUsuario
             //FrmListarUsuarios
             //FrmGestionProducto
-            FrmGestionProducto main = new FrmGestionProducto();
+            //FrmRegistrarMaterial
+            FrmInicioSesion main = new FrmInicioSesion();
             main.Show();
             Application.Run();
         }

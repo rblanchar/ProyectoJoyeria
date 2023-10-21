@@ -94,6 +94,12 @@
     <Compile Include="FrmMenuVendedor.Designer.cs">
       <DependentUpon>FrmMenuVendedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmRegistrarMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRegistrarMaterial.Designer.cs">
+      <DependentUpon>FrmRegistrarMaterial.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmRegistrarRol.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMenuVendedor.resx">
       <DependentUpon>FrmMenuVendedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRegistrarMaterial.resx">
+      <DependentUpon>FrmRegistrarMaterial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRegistrarRol.resx">
       <DependentUpon>FrmRegistrarRol.cs</DependentUpon>

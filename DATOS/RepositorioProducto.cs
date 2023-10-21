@@ -41,10 +41,10 @@ namespace DATOS
             for (int i = 0; i < lineas.Length; i++)
             {
                 string[] partes = lineas[i].Split(';');
-                if (partes.Length == 5 && partes[0] == producto.Codigo)
+                if (partes.Length == 7 && partes[0] == producto.Codigo)
                 {
-                    lineas[i] = $"{producto.Codigo};{producto.Nombre};{producto.PrecioCosto};{producto.MargenGanancia};" +
-                        $"{producto.Existencia};";
+                    lineas[i] = $"{producto.Codigo};{producto.Descripcion};{producto.CategoriaProducto.Codigo};{producto.PrecioCosto};" +
+                        $"{producto.Peso};{producto.MargenGanancia};{producto.Existencia};";
                 }
             }
             File.WriteAllLines(fileName, lineas);
@@ -58,7 +58,7 @@ namespace DATOS
             foreach (var linea in lineas)
             {
                 string[] partes = linea.Split(';');
-                if (partes.Length == 5 && partes[0] != producto.Codigo)
+                if (partes.Length == 7 && partes[0] != producto.Codigo)
                 {
                     nuevasLineas.Add(linea);
                 }
@@ -77,10 +77,12 @@ namespace DATOS
             Producto producto = new Producto
             {
                 Codigo = linea[0],
-                Nombre = linea[1],
-                PrecioCosto = Convert.ToDouble(linea[2]),
-                MargenGanancia = Convert.ToDouble(linea[3]),
-                Existencia = Convert.ToInt16(linea[4])
+                Descripcion = linea[1],
+                CategoriaProducto = new RepositorioCategoriaProducto("Producto.txt").BuscarCodigo(linea[2]),
+                PrecioCosto = Convert.ToDouble(linea[3]),
+                Peso = Convert.ToDouble(linea[4]),
+                MargenGanancia = Convert.ToDouble(linea[5]),
+                Existencia = Convert.ToInt16(linea[6])
             };
             return producto;
         }

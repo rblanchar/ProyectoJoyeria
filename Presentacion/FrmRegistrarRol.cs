@@ -2,7 +2,7 @@
 using LOGICA;
 using System;
 using System.Windows.Forms;
-
+using System.IO;
 namespace Presentacion
 {
     public partial class FrmRegistrarRol : Form
@@ -81,10 +81,16 @@ namespace Presentacion
         private void FrmRegistrarRol_Load(object sender, EventArgs e)
         {
             string filename = "Rol.txt";
-            var numero = servicioLecturaIdRol.IncrementarId(filename);
+            if (File.Exists(filename))
+            {
+                var numero = servicioLecturaIdRol.IncrementarId(filename);
 
-            txt_IdRol.Text = numero;
-
+                txt_IdRol.Text = numero;
+            }
+            else
+            {
+                txt_IdRol.Text = "1001";
+            }
         }
     }
 }

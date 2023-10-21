@@ -13,13 +13,14 @@ namespace DATOS
         public string LeerLinea(string filename)
         {
             string ultimaLinea = null;
-            using (StreamReader leer = new StreamReader(filename))
+            StreamReader leer = new StreamReader(filename);
             {
                 string linea;
                 while ((linea = leer.ReadLine()) != null)
                 {
                     ultimaLinea = linea;
                 }
+                leer.Close();
             }
             return ultimaLinea;
         }

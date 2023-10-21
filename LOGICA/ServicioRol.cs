@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ENTIDAD;
 using DATOS;
+using System.IO;
 
 namespace LOGICA
 {
@@ -36,16 +37,17 @@ namespace LOGICA
 
         public Rol BuscarId(string id)
         {
-            foreach (var item in Roles)
+            if (File.Exists(fileName))
             {
-                if (item.IdRol == id)
+                foreach (var item in Roles)
                 {
-                    return item;
+                    if (item.IdRol == id)
+                    {
+                        return item;
+                    }
                 }
             }
             return null;
         }
-
-        
     }
 }
