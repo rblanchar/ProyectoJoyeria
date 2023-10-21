@@ -4,23 +4,24 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ENTIDAD;
 
 namespace DATOS
 {
-    public class RepositorioLecturaCodigoMaterial
+    public class RepositoriodeLectura
     {
         public string LeerLinea(string filename)
         {
             string ultimaLinea = null;
-                StreamReader leer = new StreamReader(filename);
+            StreamReader leer = new StreamReader(filename);
+            {
+                string linea;
+                while ((linea = leer.ReadLine()) != null)
                 {
-                    string linea;
-                    while ((linea = leer.ReadLine()) != null)
-                    {
-                        ultimaLinea = linea;
-                    }
-                    leer.Close();
+                    ultimaLinea = linea;
                 }
+                leer.Close();
+            }
             return ultimaLinea;
         }
     }

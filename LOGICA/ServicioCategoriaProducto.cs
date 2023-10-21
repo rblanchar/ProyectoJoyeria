@@ -5,12 +5,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace LOGICA
 {
     public class ServicioCategoriaProducto
     {
-        private string fileName = "Rol.txt";
+        private string fileName = "Categoria.txt";
         RepositorioCategoriaProducto repositorio;
 
         private List<CategoriaProducto> CategoriaProductos;
@@ -34,15 +35,19 @@ namespace LOGICA
             return CategoriaProductos;
         }
 
-        public CategoriaProducto BuscarId(string codigo)
+        public CategoriaProducto BuscarCodigo(string codigo)
         {
-            foreach (var item in CategoriaProductos)
+            if (File.Exists(fileName))
             {
-                if (item.Codigo == codigo)
+                foreach (var item in CategoriaProductos)
                 {
-                    return item;
+                    if (item.Codigo == codigo)
+                    {
+                        return item;
+                    }
                 }
             }
+            
             return null;
         }
 

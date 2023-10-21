@@ -16,7 +16,7 @@ namespace Presentacion
     public partial class FrmRegistrarMaterial : Form
     {
         ServicioMaterial servicioMaterial = new ServicioMaterial();
-        ServicioLecturaCodigoMaterial servicioLecturaCodigoMaterial = new ServicioLecturaCodigoMaterial();
+        ServiciodeLectura serviciodeLectura = new ServiciodeLectura();
         public FrmRegistrarMaterial()
         {
             InitializeComponent();
@@ -38,7 +38,7 @@ namespace Presentacion
             string filename = "Material.txt";
             if (File.Exists(filename))
             {
-                var numero = servicioLecturaCodigoMaterial.IncrementarCodigo(filename);
+                var numero = serviciodeLectura.IncrementarCodigo(filename);
                 txt_Codigo.Text = numero;
             }
             else

@@ -8,7 +8,7 @@ namespace Presentacion
     public partial class FrmRegistrarRol : Form
     {
         private ServicioRol servicioRol = new ServicioRol();
-        private ServicioLecturaIdRol servicioLecturaIdRol = new ServicioLecturaIdRol();
+        private ServiciodeLectura serviciodeLectura = new ServiciodeLectura();
 
         public FrmRegistrarRol()
         {
@@ -83,7 +83,7 @@ namespace Presentacion
             string filename = "Rol.txt";
             if (File.Exists(filename))
             {
-                var numero = servicioLecturaIdRol.IncrementarId(filename);
+                var numero = serviciodeLectura.IncrementarCodigo(filename);
 
                 txt_IdRol.Text = numero;
             }

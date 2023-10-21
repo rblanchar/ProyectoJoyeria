@@ -20,7 +20,7 @@ namespace Presentacion
         private void button7_Click(object sender, EventArgs e)
         {
             this.Close();
-            new FrmRegistrarMaterial().Show();
+            new FrmRegistrarCategoria().Show();
         }
 
         private void btn_Salir_Click(object sender, EventArgs e)

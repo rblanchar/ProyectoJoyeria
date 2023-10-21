@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace LOGICA
 {
-    public class ServicioLecturaCodigoMaterial
+    public class ServiciodeLectura
     {
-        RepositorioLecturaCodigoMaterial repositoriodeLectura = new RepositorioLecturaCodigoMaterial();
+        RepositoriodeLectura repositoriodeLectura = new RepositoriodeLectura();
 
-        public ServicioLecturaCodigoMaterial()
+        public ServiciodeLectura()
         {
 
         }

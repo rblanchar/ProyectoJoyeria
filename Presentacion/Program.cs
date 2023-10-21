@@ -22,7 +22,7 @@ namespace Presentacion
             //FrmListarUsuarios
             //FrmGestionProducto
             //FrmRegistrarMaterial
-            FrmInicioSesion main = new FrmInicioSesion();
+            FrmGestionProducto main = new FrmGestionProducto();
             main.Show();
             Application.Run();
         }
