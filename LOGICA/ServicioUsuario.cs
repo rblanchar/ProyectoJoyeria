@@ -67,7 +67,19 @@ namespace LOGICA
             return 0;
         }
 
-       
+        public List<Usuario> BuscarX(string valor)
+        {
+            List<Usuario> listaFiltrada = new List<Usuario>();
+
+            foreach (var item in usuarios)
+            {
+                if (item.Identificacion == valor || item.Nombre.Contains(valor) || item.Apellido.Contains(valor) || item.rol.TipoRol.Contains(valor) )
+                {
+                    listaFiltrada.Add(item);
+                }
+            }
+            return listaFiltrada;
+        }
 
     }
 }
