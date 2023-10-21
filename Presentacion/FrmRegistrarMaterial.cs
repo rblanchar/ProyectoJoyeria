@@ -51,7 +51,7 @@ namespace Presentacion
         private void btn_Regresar_Click(object sender, EventArgs e)
         {
             this.Close();
-            new FrmMenuSuper().Show();
+            new FrmMenuProducto().Show();
         }
 
         private void txt_Material_KeyPress(object sender, KeyPressEventArgs e)

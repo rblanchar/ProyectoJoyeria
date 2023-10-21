@@ -24,7 +24,7 @@ namespace Presentacion
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
-            new FrmMenuSuper().Show();
+            new FrmMenuUsuario().Show();
         }
 
         private void FrmListarUsuarios_Load(object sender, EventArgs e)

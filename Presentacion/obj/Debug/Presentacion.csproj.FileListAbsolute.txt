@@ -23,3 +23,5 @@ D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\obj\Debug\Pres
 D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\obj\Debug\Presentacion.exe
 D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\obj\Debug\Presentacion.pdb
 D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\obj\Debug\Presentacion.FrmRegistrarMaterial.resources
+D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\obj\Debug\Presentacion.FrmMenuUsuario.resources
+D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\obj\Debug\Presentacion.FrmMenuProducto.resources

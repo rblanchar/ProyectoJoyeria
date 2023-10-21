@@ -40,7 +40,7 @@ namespace Presentacion
         private void btn_Regresar_Click(object sender, EventArgs e)
         {
             this.Close();
-            new FrmMenuSuper().Show();
+            new FrmMenuUsuario().Show();
         }
 
         private void btn_Cancelar_Click(object sender, EventArgs e)

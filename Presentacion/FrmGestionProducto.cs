@@ -16,5 +16,11 @@ namespace Presentacion
         {
             InitializeComponent();
         }
+
+        private void btn_Regresar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            new FrmMenuProducto().Show();
+        }
     }
 }

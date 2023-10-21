@@ -82,11 +82,23 @@
     <Compile Include="FrmMenuAdmin.Designer.cs">
       <DependentUpon>FrmMenuAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmMenuProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMenuProducto.Designer.cs">
+      <DependentUpon>FrmMenuProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMenuSuper.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmMenuSuper.Designer.cs">
       <DependentUpon>FrmMenuSuper.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMenuUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMenuUsuario.Designer.cs">
+      <DependentUpon>FrmMenuUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMenuVendedor.cs">
       <SubType>Form</SubType>
@@ -126,8 +138,14 @@
     <EmbeddedResource Include="FrmMenuAdmin.resx">
       <DependentUpon>FrmMenuAdmin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmMenuProducto.resx">
+      <DependentUpon>FrmMenuProducto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmMenuSuper.resx">
       <DependentUpon>FrmMenuSuper.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMenuUsuario.resx">
+      <DependentUpon>FrmMenuUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMenuVendedor.resx">
       <DependentUpon>FrmMenuVendedor.cs</DependentUpon>
