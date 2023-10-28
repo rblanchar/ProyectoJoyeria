@@ -40,6 +40,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -180,6 +181,17 @@
             this.label1.TabIndex = 42;
             this.label1.Text = "REGISTRAR TIPO DE USUARIO";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Red;
+            this.label2.Location = new System.Drawing.Point(332, 102);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(15, 18);
+            this.label2.TabIndex = 38;
+            this.label2.Text = "*";
+            // 
             // FrmRegistrarRol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -191,6 +203,7 @@
             this.Controls.Add(this.label12);
             this.Controls.Add(this.txt_NombreRol);
             this.Controls.Add(this.txt_IdRol);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.pictureBox1);
@@ -223,5 +236,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

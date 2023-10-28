@@ -40,6 +40,7 @@
             this.btn_Guardar = new System.Windows.Forms.Button();
             this.btn_Cancelar = new System.Windows.Forms.Button();
             this.btn_Regresar = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -179,6 +180,17 @@
             this.btn_Regresar.UseVisualStyleBackColor = false;
             this.btn_Regresar.Click += new System.EventHandler(this.btn_Regresar_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Red;
+            this.label2.Location = new System.Drawing.Point(340, 100);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(15, 18);
+            this.label2.TabIndex = 61;
+            this.label2.Text = "*";
+            // 
             // FrmRegistrarCategoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -190,6 +202,7 @@
             this.Controls.Add(this.label12);
             this.Controls.Add(this.txt_Nombre);
             this.Controls.Add(this.txt_Codigo);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.pictureBox1);
@@ -220,5 +233,6 @@
         private System.Windows.Forms.Button btn_Guardar;
         private System.Windows.Forms.Button btn_Cancelar;
         private System.Windows.Forms.Button btn_Regresar;
+        private System.Windows.Forms.Label label2;
     }
 }

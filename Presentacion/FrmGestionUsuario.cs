@@ -203,7 +203,7 @@ namespace Presentacion
                     string.IsNullOrWhiteSpace(txt_apellidos.Text)|| string.IsNullOrWhiteSpace(txt_direccion.Text)||
                     string.IsNullOrWhiteSpace(txt_telefono.Text)|| string.IsNullOrWhiteSpace(cmb_tipo.Text))
                 {
-                    MessageBox.Show("Por favor, completa todos los campos antes de guardar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Por favor, completa todos los Campos Obligatorios *", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {

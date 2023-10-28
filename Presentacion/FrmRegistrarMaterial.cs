@@ -71,7 +71,7 @@ namespace Presentacion
         {
             if (string.IsNullOrWhiteSpace(txt_Material.Text))
             {
-                MessageBox.Show("Por favor, completa todos los campos antes de guardar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Por favor, completa todos los Campos Obligatorios *", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txt_Material.Focus();
             }
             else

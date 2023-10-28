@@ -59,6 +59,14 @@
             this.label10 = new System.Windows.Forms.Label();
             this.cmb_Material = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
+            this.lb20 = new System.Windows.Forms.Label();
+            this.lb21 = new System.Windows.Forms.Label();
+            this.lb22 = new System.Windows.Forms.Label();
+            this.lb23 = new System.Windows.Forms.Label();
+            this.lb24 = new System.Windows.Forms.Label();
+            this.lb25 = new System.Windows.Forms.Label();
+            this.lb26 = new System.Windows.Forms.Label();
+            this.lb27 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,7 +83,7 @@
             this.cmb_Opcion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmb_Opcion.Name = "cmb_Opcion";
             this.cmb_Opcion.Size = new System.Drawing.Size(133, 26);
-            this.cmb_Opcion.TabIndex = 73;
+            this.cmb_Opcion.TabIndex = 0;
             this.cmb_Opcion.SelectedIndexChanged += new System.EventHandler(this.cmb_Opcion_SelectedIndexChanged);
             // 
             // label20
@@ -158,14 +166,13 @@
             // btn_Guardar
             // 
             this.btn_Guardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btn_Guardar.Enabled = false;
             this.btn_Guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Guardar.ForeColor = System.Drawing.Color.White;
             this.btn_Guardar.Location = new System.Drawing.Point(246, 336);
             this.btn_Guardar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Guardar.Name = "btn_Guardar";
             this.btn_Guardar.Size = new System.Drawing.Size(123, 43);
-            this.btn_Guardar.TabIndex = 85;
+            this.btn_Guardar.TabIndex = 9;
             this.btn_Guardar.UseVisualStyleBackColor = false;
             this.btn_Guardar.Click += new System.EventHandler(this.btn_Guardar_Click);
             // 
@@ -181,6 +188,7 @@
             this.btn_Cancelar.TabIndex = 88;
             this.btn_Cancelar.Text = "Cancelar";
             this.btn_Cancelar.UseVisualStyleBackColor = false;
+            this.btn_Cancelar.Click += new System.EventHandler(this.btn_Cancelar_Click);
             // 
             // btn_Regresar
             // 
@@ -205,7 +213,7 @@
             this.txt_Margen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_Margen.Name = "txt_Margen";
             this.txt_Margen.Size = new System.Drawing.Size(42, 17);
-            this.txt_Margen.TabIndex = 78;
+            this.txt_Margen.TabIndex = 7;
             // 
             // txt_Descripcion
             // 
@@ -216,7 +224,7 @@
             this.txt_Descripcion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_Descripcion.Name = "txt_Descripcion";
             this.txt_Descripcion.Size = new System.Drawing.Size(302, 17);
-            this.txt_Descripcion.TabIndex = 76;
+            this.txt_Descripcion.TabIndex = 4;
             // 
             // txt_Codigo
             // 
@@ -227,7 +235,7 @@
             this.txt_Codigo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_Codigo.Name = "txt_Codigo";
             this.txt_Codigo.Size = new System.Drawing.Size(94, 17);
-            this.txt_Codigo.TabIndex = 75;
+            this.txt_Codigo.TabIndex = 3;
             // 
             // label6
             // 
@@ -289,7 +297,7 @@
             this.txt_Cantidad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_Cantidad.Name = "txt_Cantidad";
             this.txt_Cantidad.Size = new System.Drawing.Size(59, 17);
-            this.txt_Cantidad.TabIndex = 77;
+            this.txt_Cantidad.TabIndex = 8;
             // 
             // label18
             // 
@@ -318,13 +326,14 @@
             // 
             // cmb_Categoria
             // 
+            this.cmb_Categoria.Enabled = false;
             this.cmb_Categoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmb_Categoria.FormattingEnabled = true;
             this.cmb_Categoria.Location = new System.Drawing.Point(453, 78);
             this.cmb_Categoria.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmb_Categoria.Name = "cmb_Categoria";
             this.cmb_Categoria.Size = new System.Drawing.Size(160, 26);
-            this.cmb_Categoria.TabIndex = 108;
+            this.cmb_Categoria.TabIndex = 1;
             // 
             // label7
             // 
@@ -346,11 +355,11 @@
             this.txt_PrecioCosto.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_PrecioCosto.Enabled = false;
             this.txt_PrecioCosto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_PrecioCosto.Location = new System.Drawing.Point(143, 249);
+            this.txt_PrecioCosto.Location = new System.Drawing.Point(147, 249);
             this.txt_PrecioCosto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_PrecioCosto.Name = "txt_PrecioCosto";
-            this.txt_PrecioCosto.Size = new System.Drawing.Size(94, 17);
-            this.txt_PrecioCosto.TabIndex = 109;
+            this.txt_PrecioCosto.Size = new System.Drawing.Size(90, 17);
+            this.txt_PrecioCosto.TabIndex = 6;
             // 
             // label8
             // 
@@ -386,7 +395,7 @@
             this.txt_Peso.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_Peso.Name = "txt_Peso";
             this.txt_Peso.Size = new System.Drawing.Size(53, 17);
-            this.txt_Peso.TabIndex = 112;
+            this.txt_Peso.TabIndex = 5;
             // 
             // label10
             // 
@@ -400,6 +409,7 @@
             // 
             // cmb_Material
             // 
+            this.cmb_Material.Enabled = false;
             this.cmb_Material.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmb_Material.FormattingEnabled = true;
             this.cmb_Material.Items.AddRange(new object[] {
@@ -411,7 +421,8 @@
             this.cmb_Material.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmb_Material.Name = "cmb_Material";
             this.cmb_Material.Size = new System.Drawing.Size(133, 26);
-            this.cmb_Material.TabIndex = 115;
+            this.cmb_Material.TabIndex = 2;
+            this.cmb_Material.SelectedIndexChanged += new System.EventHandler(this.cmb_Material_SelectedIndexChanged);
             // 
             // label14
             // 
@@ -423,12 +434,116 @@
             this.label14.TabIndex = 116;
             this.label14.Text = "Material";
             // 
+            // lb20
+            // 
+            this.lb20.AutoSize = true;
+            this.lb20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb20.ForeColor = System.Drawing.Color.Red;
+            this.lb20.Location = new System.Drawing.Point(435, 76);
+            this.lb20.Name = "lb20";
+            this.lb20.Size = new System.Drawing.Size(15, 18);
+            this.lb20.TabIndex = 117;
+            this.lb20.Text = "*";
+            this.lb20.Visible = false;
+            // 
+            // lb21
+            // 
+            this.lb21.AutoSize = true;
+            this.lb21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb21.ForeColor = System.Drawing.Color.Red;
+            this.lb21.Location = new System.Drawing.Point(103, 129);
+            this.lb21.Name = "lb21";
+            this.lb21.Size = new System.Drawing.Size(15, 18);
+            this.lb21.TabIndex = 117;
+            this.lb21.Text = "*";
+            this.lb21.Visible = false;
+            // 
+            // lb22
+            // 
+            this.lb22.AutoSize = true;
+            this.lb22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb22.ForeColor = System.Drawing.Color.Red;
+            this.lb22.Location = new System.Drawing.Point(432, 133);
+            this.lb22.Name = "lb22";
+            this.lb22.Size = new System.Drawing.Size(15, 18);
+            this.lb22.TabIndex = 117;
+            this.lb22.Text = "*";
+            this.lb22.Visible = false;
+            // 
+            // lb23
+            // 
+            this.lb23.AutoSize = true;
+            this.lb23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb23.ForeColor = System.Drawing.Color.Red;
+            this.lb23.Location = new System.Drawing.Point(122, 183);
+            this.lb23.Name = "lb23";
+            this.lb23.Size = new System.Drawing.Size(15, 18);
+            this.lb23.TabIndex = 117;
+            this.lb23.Text = "*";
+            this.lb23.Visible = false;
+            // 
+            // lb24
+            // 
+            this.lb24.AutoSize = true;
+            this.lb24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb24.ForeColor = System.Drawing.Color.Red;
+            this.lb24.Location = new System.Drawing.Point(536, 183);
+            this.lb24.Name = "lb24";
+            this.lb24.Size = new System.Drawing.Size(15, 18);
+            this.lb24.TabIndex = 117;
+            this.lb24.Text = "*";
+            this.lb24.Visible = false;
+            // 
+            // lb25
+            // 
+            this.lb25.AutoSize = true;
+            this.lb25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb25.ForeColor = System.Drawing.Color.Red;
+            this.lb25.Location = new System.Drawing.Point(134, 248);
+            this.lb25.Name = "lb25";
+            this.lb25.Size = new System.Drawing.Size(15, 18);
+            this.lb25.TabIndex = 117;
+            this.lb25.Text = "*";
+            this.lb25.Visible = false;
+            // 
+            // lb26
+            // 
+            this.lb26.AutoSize = true;
+            this.lb26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb26.ForeColor = System.Drawing.Color.Red;
+            this.lb26.Location = new System.Drawing.Point(372, 248);
+            this.lb26.Name = "lb26";
+            this.lb26.Size = new System.Drawing.Size(15, 18);
+            this.lb26.TabIndex = 117;
+            this.lb26.Text = "*";
+            this.lb26.Visible = false;
+            // 
+            // lb27
+            // 
+            this.lb27.AutoSize = true;
+            this.lb27.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb27.ForeColor = System.Drawing.Color.Red;
+            this.lb27.Location = new System.Drawing.Point(536, 248);
+            this.lb27.Name = "lb27";
+            this.lb27.Size = new System.Drawing.Size(15, 18);
+            this.lb27.TabIndex = 117;
+            this.lb27.Text = "*";
+            this.lb27.Visible = false;
+            // 
             // FrmGestionProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(648, 387);
+            this.Controls.Add(this.lb27);
+            this.Controls.Add(this.lb26);
+            this.Controls.Add(this.lb25);
+            this.Controls.Add(this.lb24);
+            this.Controls.Add(this.lb23);
+            this.Controls.Add(this.lb22);
+            this.Controls.Add(this.lb21);
+            this.Controls.Add(this.lb20);
             this.Controls.Add(this.cmb_Material);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label9);
@@ -502,5 +617,13 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cmb_Material;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lb20;
+        private System.Windows.Forms.Label lb21;
+        private System.Windows.Forms.Label lb22;
+        private System.Windows.Forms.Label lb23;
+        private System.Windows.Forms.Label lb24;
+        private System.Windows.Forms.Label lb25;
+        private System.Windows.Forms.Label lb26;
+        private System.Windows.Forms.Label lb27;
     }
 }
