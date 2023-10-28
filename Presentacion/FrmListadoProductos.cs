@@ -45,6 +45,8 @@ namespace Presentacion
 
         void CargarGrilla(List<Producto> lista)
         {
+            Grilla_Productos.Rows.Clear();
+
             foreach (var item in lista)
             {
                 Grilla_Productos.Rows.Add(item.Codigo,item.CategoriaProducto.NomCategoria.ToUpper(),item.Material.NombreMaterial.ToUpper(),

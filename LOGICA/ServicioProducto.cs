@@ -51,7 +51,7 @@ namespace LOGICA
 
             foreach (var item in productos)
             {
-                if (item.CategoriaProducto.Codigo.Contains(valor) || item.Material.NombreMaterial.Contains(valor) || item.Descripcion.Contains(valor))
+                if (item.CategoriaProducto.NomCategoria.Contains(valor) || item.Material.NombreMaterial.Contains(valor) || item.Descripcion.Contains(valor))
                 {
                     listaFiltrada.Add(item);
                 }

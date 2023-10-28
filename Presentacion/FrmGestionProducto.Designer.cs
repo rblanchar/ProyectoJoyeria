@@ -119,7 +119,7 @@
             this.label13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 4.9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(384, 269);
+            this.label13.Location = new System.Drawing.Point(388, 269);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(55, 6);
             this.label13.TabIndex = 99;
@@ -209,11 +209,12 @@
             this.txt_Margen.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_Margen.Enabled = false;
             this.txt_Margen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Margen.Location = new System.Drawing.Point(385, 250);
+            this.txt_Margen.Location = new System.Drawing.Point(393, 250);
             this.txt_Margen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_Margen.Name = "txt_Margen";
             this.txt_Margen.Size = new System.Drawing.Size(42, 17);
             this.txt_Margen.TabIndex = 7;
+            this.txt_Margen.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Margen_KeyPress);
             // 
             // txt_Descripcion
             // 
@@ -225,6 +226,7 @@
             this.txt_Descripcion.Name = "txt_Descripcion";
             this.txt_Descripcion.Size = new System.Drawing.Size(302, 17);
             this.txt_Descripcion.TabIndex = 4;
+            this.txt_Descripcion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Descripcion_KeyPress);
             // 
             // txt_Codigo
             // 
@@ -236,6 +238,7 @@
             this.txt_Codigo.Name = "txt_Codigo";
             this.txt_Codigo.Size = new System.Drawing.Size(94, 17);
             this.txt_Codigo.TabIndex = 3;
+            this.txt_Codigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Codigo_KeyPress);
             // 
             // label6
             // 
@@ -293,11 +296,12 @@
             this.txt_Cantidad.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_Cantidad.Enabled = false;
             this.txt_Cantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Cantidad.Location = new System.Drawing.Point(552, 250);
+            this.txt_Cantidad.Location = new System.Drawing.Point(556, 250);
             this.txt_Cantidad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_Cantidad.Name = "txt_Cantidad";
             this.txt_Cantidad.Size = new System.Drawing.Size(59, 17);
             this.txt_Cantidad.TabIndex = 8;
+            this.txt_Cantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Cantidad_KeyPress);
             // 
             // label18
             // 
@@ -343,7 +347,7 @@
             this.label7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 4.9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(142, 268);
+            this.label7.Location = new System.Drawing.Point(148, 268);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(99, 6);
             this.label7.TabIndex = 111;
@@ -355,11 +359,12 @@
             this.txt_PrecioCosto.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_PrecioCosto.Enabled = false;
             this.txt_PrecioCosto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_PrecioCosto.Location = new System.Drawing.Point(147, 249);
+            this.txt_PrecioCosto.Location = new System.Drawing.Point(152, 249);
             this.txt_PrecioCosto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_PrecioCosto.Name = "txt_PrecioCosto";
             this.txt_PrecioCosto.Size = new System.Drawing.Size(90, 17);
             this.txt_PrecioCosto.TabIndex = 6;
+            this.txt_PrecioCosto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_PrecioCosto_KeyPress);
             // 
             // label8
             // 
@@ -396,6 +401,7 @@
             this.txt_Peso.Name = "txt_Peso";
             this.txt_Peso.Size = new System.Drawing.Size(53, 17);
             this.txt_Peso.TabIndex = 5;
+            this.txt_Peso.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Peso_KeyPress);
             // 
             // label10
             // 
