@@ -166,7 +166,7 @@
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(305, 38);
             this.button7.TabIndex = 21;
-            this.button7.Text = "Registro de Material";
+            this.button7.Text = "Gestion de Material";
             this.button7.UseVisualStyleBackColor = false;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
@@ -193,7 +193,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(305, 38);
             this.button1.TabIndex = 21;
-            this.button1.Text = "Registro de Categorias";
+            this.button1.Text = "Gestion de Categorias";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button7_Click);
             // 

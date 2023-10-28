@@ -194,8 +194,7 @@ namespace Presentacion
                 usuario.NumTelefono = txt_telefono.Text;
                 usuario.NombreUsuario = txt_usuario.Text;
                 usuario.Contraseña = txt_contraseña.Text;
-                usuario.rol = servicioRol.BuscarId(
-                    cmb_tipo.SelectedValue.ToString());
+                usuario.rol = servicioRol.BuscarId(cmb_tipo.SelectedValue.ToString());
 
                 Guardar(usuario);
                 limpiar();

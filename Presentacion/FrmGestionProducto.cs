@@ -46,7 +46,12 @@ namespace Presentacion
         private void cmb_Opcion_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selectedItem = cmb_Opcion.SelectedItem.ToString();
-            MessageBox.Show("Has seleccionado: " + selectedItem);
+            //MessageBox.Show("Has seleccionado: " + selectedItem);
+        }
+
+        private void btn_Guardar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

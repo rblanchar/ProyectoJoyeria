@@ -167,6 +167,7 @@
             this.btn_Guardar.Size = new System.Drawing.Size(123, 43);
             this.btn_Guardar.TabIndex = 85;
             this.btn_Guardar.UseVisualStyleBackColor = false;
+            this.btn_Guardar.Click += new System.EventHandler(this.btn_Guardar_Click);
             // 
             // btn_Cancelar
             // 
