@@ -9,3 +9,14 @@ D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\LOGICA\obj\Debug\LOGICA.csp
 D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\LOGICA\obj\Debug\LOGICA.csproj.CopyComplete
 D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\LOGICA\obj\Debug\LOGICA.dll
 D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\LOGICA\obj\Debug\LOGICA.pdb
+C:\Users\hp\Source\Repos\ProyectoJoyeria\LOGICA\bin\Debug\LOGICA.dll
+C:\Users\hp\Source\Repos\ProyectoJoyeria\LOGICA\bin\Debug\LOGICA.pdb
+C:\Users\hp\Source\Repos\ProyectoJoyeria\LOGICA\bin\Debug\DATOS.dll
+C:\Users\hp\Source\Repos\ProyectoJoyeria\LOGICA\bin\Debug\ENTIDAD.dll
+C:\Users\hp\Source\Repos\ProyectoJoyeria\LOGICA\bin\Debug\DATOS.pdb
+C:\Users\hp\Source\Repos\ProyectoJoyeria\LOGICA\bin\Debug\ENTIDAD.pdb
+C:\Users\hp\Source\Repos\ProyectoJoyeria\LOGICA\obj\Debug\LOGICA.csproj.AssemblyReference.cache
+C:\Users\hp\Source\Repos\ProyectoJoyeria\LOGICA\obj\Debug\LOGICA.csproj.CoreCompileInputs.cache
+C:\Users\hp\Source\Repos\ProyectoJoyeria\LOGICA\obj\Debug\LOGICA.csproj.CopyComplete
+C:\Users\hp\Source\Repos\ProyectoJoyeria\LOGICA\obj\Debug\LOGICA.dll
+C:\Users\hp\Source\Repos\ProyectoJoyeria\LOGICA\obj\Debug\LOGICA.pdb
