@@ -63,6 +63,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.cmb_Opcion = new System.Windows.Forms.ComboBox();
+            this.l21 = new System.Windows.Forms.Label();
+            this.l22 = new System.Windows.Forms.Label();
+            this.l23 = new System.Windows.Forms.Label();
+            this.l24 = new System.Windows.Forms.Label();
+            this.l25 = new System.Windows.Forms.Label();
+            this.l26 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -487,12 +493,90 @@
             this.cmb_Opcion.TabIndex = 0;
             this.cmb_Opcion.SelectedIndexChanged += new System.EventHandler(this.cmb_Opcion_SelectedIndexChanged);
             // 
+            // l21
+            // 
+            this.l21.AutoSize = true;
+            this.l21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l21.ForeColor = System.Drawing.Color.Red;
+            this.l21.Location = new System.Drawing.Point(654, 149);
+            this.l21.Name = "l21";
+            this.l21.Size = new System.Drawing.Size(15, 18);
+            this.l21.TabIndex = 73;
+            this.l21.Text = "*";
+            this.l21.Visible = false;
+            // 
+            // l22
+            // 
+            this.l22.AutoSize = true;
+            this.l22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l22.ForeColor = System.Drawing.Color.Red;
+            this.l22.Location = new System.Drawing.Point(654, 198);
+            this.l22.Name = "l22";
+            this.l22.Size = new System.Drawing.Size(15, 18);
+            this.l22.TabIndex = 74;
+            this.l22.Text = "*";
+            this.l22.Visible = false;
+            // 
+            // l23
+            // 
+            this.l23.AutoSize = true;
+            this.l23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l23.ForeColor = System.Drawing.Color.Red;
+            this.l23.Location = new System.Drawing.Point(141, 191);
+            this.l23.Name = "l23";
+            this.l23.Size = new System.Drawing.Size(15, 18);
+            this.l23.TabIndex = 74;
+            this.l23.Text = "*";
+            this.l23.Visible = false;
+            // 
+            // l24
+            // 
+            this.l24.AutoSize = true;
+            this.l24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l24.ForeColor = System.Drawing.Color.Red;
+            this.l24.Location = new System.Drawing.Point(141, 242);
+            this.l24.Name = "l24";
+            this.l24.Size = new System.Drawing.Size(15, 18);
+            this.l24.TabIndex = 74;
+            this.l24.Text = "*";
+            this.l24.Visible = false;
+            // 
+            // l25
+            // 
+            this.l25.AutoSize = true;
+            this.l25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l25.ForeColor = System.Drawing.Color.Red;
+            this.l25.Location = new System.Drawing.Point(141, 289);
+            this.l25.Name = "l25";
+            this.l25.Size = new System.Drawing.Size(15, 18);
+            this.l25.TabIndex = 74;
+            this.l25.Text = "*";
+            this.l25.Visible = false;
+            // 
+            // l26
+            // 
+            this.l26.AutoSize = true;
+            this.l26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l26.ForeColor = System.Drawing.Color.Red;
+            this.l26.Location = new System.Drawing.Point(162, 148);
+            this.l26.Name = "l26";
+            this.l26.Size = new System.Drawing.Size(15, 18);
+            this.l26.TabIndex = 73;
+            this.l26.Text = "*";
+            this.l26.Visible = false;
+            // 
             // FrmGestionUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(993, 491);
+            this.Controls.Add(this.l25);
+            this.Controls.Add(this.l24);
+            this.Controls.Add(this.l23);
+            this.Controls.Add(this.l22);
+            this.Controls.Add(this.l26);
+            this.Controls.Add(this.l21);
             this.Controls.Add(this.cmb_Opcion);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.label19);
@@ -576,5 +660,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.ComboBox cmb_Opcion;
+        private System.Windows.Forms.Label l21;
+        private System.Windows.Forms.Label l22;
+        private System.Windows.Forms.Label l23;
+        private System.Windows.Forms.Label l24;
+        private System.Windows.Forms.Label l25;
+        private System.Windows.Forms.Label l26;
     }
 }

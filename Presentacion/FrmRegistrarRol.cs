@@ -55,19 +55,27 @@ namespace Presentacion
 
         private void btn_Guardar_Click(object sender, EventArgs e)
         {
-            string IdRol = txt_IdRol.Text;
-
-            if (servicioRol.BuscarId(IdRol) == null)
+            if (string.IsNullOrWhiteSpace(txt_NombreRol.Text))
             {
-                Guardar(new Rol(txt_IdRol.Text, txt_NombreRol.Text));
-                cancelar();
-                FrmRegistrarRol_Load(this, EventArgs.Empty);
+                MessageBox.Show("Por favor, completa todos los campos antes de guardar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txt_NombreRol.Focus();
             }
             else
             {
-                MessageBox.Show("Este IdRol ya existe!");
-                cancelar();
-                txt_IdRol.Enabled = false;
+                string IdRol = txt_IdRol.Text;
+
+                if (servicioRol.BuscarId(IdRol) == null)
+                {
+                    Guardar(new Rol(txt_IdRol.Text, txt_NombreRol.Text));
+                    cancelar();
+                    FrmRegistrarRol_Load(this, EventArgs.Empty);
+                }
+                else
+                {
+                    MessageBox.Show("Este IdRol ya existe!");
+                    cancelar();
+                    txt_IdRol.Enabled = false;
+                }
             }
         }
 

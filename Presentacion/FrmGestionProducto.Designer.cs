@@ -318,7 +318,6 @@
             // 
             // cmb_Categoria
             // 
-            this.cmb_Categoria.Enabled = false;
             this.cmb_Categoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmb_Categoria.FormattingEnabled = true;
             this.cmb_Categoria.Location = new System.Drawing.Point(453, 78);
@@ -401,7 +400,6 @@
             // 
             // cmb_Material
             // 
-            this.cmb_Material.Enabled = false;
             this.cmb_Material.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmb_Material.FormattingEnabled = true;
             this.cmb_Material.Items.AddRange(new object[] {

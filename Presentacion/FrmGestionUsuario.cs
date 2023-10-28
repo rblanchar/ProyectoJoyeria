@@ -63,6 +63,12 @@ namespace Presentacion
             txt_usuario.Text = string.Empty;
             txt_contraseña.Text = string.Empty;
             btn_Guardar.Text = string.Empty;
+            l21.Visible = false;
+            l22.Visible = false;
+            l23.Visible = false;
+            l24.Visible = false;
+            l25.Visible = false;
+            l26.Visible = false;
             DesHabilitar();
             
         }
@@ -146,6 +152,13 @@ namespace Presentacion
             btn_Guardar.Enabled = false;
         }
 
+        void CamposObligatorios()
+        {
+            l21.Visible = true; l22.Visible = true;
+            l23.Visible = true; l24.Visible = true;
+            l25.Visible = true; l26.Visible = true;
+        }
+
         private void cmb_Opcion_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmb_Opcion.SelectedItem != null)
@@ -154,6 +167,7 @@ namespace Presentacion
                 if (Opcion == "REGISTRAR")
                 {
                     Habilitar();
+                    CamposObligatorios();
                     btn_Guardar.Text = "Registrar";
 
                 }
@@ -185,20 +199,29 @@ namespace Presentacion
         {
             if (btn_Guardar.Text == "Registrar")
             {
-                Usuario usuario = new Usuario();
-                usuario.Identificacion = txt_id.Text;
-                usuario.Nombre = txt_nombre.Text;
-                usuario.Apellido = txt_apellidos.Text;
-                usuario.Direccion = txt_direccion.Text;
-                usuario.Correo = txt_correo.Text;
-                usuario.NumTelefono = txt_telefono.Text;
-                usuario.NombreUsuario = txt_usuario.Text;
-                usuario.Contraseña = txt_contraseña.Text;
-                usuario.rol = servicioRol.BuscarId(cmb_tipo.SelectedValue.ToString());
+                if (string.IsNullOrWhiteSpace(txt_id.Text) || string.IsNullOrWhiteSpace(txt_nombre.Text)|| 
+                    string.IsNullOrWhiteSpace(txt_apellidos.Text)|| string.IsNullOrWhiteSpace(txt_direccion.Text)||
+                    string.IsNullOrWhiteSpace(txt_telefono.Text)|| string.IsNullOrWhiteSpace(cmb_tipo.Text))
+                {
+                    MessageBox.Show("Por favor, completa todos los campos antes de guardar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    Usuario usuario = new Usuario();
+                    usuario.Identificacion = txt_id.Text;
+                    usuario.Nombre = txt_nombre.Text;
+                    usuario.Apellido = txt_apellidos.Text;
+                    usuario.Direccion = txt_direccion.Text;
+                    usuario.Correo = txt_correo.Text;
+                    usuario.NumTelefono = txt_telefono.Text;
+                    usuario.NombreUsuario = txt_usuario.Text;
+                    usuario.Contraseña = txt_contraseña.Text;
+                    usuario.rol = servicioRol.BuscarId(cmb_tipo.SelectedValue.ToString());
 
-                Guardar(usuario);
-                limpiar();
-                Activar_cmb_Opcion();
+                    Guardar(usuario);
+                    limpiar();
+                    Activar_cmb_Opcion();
+                }
             }
 
              void Activar_cmb_Opcion()
@@ -294,7 +317,6 @@ namespace Presentacion
                     if (partes[1] == "CLIENTE")
                     {
                         Habilitar();
-                        txt_id.Enabled = false;
                         txt_usuario.Enabled = false;
                         txt_contraseña.Enabled = false;
                     }

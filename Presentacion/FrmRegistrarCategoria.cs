@@ -55,19 +55,27 @@ namespace Presentacion
 
         private void btn_Guardar_Click(object sender, EventArgs e)
         {
-            string Codigo = txt_Codigo.Text;
-
-            if (servicioCategoriaProducto.BuscarCodigo(Codigo) == null)
+            if (string.IsNullOrWhiteSpace(txt_Nombre.Text))
             {
-                Guardar(new CategoriaProducto(txt_Codigo.Text, txt_Nombre.Text));
-                cancelar();
-                FrmRegistrarCategoria_Load(this, EventArgs.Empty);
+                MessageBox.Show("Por favor, completa todos los campos antes de guardar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txt_Nombre.Focus();
             }
             else
             {
-                MessageBox.Show("Este Codigo ya existe!");
-                cancelar();
-                txt_Codigo.Enabled = false;
+                string Codigo = txt_Codigo.Text;
+
+                if (servicioCategoriaProducto.BuscarCodigo(Codigo) == null)
+                {
+                    Guardar(new CategoriaProducto(txt_Codigo.Text, txt_Nombre.Text));
+                    cancelar();
+                    FrmRegistrarCategoria_Load(this, EventArgs.Empty);
+                }
+                else
+                {
+                    MessageBox.Show("Este Codigo ya existe!");
+                    cancelar();
+                    txt_Codigo.Enabled = false;
+                }
             }
         }
 

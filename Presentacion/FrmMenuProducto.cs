@@ -34,5 +34,11 @@ namespace Presentacion
             this.Close();
             new FrmGestionProducto().Show();    
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            new FrmRegistrarMaterial().Show();
+        }
     }
 }

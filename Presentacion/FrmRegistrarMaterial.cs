@@ -69,20 +69,27 @@ namespace Presentacion
 
         private void btn_Guardar_Click(object sender, EventArgs e)
         {
-
-            string Codigo = txt_Codigo.Text;
-
-            if (servicioMaterial.BuscarCodigo(Codigo) == null)
+            if (string.IsNullOrWhiteSpace(txt_Material.Text))
             {
-                Guardar(new Material(txt_Codigo.Text, txt_Material.Text));
-                cancelar();
-                FrmRegistrarMaterial_Load(this, EventArgs.Empty);
+                MessageBox.Show("Por favor, completa todos los campos antes de guardar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txt_Material.Focus();
             }
             else
             {
-                MessageBox.Show("Este Codigo ya existe!");
-                cancelar();
-                txt_Codigo.Enabled = false;
+                string Codigo = txt_Codigo.Text;
+
+                if (servicioMaterial.BuscarCodigo(Codigo) == null)
+                {
+                    Guardar(new Material(txt_Codigo.Text, txt_Material.Text));
+                    cancelar();
+                    FrmRegistrarMaterial_Load(this, EventArgs.Empty);
+                }
+                else
+                {
+                    MessageBox.Show("Este Codigo ya existe!");
+                    cancelar();
+                    txt_Codigo.Enabled = false;
+                }
             }
         }
         void Guardar(Material material)
