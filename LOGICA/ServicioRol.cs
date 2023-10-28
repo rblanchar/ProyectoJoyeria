@@ -20,7 +20,7 @@ namespace LOGICA
             repositorio = new RepositorioRol(fileName);
             RefrescarLista();
         }
-        void RefrescarLista()
+        public void RefrescarLista()
         {
             Roles = repositorio.ConsultarTodos();
         }

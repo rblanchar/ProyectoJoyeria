@@ -46,6 +46,9 @@
     <Compile Include="RepositorioCategoriaProducto.cs" />
     <Compile Include="RepositoriodeLectura.cs" />
     <Compile Include="RepositorioMaterial.cs" />
+    <Compile Include="RepositorioModificarCategoriaProducto.cs" />
+    <Compile Include="RepositorioModificarMaterial.cs" />
+    <Compile Include="RepositorioModificarRol.cs" />
     <Compile Include="RepositorioProducto.cs" />
     <Compile Include="RepositorioRol.cs" />
     <Compile Include="RepositorioUsuario.cs" />

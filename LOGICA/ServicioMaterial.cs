@@ -20,7 +20,7 @@ namespace LOGICA
             repositorio = new RepositorioMaterial(fileName);
             RefrescarLista();
         }
-        void RefrescarLista()
+        public void RefrescarLista()
         {
             Materiales = repositorio.ConsultarTodos();
         }

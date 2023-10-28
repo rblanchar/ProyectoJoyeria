@@ -42,6 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EliminarUsuario.cs" />
+    <Compile Include="ModificarCateProducto.cs" />
+    <Compile Include="ModificarMaterial.cs" />
+    <Compile Include="ModificarRol.cs" />
     <Compile Include="ModificarUsuario.cs" />
     <Compile Include="ServicioCategoriaProducto.cs" />
     <Compile Include="ServiciodeLectura.cs" />

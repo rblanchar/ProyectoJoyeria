@@ -17,6 +17,7 @@ namespace Presentacion
     {
         ServicioMaterial servicioMaterial = new ServicioMaterial();
         ServiciodeLectura serviciodeLectura = new ServiciodeLectura();
+        ModificarMaterial modificacion = new ModificarMaterial();
         public FrmRegistrarMaterial()
         {
             InitializeComponent();
@@ -31,21 +32,17 @@ namespace Presentacion
         {
             txt_Material.Text = string.Empty;
             txt_Material.Focus();
+            cmb_Opcion.Enabled = true;
+            cmb_Opcion.Text = string.Empty;
+            cmb_Opcion.Focus();
+            Limpiar();
         }
 
         private void FrmRegistrarMaterial_Load(object sender, EventArgs e)
         {
-            string filename = "Material.txt";
-            if (File.Exists(filename))
-            {
-                var numero = serviciodeLectura.IncrementarCodigo(filename);
-                txt_Codigo.Text = numero;
-            }
-            else
-            {
-                txt_Codigo.Text = "501";
-            }
-            
+            Cargar();
+
+
         }
 
         private void btn_Regresar_Click(object sender, EventArgs e)
@@ -69,34 +66,185 @@ namespace Presentacion
 
         private void btn_Guardar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txt_Material.Text))
+            if (btn_Guardar.Text == "Registrar")
             {
-                MessageBox.Show("Por favor, completa todos los Campos Obligatorios *", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txt_Material.Focus();
-            }
-            else
-            {
-                string Codigo = txt_Codigo.Text;
-
-                if (servicioMaterial.BuscarCodigo(Codigo) == null)
+                if (string.IsNullOrWhiteSpace(txt_Material.Text))
                 {
-                    Guardar(new Material(txt_Codigo.Text, txt_Material.Text));
-                    cancelar();
-                    FrmRegistrarMaterial_Load(this, EventArgs.Empty);
+                    MessageBox.Show("Por favor, completa todos los Campos Obligatorios *", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txt_Material.Focus();
                 }
                 else
                 {
-                    MessageBox.Show("Este Codigo ya existe!");
-                    cancelar();
-                    txt_Codigo.Enabled = false;
+                    string Codigo = txt_Codigo.Text;
+
+                    if (servicioMaterial.BuscarCodigo(Codigo) == null)
+                    {
+                        Guardar(new Material(txt_Codigo.Text, txt_Material.Text));
+                        cancelar();
+                        FrmRegistrarMaterial_Load(this, EventArgs.Empty);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Este Codigo ya existe!");
+                        cancelar();
+                        txt_Codigo.Enabled = false;
+                    }
                 }
             }
+            else if (btn_Guardar.Text == "Modificar")
+            {
+
+                Material material = new Material();
+
+                DialogResult respuesta = MessageBox.Show("¿Estás seguro de Modificar este registro?", "Advertencia", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (respuesta == DialogResult.OK)
+                {
+                    string codigo = txt_Codigo.Text;
+                    material = servicioMaterial.BuscarCodigo(codigo);
+                    if (material != null)
+                    {
+
+                        material.NombreMaterial = txt_Material.Text;
+                        Habilitado();
+                        var msg = modificacion.ModificarMateriales(material);
+                        MessageBox.Show(msg);
+                        Limpiar();
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Material no encontrado.");
+                    }
+                }
+            }
+
+            else if (btn_Guardar.Text == "Eliminar")
+            {
+                if (!string.IsNullOrEmpty(txt_Codigo.Text))
+                {
+                    DialogResult respuesta = MessageBox.Show("¿Estás seguro de eliminar este registro?", "Advertencia", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    if (respuesta == DialogResult.OK)
+                    {
+                        string codigo = txt_Codigo.Text;
+                        var msg = modificacion.EliminarMateriales(codigo);
+                        MessageBox.Show(msg);
+                        Limpiar();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, ingrese un código válido antes de eliminar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
         }
         void Guardar(Material material)
         {
             var msg = servicioMaterial.Guardar(material);
             MessageBox.Show(msg);
 
+        }
+
+        private void cmb_Opcion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmb_Opcion.SelectedItem != null)
+            {
+                string Opcion = cmb_Opcion.SelectedItem.ToString();
+                if (Opcion == "REGISTRAR")
+                {
+                    Habilitado();
+                    Cargar();
+                    btn_Guardar.Text = "Registrar";
+
+                }
+                else if (Opcion == "CONSULTAR")
+                {
+                    Limpiar();
+
+                    Deshabilitado();
+                    txt_Codigo.Enabled = true;
+                    txt_Codigo.Focus();
+                }
+                else if (Opcion == "ELIMINAR")
+                {
+                    Limpiar();
+                    Habilitado();
+                    btn_Guardar.Text = "Eliminar";
+                    txt_Codigo.Enabled = true;
+                    txt_Codigo.Focus();
+                }
+                if (Opcion == "MODIFICAR")
+                {
+                    Limpiar();
+                    Habilitado();
+                    btn_Guardar.Text = "Modificar";
+                    txt_Codigo.Enabled = true;
+                    txt_Codigo.Focus();
+                }
+            }
+        }
+
+        void Habilitado()
+        {
+            txt_Codigo.Enabled = true;
+            txt_Material.Enabled = true;
+            btn_Guardar.Enabled = true;
+        }
+        void Deshabilitado()
+        {
+            txt_Codigo.Enabled = false;
+            txt_Material.Enabled = false;
+            btn_Guardar.Enabled = false;
+            btn_Guardar.Text = string.Empty;
+
+        }
+
+        void Limpiar()
+        {
+            txt_Codigo.Text = string.Empty;
+            txt_Material.Text = string.Empty;
+        }
+
+        public bool consultar(string codigo)
+        {
+            Material mater = servicioMaterial.BuscarCodigo(codigo);
+
+            if (mater != null)
+            {
+                txt_Codigo.Text = mater.Codigo;
+                txt_Material.Text = mater.NombreMaterial;
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("El material no existe.", "Mensaje de Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        private void txt_Codigo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                string codigo = txt_Codigo.Text;
+                bool resultado = consultar(codigo);
+
+
+            }
+        }
+
+        void Cargar()
+        {
+            string filename = "Material.txt";
+            if (File.Exists(filename))
+            {
+                var numero = serviciodeLectura.IncrementarCodigo(filename);
+                txt_Codigo.Text = numero;
+            }
+            else
+            {
+                txt_Codigo.Text = "501";
+            }
         }
     }
 }

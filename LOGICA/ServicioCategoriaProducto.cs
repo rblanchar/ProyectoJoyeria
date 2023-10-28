@@ -20,7 +20,7 @@ namespace LOGICA
             repositorio = new RepositorioCategoriaProducto(fileName);
             RefrescarLista();
         }
-        void RefrescarLista()
+        public void RefrescarLista()
         {
             CategoriaProductos = repositorio.ConsultarTodos();
         }
