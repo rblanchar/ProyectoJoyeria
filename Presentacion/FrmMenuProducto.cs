@@ -40,5 +40,23 @@ namespace Presentacion
             this.Close();
             new FrmRegistrarMaterial().Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            new FrmListadoMateriales().Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            new FrmListadoCategorias().Show();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            new FrmListadoProductos().Show();
+        }
     }
 }

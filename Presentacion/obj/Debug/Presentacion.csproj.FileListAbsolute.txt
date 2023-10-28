@@ -55,3 +55,7 @@ C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.csp
 C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.csproj.CopyComplete
 C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.exe
 C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.pdb
+D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\obj\Debug\Presentacion.FrmListadoTipoUsuarios.resources
+D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\obj\Debug\Presentacion.FrmListadoMateriales.resources
+D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\obj\Debug\Presentacion.FrmListadoCategorias.resources
+D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\obj\Debug\Presentacion.FrmListadoProductos.resources

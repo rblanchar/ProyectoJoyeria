@@ -45,6 +45,18 @@ namespace LOGICA
             }
             return null;
         }
+        public List<Producto> BuscarX(string valor)
+        {
+            List<Producto> listaFiltrada = new List<Producto>();
 
+            foreach (var item in productos)
+            {
+                if (item.CategoriaProducto.Codigo.Contains(valor) || item.Material.NombreMaterial.Contains(valor) || item.Descripcion.Contains(valor))
+                {
+                    listaFiltrada.Add(item);
+                }
+            }
+            return listaFiltrada;
+        }
     }
 }

@@ -73,7 +73,7 @@ namespace LOGICA
 
             foreach (var item in usuarios)
             {
-                if (item.Identificacion == valor || item.Nombre.Contains(valor) || item.Apellido.Contains(valor) || item.rol.TipoRol.Contains(valor) )
+                if (item.Nombre.Contains(valor) || item.Apellido.Contains(valor) || item.rol.TipoRol.Contains(valor) )
                 {
                     listaFiltrada.Add(item);
                 }

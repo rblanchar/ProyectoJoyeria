@@ -78,7 +78,7 @@ namespace DATOS
             {
                 Codigo = linea[0],
                 Descripcion = linea[1],
-                CategoriaProducto = new RepositorioCategoriaProducto("Producto.txt").BuscarCodigo(linea[2]),
+                CategoriaProducto = new RepositorioCategoriaProducto("Categoria.txt").BuscarCodigo(linea[2]),
                 Material = new RepositorioMaterial("Material.txt").BuscarCodigo(linea[3]),
                 PrecioCosto = Convert.ToDouble(linea[4]),
                 Peso = Convert.ToDouble(linea[5]),

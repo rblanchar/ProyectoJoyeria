@@ -17,6 +17,8 @@ namespace Presentacion
     {
         ServicioCategoriaProducto categoriaProducto= new ServicioCategoriaProducto();
         ServicioMaterial servicioMaterial= new ServicioMaterial();
+        ServicioProducto servicioProducto= new ServicioProducto();
+
         public FrmGestionProducto()
         {
             InitializeComponent();
@@ -97,8 +99,18 @@ namespace Presentacion
                 else
                 {
                     Producto producto = new Producto();
-                    
-                    MessageBox.Show("Guardado!");
+
+                    producto.CategoriaProducto = categoriaProducto.BuscarCodigo(cmb_Categoria.SelectedValue.ToString());
+                    producto.Material = servicioMaterial.BuscarCodigo(cmb_Material.SelectedValue.ToString());
+                    producto.Codigo = txt_Codigo.Text;
+                    producto.Descripcion = txt_Descripcion.Text;
+                    producto.Peso = Convert.ToDouble(txt_Peso.Text);
+                    producto.PrecioCosto = Convert.ToDouble(txt_PrecioCosto.Text);
+                    producto.MargenGanancia = Convert.ToDouble(txt_Margen.Text);
+                    producto.Cantidad = Convert.ToInt32(txt_Cantidad.Text);
+
+                    Guardar(producto);
+                    limpiar();
                 }
 
                
@@ -186,7 +198,13 @@ namespace Presentacion
                 lb24.Visible = true;
                 txt_Peso.Text = string.Empty;
                 txt_Codigo.Focus();
-            }
+            }  
+        }
+
+        public void Guardar(Producto producto)
+        {
+            var msg = servicioProducto.Guardar(producto);
+            MessageBox.Show(msg);
         }
     }
 }
