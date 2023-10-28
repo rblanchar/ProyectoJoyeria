@@ -59,3 +59,7 @@ D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\obj\Debug\Pres
 D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\obj\Debug\Presentacion.FrmListadoMateriales.resources
 D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\obj\Debug\Presentacion.FrmListadoCategorias.resources
 D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\obj\Debug\Presentacion.FrmListadoProductos.resources
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.FrmListadoCategorias.resources
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.FrmListadoMateriales.resources
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.FrmListadoProductos.resources
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.FrmListadoTipoUsuarios.resources
