@@ -26,3 +26,32 @@ D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\obj\Debug\Pres
 D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\obj\Debug\Presentacion.FrmMenuUsuario.resources
 D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\obj\Debug\Presentacion.FrmMenuProducto.resources
 D:\Ingenieria de Sistemas\Semestre lV\C#\Repositorio\Presentacion\obj\Debug\Presentacion.FrmRegistrarCategoria.resources
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\bin\Debug\Presentacion.exe.config
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\bin\Debug\Presentacion.exe
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\bin\Debug\Presentacion.pdb
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\bin\Debug\ENTIDAD.dll
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\bin\Debug\LOGICA.dll
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\bin\Debug\DATOS.dll
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\bin\Debug\ENTIDAD.pdb
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\bin\Debug\LOGICA.pdb
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\bin\Debug\DATOS.pdb
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.csproj.AssemblyReference.cache
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.csproj.SuggestedBindingRedirects.cache
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.FrmFacturadeVenta.resources
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.FrmGestionProducto.resources
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.FrmGestionUsuario.resources
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.FrmInicioSesion.resources
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.FrmListarUsuarios.resources
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.FrmMenuAdmin.resources
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.FrmMenuProducto.resources
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.FrmMenuSuper.resources
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.FrmMenuUsuario.resources
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.FrmMenuVendedor.resources
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.FrmRegistrarCategoria.resources
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.FrmRegistrarMaterial.resources
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.FrmRegistrarRol.resources
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.csproj.GenerateResource.cache
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.csproj.CoreCompileInputs.cache
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.csproj.CopyComplete
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.exe
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.pdb
