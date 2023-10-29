@@ -3,6 +3,8 @@ using LOGICA;
 using System;
 using System.Windows.Forms;
 using System.IO;
+using System.Collections.Generic;
+
 namespace Presentacion
 {
     public partial class FrmRegistrarRol : Form
@@ -10,7 +12,7 @@ namespace Presentacion
         private ServicioRol servicioRol = new ServicioRol();
         private ServiciodeLectura serviciodeLectura = new ServiciodeLectura();
         private ModificarRol modificar = new ModificarRol();
-
+        ServicioUsuario servicioUsuario = new ServicioUsuario();
         public FrmRegistrarRol()
         {
             InitializeComponent();
@@ -25,16 +27,6 @@ namespace Presentacion
 
         private void btn_Cancelar_Click(object sender, EventArgs e)
         {
-            cancelar();
-        }
-
-        void cancelar()
-        {
-            txt_NombreRol.Text = string.Empty;
-            txt_NombreRol.Focus();
-            cmb_Opcion.Enabled = true;
-            cmb_Opcion.Text = string.Empty;
-            cmb_Opcion.Focus();
             Limpiar();
         }
 
@@ -60,77 +52,90 @@ namespace Presentacion
 
         private void btn_Guardar_Click(object sender, EventArgs e)
         {
-            if (btn_Guardar.Text == "Registrar")
+            if (string.IsNullOrWhiteSpace(txt_NombreRol.Text))
             {
+                MessageBox.Show("Por favor, completa todos los Campos Obligatorios *", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txt_NombreRol.Focus();
 
-                if (string.IsNullOrWhiteSpace(txt_NombreRol.Text))
+            }
+            else
+            {
+                if (btn_Guardar.Text == "Registrar")
                 {
-                    MessageBox.Show("Por favor, completa todos los Campos Obligatorios *", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txt_NombreRol.Focus();
-
-                }
-                else
-                {
-
                     string IdRol = txt_IdRol.Text;
 
                     if (servicioRol.BuscarId(IdRol) == null)
                     {
                         Guardar(new Rol(txt_IdRol.Text, txt_NombreRol.Text));
-                        cancelar();
+                        Limpiar();
                         FrmRegistrarRol_Load(this, EventArgs.Empty);
                     }
                     else
                     {
-                        MessageBox.Show("Este IdRol ya existe!");
-                        cancelar();
+                        MessageBox.Show("Este Id_Usuario ya existe!");
+
                         txt_IdRol.Enabled = false;
                     }
+                    
                 }
-            }
-            else if (btn_Guardar.Text == "Modificar")
-            {
-
-                Rol rol = new Rol();
-
-                DialogResult respuesta = MessageBox.Show("¿Estás seguro de Modificar este registro?", "Advertencia", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                if (respuesta == DialogResult.OK)
+                else if (btn_Guardar.Text == "Modificar")
                 {
-                    string id = txt_IdRol.Text;
-                    rol = servicioRol.BuscarId(id);
-                    if (rol != null)
-                    {
 
-                        rol.TipoRol = txt_NombreRol.Text;
-                        Habilitado();
-                        var msg = modificar.ActualizarRol(rol);
-                        MessageBox.Show(msg);
-                        Limpiar();
+                    Rol rol = new Rol();
 
-                    }
-                    else
-                    {
-                        MessageBox.Show("Rol no encontrado.");
-                    }
-                }
-            }
-
-            else if (btn_Guardar.Text == "Eliminar")
-            {
-                if (!string.IsNullOrEmpty(txt_IdRol.Text))
-                {
-                    DialogResult respuesta = MessageBox.Show("¿Estás seguro de eliminar este registro?", "Advertencia", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    DialogResult respuesta = MessageBox.Show("¿Estás seguro de Modificar este registro?", "Advertencia", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                     if (respuesta == DialogResult.OK)
                     {
                         string id = txt_IdRol.Text;
-                        var msg = modificar.EliminarRol(id);
-                        MessageBox.Show(msg);
-                        Limpiar();
+                        rol = servicioRol.BuscarId(id);
+                        if (rol != null)
+                        {
+
+                            rol.TipoRol = txt_NombreRol.Text;
+                            Habilitado();
+                            
+                            var msg = modificar.ActualizarRol(rol);
+                            MessageBox.Show(msg);
+                            Limpiar();
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Usuario no encontrado.");
+                        }
                     }
                 }
-                else
+
+                else if (btn_Guardar.Text == "Eliminar")
                 {
-                    MessageBox.Show("Por favor, ingrese un código válido antes de eliminar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (!string.IsNullOrEmpty(txt_IdRol.Text))
+                    {
+                        DialogResult respuesta = MessageBox.Show("¿Estás seguro de eliminar este registro?", "Advertencia", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                        if (respuesta == DialogResult.OK)
+                        {
+                            int sw = 0;
+                            foreach (var item in servicioUsuario.Consultar())
+                            {
+                                if (item.rol.IdRol == txt_IdRol.Text)
+                                {
+                                    MessageBox.Show("No se puede Eliminar un TipodeUsuario Asignado!");
+                                    sw = 1;
+                                    break;
+                                }
+                            }
+                            if(sw ==0)
+                            {
+                                string id = txt_IdRol.Text;
+                                var msg = modificar.EliminarRol(id);
+                                MessageBox.Show(msg);
+                                Limpiar();
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Por favor, ingrese un código válido antes de eliminar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
 
@@ -157,7 +162,8 @@ namespace Presentacion
                 {
                     Habilitado();
                     Cargar();
-                    txt_NombreRol.Focus;
+                    txt_IdRol.Enabled = false;
+                    txt_NombreRol.Focus();
                     btn_Guardar.Text = "Registrar";
                   
                 }
@@ -172,7 +178,8 @@ namespace Presentacion
                 else if (Opcion == "ELIMINAR")
                 {
                     Limpiar();
-                    Habilitado();
+                    Deshabilitado();
+                    btn_Guardar.Enabled = true;
                     btn_Guardar.Text = "Eliminar";
                     txt_IdRol.Enabled = true;
                     txt_IdRol.Focus();
@@ -181,6 +188,7 @@ namespace Presentacion
                 {
                     Limpiar();
                     Habilitado();
+                    lb10.Visible = false;
                     btn_Guardar.Text = "Modificar";
                     txt_IdRol.Enabled = true;
                     txt_IdRol.Focus();
@@ -190,12 +198,14 @@ namespace Presentacion
 
         void Habilitado()
         {
+            lb10.Visible = true;
             txt_IdRol.Enabled = true;
             txt_NombreRol.Enabled = true;
             btn_Guardar.Enabled = true;
         }
         void Deshabilitado()
         {
+            lb10.Visible = false;
             txt_IdRol.Enabled = false;
             txt_NombreRol.Enabled = false;
             btn_Guardar.Enabled = false;
@@ -203,10 +213,13 @@ namespace Presentacion
 
         }
 
-        void Limpiar()
+        public void Limpiar()
         {
+            Deshabilitado ();
             txt_IdRol.Text = string.Empty;
             txt_NombreRol.Text = string.Empty;
+            cmb_Opcion.Text = string.Empty;
+            btn_Guardar.Text = "";
         }
 
         public bool consultar(string id)
@@ -237,7 +250,7 @@ namespace Presentacion
             }
         }
 
-        void Cargar()
+        public string Cargar()
         {
             string filename = "Rol.txt";
             if (File.Exists(filename))
@@ -250,6 +263,7 @@ namespace Presentacion
             {
                 txt_IdRol.Text = "1001";
             }
+            return null;
         }
     }
 }

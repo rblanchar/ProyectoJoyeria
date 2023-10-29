@@ -13,7 +13,7 @@ namespace ENTIDAD
         public CategoriaProducto CategoriaProducto { get; set; }
         public Material Material { get; set; }
         public double PrecioCosto { get; set; }
-        public double Peso {  get; set; }
+        public  decimal Peso {  get; set; }
         public double MargenGanancia { get; set; }
         public int Cantidad { get; set; }
 
@@ -23,7 +23,7 @@ namespace ENTIDAD
         }
 
         public Producto(string codigo, string descripcion, CategoriaProducto categoriaProducto, Material material, 
-            double precioCosto, double peso, double margenGanancia, int cantidad)
+            double precioCosto, decimal peso, double margenGanancia, int cantidad)
         {
             Codigo = codigo;
             Descripcion = descripcion;

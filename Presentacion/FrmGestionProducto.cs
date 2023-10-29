@@ -104,7 +104,7 @@ namespace Presentacion
                     producto.Material = servicioMaterial.BuscarCodigo(cmb_Material.SelectedValue.ToString());
                     producto.Codigo = txt_Codigo.Text;
                     producto.Descripcion = txt_Descripcion.Text;
-                    producto.Peso = Convert.ToDouble(txt_Peso.Text);
+                    producto.Peso = Convert.ToDecimal(txt_Peso.Text);
                     producto.PrecioCosto = Convert.ToDouble(txt_PrecioCosto.Text);
                     producto.MargenGanancia = Convert.ToDouble(txt_Margen.Text);
                     producto.Cantidad = Convert.ToInt32(txt_Cantidad.Text);
@@ -257,7 +257,7 @@ namespace Presentacion
 
         private void txt_Peso_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
             {
                 e.Handled = true;
             }

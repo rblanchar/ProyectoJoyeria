@@ -31,6 +31,7 @@
             this.btn_Guardar = new System.Windows.Forms.Button();
             this.btn_Cancelar = new System.Windows.Forms.Button();
             this.btn_Regresar = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn_Guardar
@@ -70,12 +71,23 @@
             this.btn_Regresar.UseVisualStyleBackColor = false;
             this.btn_Regresar.Click += new System.EventHandler(this.btn_Regresar_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(436, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(139, 20);
+            this.label1.TabIndex = 59;
+            this.label1.Text = "FACTURACION";
+            // 
             // FrmFacturadeVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1069, 709);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_Guardar);
             this.Controls.Add(this.btn_Cancelar);
             this.Controls.Add(this.btn_Regresar);
@@ -84,6 +96,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmFacturadeVenta";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -92,5 +105,6 @@
         private System.Windows.Forms.Button btn_Guardar;
         private System.Windows.Forms.Button btn_Cancelar;
         private System.Windows.Forms.Button btn_Regresar;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -18,6 +18,7 @@ namespace Presentacion
         ServiciodeLectura serviciodeLectura = new ServiciodeLectura();
         ServicioCategoriaProducto servicioCategoriaProducto = new ServicioCategoriaProducto();
         ModificarCateProducto modificar = new ModificarCateProducto();
+        ServicioProducto servicioProducto = new ServicioProducto();
         public FrmRegistrarCategoria()
         {
             InitializeComponent();
@@ -89,7 +90,6 @@ namespace Presentacion
                         var msg = modificar.ModificarCategoriaProducto(categoriaproducto);
                         MessageBox.Show(msg);
                         Limpiar();
-                        // Recargar los datos después de modificar
                         Cargar();
                     }
                     else
@@ -105,12 +105,24 @@ namespace Presentacion
                     DialogResult respuesta = MessageBox.Show("¿Estás seguro de eliminar este registro?", "Advertencia", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                     if (respuesta == DialogResult.OK)
                     {
-                        string codigo = txt_Codigo.Text;
-                        var msg = modificar.EliminarCategoriaProducto(codigo);
-                        MessageBox.Show(msg);
-                        Limpiar();
-                        // Recargar los datos después de eliminar
-                        Cargar();
+                        int sw = 0;
+                        foreach (var item in servicioProducto.Consultar())
+                        {
+                            if (item.CategoriaProducto.Codigo == txt_Codigo.Text)
+                            {
+                                MessageBox.Show("No se puede Eliminar una Categoria Asignada!");
+                                sw = 1;
+                                break;
+                            }
+                        }
+                        if (sw == 0)
+                        {
+                            string codigo = txt_Codigo.Text;
+                            var msg = modificar.EliminarCategoriaProducto(codigo);
+                            MessageBox.Show(msg);
+                            Limpiar();
+                            Cargar();
+                        }
                     }
                 }
                 else

@@ -20,3 +20,14 @@ C:\Users\hp\Source\Repos\ProyectoJoyeria\LOGICA\obj\Debug\LOGICA.csproj.CoreComp
 C:\Users\hp\Source\Repos\ProyectoJoyeria\LOGICA\obj\Debug\LOGICA.csproj.CopyComplete
 C:\Users\hp\Source\Repos\ProyectoJoyeria\LOGICA\obj\Debug\LOGICA.dll
 C:\Users\hp\Source\Repos\ProyectoJoyeria\LOGICA\obj\Debug\LOGICA.pdb
+D:\Ingenieria de Sistemas\Semestre lV\C#\GitJoyeria\LOGICA\bin\Debug\LOGICA.dll
+D:\Ingenieria de Sistemas\Semestre lV\C#\GitJoyeria\LOGICA\bin\Debug\LOGICA.pdb
+D:\Ingenieria de Sistemas\Semestre lV\C#\GitJoyeria\LOGICA\bin\Debug\DATOS.dll
+D:\Ingenieria de Sistemas\Semestre lV\C#\GitJoyeria\LOGICA\bin\Debug\ENTIDAD.dll
+D:\Ingenieria de Sistemas\Semestre lV\C#\GitJoyeria\LOGICA\bin\Debug\DATOS.pdb
+D:\Ingenieria de Sistemas\Semestre lV\C#\GitJoyeria\LOGICA\bin\Debug\ENTIDAD.pdb
+D:\Ingenieria de Sistemas\Semestre lV\C#\GitJoyeria\LOGICA\obj\Debug\LOGICA.csproj.AssemblyReference.cache
+D:\Ingenieria de Sistemas\Semestre lV\C#\GitJoyeria\LOGICA\obj\Debug\LOGICA.csproj.CoreCompileInputs.cache
+D:\Ingenieria de Sistemas\Semestre lV\C#\GitJoyeria\LOGICA\obj\Debug\LOGICA.csproj.CopyComplete
+D:\Ingenieria de Sistemas\Semestre lV\C#\GitJoyeria\LOGICA\obj\Debug\LOGICA.dll
+D:\Ingenieria de Sistemas\Semestre lV\C#\GitJoyeria\LOGICA\obj\Debug\LOGICA.pdb

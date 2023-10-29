@@ -22,15 +22,16 @@ namespace LOGICA
         }
         public string ActualizarRol(Rol rol)
         {
+            servicioRol.RefrescarLista();
             var RolExistente = servicioRol.BuscarId(rol.IdRol);
 
             if (RolExistente != null)
             {
                 RolExistente.TipoRol = rol.TipoRol;
-
+                
                 roles.ActualizarRol(rol);
-                servicioRol.RefrescarLista();
-                return "Rol modificado exitosamente.";
+                
+                return "Usuario Modificado Exitosamente.";
             }
 
             return "Rol no encontrado.";
@@ -38,13 +39,14 @@ namespace LOGICA
 
         public string EliminarRol(string id)
         {
+            servicioRol.RefrescarLista();
             var rolExistente = servicioRol.BuscarId(id);
 
             if (rolExistente != null)
             {
                 roles.EliminarRol(id);
 
-                return "Rol eliminado exitosamente.";
+                return "Usuario Eliminado Exitosamente.";
             }
 
             return "Rol no encontrado.";

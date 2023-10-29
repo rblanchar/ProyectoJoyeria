@@ -49,8 +49,8 @@ namespace Presentacion
 
             foreach (var item in lista)
             {
-                Grilla_Productos.Rows.Add(item.Codigo,item.CategoriaProducto.NomCategoria.ToUpper(),item.Material.NombreMaterial.ToUpper(),
-                    item.Descripcion.ToUpper(), item.Peso, item.PrecioCosto, item.MargenGanancia, item.Cantidad);
+                Grilla_Productos.Rows.Add(item.Codigo, item.CategoriaProducto.NomCategoria.ToUpper(), item.Material.NombreMaterial.ToUpper(),
+                    item.Descripcion.ToUpper(), item.Peso.ToString("##,##"), item.PrecioCosto.ToString("###,###,###"), item.MargenGanancia.ToString("#,##"), item.Cantidad);
             }
         }
 

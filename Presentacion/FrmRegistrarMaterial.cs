@@ -18,6 +18,7 @@ namespace Presentacion
         ServicioMaterial servicioMaterial = new ServicioMaterial();
         ServiciodeLectura serviciodeLectura = new ServiciodeLectura();
         ModificarMaterial modificacion = new ModificarMaterial();
+        ServicioProducto servicioProducto = new ServicioProducto();
         public FrmRegistrarMaterial()
         {
             InitializeComponent();
@@ -125,10 +126,23 @@ namespace Presentacion
                     DialogResult respuesta = MessageBox.Show("¿Estás seguro de eliminar este registro?", "Advertencia", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                     if (respuesta == DialogResult.OK)
                     {
-                        string codigo = txt_Codigo.Text;
-                        var msg = modificacion.EliminarMateriales(codigo);
-                        MessageBox.Show(msg);
-                        Limpiar();
+                        int sw = 0;
+                        foreach (var item in servicioProducto.Consultar())
+                        {
+                            if (item.Material.Codigo == txt_Codigo.Text)
+                            {
+                                MessageBox.Show("No se puede Eliminar un Material Asignado!");
+                                sw = 1;
+                                break;
+                            }
+                        }
+                        if (sw == 0)
+                        {
+                            string codigo = txt_Codigo.Text;
+                            var msg = modificacion.EliminarMateriales(codigo);
+                            MessageBox.Show(msg);
+                            Limpiar();
+                        }
                     }
                 }
                 else

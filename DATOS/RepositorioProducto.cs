@@ -81,7 +81,7 @@ namespace DATOS
                 CategoriaProducto = new RepositorioCategoriaProducto("Categoria.txt").BuscarCodigo(linea[2]),
                 Material = new RepositorioMaterial("Material.txt").BuscarCodigo(linea[3]),
                 PrecioCosto = Convert.ToDouble(linea[4]),
-                Peso = Convert.ToDouble(linea[5]),
+                Peso = Convert.ToDecimal(linea[5]),
                 MargenGanancia = Convert.ToDouble(linea[6]),
                 Cantidad = Convert.ToInt16(linea[7])
             };
