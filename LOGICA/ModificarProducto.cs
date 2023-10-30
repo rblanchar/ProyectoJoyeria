@@ -37,10 +37,10 @@ namespace LOGICA
                 productoExistente.MargenGanancia = producto.MargenGanancia;
                 productoExistente.Cantidad = producto.Cantidad;
 
-
-                repositorioProducto.ActualizarProducto(productoExistente);
-
                
+                repositorioProducto.ActualizarProducto(productoExistente);
+                
+
                 return "Producto modificado exitosamente.";
             }
 

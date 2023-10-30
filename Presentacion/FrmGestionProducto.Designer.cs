@@ -226,7 +226,7 @@
             this.txt_Descripcion.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_Descripcion.Enabled = false;
             this.txt_Descripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Descripcion.Location = new System.Drawing.Point(103, 150);
+            this.txt_Descripcion.Location = new System.Drawing.Point(114, 150);
             this.txt_Descripcion.Margin = new System.Windows.Forms.Padding(2);
             this.txt_Descripcion.Name = "txt_Descripcion";
             this.txt_Descripcion.Size = new System.Drawing.Size(226, 14);

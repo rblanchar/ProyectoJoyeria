@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -110,10 +111,11 @@ namespace Presentacion
                     producto.Material = servicioMaterial.BuscarCodigo(cmb_Material.SelectedValue.ToString());
                     producto.Codigo = txt_Codigo.Text;
                     producto.Descripcion = txt_Descripcion.Text;
-                    producto.Peso = Convert.ToDecimal(txt_Peso.Text);
-                    producto.PrecioCosto = Convert.ToDouble(txt_PrecioCosto.Text);
-                    producto.MargenGanancia = Convert.ToDouble(txt_Margen.Text);
-                    producto.Cantidad = Convert.ToInt32(txt_Cantidad.Text);
+                    CultureInfo culture = new CultureInfo("en-US");
+                    producto.PrecioCosto = double.Parse(txt_PrecioCosto.Text, culture);
+                    producto.Peso = decimal.Parse(txt_Peso.Text, culture);
+                    producto.MargenGanancia = double.Parse(txt_Margen.Text, culture);
+                    producto.Cantidad = int.Parse(txt_Cantidad.Text);
 
                     Guardar(producto);
                     limpiar();
@@ -229,6 +231,7 @@ namespace Presentacion
         private void btn_Cancelar_Click(object sender, EventArgs e)
         {
             limpiar();
+            Activar_cmb_Opcion();
         }
 
         void limpiar()
@@ -338,7 +341,12 @@ namespace Presentacion
 
         private void txt_Margen_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == '.' && txt_Peso.Text.Contains("."))
             {
                 e.Handled = true;
             }
@@ -397,6 +405,7 @@ namespace Presentacion
                         {
                             MessageBox.Show("Este producto se encuentra registrado en la Base de Datos!");
                             limpiar();
+                            HabilitarCampos();
                             cmb_Opcion.Text = string.Empty;
                             cmb_Opcion.Enabled = true;
                             cmb_Opcion.Focus();
