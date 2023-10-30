@@ -238,7 +238,7 @@ namespace Presentacion
             }
 
            if (btn_Guardar.Text == "Modificar")
-            {
+           {
                 DialogResult respuesta = MessageBox.Show("¿Estas seguro de Modificar este registro?", "Advertencia", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
                 if (respuesta == DialogResult.OK)
@@ -268,7 +268,7 @@ namespace Presentacion
                     limpiar();
                     Activar_cmb_Opcion();
                 }
-            }
+           }
 
             else if (btn_Guardar.Text == "Eliminar")
             {

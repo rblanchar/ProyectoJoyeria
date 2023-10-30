@@ -23,6 +23,7 @@ namespace LOGICA
 
         public string ModificarCategoriaProducto(CategoriaProducto categoriaproducto)
         {
+            servicioCategoriaProducto.RefrescarLista();
             var categoriaExistente = servicioCategoriaProducto.BuscarCodigo(categoriaproducto.Codigo);
 
             if (categoriaExistente != null)
@@ -30,7 +31,7 @@ namespace LOGICA
                 categoriaExistente.NomCategoria = categoriaproducto.NomCategoria;
 
                 categoriaProd.ActualizarCategoriaProducto(categoriaExistente);
-                servicioCategoriaProducto.RefrescarLista(); 
+                
                 return "Categoría de producto modificada exitosamente.";
             }
 
@@ -39,6 +40,7 @@ namespace LOGICA
 
         public string EliminarCategoriaProducto(string codigo)
         {
+            servicioCategoriaProducto.RefrescarLista();
             var categoriaExistente = servicioCategoriaProducto.BuscarCodigo(codigo);
 
             if (categoriaExistente != null)

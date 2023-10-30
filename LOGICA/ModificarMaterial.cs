@@ -23,6 +23,7 @@ namespace LOGICA
 
         public string ModificarMateriales(Material materiales)
         {
+            servicioMaterial.RefrescarLista();
             var materialExistente = servicioMaterial.BuscarCodigo(materiales.Codigo);
 
             if (materialExistente != null)
@@ -30,7 +31,7 @@ namespace LOGICA
                 materialExistente.NombreMaterial = materiales.NombreMaterial;
 
                 material.ActualizarMaterial(materiales);
-                servicioMaterial.RefrescarLista(); 
+                
                 return "Material modificado exitosamente.";
             }
 
@@ -39,6 +40,7 @@ namespace LOGICA
 
         public string EliminarMateriales(string codigo)
         {
+            servicioMaterial.RefrescarLista();
             var materialExistente = servicioMaterial.BuscarCodigo(codigo);
 
             if (materialExistente != null)

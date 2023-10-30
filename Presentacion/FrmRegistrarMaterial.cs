@@ -26,18 +26,10 @@ namespace Presentacion
 
         private void btn_Cancelar_Click(object sender, EventArgs e)
         {
-            cancelar();
-        }
-
-        void cancelar()
-        {
-            txt_Material.Text = string.Empty;
-            txt_Material.Focus();
-            cmb_Opcion.Enabled = true;
-            cmb_Opcion.Text = string.Empty;
-            cmb_Opcion.Focus();
             Limpiar();
         }
+
+      
 
         private void FrmRegistrarMaterial_Load(object sender, EventArgs e)
         {
@@ -67,87 +59,89 @@ namespace Presentacion
 
         private void btn_Guardar_Click(object sender, EventArgs e)
         {
-            if (btn_Guardar.Text == "Registrar")
+            if (string.IsNullOrWhiteSpace(txt_Material.Text))
             {
-                if (string.IsNullOrWhiteSpace(txt_Material.Text))
-                {
-                    MessageBox.Show("Por favor, completa todos los Campos Obligatorios *", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txt_Material.Focus();
-                }
-                else
+                MessageBox.Show("Por favor, completa todos los Campos Obligatorios *", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txt_Material.Focus();
+            }
+            else 
+            {
+                if (btn_Guardar.Text == "Registrar")
                 {
                     string Codigo = txt_Codigo.Text;
 
                     if (servicioMaterial.BuscarCodigo(Codigo) == null)
                     {
                         Guardar(new Material(txt_Codigo.Text, txt_Material.Text));
-                        cancelar();
+                        Limpiar();
                         FrmRegistrarMaterial_Load(this, EventArgs.Empty);
                     }
                     else
                     {
                         MessageBox.Show("Este Codigo ya existe!");
-                        cancelar();
+                        Limpiar();
                         txt_Codigo.Enabled = false;
                     }
                 }
-            }
-            else if (btn_Guardar.Text == "Modificar")
-            {
 
-                Material material = new Material();
-
-                DialogResult respuesta = MessageBox.Show("¿Estás seguro de Modificar este registro?", "Advertencia", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                if (respuesta == DialogResult.OK)
+                else if (btn_Guardar.Text == "Modificar")
                 {
-                    string codigo = txt_Codigo.Text;
-                    material = servicioMaterial.BuscarCodigo(codigo);
-                    if (material != null)
+
+                    Material material = new Material();
+
+                    DialogResult respuesta = MessageBox.Show("¿Estás seguro de Modificar este registro?", "Advertencia", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    if (respuesta == DialogResult.OK)
                     {
+                        string codigo = txt_Codigo.Text;
+                        material = servicioMaterial.BuscarCodigo(codigo);
+                        if (material != null)
+                        {
 
-                        material.NombreMaterial = txt_Material.Text;
-                        Habilitado();
-                        var msg = modificacion.ModificarMateriales(material);
-                        MessageBox.Show(msg);
-                        Limpiar();
+                            material.NombreMaterial = txt_Material.Text;
+                            Habilitado();
+                            var msg = modificacion.ModificarMateriales(material);
+                            MessageBox.Show(msg);
+                            Limpiar();
 
+                        }
+                        else
+                        {
+                            MessageBox.Show("Material no encontrado.");
+                        }
+                    }
+                }
+
+                else if (btn_Guardar.Text == "Eliminar")
+                {
+                    if (!string.IsNullOrEmpty(txt_Codigo.Text))
+                    {
+                        DialogResult respuesta = MessageBox.Show("¿Estás seguro de eliminar este registro?", "Advertencia", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                        if (respuesta == DialogResult.OK)
+                        {
+                            int sw = 0;
+                            foreach (var item in servicioProducto.Consultar())
+                            {
+                                if (item.Material.Codigo == txt_Codigo.Text)
+                                {
+                                    MessageBox.Show("No se puede Eliminar un Material Asignado!");
+                                    sw = 1;
+                                    break;
+                                }
+                            }
+                            if (sw == 0)
+                            {
+                                string codigo = txt_Codigo.Text;
+                                var msg = modificacion.EliminarMateriales(codigo);
+                                MessageBox.Show(msg);
+                                Limpiar();
+                            }
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Material no encontrado.");
+                        MessageBox.Show("Por favor, ingrese un código válido antes de eliminar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                }
-            }
 
-            else if (btn_Guardar.Text == "Eliminar")
-            {
-                if (!string.IsNullOrEmpty(txt_Codigo.Text))
-                {
-                    DialogResult respuesta = MessageBox.Show("¿Estás seguro de eliminar este registro?", "Advertencia", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                    if (respuesta == DialogResult.OK)
-                    {
-                        int sw = 0;
-                        foreach (var item in servicioProducto.Consultar())
-                        {
-                            if (item.Material.Codigo == txt_Codigo.Text)
-                            {
-                                MessageBox.Show("No se puede Eliminar un Material Asignado!");
-                                sw = 1;
-                                break;
-                            }
-                        }
-                        if (sw == 0)
-                        {
-                            string codigo = txt_Codigo.Text;
-                            var msg = modificacion.EliminarMateriales(codigo);
-                            MessageBox.Show(msg);
-                            Limpiar();
-                        }
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Por favor, ingrese un código válido antes de eliminar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
 
@@ -191,6 +185,7 @@ namespace Presentacion
                 {
                     Limpiar();
                     Habilitado();
+                    label2.Visible = false;
                     btn_Guardar.Text = "Modificar";
                     txt_Codigo.Enabled = true;
                     txt_Codigo.Focus();
@@ -200,12 +195,15 @@ namespace Presentacion
 
         void Habilitado()
         {
+            label2.Visible = true;
             txt_Codigo.Enabled = true;
             txt_Material.Enabled = true;
             btn_Guardar.Enabled = true;
+           
         }
         void Deshabilitado()
         {
+            label2.Visible = false;
             txt_Codigo.Enabled = false;
             txt_Material.Enabled = false;
             btn_Guardar.Enabled = false;
@@ -215,8 +213,11 @@ namespace Presentacion
 
         void Limpiar()
         {
+            Deshabilitado();
             txt_Codigo.Text = string.Empty;
             txt_Material.Text = string.Empty;
+            cmb_Opcion.Text = string.Empty;
+            btn_Guardar.Text = "";
         }
 
         public bool consultar(string codigo)

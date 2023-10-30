@@ -43,13 +43,13 @@ namespace DATOS
                 string[] partes = lineas[i].Split(';');
                 if (partes.Length == 9 && partes[0] == usuario.Identificacion)
                 {
-                    // Actualiza la línea con los nuevos datos del usuario
+                    
                     lineas[i] = $"{usuario.Identificacion};{usuario.Nombre};{usuario.Apellido};{usuario.Direccion};" +
                         $"{usuario.Correo};{usuario.NumTelefono};{usuario.NombreUsuario};{usuario.Contraseña};{usuario.rol.IdRol}";
                 }
             }
 
-            // Vuelve a escribir todas las líneas en el archivo
+            
             File.WriteAllLines(fileName, lineas);
         }
 

@@ -22,14 +22,15 @@ namespace LOGICA
 
         public string Eliminar(Usuario usuario)
         {
+            servicioUsuario.RefrescarLista();
             var usuarioExistente = servicioUsuario.BuscarId(usuario.Identificacion);
 
             if (usuarioExistente != null)
             {
-                // Realiza la eliminación del usuario en el repositorio
+                
                 repositorio.EliminarUsuario(usuarioExistente);
 
-                servicioUsuario.RefrescarLista();
+               
                 return "Usuario eliminado exitosamente.";
             }
 

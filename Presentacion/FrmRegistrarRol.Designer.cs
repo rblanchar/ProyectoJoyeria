@@ -51,10 +51,10 @@
             this.btn_Guardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btn_Guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Guardar.ForeColor = System.Drawing.Color.White;
-            this.btn_Guardar.Location = new System.Drawing.Point(171, 222);
-            this.btn_Guardar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_Guardar.Location = new System.Drawing.Point(128, 180);
+            this.btn_Guardar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_Guardar.Name = "btn_Guardar";
-            this.btn_Guardar.Size = new System.Drawing.Size(123, 43);
+            this.btn_Guardar.Size = new System.Drawing.Size(92, 35);
             this.btn_Guardar.TabIndex = 3;
             this.btn_Guardar.UseVisualStyleBackColor = false;
             this.btn_Guardar.Click += new System.EventHandler(this.btn_Guardar_Click);
@@ -64,10 +64,10 @@
             this.btn_Cancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btn_Cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Cancelar.ForeColor = System.Drawing.Color.White;
-            this.btn_Cancelar.Location = new System.Drawing.Point(299, 222);
-            this.btn_Cancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_Cancelar.Location = new System.Drawing.Point(224, 180);
+            this.btn_Cancelar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_Cancelar.Name = "btn_Cancelar";
-            this.btn_Cancelar.Size = new System.Drawing.Size(123, 43);
+            this.btn_Cancelar.Size = new System.Drawing.Size(92, 35);
             this.btn_Cancelar.TabIndex = 14;
             this.btn_Cancelar.Text = "Cancelar";
             this.btn_Cancelar.UseVisualStyleBackColor = false;
@@ -78,10 +78,10 @@
             this.btn_Regresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btn_Regresar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Regresar.ForeColor = System.Drawing.Color.White;
-            this.btn_Regresar.Location = new System.Drawing.Point(427, 222);
-            this.btn_Regresar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_Regresar.Location = new System.Drawing.Point(320, 180);
+            this.btn_Regresar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_Regresar.Name = "btn_Regresar";
-            this.btn_Regresar.Size = new System.Drawing.Size(123, 43);
+            this.btn_Regresar.Size = new System.Drawing.Size(92, 35);
             this.btn_Regresar.TabIndex = 15;
             this.btn_Regresar.Text = "Regresar";
             this.btn_Regresar.UseVisualStyleBackColor = false;
@@ -90,10 +90,10 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(1, 199);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(1, 162);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(125, 66);
+            this.pictureBox1.Size = new System.Drawing.Size(94, 54);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 31;
             this.pictureBox1.TabStop = false;
@@ -106,7 +106,8 @@
             this.label13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 4.9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(346, 166);
+            this.label13.Location = new System.Drawing.Point(260, 135);
+            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(199, 6);
             this.label13.TabIndex = 41;
@@ -121,7 +122,8 @@
             this.label12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 4.9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(121, 166);
+            this.label12.Location = new System.Drawing.Point(91, 135);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(103, 6);
             this.label12.TabIndex = 40;
@@ -133,10 +135,10 @@
             this.txt_NombreRol.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_NombreRol.Enabled = false;
             this.txt_NombreRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_NombreRol.Location = new System.Drawing.Point(353, 147);
-            this.txt_NombreRol.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_NombreRol.Location = new System.Drawing.Point(265, 119);
+            this.txt_NombreRol.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txt_NombreRol.Name = "txt_NombreRol";
-            this.txt_NombreRol.Size = new System.Drawing.Size(189, 17);
+            this.txt_NombreRol.Size = new System.Drawing.Size(142, 14);
             this.txt_NombreRol.TabIndex = 2;
             this.txt_NombreRol.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_NombreRol_KeyPress);
             // 
@@ -145,10 +147,10 @@
             this.txt_IdRol.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_IdRol.Enabled = false;
             this.txt_IdRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_IdRol.Location = new System.Drawing.Point(125, 147);
-            this.txt_IdRol.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_IdRol.Location = new System.Drawing.Point(94, 119);
+            this.txt_IdRol.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txt_IdRol.Name = "txt_IdRol";
-            this.txt_IdRol.Size = new System.Drawing.Size(100, 17);
+            this.txt_IdRol.Size = new System.Drawing.Size(75, 14);
             this.txt_IdRol.TabIndex = 1;
             this.txt_IdRol.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_IdRol_KeyDown);
             this.txt_IdRol.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_IdRol_KeyPress);
@@ -157,9 +159,10 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(255, 147);
+            this.label6.Location = new System.Drawing.Point(191, 119);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(68, 18);
+            this.label6.Size = new System.Drawing.Size(58, 15);
             this.label6.TabIndex = 38;
             this.label6.Text = "Nombre";
             // 
@@ -167,9 +170,10 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(38, 147);
+            this.label4.Location = new System.Drawing.Point(28, 119);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 18);
+            this.label4.Size = new System.Drawing.Size(51, 15);
             this.label4.TabIndex = 37;
             this.label4.Text = "Id Tipo";
             // 
@@ -178,9 +182,10 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(137, 18);
+            this.label1.Location = new System.Drawing.Point(103, 15);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(304, 25);
+            this.label1.Size = new System.Drawing.Size(250, 20);
             this.label1.TabIndex = 42;
             this.label1.Text = "GESTION TIPO DE USUARIO";
             // 
@@ -189,9 +194,10 @@
             this.lb10.AutoSize = true;
             this.lb10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb10.ForeColor = System.Drawing.Color.Red;
-            this.lb10.Location = new System.Drawing.Point(330, 147);
+            this.lb10.Location = new System.Drawing.Point(248, 119);
+            this.lb10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lb10.Name = "lb10";
-            this.lb10.Size = new System.Drawing.Size(15, 18);
+            this.lb10.Size = new System.Drawing.Size(13, 15);
             this.lb10.TabIndex = 38;
             this.lb10.Text = "*";
             this.lb10.Visible = false;
@@ -204,10 +210,9 @@
             "CONSULTAR",
             "ELIMINAR",
             "MODIFICAR"});
-            this.cmb_Opcion.Location = new System.Drawing.Point(122, 84);
-            this.cmb_Opcion.Margin = new System.Windows.Forms.Padding(4);
+            this.cmb_Opcion.Location = new System.Drawing.Point(92, 68);
             this.cmb_Opcion.Name = "cmb_Opcion";
-            this.cmb_Opcion.Size = new System.Drawing.Size(135, 24);
+            this.cmb_Opcion.Size = new System.Drawing.Size(102, 21);
             this.cmb_Opcion.TabIndex = 0;
             this.cmb_Opcion.SelectedIndexChanged += new System.EventHandler(this.cmb_Opcion_SelectedIndexChanged);
             // 
@@ -215,18 +220,19 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(38, 91);
+            this.label3.Location = new System.Drawing.Point(28, 74);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 18);
+            this.label3.Size = new System.Drawing.Size(52, 15);
             this.label3.TabIndex = 44;
             this.label3.Text = "Opcion";
             // 
             // FrmRegistrarRol
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(578, 279);
+            this.ClientSize = new System.Drawing.Size(434, 227);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cmb_Opcion);
             this.Controls.Add(this.label1);
@@ -243,7 +249,7 @@
             this.Controls.Add(this.btn_Regresar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FrmRegistrarRol";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmRegistrarRol";

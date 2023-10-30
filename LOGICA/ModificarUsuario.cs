@@ -22,11 +22,12 @@ namespace LOGICA
 
         public string Modificar(Usuario usuario)
         {
+            servicioUsuario.RefrescarLista();
             var usuarioExistente = servicioUsuario.BuscarId(usuario.Identificacion);
 
             if (usuarioExistente != null)
             {
-                // Realiza las modificaciones necesarias en el usuario existente
+               
                 usuarioExistente.Nombre = usuario.Nombre;
                 usuarioExistente.Apellido = usuario.Apellido;
                 usuarioExistente.Direccion = usuario.Direccion;
@@ -36,10 +37,10 @@ namespace LOGICA
                 usuarioExistente.Contraseña = usuario.Contraseña;
                 usuarioExistente.rol = usuario.rol;
 
-                // Actualiza el usuario modificado en el repositorio
+                
                 repositorioUsuario.ActualizarUsuario(usuarioExistente);
 
-                servicioUsuario.RefrescarLista();
+                
                 return "Usuario modificado exitosamente.";
             }
 

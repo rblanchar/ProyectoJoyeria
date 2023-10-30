@@ -32,16 +32,10 @@ namespace Presentacion
 
         private void btn_Cancelar_Click(object sender, EventArgs e)
         {
-            cancelar();
+            Limpiar();
         }
 
-        void cancelar()
-        {
-            Limpiar();
-            cmb_Opcion.Enabled = true;
-            cmb_Opcion.Text = string.Empty;
-            cmb_Opcion.Focus();
-        }
+     
 
         private void FrmRegistrarCategoria_Load(object sender, EventArgs e)
         {
@@ -50,86 +44,89 @@ namespace Presentacion
 
         private void btn_Guardar_Click(object sender, EventArgs e)
         {
-            if (btn_Guardar.Text == "Registrar")
+            if (string.IsNullOrWhiteSpace(txt_Nombre.Text))
             {
-                if (string.IsNullOrWhiteSpace(txt_Nombre.Text))
-                {
-                    MessageBox.Show("Por favor, completa todos los campos antes de guardar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txt_Nombre.Focus();
-                }
-                else
+                MessageBox.Show("Por favor, completa todos los campos antes de guardar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txt_Nombre.Focus();
+            }
+            else 
+            {
+
+                if (btn_Guardar.Text == "Registrar")
                 {
                     string Codigo = txt_Codigo.Text;
 
                     if (servicioCategoriaProducto.BuscarCodigo(Codigo) == null)
                     {
                         Guardar(new CategoriaProducto(txt_Codigo.Text, txt_Nombre.Text));
-                        cancelar();
+                        Limpiar();
                         FrmRegistrarCategoria_Load(this, EventArgs.Empty);
                     }
                     else
                     {
                         MessageBox.Show("Este Codigo ya existe!");
-                        cancelar();
+                        Limpiar();
                         txt_Codigo.Enabled = false;
                     }
                 }
-            }
-            else if (btn_Guardar.Text == "Modificar")
-            {
-                CategoriaProducto categoriaproducto = new CategoriaProducto();
-                DialogResult respuesta = MessageBox.Show("¿Estás seguro de Modificar este registro?", "Advertencia", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                if (respuesta == DialogResult.OK)
+
+                else if (btn_Guardar.Text == "Modificar")
                 {
-                    string codigo = txt_Codigo.Text;
-                    categoriaproducto = servicioCategoriaProducto.BuscarCodigo(codigo);
-                    if (categoriaproducto != null)
-                    {
-                        categoriaproducto.NomCategoria = txt_Nombre.Text;
-                        Habilitado();
-                        var msg = modificar.ModificarCategoriaProducto(categoriaproducto);
-                        MessageBox.Show(msg);
-                        Limpiar();
-                        Cargar();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Categoría de producto no encontrada.");
-                    }
-                }
-            }
-            else if (btn_Guardar.Text == "Eliminar")
-            {
-                if (!string.IsNullOrEmpty(txt_Codigo.Text))
-                {
-                    DialogResult respuesta = MessageBox.Show("¿Estás seguro de eliminar este registro?", "Advertencia", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    CategoriaProducto categoriaproducto = new CategoriaProducto();
+                    DialogResult respuesta = MessageBox.Show("¿Estás seguro de Modificar este registro?", "Advertencia", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                     if (respuesta == DialogResult.OK)
                     {
-                        int sw = 0;
-                        foreach (var item in servicioProducto.Consultar())
+                        string codigo = txt_Codigo.Text;
+                        categoriaproducto = servicioCategoriaProducto.BuscarCodigo(codigo);
+                        if (categoriaproducto != null)
                         {
-                            if (item.CategoriaProducto.Codigo == txt_Codigo.Text)
-                            {
-                                MessageBox.Show("No se puede Eliminar una Categoria Asignada!");
-                                sw = 1;
-                                break;
-                            }
-                        }
-                        if (sw == 0)
-                        {
-                            string codigo = txt_Codigo.Text;
-                            var msg = modificar.EliminarCategoriaProducto(codigo);
+                            categoriaproducto.NomCategoria = txt_Nombre.Text;
+                            Habilitado();
+                            var msg = modificar.ModificarCategoriaProducto(categoriaproducto);
                             MessageBox.Show(msg);
                             Limpiar();
                             Cargar();
                         }
+                        else
+                        {
+                            MessageBox.Show("Categoría de producto no encontrada.");
+                        }
                     }
                 }
-                else
+                else if (btn_Guardar.Text == "Eliminar")
                 {
-                    MessageBox.Show("Por favor, ingrese un código válido antes de eliminar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (!string.IsNullOrEmpty(txt_Codigo.Text))
+                    {
+                        DialogResult respuesta = MessageBox.Show("¿Estás seguro de eliminar este registro?", "Advertencia", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                        if (respuesta == DialogResult.OK)
+                        {
+                            int sw = 0;
+                            foreach (var item in servicioProducto.Consultar())
+                            {
+                                if (item.CategoriaProducto.Codigo == txt_Codigo.Text)
+                                {
+                                    MessageBox.Show("No se puede Eliminar una Categoria Asignada!");
+                                    sw = 1;
+                                    break;
+                                }
+                            }
+                            if (sw == 0)
+                            {
+                                string codigo = txt_Codigo.Text;
+                                var msg = modificar.EliminarCategoriaProducto(codigo);
+                                MessageBox.Show(msg);
+                                Limpiar();
+                                Cargar();
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Por favor, ingrese un código válido antes de eliminar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
+
         }
 
         void Guardar(CategoriaProducto categoriaProducto)
@@ -185,6 +182,7 @@ namespace Presentacion
                 {
                     Limpiar();
                     Habilitado();
+                    label2.Visible = false;
                     btn_Guardar.Text = "Modificar";
                     txt_Codigo.Enabled = true;
                     txt_Codigo.Focus();
@@ -192,7 +190,7 @@ namespace Presentacion
             }
         }
 
-        void Cargar()
+        public string Cargar()
         {
             string filename = "Categoria.txt";
             if (File.Exists(filename))
@@ -204,15 +202,19 @@ namespace Presentacion
             {
                 txt_Codigo.Text = "501";
             }
+            return null;
+           
         }
         void Habilitado()
         {
+            label2.Visible = true;
             txt_Codigo.Enabled = true;
             txt_Nombre.Enabled = true;
             btn_Guardar.Enabled = true;
         }
         void Deshabilitado()
         {
+            label2.Visible = false;
             txt_Codigo.Enabled = false;
             txt_Nombre.Enabled = false;
             btn_Guardar.Enabled = false;
@@ -222,8 +224,11 @@ namespace Presentacion
 
         void Limpiar()
         {
+            Deshabilitado();
             txt_Codigo.Text = string.Empty;
             txt_Nombre.Text = string.Empty;
+            cmb_Opcion.Text = string.Empty;
+            btn_Guardar.Text = "";
         }
 
         private void txt_Codigo_KeyDown(object sender, KeyEventArgs e)

@@ -34,11 +34,11 @@ namespace LOGICA
             return productos;
         }
 
-        public Producto BuscarProducto(string id)
+        public Producto BuscarProducto(string codigo)
         {
             foreach (var item in productos)
             {
-                if (item.Codigo == id)
+                if (item.Codigo == codigo)
                 {
                     return item;
                 }

@@ -18,7 +18,10 @@ namespace Presentacion
         ServicioCategoriaProducto categoriaProducto= new ServicioCategoriaProducto();
         ServicioMaterial servicioMaterial= new ServicioMaterial();
         ServicioProducto servicioProducto= new ServicioProducto();
+        EliminarProducto eliminarProducto = new EliminarProducto();
+        ModificarProducto modificarProducto = new ModificarProducto();
 
+        private bool productoModificado = false;
         public FrmGestionProducto()
         {
             InitializeComponent();
@@ -30,6 +33,7 @@ namespace Presentacion
             new FrmMenuProducto().Show();
         }
 
+        
         private void FrmGestionProducto_Load(object sender, EventArgs e)
         {
             CargarCategorias();
@@ -48,7 +52,9 @@ namespace Presentacion
         
         private void cmb_Opcion_SelectedIndexChanged(object sender, EventArgs e)
         {
+                      
             string Opcion = cmb_Opcion.SelectedItem.ToString();
+            productoModificado = false;
             if (Opcion=="REGISTRAR")
             {
                 
@@ -65,13 +71,13 @@ namespace Presentacion
             }
             else if (Opcion == "MODIFICAR")
             {
-                
-                DesHabilitarCampos();
+                HabilitarCampos();
                 limpiar();
                 btn_Guardar.Text = "Modificar";
                 txt_Codigo.Enabled = true;
                 txt_Codigo.Focus();
             }
+
             else if (Opcion =="ELIMINAR")
             {
                 
@@ -111,10 +117,113 @@ namespace Presentacion
 
                     Guardar(producto);
                     limpiar();
+                    Activar_cmb_Opcion();
                 }
-
-               
+                
             }
+            if (btn_Guardar.Text == "Modificar")
+            {
+                DialogResult respuesta = MessageBox.Show("¿Estas seguro de Modificar este registro?", "Advertencia", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                if (respuesta == DialogResult.OK)
+                {
+                    Producto producto = new Producto();
+                    producto.Codigo = txt_Codigo.Text;
+                    producto.Descripcion = txt_Descripcion.Text;
+                    producto.CategoriaProducto = categoriaProducto.BuscarCodigo(cmb_Categoria.SelectedValue.ToString());
+                    producto.Material = servicioMaterial.BuscarCodigo(cmb_Material.SelectedValue.ToString());
+                    producto.PrecioCosto = double.Parse(txt_PrecioCosto.Text);
+                    producto.Peso = decimal.Parse(txt_Peso.Text);
+                    producto.MargenGanancia = double.Parse(txt_Margen.Text);
+                    producto.Cantidad = int.Parse(txt_Cantidad.Text);
+
+                    var msg = modificarProducto.Modificar(producto);
+                    servicioProducto.RefrescarLista();
+                    MessageBox.Show(msg);
+                    limpiar();
+                    Activar_cmb_Opcion();
+                }
+            }
+            else if (btn_Guardar.Text == "Eliminar")
+            {
+                DialogResult respuesta = MessageBox.Show("¿Estas seguro de Eliminar este registro?", "Advertencia", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                if (respuesta == DialogResult.OK)
+                {
+
+                    var codigo = txt_Codigo.Text;
+                    Producto producto = servicioProducto.BuscarProducto(codigo);
+
+                    if (producto != null)
+                    {
+
+                        txt_Codigo.Text = producto.Codigo;
+                        txt_Descripcion.Text = producto.Descripcion;
+                        cmb_Categoria.SelectedValue = producto.CategoriaProducto.Codigo.ToString();
+                        cmb_Material.SelectedValue = producto.Material.Codigo.ToString();
+                        txt_PrecioCosto.Text = Convert.ToDouble(producto.PrecioCosto).ToString();
+                        txt_Peso.Text = Convert.ToDecimal(producto.Peso).ToString();
+                        txt_Margen.Text = Convert.ToDouble(producto.MargenGanancia).ToString();
+                        txt_Cantidad.Text = Convert.ToInt32(producto.Cantidad).ToString();
+                        
+                        
+                        var msg = eliminarProducto.Eliminar(producto);
+                        MessageBox.Show(msg);
+                        limpiar();
+                        Activar_cmb_Opcion();
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Usuario no encontrado.");
+                    }
+                }
+            }
+
+        }
+        public bool consultar(string codigo)
+        {
+           
+            Producto producto = servicioProducto.BuscarProducto(codigo);
+
+            if (producto != null)
+            {
+                txt_Codigo.Text = producto.Codigo;
+                txt_Descripcion.Text = producto.Descripcion;
+                txt_PrecioCosto.Text = producto.PrecioCosto.ToString();
+                txt_Peso.Text = producto.Peso.ToString();
+                txt_Margen.Text = producto.MargenGanancia.ToString();
+                txt_Cantidad.Text = producto.Cantidad.ToString();
+
+                cmb_Categoria.SelectedValue = producto.CategoriaProducto.Codigo.ToString();
+                cmb_Material.SelectedValue = producto.Material.Codigo.ToString();
+
+                foreach (var item in servicioProducto.productos)
+                {
+                    
+                    if (item.CategoriaProducto == producto.CategoriaProducto && item.Material == producto.Material)
+                    {
+                        cmb_Categoria.Text = item.CategoriaProducto.NomCategoria.ToString();
+                        cmb_Material.Text = item.Material.NombreMaterial.ToString();
+                        return true;
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Producto no encontrado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return false;
+        }
+
+
+
+        void Activar_cmb_Opcion()
+        {
+            cmb_Opcion.Text = string.Empty;
+            cmb_Opcion.Enabled = true;
+            cmb_Opcion.Focus();
         }
 
         private void btn_Cancelar_Click(object sender, EventArgs e)
@@ -160,7 +269,7 @@ namespace Presentacion
 
         void HabilitarCampos()
         {
-            limpiar();
+            
             txt_Codigo.Enabled = true;
             cmb_Categoria.Enabled = true;
             cmb_Material.Enabled = true;
@@ -260,6 +369,58 @@ namespace Presentacion
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
             {
                 e.Handled = true;
+            }
+        }
+
+        private void txt_Codigo_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyCode == Keys.Tab)
+            {
+                KeyEventArgs keyEventArgs = new KeyEventArgs(Keys.Tab);
+                this.txt_Codigo_KeyDown(this, keyEventArgs);
+            }
+        }
+
+        private void txt_Codigo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
+            {
+                string id = txt_Codigo.Text;
+
+                if (consultar(id) != false)
+                {
+                    if (cmb_Opcion.SelectedItem != null)
+                    {
+                        string Opcion = cmb_Opcion.SelectedItem.ToString();
+
+                        if (Opcion == "REGISTRAR")
+                        {
+                            MessageBox.Show("Este producto se encuentra registrado en la Base de Datos!");
+                            limpiar();
+                            cmb_Opcion.Text = string.Empty;
+                            cmb_Opcion.Enabled = true;
+                            cmb_Opcion.Focus();
+                        }
+
+                        else if (Opcion == "MODIFICAR")
+                        {
+                            HabilitarCampos();
+                            btn_Guardar.Text = "Modificar";
+                            btn_Guardar.Enabled = true;
+                            txt_Codigo.Enabled = false;
+                            cmb_Opcion.Enabled = false;
+                        }
+                        else if (Opcion == "ELIMINAR")
+                        {
+                            DesHabilitarCampos();
+                            btn_Guardar.Text = "Eliminar";
+                            btn_Guardar.Enabled = true;
+                            txt_Codigo.Focus();
+                            cmb_Opcion.Enabled = false;
+                        }
+                    }
+
+                }
             }
         }
     }
