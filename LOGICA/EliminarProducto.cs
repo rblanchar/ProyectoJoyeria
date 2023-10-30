@@ -27,10 +27,7 @@ namespace LOGICA
 
             if (productoExistente != null)
             {
-
                 repositorioProducto.EliminarProducto(productoExistente);
-
-
                 return "Producto eliminado exitosamente.";
             }
 

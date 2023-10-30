@@ -345,11 +345,6 @@ namespace Presentacion
             {
                 e.Handled = true;
             }
-
-            if (e.KeyChar == '.' && txt_Peso.Text.Contains("."))
-            {
-                e.Handled = true;
-            }
         }
 
         private void txt_Cantidad_KeyPress(object sender, KeyPressEventArgs e)

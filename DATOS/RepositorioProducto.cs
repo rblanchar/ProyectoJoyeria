@@ -52,7 +52,6 @@ namespace DATOS
 
         public void EliminarProducto(Producto producto)
         {
-
             var lineas = File.ReadAllLines(fileName);
             var nuevasLineas = new List<string>();
             foreach (var linea in lineas)
@@ -66,6 +65,7 @@ namespace DATOS
 
             File.WriteAllLines(fileName, nuevasLineas);
         }
+
 
         private Producto Mapear(string datos)
         {
