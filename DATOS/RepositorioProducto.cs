@@ -41,10 +41,11 @@ namespace DATOS
             for (int i = 0; i < lineas.Length; i++)
             {
                 string[] partes = lineas[i].Split(';');
-                if (partes.Length == 8 && partes[0] == producto.Codigo)
+                if (partes[0] == producto.Codigo)
                 {
                     lineas[i] = $"{producto.Codigo};{producto.Descripcion};{producto.CategoriaProducto.Codigo};{producto.Material.Codigo};{producto.PrecioCosto};" +
                         $"{producto.Peso};{producto.MargenGanancia};{producto.Cantidad};";
+                    break;
                 }
             }
             File.WriteAllLines(fileName, lineas);

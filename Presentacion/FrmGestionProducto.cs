@@ -22,7 +22,7 @@ namespace Presentacion
         EliminarProducto eliminarProducto = new EliminarProducto();
         ModificarProducto modificarProducto = new ModificarProducto();
 
-        private bool productoModificado = false;
+        //private bool productoModificado = false;
         public FrmGestionProducto()
         {
             InitializeComponent();
@@ -38,6 +38,7 @@ namespace Presentacion
         private void FrmGestionProducto_Load(object sender, EventArgs e)
         {
             CargarCategorias();
+
         }
         void CargarCategorias()
         {
@@ -55,7 +56,7 @@ namespace Presentacion
         {
                       
             string Opcion = cmb_Opcion.SelectedItem.ToString();
-            productoModificado = false;
+            //productoModificado = false;
             if (Opcion=="REGISTRAR")
             {
                 
@@ -65,8 +66,8 @@ namespace Presentacion
             }
             else if(Opcion == "CONSULTAR")
             {
-                DesHabilitarCampos();
                 limpiar();
+                DesHabilitarCampos();
                 txt_Codigo.Enabled = true;
                 txt_Codigo.Focus();
             }
@@ -119,7 +120,6 @@ namespace Presentacion
 
                     Guardar(producto);
                     limpiar();
-                    Activar_cmb_Opcion();
                 }
                 
             }
@@ -143,7 +143,6 @@ namespace Presentacion
                     servicioProducto.RefrescarLista();
                     MessageBox.Show(msg);
                     limpiar();
-                    Activar_cmb_Opcion();
                 }
             }
             else if (btn_Guardar.Text == "Eliminar")
@@ -172,7 +171,6 @@ namespace Presentacion
                         var msg = eliminarProducto.Eliminar(producto);
                         MessageBox.Show(msg);
                         limpiar();
-                        Activar_cmb_Opcion();
 
                     }
                     else
@@ -187,29 +185,19 @@ namespace Presentacion
         {
            
             Producto producto = servicioProducto.BuscarProducto(codigo);
-
+            //servicioProducto.RefrescarLista();
             if (producto != null)
             {
                 txt_Codigo.Text = producto.Codigo;
                 txt_Descripcion.Text = producto.Descripcion;
-                txt_PrecioCosto.Text = producto.PrecioCosto.ToString();
+                txt_PrecioCosto.Text = producto.PrecioCosto.ToString("###,###,###");
                 txt_Peso.Text = producto.Peso.ToString();
                 txt_Margen.Text = producto.MargenGanancia.ToString();
                 txt_Cantidad.Text = producto.Cantidad.ToString();
 
-                cmb_Categoria.SelectedValue = producto.CategoriaProducto.Codigo.ToString();
-                cmb_Material.SelectedValue = producto.Material.Codigo.ToString();
-
-                foreach (var item in servicioProducto.productos)
-                {
-                    
-                    if (item.CategoriaProducto == producto.CategoriaProducto && item.Material == producto.Material)
-                    {
-                        cmb_Categoria.Text = item.CategoriaProducto.NomCategoria.ToString();
-                        cmb_Material.Text = item.Material.NombreMaterial.ToString();
-                        return true;
-                    }
-                }
+                cmb_Categoria.Text = producto.CategoriaProducto.NomCategoria.ToString();
+                cmb_Material.Text = producto.Material.NombreMaterial.ToString();
+                return true;
             }
             else
             {
@@ -219,19 +207,9 @@ namespace Presentacion
             return false;
         }
 
-
-
-        void Activar_cmb_Opcion()
-        {
-            cmb_Opcion.Text = string.Empty;
-            cmb_Opcion.Enabled = true;
-            cmb_Opcion.Focus();
-        }
-
         private void btn_Cancelar_Click(object sender, EventArgs e)
         {
             limpiar();
-            Activar_cmb_Opcion();
         }
 
         void limpiar()
@@ -255,6 +233,7 @@ namespace Presentacion
             lb26.Visible = false;
             lb27.Visible = false;
             DesHabilitarCampos();
+            cmb_Opcion.Enabled = true;
             cmb_Opcion.Focus();
         }
 
@@ -297,20 +276,23 @@ namespace Presentacion
         }
         private void cmb_Material_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmb_Material.Text=="NO APLICA")
-            {
-                txt_Peso.Enabled = false;
-                lb24.Visible = false;
-                txt_Peso.Text = "0";
-                txt_Codigo.Focus();
-            }
-            else
-            {   
-                txt_Peso.Enabled = true;
-                lb24.Visible = true;
-                txt_Peso.Text = string.Empty;
-                txt_Codigo.Focus();
-            }  
+            if (cmb_Opcion.Text == "REGISTRAR")
+            { 
+                if (cmb_Material.Text == "NO APLICA")
+                {
+                    txt_Peso.Enabled = false;
+                    lb24.Visible = false;
+                    txt_Peso.Text = "0";
+                    txt_Codigo.Focus();
+                }
+                else
+                {
+                    txt_Peso.Enabled = true;
+                    lb24.Visible = true;
+                    txt_Peso.Text = string.Empty;
+                    txt_Codigo.Focus();
+                }
+            }   
         }
 
         public void Guardar(Producto producto)

@@ -62,11 +62,11 @@ namespace DATOS
 
                 File.WriteAllLines(fileName, nuevasLineas);
 
-                Console.WriteLine("Rol eliminado del archivo correctamente.");
+                Console.WriteLine("Usuario eliminado del archivo correctamente.");
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error al eliminar el Rol del archivo: " + ex.Message);
+                Console.WriteLine("Error al eliminar el Usuario del archivo: " + ex.Message);
             }
         }
     }

@@ -25,3 +25,12 @@ D:\Ingenieria de Sistemas\Semestre lV\C#\GitJoyeria\DATOS\bin\Debug\DATOS.pdb
 D:\Ingenieria de Sistemas\Semestre lV\C#\GitJoyeria\DATOS\bin\Debug\ENTIDAD.dll
 D:\Ingenieria de Sistemas\Semestre lV\C#\GitJoyeria\DATOS\bin\Debug\ENTIDAD.pdb
 D:\Ingenieria de Sistemas\Semestre lV\C#\GitJoyeria\DATOS\obj\Debug\DATOS.csproj.CopyComplete
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git2Joyeria\DATOS\bin\Debug\DATOS.dll
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git2Joyeria\DATOS\bin\Debug\DATOS.pdb
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git2Joyeria\DATOS\bin\Debug\ENTIDAD.dll
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git2Joyeria\DATOS\bin\Debug\ENTIDAD.pdb
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git2Joyeria\DATOS\obj\Debug\DATOS.csproj.AssemblyReference.cache
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git2Joyeria\DATOS\obj\Debug\DATOS.csproj.CoreCompileInputs.cache
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git2Joyeria\DATOS\obj\Debug\DATOS.csproj.CopyComplete
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git2Joyeria\DATOS\obj\Debug\DATOS.dll
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git2Joyeria\DATOS\obj\Debug\DATOS.pdb

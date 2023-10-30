@@ -52,12 +52,12 @@ namespace DATOS
         private CategoriaProducto Mapear(string datos)
         {
             var linea = datos.Split(';');
-            CategoriaProducto rol = new CategoriaProducto
+            CategoriaProducto categoria = new CategoriaProducto
             {
                 Codigo = linea[0],
                 NomCategoria = linea[1]
             };
-            return rol;
+            return categoria;
         }
 
     }
