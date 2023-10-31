@@ -531,7 +531,8 @@
             this.txt_Peso.Location = new System.Drawing.Point(551, 180);
             this.txt_Peso.Name = "txt_Peso";
             this.txt_Peso.Size = new System.Drawing.Size(61, 22);
-            this.txt_Peso.TabIndex = 118;
+            this.txt_Peso.TabIndex = 5;
+            this.txt_Peso.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Peso_KeyPress_1);
             // 
             // FrmGestionProducto
             // 

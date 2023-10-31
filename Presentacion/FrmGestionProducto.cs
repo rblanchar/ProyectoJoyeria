@@ -22,7 +22,6 @@ namespace Presentacion
         EliminarProducto eliminarProducto = new EliminarProducto();
         ModificarProducto modificarProducto = new ModificarProducto();
 
-        //private bool productoModificado = false;
         public FrmGestionProducto()
         {
             InitializeComponent();
@@ -38,6 +37,7 @@ namespace Presentacion
         private void FrmGestionProducto_Load(object sender, EventArgs e)
         {
             CargarCategorias();
+            limpiar();
 
         }
         void CargarCategorias()
@@ -56,7 +56,7 @@ namespace Presentacion
         {
                       
             string Opcion = cmb_Opcion.SelectedItem.ToString();
-            //productoModificado = false;
+
             if (Opcion=="REGISTRAR")
             {
                 
@@ -185,7 +185,7 @@ namespace Presentacion
         {
            
             Producto producto = servicioProducto.BuscarProducto(codigo);
-            //servicioProducto.RefrescarLista();
+
             if (producto != null)
             {
                 txt_Codigo.Text = producto.Codigo;
@@ -201,7 +201,11 @@ namespace Presentacion
             }
             else
             {
-                MessageBox.Show("Producto no encontrado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (cmb_Opcion.Text != "REGISTRAR")
+                {
+                    MessageBox.Show("Producto no encontrado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                
             }
 
             return false;
@@ -382,7 +386,7 @@ namespace Presentacion
                         {
                             MessageBox.Show("Este producto se encuentra registrado en la Base de Datos!");
                             limpiar();
-                            HabilitarCampos();
+                            DesHabilitarCampos();
                             cmb_Opcion.Text = string.Empty;
                             cmb_Opcion.Enabled = true;
                             cmb_Opcion.Focus();
@@ -407,6 +411,14 @@ namespace Presentacion
                     }
 
                 }
+            }
+        }
+
+        private void txt_Peso_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }

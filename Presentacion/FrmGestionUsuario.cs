@@ -76,6 +76,7 @@ namespace Presentacion
         private void FrmGestionUsuario_Load(object sender, EventArgs e)
         {
             CargarRoles();
+            limpiar();
         }
 
         private void txt_id_KeyPress(object sender, KeyPressEventArgs e)

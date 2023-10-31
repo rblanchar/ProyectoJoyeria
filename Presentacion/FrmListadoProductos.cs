@@ -28,19 +28,21 @@ namespace Presentacion
 
         private void txt_Nombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsLetter(e.KeyChar) && e.KeyChar != ' ' && e.KeyChar != (char)Keys.Back)
-            {
-                e.Handled = true;
-            }
             if (char.IsLower(e.KeyChar))
             {
                 e.KeyChar = char.ToUpper(e.KeyChar);
+            }
+
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && !char.IsLetter(e.KeyChar) && e.KeyChar != ' ' && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
             }
         }
 
         private void FrmListadoProductos_Load(object sender, EventArgs e)
         {
             CargarGrilla(servicioProducto.Consultar());
+            Grilla_Productos.Sort(Grilla_Productos.Columns["CATEGORIA"], ListSortDirection.Ascending);
         }
 
         void CargarGrilla(List<Producto> lista)

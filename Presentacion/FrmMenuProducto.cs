@@ -58,5 +58,11 @@ namespace Presentacion
             this.Close();
             new FrmListadoProductos().Show();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            new FrmListadoResumidoProductos().Show();
+        }
     }
 }

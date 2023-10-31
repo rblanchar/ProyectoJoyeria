@@ -267,7 +267,7 @@
             this.txt_contraseña.Name = "txt_contraseña";
             this.txt_contraseña.PasswordChar = '*';
             this.txt_contraseña.Size = new System.Drawing.Size(140, 17);
-            this.txt_contraseña.TabIndex = 49;
+            this.txt_contraseña.TabIndex = 9;
             // 
             // txt_usuario
             // 
@@ -278,7 +278,7 @@
             this.txt_usuario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_usuario.Name = "txt_usuario";
             this.txt_usuario.Size = new System.Drawing.Size(177, 17);
-            this.txt_usuario.TabIndex = 47;
+            this.txt_usuario.TabIndex = 8;
             // 
             // txt_telefono
             // 
@@ -289,7 +289,7 @@
             this.txt_telefono.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_telefono.Name = "txt_telefono";
             this.txt_telefono.Size = new System.Drawing.Size(143, 17);
-            this.txt_telefono.TabIndex = 46;
+            this.txt_telefono.TabIndex = 7;
             this.txt_telefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_telefono_KeyPress);
             // 
             // txt_correo
@@ -301,7 +301,7 @@
             this.txt_correo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_correo.Name = "txt_correo";
             this.txt_correo.Size = new System.Drawing.Size(207, 17);
-            this.txt_correo.TabIndex = 45;
+            this.txt_correo.TabIndex = 6;
             this.txt_correo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_correo_KeyPress);
             // 
             // txt_direccion
@@ -313,7 +313,7 @@
             this.txt_direccion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_direccion.Name = "txt_direccion";
             this.txt_direccion.Size = new System.Drawing.Size(261, 17);
-            this.txt_direccion.TabIndex = 44;
+            this.txt_direccion.TabIndex = 5;
             this.txt_direccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_direccion_KeyPress);
             // 
             // txt_apellidos
@@ -325,7 +325,7 @@
             this.txt_apellidos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_apellidos.Name = "txt_apellidos";
             this.txt_apellidos.Size = new System.Drawing.Size(207, 17);
-            this.txt_apellidos.TabIndex = 43;
+            this.txt_apellidos.TabIndex = 4;
             this.txt_apellidos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_apellidos_KeyPress);
             // 
             // txt_nombre
@@ -337,7 +337,7 @@
             this.txt_nombre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_nombre.Name = "txt_nombre";
             this.txt_nombre.Size = new System.Drawing.Size(261, 17);
-            this.txt_nombre.TabIndex = 42;
+            this.txt_nombre.TabIndex = 3;
             this.txt_nombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_nombre_KeyPress);
             // 
             // txt_id
@@ -349,7 +349,7 @@
             this.txt_id.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_id.Name = "txt_id";
             this.txt_id.Size = new System.Drawing.Size(169, 17);
-            this.txt_id.TabIndex = 41;
+            this.txt_id.TabIndex = 2;
             this.txt_id.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_id_KeyDown);
             this.txt_id.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_id_KeyPress);
             this.txt_id.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.txt_id_PreviewKeyDown);
@@ -363,7 +363,7 @@
             this.cmb_tipo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmb_tipo.Name = "cmb_tipo";
             this.cmb_tipo.Size = new System.Drawing.Size(221, 26);
-            this.cmb_tipo.TabIndex = 40;
+            this.cmb_tipo.TabIndex = 1;
             this.cmb_tipo.SelectedIndexChanged += new System.EventHandler(this.cmb_tipo_SelectedIndexChanged);
             // 
             // label10

@@ -127,3 +127,4 @@ D:\Ingenieria de Sistemas\Semestre lV\C#\Git2Joyeria\Presentacion\obj\Debug\Pres
 D:\Ingenieria de Sistemas\Semestre lV\C#\Git2Joyeria\Presentacion\obj\Debug\Presentacion.csproj.CopyComplete
 D:\Ingenieria de Sistemas\Semestre lV\C#\Git2Joyeria\Presentacion\obj\Debug\Presentacion.exe
 D:\Ingenieria de Sistemas\Semestre lV\C#\Git2Joyeria\Presentacion\obj\Debug\Presentacion.pdb
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git2Joyeria\Presentacion\obj\Debug\Presentacion.FrmListadoResumidoProductos.resources

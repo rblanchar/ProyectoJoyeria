@@ -31,7 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Grilla_Productos = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CATEGORIA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,16 +53,16 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(573, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(335, 20);
+            this.label1.Size = new System.Drawing.Size(390, 20);
             this.label1.TabIndex = 0;
-            this.label1.Text = "LISTADO GENERAL DE PRODUCTOS";
+            this.label1.Text = "INVENTARIO DETALLADO DE PRODUCTOS";
             // 
             // Grilla_Productos
             // 
             this.Grilla_Productos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Grilla_Productos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
-            this.Column3,
+            this.CATEGORIA,
             this.Column4,
             this.Column2,
             this.Column7,
@@ -84,13 +84,13 @@
             this.Column1.ReadOnly = true;
             this.Column1.Width = 125;
             // 
-            // Column3
+            // CATEGORIA
             // 
-            this.Column3.HeaderText = "CATEGORIA";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 250;
+            this.CATEGORIA.HeaderText = "CATEGORIA";
+            this.CATEGORIA.MinimumWidth = 6;
+            this.CATEGORIA.Name = "CATEGORIA";
+            this.CATEGORIA.ReadOnly = true;
+            this.CATEGORIA.Width = 250;
             // 
             // Column4
             // 
@@ -148,7 +148,7 @@
             this.button1.Location = new System.Drawing.Point(1418, 53);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(113, 37);
-            this.button1.TabIndex = 2;
+            this.button1.TabIndex = 1;
             this.button1.Text = "Regresar";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -158,7 +158,7 @@
             this.txt_Nombre.Location = new System.Drawing.Point(194, 61);
             this.txt_Nombre.Name = "txt_Nombre";
             this.txt_Nombre.Size = new System.Drawing.Size(158, 22);
-            this.txt_Nombre.TabIndex = 6;
+            this.txt_Nombre.TabIndex = 0;
             this.txt_Nombre.TextChanged += new System.EventHandler(this.txt_Nombre_TextChanged);
             this.txt_Nombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Nombre_KeyPress);
             // 
@@ -235,15 +235,15 @@
         private System.Windows.Forms.TextBox txt_Nombre;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CATEGORIA;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
     }
 }
