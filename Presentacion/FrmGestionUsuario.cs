@@ -58,6 +58,7 @@ namespace Presentacion
             txt_nombre.Text = string.Empty;
             txt_apellidos.Text = string.Empty;
             txt_direccion.Text = string.Empty;
+            txt_Barrio.Text = string.Empty;
             txt_correo.Text = string.Empty;
             txt_telefono.Text = string.Empty;
             txt_usuario.Text = string.Empty;
@@ -69,6 +70,7 @@ namespace Presentacion
             l24.Visible = false;
             l25.Visible = false;
             l26.Visible = false;
+            lb27.Visible = false;
             DesHabilitar();
             
         }
@@ -132,6 +134,7 @@ namespace Presentacion
             txt_nombre.Enabled = true;
             txt_apellidos.Enabled = true;
             txt_direccion.Enabled = true;
+            txt_Barrio.Enabled = true;
             txt_telefono.Enabled = true;
             txt_correo.Enabled = true;
             txt_usuario.Enabled = true;
@@ -146,6 +149,7 @@ namespace Presentacion
             txt_nombre.Enabled = false;
             txt_apellidos.Enabled = false;
             txt_direccion.Enabled = false;
+            txt_Barrio.Enabled = false;
             txt_telefono.Enabled = false;
             txt_correo.Enabled = false;
             txt_usuario.Enabled = false;
@@ -158,6 +162,7 @@ namespace Presentacion
             l21.Visible = true; l22.Visible = true;
             l23.Visible = true; l24.Visible = true;
             l25.Visible = true; l26.Visible = true;
+            lb27.Visible = true;
         }
 
         private void cmb_Opcion_SelectedIndexChanged(object sender, EventArgs e)
@@ -407,6 +412,15 @@ namespace Presentacion
             {
                 KeyEventArgs keyEventArgs = new KeyEventArgs(Keys.Tab); // Puedes usar la tecla que desees
                 this.txt_id_KeyDown(this, keyEventArgs);
+            }
+        }
+
+        private void txt_Barrio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (char.IsLower(e.KeyChar))
+            {
+                e.KeyChar = char.ToUpper(e.KeyChar);
             }
         }
     }

@@ -24,5 +24,10 @@ namespace Presentacion
             this.Close();
             new FrmMenuSuper().Show();
         }
+
+        private void FrmFacturadeVenta_Load(object sender, EventArgs e)
+        {
+            txt_Fecha.Text = DateTime.Now.ToString("yyyy/MM/dd");
+        }
     }
 }
