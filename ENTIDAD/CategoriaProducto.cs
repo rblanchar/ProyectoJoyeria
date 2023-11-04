@@ -8,24 +8,23 @@ namespace ENTIDAD
 {
     public class CategoriaProducto
     {
-        public string Codigo {  get; set; }
-        public string NomCategoria { get; set;}
+        public string Id_Categoria {  get; set; }
+        public string Nombre { get; set;}
 
         public CategoriaProducto()
         {
             
         }
 
-        public CategoriaProducto(string codigo, string nomCategoria)
+        public CategoriaProducto(string id_Categoria, string nombre)
         {
-            Codigo = codigo;
-            NomCategoria = nomCategoria;
-
+            Id_Categoria = id_Categoria;
+            Nombre = nombre;
         }
 
         public override string ToString()
         {
-            return $"{Codigo};{NomCategoria}";
+            return $"{Id_Categoria};{Nombre}";
         }
     }
 }

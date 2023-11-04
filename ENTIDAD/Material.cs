@@ -8,8 +8,8 @@ namespace ENTIDAD
 {
     public class Material
     {
-        public string Codigo {  get; set; }
-        public string NombreMaterial { get; set; }
+        public string Id_Material {  get; set; }
+        public string Nombre { get; set; }
 
         public Material()
         {
@@ -18,13 +18,13 @@ namespace ENTIDAD
 
         public Material(string codigo, string nombreMaterial)
         {
-            Codigo = codigo;
-            NombreMaterial = nombreMaterial;
+            Id_Material = codigo;
+            Nombre = nombreMaterial;
         }
 
         public override string ToString()
         {
-            return $"{Codigo};{NombreMaterial}";
+            return $"{Id_Material};{Nombre}";
         }
     }
 }

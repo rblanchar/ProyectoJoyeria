@@ -24,11 +24,11 @@ namespace LOGICA
         public string ModificarCategoriaProducto(CategoriaProducto categoriaproducto)
         {
             servicioCategoriaProducto.RefrescarLista();
-            var categoriaExistente = servicioCategoriaProducto.BuscarCodigo(categoriaproducto.Codigo);
+            var categoriaExistente = servicioCategoriaProducto.BuscarCodigo(categoriaproducto.Id_Categoria);
 
             if (categoriaExistente != null)
             {
-                categoriaExistente.NomCategoria = categoriaproducto.NomCategoria;
+                categoriaExistente.Nombre = categoriaproducto.Nombre;
 
                 categoriaProd.ActualizarCategoriaProducto(categoriaExistente);
                 

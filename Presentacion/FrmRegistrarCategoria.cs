@@ -80,7 +80,7 @@ namespace Presentacion
                         categoriaproducto = servicioCategoriaProducto.BuscarCodigo(codigo);
                         if (categoriaproducto != null)
                         {
-                            categoriaproducto.NomCategoria = txt_Nombre.Text;
+                            categoriaproducto.Nombre = txt_Nombre.Text;
                             Habilitado();
                             var msg = modificar.ModificarCategoriaProducto(categoriaproducto);
                             MessageBox.Show(msg);
@@ -103,7 +103,7 @@ namespace Presentacion
                             int sw = 0;
                             foreach (var item in servicioProducto.Consultar())
                             {
-                                if (item.CategoriaProducto.Codigo == txt_Codigo.Text)
+                                if (item.CategoriaProducto.Id_Categoria == txt_Codigo.Text)
                                 {
                                     MessageBox.Show("No se puede Eliminar una Categoria Asignada!");
                                     sw = 1;
@@ -248,8 +248,8 @@ namespace Presentacion
 
             if (categoriaproducto != null)
             {
-                txt_Codigo.Text = categoriaproducto.Codigo;
-                txt_Nombre.Text = categoriaproducto.NomCategoria;
+                txt_Codigo.Text = categoriaproducto.Id_Categoria;
+                txt_Nombre.Text = categoriaproducto.Nombre;
                 return true; 
             }
             else

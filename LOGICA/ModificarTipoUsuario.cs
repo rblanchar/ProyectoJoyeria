@@ -20,21 +20,21 @@ namespace LOGICA
             repositorio = new RepositorioTipoUsuario(fileName);
             roles = new RepositorioModificarRol(fileName);
         }
-        public string ActualizarRol(TipoUsuario rol)
+        public string ActualizarRol(TipoUsuario tipoUsuario)
         {
             servicioTipoUsuario.RefrescarLista();
-            var RolExistente = servicioTipoUsuario.BuscarId(rol.IdTipo);
+            var RolExistente = servicioTipoUsuario.BuscarId(tipoUsuario.IdTipo);
 
             if (RolExistente != null)
             {
-                RolExistente.Nombre = rol.Nombre;
+                RolExistente.Nombre = tipoUsuario.Nombre;
                 
-                roles.ActualizarRol(rol);
+                roles.ActualizarRol(tipoUsuario);
                 
                 return "Usuario Modificado Exitosamente.";
             }
 
-            return "Rol no encontrado.";
+            return "Tipo Usuario no encontrado.";
         }
 
         public string EliminarRol(string id)

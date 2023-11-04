@@ -23,18 +23,18 @@ namespace LOGICA
         public string Modificar(Producto producto)
         {
             servicioProducto.RefrescarLista();
-            var productoExistente = servicioProducto.BuscarProducto(producto.Codigo);
+            var productoExistente = servicioProducto.BuscarProducto(producto.Id_Producto);
 
             if (productoExistente != null)
             {
 
-                productoExistente.Codigo = producto.Codigo;
+                productoExistente.Id_Producto = producto.Id_Producto;
                 productoExistente.Descripcion = producto.Descripcion;
                 productoExistente.CategoriaProducto = producto.CategoriaProducto;
                 productoExistente.Material = producto.Material;
-                productoExistente.PrecioCosto = producto.PrecioCosto;
+                productoExistente.Costo = producto.Costo;
                 productoExistente.Peso = producto.Peso;
-                productoExistente.MargenGanancia = producto.MargenGanancia;
+                productoExistente.Margen_Ganancia = producto.Margen_Ganancia;
                 productoExistente.Cantidad = producto.Cantidad;
 
                

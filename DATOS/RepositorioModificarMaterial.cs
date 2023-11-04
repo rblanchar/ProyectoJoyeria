@@ -20,10 +20,10 @@ namespace DATOS
                 for (int i = 0; i < lineas.Length; i++)
                 {
                     string[] partes = lineas[i].Split(';');
-                    if (partes.Length >= 2 && partes[0] == material.Codigo)
+                    if (partes.Length >= 2 && partes[0] == material.Id_Material)
                     {
 
-                        lineas[i] = $"{material.Codigo};{material.NombreMaterial}";
+                        lineas[i] = $"{material.Id_Material};{material.Nombre}";
                     }
                 }
 

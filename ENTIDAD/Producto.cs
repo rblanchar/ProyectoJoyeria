@@ -8,13 +8,13 @@ namespace ENTIDAD
 {
     public class Producto
     {
-        public string Codigo {  get; set; }
+        public string Id_Producto {  get; set; }
         public string Descripcion { get; set; }
         public CategoriaProducto CategoriaProducto { get; set; }
         public Material Material { get; set; }
-        public double PrecioCosto { get; set; }
+        public double Costo { get; set; }
         public  decimal Peso {  get; set; }
-        public double MargenGanancia { get; set; }
+        public double Margen_Ganancia { get; set; }
         public int Cantidad { get; set; }
 
         public Producto()
@@ -22,22 +22,22 @@ namespace ENTIDAD
             
         }
 
-        public Producto(string codigo, string descripcion, CategoriaProducto categoriaProducto, Material material, 
-            double precioCosto, decimal peso, double margenGanancia, int cantidad)
+        public Producto(string id_Producto, string descripcion, CategoriaProducto categoriaProducto, Material material,
+            double costo, decimal peso, double margen_Ganancia, int cantidad)
         {
-            Codigo = codigo;
+            Id_Producto = id_Producto;
             Descripcion = descripcion;
             CategoriaProducto = categoriaProducto;
             Material = material;
-            PrecioCosto = precioCosto;
+            Costo = costo;
             Peso = peso;
-            MargenGanancia = margenGanancia;
+            Margen_Ganancia = margen_Ganancia;
             Cantidad = cantidad;
         }
 
         public override string ToString()
         {
-            return $"{Codigo};{Descripcion};{CategoriaProducto.Codigo};{Material.Codigo};{PrecioCosto};{Peso};{MargenGanancia};{Cantidad}";
+            return $"{Id_Producto};{Descripcion};{CategoriaProducto.Id_Categoria};{Material.Id_Material};{Costo};{Peso};{Margen_Ganancia};{Cantidad}";
         }
     }
 }

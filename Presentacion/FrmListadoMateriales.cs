@@ -38,7 +38,7 @@ namespace Presentacion
 
             foreach (var item in lista)
             {
-                Grilla_Materiales.Rows.Add(item.Codigo, item.NombreMaterial.ToUpper());
+                Grilla_Materiales.Rows.Add(item.Id_Material, item.Nombre.ToUpper());
             }
         }
     }

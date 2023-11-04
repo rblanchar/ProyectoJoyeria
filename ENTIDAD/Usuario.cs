@@ -12,6 +12,7 @@ namespace ENTIDAD
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public string Direccion {  get; set; }
+        public string Barrio { get; set; }
         public string Correo { get; set; }
         public string NumTelefono { get; set; }
         public string NombreUsuario { get; set; }
@@ -22,13 +23,14 @@ namespace ENTIDAD
         {
         }
 
-        public Usuario(string identificacion, string nombre, string apellido, string direccion, string correo,
-            string numTelefono, string nombreUsuario, string contraseña, TipoUsuario tipoUsuario)
+        public Usuario(string identificacion, string nombre, string apellido, string direccion, string barrio, 
+            string correo, string numTelefono, string nombreUsuario, string contraseña, TipoUsuario tipoUsuario)
         {
             Identificacion = identificacion;
             Nombre = nombre;
             Apellido = apellido;
             Direccion = direccion;
+            Barrio = barrio;
             Correo = correo;
             NumTelefono = numTelefono;
             NombreUsuario = nombreUsuario;
@@ -38,7 +40,7 @@ namespace ENTIDAD
 
         public override string ToString()
         {
-            return $"{Identificacion};{Nombre};{Apellido};{Direccion};{Correo};{NumTelefono};" +
+            return $"{Identificacion};{Nombre};{Apellido};{Direccion};{Barrio};{Correo};{NumTelefono};" +
                 $"{NombreUsuario};{Contraseña};{tipoUsuario.IdTipo}";
         }
     }

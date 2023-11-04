@@ -40,7 +40,7 @@ namespace DATOS
             var lista = ConsultarTodos();
             foreach (var item in lista)
             {
-                if (item.Codigo == codigo)
+                if (item.Id_Material == codigo)
                 {
                     return item;
                 }
@@ -54,8 +54,8 @@ namespace DATOS
             var linea = datos.Split(';');
             Material material = new Material
             {
-                Codigo = linea[0],
-                NombreMaterial = linea[1]
+                Id_Material = linea[0],
+                Nombre = linea[1]
             };
             return material;
         }

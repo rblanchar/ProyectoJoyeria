@@ -23,7 +23,7 @@ namespace LOGICA
         public string Eliminar(Producto producto)
         {
             servicioProducto.RefrescarLista();
-            var productoExistente = servicioProducto.BuscarProducto(producto.Codigo);
+            var productoExistente = servicioProducto.BuscarProducto(producto.Id_Producto);
 
             if (productoExistente != null)
             {

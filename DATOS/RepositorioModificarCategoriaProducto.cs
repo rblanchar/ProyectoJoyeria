@@ -22,10 +22,10 @@ namespace DATOS
                 for (int i = 0; i < lineas.Length; i++)
                 {
                     string[] partes = lineas[i].Split(';');
-                    if (partes.Length >= 2 && partes[0] == categoriaProducto.Codigo)
+                    if (partes.Length >= 2 && partes[0] == categoriaProducto.Id_Categoria)
                     {
 
-                        lineas[i] = $"{categoriaProducto.Codigo};{categoriaProducto.NomCategoria}";
+                        lineas[i] = $"{categoriaProducto.Id_Categoria};{categoriaProducto.Nombre}";
                     }
                 }
 

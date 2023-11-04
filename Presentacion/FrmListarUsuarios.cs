@@ -39,7 +39,7 @@ namespace Presentacion
 
             foreach (var item in lista)
             {
-                Grilla_Usuarios.Rows.Add(item.Identificacion, item.Nombre.ToUpper(), item.Apellido.ToUpper(), item.Direccion.ToUpper(),
+                Grilla_Usuarios.Rows.Add(item.Identificacion, item.Nombre.ToUpper(), item.Apellido.ToUpper(), item.Direccion.ToUpper(),item.Barrio.ToUpper(),
                     item.Correo.ToUpper(), item.NumTelefono, item.NombreUsuario, item.Contraseña, item.tipoUsuario.Nombre.ToUpper());
             }
 

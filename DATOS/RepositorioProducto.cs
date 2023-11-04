@@ -41,10 +41,10 @@ namespace DATOS
             for (int i = 0; i < lineas.Length; i++)
             {
                 string[] partes = lineas[i].Split(';');
-                if (partes[0] == producto.Codigo)
+                if (partes[0] == producto.Id_Producto)
                 {
-                    lineas[i] = $"{producto.Codigo};{producto.Descripcion};{producto.CategoriaProducto.Codigo};{producto.Material.Codigo};{producto.PrecioCosto};" +
-                        $"{producto.Peso};{producto.MargenGanancia};{producto.Cantidad};";
+                    lineas[i] = $"{producto.Id_Producto};{producto.Descripcion};{producto.CategoriaProducto.Id_Categoria};{producto.Material.Id_Material};{producto.Costo};" +
+                        $"{producto.Peso};{producto.Margen_Ganancia};{producto.Cantidad};";
                     break;
                 }
             }
@@ -58,7 +58,7 @@ namespace DATOS
             foreach (var linea in lineas)
             {
                 string[] partes = linea.Split(';');
-                if (partes.Length == 8 && partes[0] != producto.Codigo)
+                if (partes.Length == 8 && partes[0] != producto.Id_Producto)
                 {
                     nuevasLineas.Add(linea);
                 }
@@ -77,13 +77,13 @@ namespace DATOS
             var linea = datos.Split(';');
             Producto producto = new Producto
             {
-                Codigo = linea[0],
+                Id_Producto = linea[0],
                 Descripcion = linea[1],
                 CategoriaProducto = new RepositorioCategoriaProducto("Categoria.txt").BuscarCodigo(linea[2]),
                 Material = new RepositorioMaterial("Material.txt").BuscarCodigo(linea[3]),
-                PrecioCosto = Convert.ToDouble(linea[4]),
+                Costo = Convert.ToDouble(linea[4]),
                 Peso = Convert.ToDecimal(linea[5]),
-                MargenGanancia = Convert.ToDouble(linea[6]),
+                Margen_Ganancia = Convert.ToDouble(linea[6]),
                 Cantidad = Convert.ToInt16(linea[7])
             };
             return producto;

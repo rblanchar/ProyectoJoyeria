@@ -40,7 +40,7 @@ namespace DATOS
             var lista = ConsultarTodos();
             foreach (var item in lista)
             {
-                if (item.Codigo == codigo)
+                if (item.Id_Categoria == codigo)
                 {
                     return item;
                 }
@@ -54,8 +54,8 @@ namespace DATOS
             var linea = datos.Split(';');
             CategoriaProducto categoria = new CategoriaProducto
             {
-                Codigo = linea[0],
-                NomCategoria = linea[1]
+                Id_Categoria = linea[0],
+                Nombre = linea[1]
             };
             return categoria;
         }

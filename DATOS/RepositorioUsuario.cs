@@ -41,10 +41,10 @@ namespace DATOS
             for (int i = 0; i < lineas.Length; i++)
             {
                 string[] partes = lineas[i].Split(';');
-                if (partes.Length == 9 && partes[0] == usuario.Identificacion)
+                if (partes.Length == 10 && partes[0] == usuario.Identificacion)
                 {
                     
-                    lineas[i] = $"{usuario.Identificacion};{usuario.Nombre};{usuario.Apellido};{usuario.Direccion};" +
+                    lineas[i] = $"{usuario.Identificacion};{usuario.Nombre};{usuario.Apellido};{usuario.Direccion};{usuario.Barrio}" +
                         $"{usuario.Correo};{usuario.NumTelefono};{usuario.NombreUsuario};{usuario.Contraseña};{usuario.tipoUsuario.IdTipo}";
                 }
             }
@@ -61,7 +61,7 @@ namespace DATOS
             foreach (var linea in lineas)
             {
                 string[] partes = linea.Split(';');
-                if (partes.Length == 9 && partes[0] != usuario.Identificacion)
+                if (partes.Length == 10 && partes[0] != usuario.Identificacion)
                 {
                     nuevasLineas.Add(linea);
                 }
@@ -84,11 +84,12 @@ namespace DATOS
                 Nombre = linea[1],
                 Apellido = linea[2],
                 Direccion = linea[3],
-                Correo = linea[4],
-                NumTelefono = linea[5],
-                NombreUsuario = linea[6],
-                Contraseña = linea[7],
-                tipoUsuario = new RepositorioTipoUsuario("TipoUsuario.txt").BuscarId(linea[8])
+                Barrio = linea[4],
+                Correo = linea[5],
+                NumTelefono = linea[6],
+                NombreUsuario = linea[7],
+                Contraseña = linea[8],
+                tipoUsuario = new RepositorioTipoUsuario("TipoUsuario.txt").BuscarId(linea[9])
 
             };
             return usuario;

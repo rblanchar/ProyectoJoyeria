@@ -24,11 +24,11 @@ namespace LOGICA
         public string ModificarMateriales(Material materiales)
         {
             servicioMaterial.RefrescarLista();
-            var materialExistente = servicioMaterial.BuscarCodigo(materiales.Codigo);
+            var materialExistente = servicioMaterial.BuscarCodigo(materiales.Id_Material);
 
             if (materialExistente != null)
             {
-                materialExistente.NombreMaterial = materiales.NombreMaterial;
+                materialExistente.Nombre = materiales.Nombre;
 
                 material.ActualizarMaterial(materiales);
                 

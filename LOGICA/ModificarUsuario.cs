@@ -31,6 +31,7 @@ namespace LOGICA
                 usuarioExistente.Nombre = usuario.Nombre;
                 usuarioExistente.Apellido = usuario.Apellido;
                 usuarioExistente.Direccion = usuario.Direccion;
+                usuarioExistente.Barrio = usuario.Barrio;
                 usuarioExistente.Correo = usuario.Correo;
                 usuarioExistente.NumTelefono = usuario.NumTelefono;
                 usuarioExistente.NombreUsuario = usuario.NombreUsuario;

@@ -16,7 +16,7 @@ namespace PruebaConexion
             RepositorioTipoUsuarioOracle repositorioTipoUsuarioOracle = new RepositorioTipoUsuarioOracle();
 
             // Llama al método InsertarUsuario para intentar insertar un registro
-            string resultado = repositorioTipoUsuarioOracle.InsertarUsuario(new TipoUsuario { Nombre = "PROBANDO" });
+            string resultado = repositorioTipoUsuarioOracle.InsertarTipoUsuario(new TipoUsuario { Nombre = "PROBANDO" });
 
             Console.WriteLine(resultado);
 

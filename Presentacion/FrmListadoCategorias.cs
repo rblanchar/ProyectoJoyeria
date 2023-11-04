@@ -32,7 +32,7 @@ namespace Presentacion
 
             foreach (var item in lista)
             {
-                Grilla_Categorias.Rows.Add(item.Codigo, item.NomCategoria.ToUpper());
+                Grilla_Categorias.Rows.Add(item.Id_Categoria, item.Nombre.ToUpper());
             }
         }
 

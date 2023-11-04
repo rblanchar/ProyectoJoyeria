@@ -97,7 +97,7 @@ namespace Presentacion
                         if (material != null)
                         {
 
-                            material.NombreMaterial = txt_Material.Text;
+                            material.Nombre = txt_Material.Text;
                             Habilitado();
                             var msg = modificacion.ModificarMateriales(material);
                             MessageBox.Show(msg);
@@ -121,7 +121,7 @@ namespace Presentacion
                             int sw = 0;
                             foreach (var item in servicioProducto.Consultar())
                             {
-                                if (item.Material.Codigo == txt_Codigo.Text)
+                                if (item.Material.Id_Material == txt_Codigo.Text)
                                 {
                                     MessageBox.Show("No se puede Eliminar un Material Asignado!");
                                     sw = 1;
@@ -226,8 +226,8 @@ namespace Presentacion
 
             if (mater != null)
             {
-                txt_Codigo.Text = mater.Codigo;
-                txt_Material.Text = mater.NombreMaterial;
+                txt_Codigo.Text = mater.Id_Material;
+                txt_Material.Text = mater.Nombre;
                 return true;
             }
             else

@@ -39,7 +39,7 @@ namespace Presentacion
             Grilla_Productos.Rows.Clear();
 
             var productosAgrupados = lista
-                .GroupBy(producto => new { Categoria = producto.CategoriaProducto.NomCategoria, Material = producto.Material.NombreMaterial })
+                .GroupBy(producto => new { Categoria = producto.CategoriaProducto.Nombre, Material = producto.Material.Nombre })
                 .Select(group => new
                 {
                     Categoria = group.Key.Categoria,

@@ -43,12 +43,12 @@ namespace Presentacion
         void CargarCategorias()
         {
             cmb_Categoria.DataSource = categoriaProducto.Consultar();
-            cmb_Categoria.ValueMember = "Codigo";
-            cmb_Categoria.DisplayMember = "NomCategoria";
+            cmb_Categoria.ValueMember = "Id_Categoria";
+            cmb_Categoria.DisplayMember = "Nombre";
 
             cmb_Material.DataSource = servicioMaterial.Consultar();
-            cmb_Material.ValueMember = "Codigo";
-            cmb_Material.DisplayMember = "NombreMaterial";
+            cmb_Material.ValueMember = "Id_Material";
+            cmb_Material.DisplayMember = "Nombre";
 
         }
         
@@ -110,12 +110,12 @@ namespace Presentacion
 
                     producto.CategoriaProducto = categoriaProducto.BuscarCodigo(cmb_Categoria.SelectedValue.ToString());
                     producto.Material = servicioMaterial.BuscarCodigo(cmb_Material.SelectedValue.ToString());
-                    producto.Codigo = txt_Codigo.Text;
+                    producto.Id_Producto = txt_Codigo.Text;
                     producto.Descripcion = txt_Descripcion.Text;
                     CultureInfo culture = new CultureInfo("en-US");
-                    producto.PrecioCosto = double.Parse(txt_PrecioCosto.Text, culture);
+                    producto.Costo = double.Parse(txt_PrecioCosto.Text, culture);
                     producto.Peso = decimal.Parse(txt_Peso.Text, culture);
-                    producto.MargenGanancia = double.Parse(txt_Margen.Text, culture);
+                    producto.Margen_Ganancia = double.Parse(txt_Margen.Text, culture);
                     producto.Cantidad = int.Parse(txt_Cantidad.Text);
 
                     Guardar(producto);
@@ -130,13 +130,13 @@ namespace Presentacion
                 if (respuesta == DialogResult.OK)
                 {
                     Producto producto = new Producto();
-                    producto.Codigo = txt_Codigo.Text;
+                    producto.Id_Producto = txt_Codigo.Text;
                     producto.Descripcion = txt_Descripcion.Text;
                     producto.CategoriaProducto = categoriaProducto.BuscarCodigo(cmb_Categoria.SelectedValue.ToString());
                     producto.Material = servicioMaterial.BuscarCodigo(cmb_Material.SelectedValue.ToString());
-                    producto.PrecioCosto = double.Parse(txt_PrecioCosto.Text);
+                    producto.Costo = double.Parse(txt_PrecioCosto.Text);
                     producto.Peso = decimal.Parse(txt_Peso.Text);
-                    producto.MargenGanancia = double.Parse(txt_Margen.Text);
+                    producto.Margen_Ganancia = double.Parse(txt_Margen.Text);
                     producto.Cantidad = int.Parse(txt_Cantidad.Text);
 
                     var msg = modificarProducto.Modificar(producto);
@@ -158,13 +158,13 @@ namespace Presentacion
                     if (producto != null)
                     {
 
-                        txt_Codigo.Text = producto.Codigo;
+                        txt_Codigo.Text = producto.Id_Producto;
                         txt_Descripcion.Text = producto.Descripcion;
-                        cmb_Categoria.SelectedValue = producto.CategoriaProducto.Codigo.ToString();
-                        cmb_Material.SelectedValue = producto.Material.Codigo.ToString();
-                        txt_PrecioCosto.Text = Convert.ToDouble(producto.PrecioCosto).ToString();
+                        cmb_Categoria.SelectedValue = producto.CategoriaProducto.Id_Categoria.ToString();
+                        cmb_Material.SelectedValue = producto.Material.Id_Material.ToString();
+                        txt_PrecioCosto.Text = Convert.ToDouble(producto.Costo).ToString();
                         txt_Peso.Text = Convert.ToDecimal(producto.Peso).ToString();
-                        txt_Margen.Text = Convert.ToDouble(producto.MargenGanancia).ToString();
+                        txt_Margen.Text = Convert.ToDouble(producto.Margen_Ganancia).ToString();
                         txt_Cantidad.Text = Convert.ToInt32(producto.Cantidad).ToString();
                         
                         
@@ -188,15 +188,15 @@ namespace Presentacion
 
             if (producto != null)
             {
-                txt_Codigo.Text = producto.Codigo;
+                txt_Codigo.Text = producto.Id_Producto;
                 txt_Descripcion.Text = producto.Descripcion;
-                txt_PrecioCosto.Text = producto.PrecioCosto.ToString("###,###,###");
+                txt_PrecioCosto.Text = producto.Costo.ToString("###,###,###");
                 txt_Peso.Text = producto.Peso.ToString();
-                txt_Margen.Text = producto.MargenGanancia.ToString();
+                txt_Margen.Text = producto.Margen_Ganancia.ToString();
                 txt_Cantidad.Text = producto.Cantidad.ToString();
 
-                cmb_Categoria.Text = producto.CategoriaProducto.NomCategoria.ToString();
-                cmb_Material.Text = producto.Material.NombreMaterial.ToString();
+                cmb_Categoria.Text = producto.CategoriaProducto.Nombre.ToString();
+                cmb_Material.Text = producto.Material.Nombre.ToString();
                 return true;
             }
             else

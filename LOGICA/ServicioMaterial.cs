@@ -41,7 +41,7 @@ namespace LOGICA
             {
                 foreach (var item in Materiales)
                 {
-                    if (item.Codigo == codigo)
+                    if (item.Id_Material == codigo)
                     {
                         return item;
                     }
