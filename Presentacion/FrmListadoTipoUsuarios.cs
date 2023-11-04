@@ -9,12 +9,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LOGICA_ORACLE;
 
 namespace Presentacion
 {
     public partial class FrmListadoTipoUsuarios : Form
     {
-        ServicioTipoUsuario servicioRol = new ServicioTipoUsuario();
+        ServicioTipoUsuarioOracle TipoUsuarioOracle = new ServicioTipoUsuarioOracle();
         public FrmListadoTipoUsuarios()
         {
             InitializeComponent();
@@ -22,12 +23,13 @@ namespace Presentacion
 
         private void FrmListadoTipoUsuarios_Load(object sender, EventArgs e)
         {
-            CargarGrilla(servicioRol.Consultar());
+            CargarGrilla();
         }
-        void CargarGrilla(List<TipoUsuario> lista)
+        void CargarGrilla()
         {
             Grilla_TipoUsuarios.Rows.Clear();
 
+            var lista = TipoUsuarioOracle.Consultar();
             foreach (var item in lista)
             {
                 Grilla_TipoUsuarios.Rows.Add(item.IdTipo, item.Nombre.ToUpper());

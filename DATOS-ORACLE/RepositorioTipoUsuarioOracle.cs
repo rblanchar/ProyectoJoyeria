@@ -14,25 +14,22 @@ namespace DATOS_ORACLE
         {
             
         }
-        public string InsertarUsuario(TipoUsuario tipoUsuario)
+        public string InsertarTipoUsuario(TipoUsuario tipoUsuario)
         {
-            // Utiliza una sentencia INSERT sin mencionar el campo ID, ya que es una secuencia.
-            //string ssql = "INSERT INTO tipo_Usuarios (NOMBRE) VALUES (:nombre)";
-            string ssql = "INSERT INTO tipo_usuarios VALUES(:seq_tipo_usuario.NEXTVAL)";
-            // Abre la conexión a la base de datos
+            
+            string ssql = "INSERT INTO tipo_usuarios(id_tipo, nombre) VALUES(seq_tipo_usuario.NEXTVAL, :nombre)";
+
             AbrirConexion();
             OracleCommand orclCmd1 = conexion.CreateCommand();
             orclCmd1.CommandText = ssql;
 
-            // Crea el parámetro para el nombre
-            orclCmd1.Parameters.Add(new OracleParameter(":nombre", "PROBANDO"));
 
+            orclCmd1.Parameters.Add(new OracleParameter(":nombre", tipoUsuario.Nombre));
             int i = orclCmd1.ExecuteNonQuery();
 
-            // Cierra la conexión
+
             CerrarConexion();
 
-            // Verifica el valor de 'i' para determinar si la inserción se realizó con éxito
             if (i > 0)
             {
                 return "Se Registró el Tipo de Usuario Exitosamente! ";
@@ -41,6 +38,61 @@ namespace DATOS_ORACLE
             {
                 return "No se pudo Registrar el Tipo de Usuario.";
             }
+        }
+
+        public List<TipoUsuario> ObtenerTodos()
+        {
+            List<TipoUsuario> list = new List<TipoUsuario>();
+            string ssql = "SELECT * FROM tipo_usuarios ORDER BY ID_TIPO DESC";
+
+            AbrirConexion();
+            OracleCommand cmd = conexion.CreateCommand();
+            cmd.CommandText = ssql;
+
+            OracleDataReader Rdr = cmd.ExecuteReader();
+
+            while (Rdr.Read())
+            {
+                list.Add(Mapear(Rdr));
+            }
+            Rdr.Close();
+            CerrarConexion();
+
+            return list;
+
+        }
+        private TipoUsuario Mapear(OracleDataReader reader)
+        {
+            TipoUsuario tipoUsuario = new TipoUsuario();
+
+
+            tipoUsuario.IdTipo = Convert.ToString(reader["ID_TIPO"]);
+            tipoUsuario.Nombre = Convert.ToString(reader["NOMBRE"]);
+
+
+            return tipoUsuario;
+        }
+
+        public List<TipoUsuario> IncrementarIdTipoUsuario()
+        {
+            List<TipoUsuario> list = new List<TipoUsuario>();
+            string ssql = "SELECT * FROM tipo_usuarios ORDER BY ID_TIPO DESC FETCH FIRST 1 ROW ONLY";
+
+            AbrirConexion();
+            OracleCommand cmd = conexion.CreateCommand();
+            cmd.CommandText = ssql;
+
+            OracleDataReader Rdr = cmd.ExecuteReader();
+
+            while (Rdr.Read())
+            {
+                list.Add(Mapear(Rdr));
+            }
+            Rdr.Close();
+            CerrarConexion();
+
+            return list;
+
         }
     }
 }

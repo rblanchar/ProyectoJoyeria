@@ -14,6 +14,11 @@ namespace ENTIDAD
         {
         }
 
+        public TipoUsuario(string nombre)
+        {
+            Nombre = nombre;
+        }
+
         public TipoUsuario(string idRol, string tipoRol)
         {
             IdTipo = idRol;

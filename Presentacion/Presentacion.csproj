@@ -219,6 +219,10 @@
       <Project>{d0727854-1e93-45b2-b0e1-d29447598df7}</Project>
       <Name>ENTIDAD</Name>
     </ProjectReference>
+    <ProjectReference Include="..\LOGICA-ORACLE\LOGICA-ORACLE.csproj">
+      <Project>{1887e694-4529-4f41-b8e2-d839fd62edc7}</Project>
+      <Name>LOGICA-ORACLE</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LOGICA\LOGICA.csproj">
       <Project>{57653a0c-baf6-4082-891f-47525f08dedf}</Project>
       <Name>LOGICA</Name>

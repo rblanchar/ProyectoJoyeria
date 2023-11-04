@@ -4,6 +4,7 @@ using System;
 using System.Windows.Forms;
 using System.IO;
 using System.Collections.Generic;
+using LOGICA_ORACLE;
 
 namespace Presentacion
 {
@@ -13,6 +14,7 @@ namespace Presentacion
         private ServiciodeLectura serviciodeLectura = new ServiciodeLectura();
         private ModificarTipoUsuario modificar = new ModificarTipoUsuario();
         ServicioUsuario servicioUsuario = new ServicioUsuario();
+        ServicioTipoUsuarioOracle serviceOracle = new ServicioTipoUsuarioOracle();
         public FrmRegistrarRol()
         {
             InitializeComponent();
@@ -62,21 +64,11 @@ namespace Presentacion
             {
                 if (btn_Guardar.Text == "Registrar")
                 {
-                    string IdRol = txt_IdRol.Text;
 
-                    if (servicioRol.BuscarId(IdRol) == null)
-                    {
-                        Guardar(new TipoUsuario(txt_IdRol.Text, txt_NombreRol.Text));
-                        Limpiar();
-                        FrmRegistrarRol_Load(this, EventArgs.Empty);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Este Id_Usuario ya existe!");
+                    Guardar(new TipoUsuario(txt_NombreRol.Text));
+                    Limpiar();
+                    FrmRegistrarRol_Load(this, EventArgs.Empty);
 
-                        txt_IdRol.Enabled = false;
-                    }
-                    
                 }
                 else if (btn_Guardar.Text == "Modificar")
                 {
@@ -141,9 +133,9 @@ namespace Presentacion
 
         }
 
-        void Guardar(TipoUsuario rol)
+        void Guardar(TipoUsuario tipoUsuario)
         {
-            var msg = servicioRol.Guardar(rol);
+            var msg = serviceOracle.InsertarTipoUsuario(tipoUsuario);
             MessageBox.Show(msg);
 
         }
@@ -250,20 +242,15 @@ namespace Presentacion
             }
         }
 
-        public string Cargar()
+        public void Cargar()
         {
-            string filename = "TipoUsuario.txt";
-            if (File.Exists(filename))
+            
+            var lista= serviceOracle.IncrementarTipoUsuario();
+            foreach (var item in lista)
             {
-                var numero = serviciodeLectura.IncrementarCodigo(filename);
-
-                txt_IdRol.Text = numero;
+                var idTipo = Convert.ToInt16(item.IdTipo) + 1;
+                txt_IdRol.Text = Convert.ToString(idTipo);
             }
-            else
-            {
-                txt_IdRol.Text = "301";
-            }
-            return null;
         }
     }
 }
