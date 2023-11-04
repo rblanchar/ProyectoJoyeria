@@ -9,9 +9,9 @@ namespace Presentacion
 {
     public partial class FrmRegistrarRol : Form
     {
-        private ServicioRol servicioRol = new ServicioRol();
+        private ServicioTipoUsuario servicioRol = new ServicioTipoUsuario();
         private ServiciodeLectura serviciodeLectura = new ServiciodeLectura();
-        private ModificarRol modificar = new ModificarRol();
+        private ModificarTipoUsuario modificar = new ModificarTipoUsuario();
         ServicioUsuario servicioUsuario = new ServicioUsuario();
         public FrmRegistrarRol()
         {
@@ -66,7 +66,7 @@ namespace Presentacion
 
                     if (servicioRol.BuscarId(IdRol) == null)
                     {
-                        Guardar(new Rol(txt_IdRol.Text, txt_NombreRol.Text));
+                        Guardar(new TipoUsuario(txt_IdRol.Text, txt_NombreRol.Text));
                         Limpiar();
                         FrmRegistrarRol_Load(this, EventArgs.Empty);
                     }
@@ -81,7 +81,7 @@ namespace Presentacion
                 else if (btn_Guardar.Text == "Modificar")
                 {
 
-                    Rol rol = new Rol();
+                    TipoUsuario rol = new TipoUsuario();
 
                     DialogResult respuesta = MessageBox.Show("¿Estás seguro de Modificar este registro?", "Advertencia", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                     if (respuesta == DialogResult.OK)
@@ -91,7 +91,7 @@ namespace Presentacion
                         if (rol != null)
                         {
 
-                            rol.TipoRol = txt_NombreRol.Text;
+                            rol.Nombre = txt_NombreRol.Text;
                             Habilitado();
                             
                             var msg = modificar.ActualizarRol(rol);
@@ -101,7 +101,7 @@ namespace Presentacion
                         }
                         else
                         {
-                            MessageBox.Show("Usuario no encontrado.");
+                            MessageBox.Show("Tipo de Usuario no encontrado.");
                         }
                     }
                 }
@@ -116,7 +116,7 @@ namespace Presentacion
                             int sw = 0;
                             foreach (var item in servicioUsuario.Consultar())
                             {
-                                if (item.rol.IdRol == txt_IdRol.Text)
+                                if (item.tipoUsuario.IdTipo == txt_IdRol.Text)
                                 {
                                     MessageBox.Show("No se puede Eliminar un TipodeUsuario Asignado!");
                                     sw = 1;
@@ -141,7 +141,7 @@ namespace Presentacion
 
         }
 
-        void Guardar(Rol rol)
+        void Guardar(TipoUsuario rol)
         {
             var msg = servicioRol.Guardar(rol);
             MessageBox.Show(msg);
@@ -224,17 +224,17 @@ namespace Presentacion
 
         public bool consultar(string id)
         {
-            Rol rol = servicioRol.BuscarId(id);
+            TipoUsuario rol = servicioRol.BuscarId(id);
 
             if (rol != null)
             {
-                txt_IdRol.Text = rol.IdRol;
-                txt_NombreRol.Text = rol.TipoRol;
+                txt_IdRol.Text = rol.IdTipo;
+                txt_NombreRol.Text = rol.Nombre;
                 return true;
             }
             else
             {
-                MessageBox.Show("El rol no existe.", "Mensaje de Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El Tipo de Usuario no existe.", "Mensaje de Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
@@ -252,7 +252,7 @@ namespace Presentacion
 
         public string Cargar()
         {
-            string filename = "Rol.txt";
+            string filename = "TipoUsuario.txt";
             if (File.Exists(filename))
             {
                 var numero = serviciodeLectura.IncrementarCodigo(filename);
@@ -261,7 +261,7 @@ namespace Presentacion
             }
             else
             {
-                txt_IdRol.Text = "1001";
+                txt_IdRol.Text = "301";
             }
             return null;
         }

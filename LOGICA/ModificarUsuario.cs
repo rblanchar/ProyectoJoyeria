@@ -35,7 +35,7 @@ namespace LOGICA
                 usuarioExistente.NumTelefono = usuario.NumTelefono;
                 usuarioExistente.NombreUsuario = usuario.NombreUsuario;
                 usuarioExistente.Contraseña = usuario.Contraseña;
-                usuarioExistente.rol = usuario.rol;
+                usuarioExistente.tipoUsuario = usuario.tipoUsuario;
 
                 
                 repositorioUsuario.ActualizarUsuario(usuarioExistente);

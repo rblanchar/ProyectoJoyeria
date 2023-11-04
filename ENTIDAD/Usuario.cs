@@ -16,14 +16,14 @@ namespace ENTIDAD
         public string NumTelefono { get; set; }
         public string NombreUsuario { get; set; }
         public string Contraseña { get; set; }
-        public Rol rol {  get; set; }
+        public TipoUsuario tipoUsuario {  get; set; }
 
         public Usuario()
         {
         }
 
         public Usuario(string identificacion, string nombre, string apellido, string direccion, string correo,
-            string numTelefono, string nombreUsuario, string contraseña, Rol rol)
+            string numTelefono, string nombreUsuario, string contraseña, TipoUsuario tipoUsuario)
         {
             Identificacion = identificacion;
             Nombre = nombre;
@@ -33,13 +33,13 @@ namespace ENTIDAD
             NumTelefono = numTelefono;
             NombreUsuario = nombreUsuario;
             Contraseña = contraseña;
-            this.rol = rol;
+            this.tipoUsuario = tipoUsuario;
         }
 
         public override string ToString()
         {
             return $"{Identificacion};{Nombre};{Apellido};{Direccion};{Correo};{NumTelefono};" +
-                $"{NombreUsuario};{Contraseña};{rol.IdRol}";
+                $"{NombreUsuario};{Contraseña};{tipoUsuario.IdTipo}";
         }
     }
 }

@@ -16,7 +16,7 @@ namespace Presentacion
     public partial class FrmListarUsuarios : Form
     {
         ServicioUsuario servicioUsuario = new ServicioUsuario();
-        ServicioRol servicioRol = new ServicioRol();
+        ServicioTipoUsuario servicioRol = new ServicioTipoUsuario();
         public FrmListarUsuarios()
         {
             InitializeComponent();
@@ -40,7 +40,7 @@ namespace Presentacion
             foreach (var item in lista)
             {
                 Grilla_Usuarios.Rows.Add(item.Identificacion, item.Nombre.ToUpper(), item.Apellido.ToUpper(), item.Direccion.ToUpper(),
-                    item.Correo.ToUpper(), item.NumTelefono, item.NombreUsuario, item.Contraseña, item.rol.TipoRol.ToUpper());
+                    item.Correo.ToUpper(), item.NumTelefono, item.NombreUsuario, item.Contraseña, item.tipoUsuario.Nombre.ToUpper());
             }
 
         }

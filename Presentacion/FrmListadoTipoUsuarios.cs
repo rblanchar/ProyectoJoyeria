@@ -14,7 +14,7 @@ namespace Presentacion
 {
     public partial class FrmListadoTipoUsuarios : Form
     {
-        ServicioRol servicioRol = new ServicioRol();
+        ServicioTipoUsuario servicioRol = new ServicioTipoUsuario();
         public FrmListadoTipoUsuarios()
         {
             InitializeComponent();
@@ -24,13 +24,13 @@ namespace Presentacion
         {
             CargarGrilla(servicioRol.Consultar());
         }
-        void CargarGrilla(List<Rol> lista)
+        void CargarGrilla(List<TipoUsuario> lista)
         {
             Grilla_TipoUsuarios.Rows.Clear();
 
             foreach (var item in lista)
             {
-                Grilla_TipoUsuarios.Rows.Add(item.IdRol, item.TipoRol.ToUpper());
+                Grilla_TipoUsuarios.Rows.Add(item.IdTipo, item.Nombre.ToUpper());
             }
 
         }

@@ -50,7 +50,7 @@
     <Compile Include="RepositorioModificarMaterial.cs" />
     <Compile Include="RepositorioModificarRol.cs" />
     <Compile Include="RepositorioProducto.cs" />
-    <Compile Include="RepositorioRol.cs" />
+    <Compile Include="RepositorioTipoUsuario.cs" />
     <Compile Include="RepositorioUsuario.cs" />
   </ItemGroup>
   <ItemGroup>

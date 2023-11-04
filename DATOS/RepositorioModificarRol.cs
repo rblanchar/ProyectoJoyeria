@@ -13,7 +13,7 @@ namespace DATOS
         public RepositorioModificarRol(string fileName) : base(fileName)
         {
         }
-        public void ActualizarRol(Rol rol)
+        public void ActualizarRol(TipoUsuario rol)
         {
             try
             {
@@ -21,10 +21,10 @@ namespace DATOS
                 for (int i = 0; i < lineas.Length; i++)
                 {
                     string[] partes = lineas[i].Split(';');
-                    if (partes.Length >= 2 && partes[0] == rol.IdRol)
+                    if (partes.Length >= 2 && partes[0] == rol.IdTipo)
                     {
 
-                        lineas[i] = $"{rol.IdRol};{rol.TipoRol}";
+                        lineas[i] = $"{rol.IdTipo};{rol.Nombre}";
                     }
                 }
 

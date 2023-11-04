@@ -46,14 +46,14 @@
     <Compile Include="ModificarCateProducto.cs" />
     <Compile Include="ModificarMaterial.cs" />
     <Compile Include="ModificarProducto.cs" />
-    <Compile Include="ModificarRol.cs" />
+    <Compile Include="ModificarTipoUsuario.cs" />
     <Compile Include="ModificarUsuario.cs" />
     <Compile Include="ServicioCategoriaProducto.cs" />
     <Compile Include="ServiciodeLectura.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServicioMaterial.cs" />
     <Compile Include="ServicioProducto.cs" />
-    <Compile Include="ServicioRol.cs" />
+    <Compile Include="ServicioTipoUsuario.cs" />
     <Compile Include="ServicioUsuario.cs" />
   </ItemGroup>
   <ItemGroup>

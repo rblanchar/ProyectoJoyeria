@@ -50,15 +50,15 @@ namespace LOGICA
         {
             foreach (var item in usuarios) 
             { 
-                if (item.NombreUsuario== user && item.Contraseña==pass && Convert.ToString( item.rol.IdRol)=="1001")
+                if (item.NombreUsuario== user && item.Contraseña==pass && Convert.ToString( item.tipoUsuario.IdTipo)=="1001")
                 {
                     return 1;
                 }
-                else if (item.NombreUsuario == user && item.Contraseña == pass && Convert.ToString(item.rol.IdRol) == "1002")
+                else if (item.NombreUsuario == user && item.Contraseña == pass && Convert.ToString(item.tipoUsuario.IdTipo) == "1002")
                 {
                     return 2;
                 }
-                else if (item.NombreUsuario == user && item.Contraseña == pass && Convert.ToString(item.rol.IdRol) == "1003")
+                else if (item.NombreUsuario == user && item.Contraseña == pass && Convert.ToString(item.tipoUsuario.IdTipo) == "1003")
                 {
                     return 3;
                 }
@@ -73,7 +73,7 @@ namespace LOGICA
 
             foreach (var item in usuarios)
             {
-                if (item.Nombre.Contains(valor) || item.Apellido.Contains(valor) || item.rol.TipoRol.Contains(valor) )
+                if (item.Nombre.Contains(valor) || item.Apellido.Contains(valor) || item.tipoUsuario.Nombre.Contains(valor) )
                 {
                     listaFiltrada.Add(item);
                 }

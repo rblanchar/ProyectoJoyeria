@@ -8,7 +8,7 @@ namespace Presentacion
 {
     public partial class FrmGestionUsuario : Form
     {
-        private ServicioRol servicioRol = new ServicioRol();
+        private ServicioTipoUsuario servicioRol = new ServicioTipoUsuario();
         private ServicioUsuario servicioUsuario = new ServicioUsuario();
         private ModificarUsuario modificarUsuario = new ModificarUsuario();
         private EliminarUsuario eliminarUsuario = new EliminarUsuario();
@@ -32,8 +32,8 @@ namespace Presentacion
         void CargarRoles()
         {
             cmb_tipo.DataSource = servicioRol.Consultar();
-            cmb_tipo.ValueMember = "IdRol";
-            cmb_tipo.DisplayMember = "TipoRol";
+            cmb_tipo.ValueMember = "IdTipo";
+            cmb_tipo.DisplayMember = "Nombre";
 
         }
 
@@ -222,7 +222,7 @@ namespace Presentacion
                     usuario.NumTelefono = txt_telefono.Text;
                     usuario.NombreUsuario = txt_usuario.Text;
                     usuario.Contraseña = txt_contraseña.Text;
-                    usuario.rol = servicioRol.BuscarId(cmb_tipo.SelectedValue.ToString());
+                    usuario.tipoUsuario = servicioRol.BuscarId(cmb_tipo.SelectedValue.ToString());
 
                     Guardar(usuario);
                     limpiar();
@@ -266,7 +266,7 @@ namespace Presentacion
                         usuario.NombreUsuario = txt_usuario.Text;
                         usuario.Contraseña = txt_contraseña.Text;
                     }
-                    usuario.rol = servicioRol.BuscarId(cmb_tipo.SelectedValue.ToString());
+                    usuario.tipoUsuario = servicioRol.BuscarId(cmb_tipo.SelectedValue.ToString());
 
                     var msg = modificarUsuario.Modificar(usuario);
                     servicioUsuario.RefrescarLista();
@@ -296,7 +296,7 @@ namespace Presentacion
                         txt_telefono.Text = usuario.NumTelefono;
                         txt_usuario.Text = usuario.NombreUsuario;
                         txt_contraseña.Text = usuario.Contraseña;
-                        cmb_tipo.SelectedValue = usuario.rol.IdRol.ToString();
+                        cmb_tipo.SelectedValue = usuario.tipoUsuario.IdTipo.ToString();
 
                         var msg = eliminarUsuario.Eliminar(usuario);
                         MessageBox.Show(msg);
@@ -393,10 +393,10 @@ namespace Presentacion
 
                 foreach (var item in servicioUsuario.usuarios)
                 {
-                    if (item.rol == usuario.rol)
+                    if (item.tipoUsuario == usuario.tipoUsuario)
                     {
 
-                        cmb_tipo.Text = item.rol.TipoRol.ToString();
+                        cmb_tipo.Text = item.tipoUsuario.Nombre.ToString();
                         return true;
                     }
                 }

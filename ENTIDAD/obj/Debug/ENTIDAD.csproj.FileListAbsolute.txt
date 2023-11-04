@@ -16,3 +16,9 @@ C:\Users\hp\Source\Repos\ProyectoJoyeria\ENTIDAD\obj\Debug\ENTIDAD.csproj.Assemb
 C:\Users\hp\Source\Repos\ProyectoJoyeria\ENTIDAD\obj\Debug\ENTIDAD.csproj.CoreCompileInputs.cache
 C:\Users\hp\Source\Repos\ProyectoJoyeria\ENTIDAD\obj\Debug\ENTIDAD.dll
 C:\Users\hp\Source\Repos\ProyectoJoyeria\ENTIDAD\obj\Debug\ENTIDAD.pdb
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git2Joyeria\ENTIDAD\obj\Debug\ENTIDAD.csproj.AssemblyReference.cache
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git2Joyeria\ENTIDAD\obj\Debug\ENTIDAD.csproj.CoreCompileInputs.cache
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git2Joyeria\ENTIDAD\obj\Debug\ENTIDAD.dll
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git2Joyeria\ENTIDAD\obj\Debug\ENTIDAD.pdb
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git2Joyeria\ENTIDAD\bin\Debug\ENTIDAD.dll
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git2Joyeria\ENTIDAD\bin\Debug\ENTIDAD.pdb

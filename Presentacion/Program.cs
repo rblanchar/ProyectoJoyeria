@@ -29,9 +29,11 @@ namespace Presentacion
             //FrmListarUsuarios
             //FrmGestionProducto
             //FrmRegistrarMaterial
+
             FrmFacturadeVenta main = new FrmFacturadeVenta();
             main.Show();
             Application.Run();
+
         }
 
     }

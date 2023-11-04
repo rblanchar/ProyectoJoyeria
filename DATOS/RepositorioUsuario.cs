@@ -45,7 +45,7 @@ namespace DATOS
                 {
                     
                     lineas[i] = $"{usuario.Identificacion};{usuario.Nombre};{usuario.Apellido};{usuario.Direccion};" +
-                        $"{usuario.Correo};{usuario.NumTelefono};{usuario.NombreUsuario};{usuario.Contraseña};{usuario.rol.IdRol}";
+                        $"{usuario.Correo};{usuario.NumTelefono};{usuario.NombreUsuario};{usuario.Contraseña};{usuario.tipoUsuario.IdTipo}";
                 }
             }
 
@@ -88,7 +88,7 @@ namespace DATOS
                 NumTelefono = linea[5],
                 NombreUsuario = linea[6],
                 Contraseña = linea[7],
-                rol = new RepositorioRol("Rol.txt").BuscarId(linea[8])
+                tipoUsuario = new RepositorioTipoUsuario("TipoUsuario.txt").BuscarId(linea[8])
 
             };
             return usuario;
