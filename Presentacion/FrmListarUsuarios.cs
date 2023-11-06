@@ -42,8 +42,10 @@ namespace Presentacion
             
             foreach (var item in lista)
             {
-                Grilla_Usuarios.Rows.Add(item.Identificacion, item.Nombre.ToUpper(), item.Apellido.ToUpper(), item.Direccion.ToUpper(),item.Barrio.ToUpper(),
-                    item.Correo.ToUpper(), item.NumTelefono, item.NombreUsuario, item.Contraseña, item.tipoUsuario.Nombre.ToUpper());
+                TipoUsuario tipoUsuario = servicioTipoUsuarioOracle.BuscarId(item.tipoUsuario.IdTipo.ToString());
+
+                Grilla_Usuarios.Rows.Add(item.Id_Usuario, item.Nombre.ToUpper(), item.Apellidos.ToUpper(), item.Direccion.ToUpper(),item.Barrio.ToUpper(),
+                    item.Correo.ToUpper(), item.Telefono, item.Nombre_Usuario, item.Contrasena,tipoUsuario.Nombre.ToUpper() );
             }
 
         }

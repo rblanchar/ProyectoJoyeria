@@ -9,12 +9,8 @@ namespace Presentacion
 {
     public partial class FrmGestionUsuario : Form
     {
-        private ServicioTipoUsuario servicioRol = new ServicioTipoUsuario();
+        private ServicioUsuarioOracle servicioUsuario = new ServicioUsuarioOracle();
         private ServicioTipoUsuarioOracle servicioTipoUsuario = new ServicioTipoUsuarioOracle();
-        private ServicioUsuario servicioUsuario = new ServicioUsuario();
-        private ModificarUsuario modificarUsuario = new ModificarUsuario();
-        private EliminarUsuario eliminarUsuario = new EliminarUsuario();
-        private ServicioUsuarioOracle servicioUsuarioOracle = new ServicioUsuarioOracle();
         public FrmGestionUsuario()
         {
             InitializeComponent();
@@ -75,7 +71,7 @@ namespace Presentacion
             l26.Visible = false;
             lb27.Visible = false;
             DesHabilitar();
-            
+
         }
 
         private void FrmGestionUsuario_Load(object sender, EventArgs e)
@@ -208,24 +204,24 @@ namespace Presentacion
         {
             if (btn_Guardar.Text == "Registrar")
             {
-                if (string.IsNullOrWhiteSpace(txt_id.Text) || string.IsNullOrWhiteSpace(txt_nombre.Text)|| 
-                    string.IsNullOrWhiteSpace(txt_apellidos.Text)|| string.IsNullOrWhiteSpace(txt_direccion.Text)||
-                    string.IsNullOrWhiteSpace(txt_Barrio.Text) || string.IsNullOrWhiteSpace(txt_telefono.Text)|| string.IsNullOrWhiteSpace(cmb_tipo.Text))
+                if (string.IsNullOrWhiteSpace(txt_id.Text) || string.IsNullOrWhiteSpace(txt_nombre.Text) ||
+                    string.IsNullOrWhiteSpace(txt_apellidos.Text) || string.IsNullOrWhiteSpace(txt_direccion.Text) ||
+                    string.IsNullOrWhiteSpace(txt_Barrio.Text) || string.IsNullOrWhiteSpace(txt_telefono.Text) || string.IsNullOrWhiteSpace(cmb_tipo.Text))
                 {
                     MessageBox.Show("Por favor, completa todos los Campos Obligatorios *", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
                     Usuario usuario = new Usuario();
-                    usuario.Identificacion = txt_id.Text;
+                    usuario.Id_Usuario = txt_id.Text;
                     usuario.Nombre = txt_nombre.Text;
-                    usuario.Apellido = txt_apellidos.Text;
+                    usuario.Apellidos = txt_apellidos.Text;
                     usuario.Direccion = txt_direccion.Text;
                     usuario.Barrio = txt_Barrio.Text;
                     usuario.Correo = txt_correo.Text;
-                    usuario.NumTelefono = txt_telefono.Text;
-                    usuario.NombreUsuario = txt_usuario.Text;
-                    usuario.Contraseña = txt_contraseña.Text;
+                    usuario.Telefono = txt_telefono.Text;
+                    usuario.Nombre_Usuario = txt_usuario.Text;
+                    usuario.Contrasena = txt_contraseña.Text;
                     usuario.tipoUsuario = servicioTipoUsuario.BuscarId(cmb_tipo.SelectedValue.ToString());
 
                     Guardar(usuario);
@@ -234,7 +230,7 @@ namespace Presentacion
                 }
             }
 
-             void Activar_cmb_Opcion()
+            void Activar_cmb_Opcion()
             {
                 cmb_Opcion.Text = string.Empty;
                 cmb_Opcion.Enabled = true;
@@ -242,48 +238,44 @@ namespace Presentacion
             }
             void Guardar(Usuario usuario)
             {
-                var msg = servicioUsuarioOracle.InsertarUsuario(usuario);
+                var msg = servicioUsuario.InsertarUsuario(usuario);
                 MessageBox.Show(msg);
 
             }
 
-           if (btn_Guardar.Text == "Modificar")
-           {
+            if (btn_Guardar.Text == "Modificar")
+            {
                 DialogResult respuesta = MessageBox.Show("¿Estas seguro de Modificar este registro?", "Advertencia", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
                 if (respuesta == DialogResult.OK)
                 {
                     Usuario usuario = new Usuario();
-                    usuario.Identificacion = txt_id.Text;
+                    usuario.Id_Usuario = txt_id.Text;
                     usuario.Nombre = txt_nombre.Text;
-                    usuario.Apellido = txt_apellidos.Text;
+                    usuario.Apellidos = txt_apellidos.Text;
                     usuario.Direccion = txt_direccion.Text;
                     usuario.Correo = txt_correo.Text;
-                    usuario.NumTelefono = txt_telefono.Text;
-                    if (cmb_tipo.Text.ToString()=="CLIENTE")
+                    usuario.Telefono = txt_telefono.Text;
+                    if (cmb_tipo.Text.ToString() == "CLIENTE")
                     {
-                        usuario.NombreUsuario = "";
-                        usuario.Contraseña = "";
+                        usuario.Nombre_Usuario = "";
+                        usuario.Contrasena = "";
                     }
                     else
                     {
-                        usuario.NombreUsuario = txt_usuario.Text;
-                        usuario.Contraseña = txt_contraseña.Text;
+                        usuario.Nombre_Usuario = txt_usuario.Text;
+                        usuario.Contrasena = txt_contraseña.Text;
                     }
-                    usuario.tipoUsuario = servicioRol.BuscarId(cmb_tipo.SelectedValue.ToString());
 
-                    var msg = modificarUsuario.Modificar(usuario);
-                    servicioUsuario.RefrescarLista();
-                    MessageBox.Show(msg);
                     limpiar();
                     Activar_cmb_Opcion();
                 }
-           }
+            }
 
             else if (btn_Guardar.Text == "Eliminar")
             {
                 DialogResult respuesta = MessageBox.Show("¿Estas seguro de Eliminar este registro?", "Advertencia", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                
+
                 if (respuesta == DialogResult.OK)
                 {
 
@@ -292,17 +284,7 @@ namespace Presentacion
 
                     if (usuario != null)
                     {
-
-                        txt_nombre.Text = usuario.Nombre;
-                        txt_apellidos.Text = usuario.Apellido;
-                        txt_direccion.Text = usuario.Direccion;
-                        txt_correo.Text = usuario.Correo;
-                        txt_telefono.Text = usuario.NumTelefono;
-                        txt_usuario.Text = usuario.NombreUsuario;
-                        txt_contraseña.Text = usuario.Contraseña;
-                        cmb_tipo.SelectedValue = usuario.tipoUsuario.IdTipo.ToString();
-
-                        var msg = eliminarUsuario.Eliminar(usuario);
+                        var msg = servicioUsuario.EliminarUsuario(id);
                         MessageBox.Show(msg);
                         limpiar();
                         Activar_cmb_Opcion();
@@ -377,42 +359,43 @@ namespace Presentacion
                         }
                     }
 
-                }              
+                }
             }
         }
         public bool consultar(string id)
         {
-            Usuario usuario = servicioUsuarioOracle.BuscarId(id);
+            Usuario usuario = servicioUsuario.BuscarId(id);
 
             if (usuario != null)
             {
                 txt_nombre.Text = usuario.Nombre;
-                txt_apellidos.Text = usuario.Apellido;
+                txt_apellidos.Text = usuario.Apellidos;
                 txt_direccion.Text = usuario.Direccion;
                 txt_Barrio.Text = usuario.Barrio;
                 txt_correo.Text = usuario.Correo;
-                txt_telefono.Text = usuario.NumTelefono;
-                txt_usuario.Text = usuario.NombreUsuario;
-                txt_contraseña.Text = usuario.Contraseña;
+                txt_telefono.Text = usuario.Telefono;
+                txt_usuario.Text = usuario.Nombre_Usuario;
+                txt_contraseña.Text = usuario.Contrasena;
 
-                if (usuario.tipoUsuario != null)
+                TipoUsuario tipoUsuario2 = servicioTipoUsuario.BuscarId(usuario.tipoUsuario.IdTipo.ToString());
+
+                if (tipoUsuario2 != null)
                 {
-                    cmb_tipo.Text = usuario.tipoUsuario.Nombre.ToUpper();
-                    return true;
+                    cmb_tipo.Text = tipoUsuario2.Nombre.ToString();
                 }
+
+                return true;
+
             }
 
             return false;
         }
 
-
-
-
         private void txt_id_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
             if (e.KeyCode == Keys.Tab)
             {
-                KeyEventArgs keyEventArgs = new KeyEventArgs(Keys.Tab); // Puedes usar la tecla que desees
+                KeyEventArgs keyEventArgs = new KeyEventArgs(Keys.Tab); 
                 this.txt_id_KeyDown(this, keyEventArgs);
             }
         }

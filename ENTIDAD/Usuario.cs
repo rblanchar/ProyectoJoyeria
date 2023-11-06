@@ -8,40 +8,40 @@ namespace ENTIDAD
 {
     public class Usuario
     {
-        public string Identificacion {  get; set; }
+        public string Id_Usuario { get; set; }
         public string Nombre { get; set; }
-        public string Apellido { get; set; }
-        public string Direccion {  get; set; }
+        public string Apellidos { get; set; }
+        public string Direccion { get; set; }
         public string Barrio { get; set; }
         public string Correo { get; set; }
-        public string NumTelefono { get; set; }
-        public string NombreUsuario { get; set; }
-        public string Contraseña { get; set; }
-        public TipoUsuario tipoUsuario {  get; set; }
+        public string Telefono { get; set; }
+        public string Nombre_Usuario { get; set; }
+        public string Contrasena { get; set; }
+        public TipoUsuario tipoUsuario { get; set; }
 
         public Usuario()
         {
         }
 
-        public Usuario(string identificacion, string nombre, string apellido, string direccion, string barrio, 
-            string correo, string numTelefono, string nombreUsuario, string contraseña, TipoUsuario tipoUsuario)
+        public Usuario(string id_Usuario, string nombre, string apellidos, string direccion, string barrio, string correo,
+            string telefono, string nombre_Usuario, string contrasena, TipoUsuario tipoUsuario)
         {
-            Identificacion = identificacion;
+            Id_Usuario = id_Usuario;
             Nombre = nombre;
-            Apellido = apellido;
+            Apellidos = apellidos;
             Direccion = direccion;
             Barrio = barrio;
             Correo = correo;
-            NumTelefono = numTelefono;
-            NombreUsuario = nombreUsuario;
-            Contraseña = contraseña;
+            Telefono = telefono;
+            Nombre_Usuario = nombre_Usuario;
+            Contrasena = contrasena;
             this.tipoUsuario = tipoUsuario;
         }
 
         public override string ToString()
         {
-            return $"{Identificacion};{Nombre};{Apellido};{Direccion};{Barrio};{Correo};{NumTelefono};" +
-                $"{NombreUsuario};{Contraseña};{tipoUsuario.IdTipo}";
+            return $"{Id_Usuario};{Nombre};{Apellidos};{Direccion};{Barrio};{Correo};{Telefono};" +
+                $"{Nombre_Usuario};{Contrasena};{tipoUsuario.IdTipo}";
         }
     }
 }

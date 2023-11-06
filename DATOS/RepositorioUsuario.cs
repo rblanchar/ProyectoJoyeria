@@ -41,11 +41,11 @@ namespace DATOS
             for (int i = 0; i < lineas.Length; i++)
             {
                 string[] partes = lineas[i].Split(';');
-                if (partes.Length == 10 && partes[0] == usuario.Identificacion)
+                if (partes.Length == 10 && partes[0] == usuario.Id_Usuario)
                 {
                     
-                    lineas[i] = $"{usuario.Identificacion};{usuario.Nombre};{usuario.Apellido};{usuario.Direccion};{usuario.Barrio}" +
-                        $"{usuario.Correo};{usuario.NumTelefono};{usuario.NombreUsuario};{usuario.Contraseña};{usuario.tipoUsuario.IdTipo}";
+                    lineas[i] = $"{usuario.Id_Usuario};{usuario.Nombre};{usuario.Apellidos};{usuario.Direccion};{usuario.Barrio}" +
+                        $"{usuario.Correo};{usuario.Telefono};{usuario.Nombre_Usuario};{usuario.Contrasena};{usuario.tipoUsuario.IdTipo}";
                 }
             }
 
@@ -61,7 +61,7 @@ namespace DATOS
             foreach (var linea in lineas)
             {
                 string[] partes = linea.Split(';');
-                if (partes.Length == 10 && partes[0] != usuario.Identificacion)
+                if (partes.Length == 10 && partes[0] != usuario.Id_Usuario)
                 {
                     nuevasLineas.Add(linea);
                 }
@@ -80,15 +80,15 @@ namespace DATOS
             var linea = datos.Split(';');
             Usuario usuario = new Usuario
             {
-                Identificacion = linea[0],
+                Id_Usuario = linea[0],
                 Nombre = linea[1],
-                Apellido = linea[2],
+                Apellidos = linea[2],
                 Direccion = linea[3],
                 Barrio = linea[4],
                 Correo = linea[5],
-                NumTelefono = linea[6],
-                NombreUsuario = linea[7],
-                Contraseña = linea[8],
+                Telefono = linea[6],
+                Nombre_Usuario = linea[7],
+                Contrasena = linea[8],
                 tipoUsuario = new RepositorioTipoUsuario("TipoUsuario.txt").BuscarId(linea[9])
 
             };

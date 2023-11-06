@@ -23,7 +23,7 @@ namespace LOGICA
         public string Eliminar(Usuario usuario)
         {
             servicioUsuario.RefrescarLista();
-            var usuarioExistente = servicioUsuario.BuscarId(usuario.Identificacion);
+            var usuarioExistente = servicioUsuario.BuscarId(usuario.Id_Usuario);
 
             if (usuarioExistente != null)
             {

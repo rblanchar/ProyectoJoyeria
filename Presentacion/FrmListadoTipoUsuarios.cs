@@ -15,7 +15,7 @@ namespace Presentacion
 {
     public partial class FrmListadoTipoUsuarios : Form
     {
-        ServicioTipoUsuarioOracle TipoUsuarioOracle = new ServicioTipoUsuarioOracle();
+        ServicioTipoUsuarioOracle servicioTipoUsuarioOracle = new ServicioTipoUsuarioOracle();
         public FrmListadoTipoUsuarios()
         {
             InitializeComponent();
@@ -29,7 +29,7 @@ namespace Presentacion
         {
             Grilla_TipoUsuarios.Rows.Clear();
 
-            var lista = TipoUsuarioOracle.Consultar();
+            var lista = servicioTipoUsuarioOracle.Consultar();
             foreach (var item in lista)
             {
                 Grilla_TipoUsuarios.Rows.Add(item.IdTipo, item.Nombre.ToUpper());

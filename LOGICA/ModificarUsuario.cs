@@ -23,19 +23,19 @@ namespace LOGICA
         public string Modificar(Usuario usuario)
         {
             servicioUsuario.RefrescarLista();
-            var usuarioExistente = servicioUsuario.BuscarId(usuario.Identificacion);
+            var usuarioExistente = servicioUsuario.BuscarId(usuario.Id_Usuario);
 
             if (usuarioExistente != null)
             {
                
                 usuarioExistente.Nombre = usuario.Nombre;
-                usuarioExistente.Apellido = usuario.Apellido;
+                usuarioExistente.Apellidos = usuario.Apellidos;
                 usuarioExistente.Direccion = usuario.Direccion;
                 usuarioExistente.Barrio = usuario.Barrio;
                 usuarioExistente.Correo = usuario.Correo;
-                usuarioExistente.NumTelefono = usuario.NumTelefono;
-                usuarioExistente.NombreUsuario = usuario.NombreUsuario;
-                usuarioExistente.Contraseña = usuario.Contraseña;
+                usuarioExistente.Telefono = usuario.Telefono;
+                usuarioExistente.Nombre_Usuario = usuario.Nombre_Usuario;
+                usuarioExistente.Contrasena = usuario.Contrasena;
                 usuarioExistente.tipoUsuario = usuario.tipoUsuario;
 
                 

@@ -11,19 +11,18 @@ namespace LOGICA_ORACLE
 {
     public class ServicioUsuarioOracle
     {
-        RepositorioUsuarioOracle repositorioUsuarioOracle = new RepositorioUsuarioOracle();
-
+        RepositorioUsuarioOracle repositorio = new RepositorioUsuarioOracle();
         public string InsertarUsuario(Usuario usuario)
         {
-            var msg = repositorioUsuarioOracle.InsertarUsuario(usuario);
+            var msg = repositorio.InsertarUsuario(usuario);
             return msg;
         }
 
-        public List<Usuario> usuarios;  
+        public List<Usuario> usuarios;
 
         public List<Usuario> Consultar()
         {
-            usuarios = repositorioUsuarioOracle.ObtenerTodosUsuarios();  
+            usuarios = repositorio.ObtenerTodosUsuarios();
             return usuarios;
         }
 
@@ -31,12 +30,18 @@ namespace LOGICA_ORACLE
         {
             foreach (var usuario in Consultar())
             {
-                if (usuario.Identificacion == id)
+                if (usuario.Id_Usuario == id)
                 {
                     return usuario;
                 }
             }
             return null;
+        }
+
+        public string EliminarUsuario(string id)
+        {
+            var msg = repositorio.EliminarUsuario(id);
+            return msg;
         }
 
     }
