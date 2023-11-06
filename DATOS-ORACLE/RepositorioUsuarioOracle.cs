@@ -23,15 +23,15 @@ namespace DATOS_ORACLE
             OracleCommand orclCmd1 = conexion.CreateCommand();
             orclCmd1.CommandText = ssql;
 
-            orclCmd1.Parameters.Add(new OracleParameter(":identificacion", usuario.Id_Usuario));
+            orclCmd1.Parameters.Add(new OracleParameter(":id_usuario", usuario.Id_Usuario));
             orclCmd1.Parameters.Add(new OracleParameter(":nombre", usuario.Nombre));
             orclCmd1.Parameters.Add(new OracleParameter(":apellido", usuario.Apellidos));
             orclCmd1.Parameters.Add(new OracleParameter(":direccion", usuario.Direccion));
             orclCmd1.Parameters.Add(new OracleParameter(":barrio", usuario.Barrio));
             orclCmd1.Parameters.Add(new OracleParameter(":correo", usuario.Correo));
-            orclCmd1.Parameters.Add(new OracleParameter(":numTelefono", usuario.Telefono));
-            orclCmd1.Parameters.Add(new OracleParameter(":nombreUsuario", usuario.Nombre_Usuario));
-            orclCmd1.Parameters.Add(new OracleParameter(":contraseña", usuario.Contrasena));
+            orclCmd1.Parameters.Add(new OracleParameter(":Telefono", usuario.Telefono));
+            orclCmd1.Parameters.Add(new OracleParameter(":nombre_Usuario", usuario.Nombre_Usuario));
+            orclCmd1.Parameters.Add(new OracleParameter(":contrasena", usuario.Contrasena));
             orclCmd1.Parameters.Add(new OracleParameter(":tipoUsuario", usuario.tipoUsuario.IdTipo));
 
             int i = orclCmd1.ExecuteNonQuery();
@@ -51,7 +51,7 @@ namespace DATOS_ORACLE
         public List<Usuario> ObtenerTodosUsuarios()
         {
             List<Usuario> listaUsuarios = new List<Usuario>();
-            string ssql = "SELECT * FROM usuarios ORDER BY id_usuario DESC";
+            string ssql = "SELECT * FROM usuarios";
 
             AbrirConexion();
             OracleCommand cmd = conexion.CreateCommand();
@@ -94,7 +94,7 @@ namespace DATOS_ORACLE
         {
             try
             {
-                string ssql = "DELETE FROM tipo_usuarios WHERE id_tipo = :id";
+                string ssql = "DELETE FROM usuarios WHERE id_usuario = :id";
                 AbrirConexion();
                 OracleCommand cmd = conexion.CreateCommand();
                 cmd.CommandText = ssql;
@@ -116,6 +116,69 @@ namespace DATOS_ORACLE
             catch (Exception ex)
             {
                 return "Error al Eliminar: " + ex.Message;
+            }
+        }
+
+        public Usuario ObtenerUsuarioPorId(string id_Usuario)
+        {
+            string ssql = "SELECT * FROM usuarios WHERE id_usuario = :id_Usuario";
+
+            AbrirConexion();
+            OracleCommand cmd = conexion.CreateCommand();
+            cmd.CommandText = ssql;
+
+            cmd.Parameters.Add(new OracleParameter(":id_usuario", id_Usuario));
+
+            OracleDataReader rdr = cmd.ExecuteReader();
+
+            Usuario Usuario = null;
+
+            if (rdr.Read())
+            {
+                Usuario = MapearUsuario(rdr);
+            }
+
+            rdr.Close();
+            CerrarConexion();
+
+            return Usuario;
+        }
+        public string ModificarUsuario(Usuario usuario)
+        {
+
+            if (ObtenerUsuarioPorId(usuario.Id_Usuario) == null)
+            {
+                return "El Usuario no existe en la base de datos.";
+            }
+
+            string ssql = "UPDATE usuarios SET nombre =:nombre WHERE id_usuario = :id_usuario";
+ 
+            AbrirConexion();
+            OracleCommand orclCmd = conexion.CreateCommand();
+            orclCmd.CommandText = ssql;
+
+            orclCmd.Parameters.Add(new OracleParameter(":id_usuario", usuario.Id_Usuario));
+            orclCmd.Parameters.Add(new OracleParameter(":nombre", usuario.Nombre));
+            //orclCmd.Parameters.Add(new OracleParameter(":apellido", usuario.Apellidos));
+            //orclCmd.Parameters.Add(new OracleParameter(":direccion", usuario.Direccion));
+            //orclCmd.Parameters.Add(new OracleParameter(":barrio", usuario.Barrio));
+            //orclCmd.Parameters.Add(new OracleParameter(":correo", usuario.Correo));
+            //orclCmd.Parameters.Add(new OracleParameter(":Telefono", usuario.Telefono));
+            //orclCmd.Parameters.Add(new OracleParameter(":nombre_usuario", usuario.Nombre_Usuario));
+            //orclCmd.Parameters.Add(new OracleParameter(":contrasena", usuario.Contrasena));
+            //orclCmd.Parameters.Add(new OracleParameter(":id_tipo", usuario.tipoUsuario.IdTipo));
+
+            int i = orclCmd.ExecuteNonQuery();
+
+            CerrarConexion();
+
+            if (i > 0)
+            {
+                return "Se modificó el Tipo de Usuario exitosamente.";
+            }
+            else
+            {
+                return "No se pudo modificar el Tipo de Usuario.";
             }
         }
     }

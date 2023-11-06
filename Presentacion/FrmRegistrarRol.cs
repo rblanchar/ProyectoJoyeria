@@ -10,11 +10,8 @@ namespace Presentacion
 {
     public partial class FrmRegistrarRol : Form
     {
-        private ServicioTipoUsuario servicioRol = new ServicioTipoUsuario();
-        private ServiciodeLectura serviciodeLectura = new ServiciodeLectura();
-        private ModificarTipoUsuario modificar = new ModificarTipoUsuario();
-        ServicioUsuario servicioUsuario = new ServicioUsuario();
-        ServicioTipoUsuarioOracle serviceOracle = new ServicioTipoUsuarioOracle();
+        ServicioUsuarioOracle serviceUsuario = new ServicioUsuarioOracle();
+        ServicioTipoUsuarioOracle serviceTipoUsuario = new ServicioTipoUsuarioOracle();
         public FrmRegistrarRol()
         {
             InitializeComponent();
@@ -79,14 +76,14 @@ namespace Presentacion
                     if (respuesta == DialogResult.OK)
                     {
                         string id = txt_IdRol.Text;
-                        rol = serviceOracle.BuscarId(id);
+                        rol = serviceTipoUsuario.BuscarId(id);
                         if (rol != null)
                         {
 
                             rol.Nombre = txt_NombreRol.Text;
                             Habilitado();
-                            
-                            var msg = serviceOracle.ModificarTipoUsuario(rol);
+
+                            var msg = serviceTipoUsuario.ModificarTipoUsuario(rol);
                             MessageBox.Show(msg);
                             Limpiar();
 
@@ -105,10 +102,23 @@ namespace Presentacion
                         DialogResult respuesta = MessageBox.Show("¿Estás seguro de eliminar este registro?", "Advertencia", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                         if (respuesta == DialogResult.OK)
                         {
-                            string id = txt_IdRol.Text;
-                            var msg = serviceOracle.EliminarTipoUsuario(id);
-                            MessageBox.Show(msg);
-                            Limpiar();
+                            int sw = 0;
+                            foreach (var item in serviceUsuario.Consultar())
+                            {
+                                if (item.tipoUsuario.IdTipo == txt_IdRol.Text)
+                                {
+                                    MessageBox.Show("No se puede Eliminar un TipodeUsuario Asignado!");
+                                    sw = 1;
+                                    break;
+                                }
+                            }
+                            if (sw == 0)
+                            {
+                                string id = txt_IdRol.Text;
+                                var msg = serviceTipoUsuario.EliminarTipoUsuario(id);
+                                MessageBox.Show(msg);
+                                Limpiar();
+                            }
                         }
                     }
                     else
@@ -123,7 +133,7 @@ namespace Presentacion
 
         void Guardar(TipoUsuario tipoUsuario)
         {
-            var msg = serviceOracle.InsertarTipoUsuario(tipoUsuario);
+            var msg = serviceTipoUsuario.InsertarTipoUsuario(tipoUsuario);
             MessageBox.Show(msg);
 
         }
@@ -145,7 +155,7 @@ namespace Presentacion
                     txt_IdRol.Enabled = false;
                     txt_NombreRol.Focus();
                     btn_Guardar.Text = "Registrar";
-                  
+
                 }
                 else if (Opcion == "CONSULTAR")
                 {
@@ -195,7 +205,7 @@ namespace Presentacion
 
         public void Limpiar()
         {
-            Deshabilitado ();
+            Deshabilitado();
             txt_IdRol.Text = string.Empty;
             txt_NombreRol.Text = string.Empty;
             cmb_Opcion.Text = string.Empty;
@@ -204,12 +214,12 @@ namespace Presentacion
 
         public bool consultar(string id)
         {
-            TipoUsuario rol = serviceOracle.BuscarId(id);
+            TipoUsuario tipoUsuario = serviceTipoUsuario.BuscarId(id);
 
-            if (rol != null)
+            if (tipoUsuario != null)
             {
-                txt_IdRol.Text = rol.IdTipo;
-                txt_NombreRol.Text = rol.Nombre;
+                txt_IdRol.Text = tipoUsuario.IdTipo;
+                txt_NombreRol.Text = tipoUsuario.Nombre;
                 return true;
             }
             else
@@ -232,8 +242,8 @@ namespace Presentacion
 
         public void Cargar()
         {
-            
-            var lista= serviceOracle.IncrementarTipoUsuario();
+
+            var lista = serviceTipoUsuario.IncrementarTipoUsuario();
             foreach (var item in lista)
             {
                 var idTipo = Convert.ToInt16(item.IdTipo) + 1;

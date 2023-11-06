@@ -37,7 +37,11 @@ namespace LOGICA_ORACLE
             }
             return null;
         }
-
+        public string ModificarUsuario(Usuario Usuario)
+        {
+            var msg = repositorio.ModificarUsuario(Usuario);
+            return msg;
+        }
         public string EliminarUsuario(string id)
         {
             var msg = repositorio.EliminarUsuario(id);

@@ -256,17 +256,12 @@ namespace Presentacion
                     usuario.Direccion = txt_direccion.Text;
                     usuario.Correo = txt_correo.Text;
                     usuario.Telefono = txt_telefono.Text;
-                    if (cmb_tipo.Text.ToString() == "CLIENTE")
-                    {
-                        usuario.Nombre_Usuario = "";
-                        usuario.Contrasena = "";
-                    }
-                    else
-                    {
-                        usuario.Nombre_Usuario = txt_usuario.Text;
-                        usuario.Contrasena = txt_contraseña.Text;
-                    }
+                    usuario.Nombre_Usuario = txt_usuario.Text;
+                    usuario.Contrasena = txt_contraseña.Text;
+                    usuario.tipoUsuario = servicioTipoUsuario.BuscarId(cmb_tipo.SelectedValue.ToString());
 
+                    var msg = servicioUsuario.ModificarUsuario(usuario);
+                    MessageBox.Show(msg);
                     limpiar();
                     Activar_cmb_Opcion();
                 }
@@ -280,21 +275,14 @@ namespace Presentacion
                 {
 
                     var id = txt_id.Text;
-                    Usuario usuario = servicioUsuario.BuscarId(id);
+                    // Usuario usuario = servicioUsuario.BuscarId(id);
 
-                    if (usuario != null)
-                    {
-                        var msg = servicioUsuario.EliminarUsuario(id);
-                        MessageBox.Show(msg);
-                        limpiar();
-                        Activar_cmb_Opcion();
-
-                    }
-                    else
-                    {
-                        MessageBox.Show("Usuario no encontrado.");
-                    }
+                    var msg = servicioUsuario.EliminarUsuario(id);
+                    MessageBox.Show(msg);
+                    limpiar();
+                    Activar_cmb_Opcion();
                 }
+                
             }
         }
 
@@ -306,11 +294,12 @@ namespace Presentacion
                 string[] partes = datos.Split(';');
                 if (partes.Length == 2)
 
-                    if (partes[1] == "CLIENTE")
+                    if (partes[1] == "CLIENTE" && cmb_Opcion.Text=="MODIFICAR")
                     {
                         Habilitar();
                         txt_usuario.Enabled = false;
                         txt_contraseña.Enabled = false;
+
                     }
                     else
                     {
@@ -344,6 +333,11 @@ namespace Presentacion
                         else if (Opcion == "MODIFICAR")
                         {
                             Habilitar();
+                            if (cmb_tipo.Text=="CLIENTE")
+                            {
+                                txt_usuario.Enabled = false;
+                                txt_contraseña.Enabled= false;
+                            }
                             btn_Guardar.Text = "Modificar";
                             btn_Guardar.Enabled = true;
                             txt_id.Enabled = false;
