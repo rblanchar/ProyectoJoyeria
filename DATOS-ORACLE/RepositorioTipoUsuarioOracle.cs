@@ -73,6 +73,92 @@ namespace DATOS_ORACLE
             return tipoUsuario;
         }
 
+        public string ModificarTipoUsuario(TipoUsuario tipoUsuario)
+        {
+            
+            if (ObtenerTipoUsuarioPorId(tipoUsuario.IdTipo) == null)
+            {
+                return "El tipo de usuario no existe en la base de datos.";
+            }
+
+            string ssql = "UPDATE tipo_usuarios SET nombre = :nombre WHERE id_tipo = :id_tipo";
+
+            AbrirConexion();
+            OracleCommand orclCmd = conexion.CreateCommand();
+            orclCmd.CommandText = ssql;
+
+            orclCmd.Parameters.Add(new OracleParameter(":nombre", tipoUsuario.Nombre));
+            orclCmd.Parameters.Add(new OracleParameter(":id_tipo", tipoUsuario.IdTipo));
+
+            int i = orclCmd.ExecuteNonQuery();
+
+            CerrarConexion();
+
+            if (i > 0)
+            {
+                return "Se modificó el Tipo de Usuario exitosamente.";
+            }
+            else
+            {
+                return "No se pudo modificar el Tipo de Usuario.";
+            }
+        }
+
+        public TipoUsuario ObtenerTipoUsuarioPorId(string idTipo)
+        {
+            string ssql = "SELECT * FROM tipo_usuarios WHERE id_tipo = :id_tipo";
+
+            AbrirConexion();
+            OracleCommand cmd = conexion.CreateCommand();
+            cmd.CommandText = ssql;
+
+            cmd.Parameters.Add(new OracleParameter(":id_tipo", idTipo));
+
+            OracleDataReader rdr = cmd.ExecuteReader();
+
+            TipoUsuario tipoUsuario = null;
+
+            if (rdr.Read())
+            {
+                tipoUsuario = Mapear(rdr);
+            }
+
+            rdr.Close();
+            CerrarConexion();
+
+            return tipoUsuario;
+        }
+        public string EliminarTipoUsuario(string idTipo)
+        {
+            
+            if (ObtenerTipoUsuarioPorId(idTipo) == null)
+            {
+                return "El tipo de usuario no existe en la base de datos.";
+            }
+
+            string ssql = "DELETE FROM tipo_usuarios WHERE id_tipo = :id_tipo";
+
+            AbrirConexion();
+            OracleCommand orclCmd = conexion.CreateCommand();
+            orclCmd.CommandText = ssql;
+
+            orclCmd.Parameters.Add(new OracleParameter(":id_tipo", idTipo));
+
+            int i = orclCmd.ExecuteNonQuery();
+
+            CerrarConexion();
+
+            if (i > 0)
+            {
+                return "Se eliminó el Tipo de Usuario exitosamente.";
+            }
+            else
+            {
+                return "No se pudo eliminar el Tipo de Usuario.";
+            }
+        }
+
+
         public List<TipoUsuario> IncrementarIdTipoUsuario()
         {
             List<TipoUsuario> list = new List<TipoUsuario>();

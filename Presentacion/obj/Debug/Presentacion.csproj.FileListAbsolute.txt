@@ -154,3 +154,29 @@ D:\Ingenieria de Sistemas\Semestre lV\C#\Git2Joyeria\Presentacion\bin\Debug\Syst
 D:\Ingenieria de Sistemas\Semestre lV\C#\Git2Joyeria\Presentacion\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 D:\Ingenieria de Sistemas\Semestre lV\C#\Git2Joyeria\Presentacion\obj\Debug\Presentacion.csproj.SuggestedBindingRedirects.cache
 D:\Ingenieria de Sistemas\Semestre lV\C#\Git2Joyeria\Presentacion\obj\Debug\Presentacion.exe.config
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\bin\Debug\LOGICA-ORACLE.dll
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\bin\Debug\DATOS-ORACLE.dll
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\bin\Debug\System.Text.Json.dll
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\bin\Debug\System.Memory.dll
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\bin\Debug\System.ValueTuple.dll
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\bin\Debug\System.Buffers.dll
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\bin\Debug\LOGICA-ORACLE.pdb
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\bin\Debug\DATOS-ORACLE.pdb
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\bin\Debug\DATOS-ORACLE.dll.config
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\bin\Debug\System.Text.Json.xml
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\bin\Debug\System.Memory.xml
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\bin\Debug\System.ValueTuple.xml
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\bin\Debug\System.Buffers.xml
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.exe.config
+C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.FrmListadoResumidoProductos.resources

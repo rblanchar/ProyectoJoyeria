@@ -29,3 +29,34 @@ D:\Ingenieria de Sistemas\Semestre lV\C#\Git2Joyeria\LOGICA-ORACLE\obj\Debug\LOG
 D:\Ingenieria de Sistemas\Semestre lV\C#\Git2Joyeria\LOGICA-ORACLE\obj\Debug\LOGICA-ORACLE.csproj.CopyComplete
 D:\Ingenieria de Sistemas\Semestre lV\C#\Git2Joyeria\LOGICA-ORACLE\obj\Debug\LOGICA-ORACLE.dll
 D:\Ingenieria de Sistemas\Semestre lV\C#\Git2Joyeria\LOGICA-ORACLE\obj\Debug\LOGICA-ORACLE.pdb
+C:\Users\hp\Source\Repos\ProyectoJoyeria\LOGICA-ORACLE\bin\Debug\LOGICA-ORACLE.dll
+C:\Users\hp\Source\Repos\ProyectoJoyeria\LOGICA-ORACLE\bin\Debug\LOGICA-ORACLE.pdb
+C:\Users\hp\Source\Repos\ProyectoJoyeria\LOGICA-ORACLE\bin\Debug\DATOS-ORACLE.dll
+C:\Users\hp\Source\Repos\ProyectoJoyeria\LOGICA-ORACLE\bin\Debug\ENTIDAD.dll
+C:\Users\hp\Source\Repos\ProyectoJoyeria\LOGICA-ORACLE\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\hp\Source\Repos\ProyectoJoyeria\LOGICA-ORACLE\bin\Debug\System.Text.Json.dll
+C:\Users\hp\Source\Repos\ProyectoJoyeria\LOGICA-ORACLE\bin\Debug\System.Memory.dll
+C:\Users\hp\Source\Repos\ProyectoJoyeria\LOGICA-ORACLE\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\hp\Source\Repos\ProyectoJoyeria\LOGICA-ORACLE\bin\Debug\System.ValueTuple.dll
+C:\Users\hp\Source\Repos\ProyectoJoyeria\LOGICA-ORACLE\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\hp\Source\Repos\ProyectoJoyeria\LOGICA-ORACLE\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\hp\Source\Repos\ProyectoJoyeria\LOGICA-ORACLE\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\hp\Source\Repos\ProyectoJoyeria\LOGICA-ORACLE\bin\Debug\System.Buffers.dll
+C:\Users\hp\Source\Repos\ProyectoJoyeria\LOGICA-ORACLE\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\hp\Source\Repos\ProyectoJoyeria\LOGICA-ORACLE\bin\Debug\DATOS-ORACLE.pdb
+C:\Users\hp\Source\Repos\ProyectoJoyeria\LOGICA-ORACLE\bin\Debug\DATOS-ORACLE.dll.config
+C:\Users\hp\Source\Repos\ProyectoJoyeria\LOGICA-ORACLE\bin\Debug\ENTIDAD.pdb
+C:\Users\hp\Source\Repos\ProyectoJoyeria\LOGICA-ORACLE\bin\Debug\System.Text.Json.xml
+C:\Users\hp\Source\Repos\ProyectoJoyeria\LOGICA-ORACLE\bin\Debug\System.Memory.xml
+C:\Users\hp\Source\Repos\ProyectoJoyeria\LOGICA-ORACLE\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\hp\Source\Repos\ProyectoJoyeria\LOGICA-ORACLE\bin\Debug\System.ValueTuple.xml
+C:\Users\hp\Source\Repos\ProyectoJoyeria\LOGICA-ORACLE\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\hp\Source\Repos\ProyectoJoyeria\LOGICA-ORACLE\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\hp\Source\Repos\ProyectoJoyeria\LOGICA-ORACLE\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\hp\Source\Repos\ProyectoJoyeria\LOGICA-ORACLE\bin\Debug\System.Buffers.xml
+C:\Users\hp\Source\Repos\ProyectoJoyeria\LOGICA-ORACLE\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\hp\Source\Repos\ProyectoJoyeria\LOGICA-ORACLE\obj\Debug\LOGICA-ORACLE.csproj.AssemblyReference.cache
+C:\Users\hp\Source\Repos\ProyectoJoyeria\LOGICA-ORACLE\obj\Debug\LOGICA-ORACLE.csproj.CoreCompileInputs.cache
+C:\Users\hp\Source\Repos\ProyectoJoyeria\LOGICA-ORACLE\obj\Debug\LOGICA-ORACLE.csproj.CopyComplete
+C:\Users\hp\Source\Repos\ProyectoJoyeria\LOGICA-ORACLE\obj\Debug\LOGICA-ORACLE.dll
+C:\Users\hp\Source\Repos\ProyectoJoyeria\LOGICA-ORACLE\obj\Debug\LOGICA-ORACLE.pdb

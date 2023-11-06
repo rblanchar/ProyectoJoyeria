@@ -79,14 +79,14 @@ namespace Presentacion
                     if (respuesta == DialogResult.OK)
                     {
                         string id = txt_IdRol.Text;
-                        rol = servicioRol.BuscarId(id);
+                        rol = serviceOracle.BuscarId(id);
                         if (rol != null)
                         {
 
                             rol.Nombre = txt_NombreRol.Text;
                             Habilitado();
                             
-                            var msg = modificar.ActualizarRol(rol);
+                            var msg = serviceOracle.ModificarTipoUsuario(rol);
                             MessageBox.Show(msg);
                             Limpiar();
 
@@ -105,23 +105,10 @@ namespace Presentacion
                         DialogResult respuesta = MessageBox.Show("¿Estás seguro de eliminar este registro?", "Advertencia", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                         if (respuesta == DialogResult.OK)
                         {
-                            int sw = 0;
-                            foreach (var item in servicioUsuario.Consultar())
-                            {
-                                if (item.tipoUsuario.IdTipo == txt_IdRol.Text)
-                                {
-                                    MessageBox.Show("No se puede Eliminar un TipodeUsuario Asignado!");
-                                    sw = 1;
-                                    break;
-                                }
-                            }
-                            if(sw ==0)
-                            {
-                                string id = txt_IdRol.Text;
-                                var msg = modificar.EliminarRol(id);
-                                MessageBox.Show(msg);
-                                Limpiar();
-                            }
+                            string id = txt_IdRol.Text;
+                            var msg = serviceOracle.EliminarTipoUsuario(id);
+                            MessageBox.Show(msg);
+                            Limpiar();
                         }
                     }
                     else
@@ -129,6 +116,7 @@ namespace Presentacion
                         MessageBox.Show("Por favor, ingrese un código válido antes de eliminar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
+
             }
 
         }
@@ -216,7 +204,7 @@ namespace Presentacion
 
         public bool consultar(string id)
         {
-            TipoUsuario rol = servicioRol.BuscarId(id);
+            TipoUsuario rol = serviceOracle.BuscarId(id);
 
             if (rol != null)
             {

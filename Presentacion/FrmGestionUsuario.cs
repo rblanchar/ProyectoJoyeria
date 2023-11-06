@@ -3,15 +3,18 @@ using LOGICA;
 using System;
 using System.Drawing.Text;
 using System.Windows.Forms;
+using LOGICA_ORACLE;
 
 namespace Presentacion
 {
     public partial class FrmGestionUsuario : Form
     {
         private ServicioTipoUsuario servicioRol = new ServicioTipoUsuario();
+        private ServicioTipoUsuarioOracle servicioTipoUsuario = new ServicioTipoUsuarioOracle();
         private ServicioUsuario servicioUsuario = new ServicioUsuario();
         private ModificarUsuario modificarUsuario = new ModificarUsuario();
         private EliminarUsuario eliminarUsuario = new EliminarUsuario();
+        private ServicioUsuarioOracle servicioUsuarioOracle = new ServicioUsuarioOracle();
         public FrmGestionUsuario()
         {
             InitializeComponent();
@@ -31,7 +34,7 @@ namespace Presentacion
 
         void CargarRoles()
         {
-            cmb_tipo.DataSource = servicioRol.Consultar();
+            cmb_tipo.DataSource = servicioTipoUsuario.Consultar();
             cmb_tipo.ValueMember = "IdTipo";
             cmb_tipo.DisplayMember = "Nombre";
 
@@ -207,7 +210,7 @@ namespace Presentacion
             {
                 if (string.IsNullOrWhiteSpace(txt_id.Text) || string.IsNullOrWhiteSpace(txt_nombre.Text)|| 
                     string.IsNullOrWhiteSpace(txt_apellidos.Text)|| string.IsNullOrWhiteSpace(txt_direccion.Text)||
-                    string.IsNullOrWhiteSpace(txt_telefono.Text)|| string.IsNullOrWhiteSpace(cmb_tipo.Text))
+                    string.IsNullOrWhiteSpace(txt_Barrio.Text) || string.IsNullOrWhiteSpace(txt_telefono.Text)|| string.IsNullOrWhiteSpace(cmb_tipo.Text))
                 {
                     MessageBox.Show("Por favor, completa todos los Campos Obligatorios *", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -218,11 +221,12 @@ namespace Presentacion
                     usuario.Nombre = txt_nombre.Text;
                     usuario.Apellido = txt_apellidos.Text;
                     usuario.Direccion = txt_direccion.Text;
+                    usuario.Barrio = txt_Barrio.Text;
                     usuario.Correo = txt_correo.Text;
                     usuario.NumTelefono = txt_telefono.Text;
                     usuario.NombreUsuario = txt_usuario.Text;
                     usuario.Contraseña = txt_contraseña.Text;
-                    usuario.tipoUsuario = servicioRol.BuscarId(cmb_tipo.SelectedValue.ToString());
+                    usuario.tipoUsuario = servicioTipoUsuario.BuscarId(cmb_tipo.SelectedValue.ToString());
 
                     Guardar(usuario);
                     limpiar();
@@ -238,7 +242,7 @@ namespace Presentacion
             }
             void Guardar(Usuario usuario)
             {
-                var msg = servicioUsuario.Guardar(usuario);
+                var msg = servicioUsuarioOracle.InsertarUsuario(usuario);
                 MessageBox.Show(msg);
 
             }
@@ -378,33 +382,31 @@ namespace Presentacion
         }
         public bool consultar(string id)
         {
-            
-            Usuario usuario = servicioUsuario.BuscarId(id);
+            Usuario usuario = servicioUsuarioOracle.BuscarId(id);
 
             if (usuario != null)
             {
                 txt_nombre.Text = usuario.Nombre;
                 txt_apellidos.Text = usuario.Apellido;
                 txt_direccion.Text = usuario.Direccion;
+                txt_Barrio.Text = usuario.Barrio;
                 txt_correo.Text = usuario.Correo;
                 txt_telefono.Text = usuario.NumTelefono;
                 txt_usuario.Text = usuario.NombreUsuario;
                 txt_contraseña.Text = usuario.Contraseña;
 
-                foreach (var item in servicioUsuario.usuarios)
+                if (usuario.tipoUsuario != null)
                 {
-                    if (item.tipoUsuario == usuario.tipoUsuario)
-                    {
-
-                        cmb_tipo.Text = item.tipoUsuario.Nombre.ToString();
-                        return true;
-                    }
+                    cmb_tipo.Text = usuario.tipoUsuario.Nombre.ToUpper();
+                    return true;
                 }
             }
-            
-            return false;
 
+            return false;
         }
+
+
+
 
         private void txt_id_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {

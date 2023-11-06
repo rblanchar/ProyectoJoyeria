@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LOGICA_ORACLE;
 
 namespace Presentacion
 {
@@ -17,6 +18,8 @@ namespace Presentacion
     {
         ServicioUsuario servicioUsuario = new ServicioUsuario();
         ServicioTipoUsuario servicioRol = new ServicioTipoUsuario();
+        ServicioTipoUsuarioOracle servicioTipoUsuarioOracle = new ServicioTipoUsuarioOracle();
+        ServicioUsuarioOracle servicioUsuarioOracle = new ServicioUsuarioOracle();
         public FrmListarUsuarios()
         {
             InitializeComponent();
@@ -30,13 +33,13 @@ namespace Presentacion
 
         private void FrmListarUsuarios_Load(object sender, EventArgs e)
         {
-            CargarGrilla(servicioUsuario.Consultar());
+            CargarGrilla(servicioUsuarioOracle.Consultar());
         }
 
         void CargarGrilla(List<Usuario> lista)
         {
             Grilla_Usuarios.Rows.Clear();
-
+            
             foreach (var item in lista)
             {
                 Grilla_Usuarios.Rows.Add(item.Identificacion, item.Nombre.ToUpper(), item.Apellido.ToUpper(), item.Direccion.ToUpper(),item.Barrio.ToUpper(),
