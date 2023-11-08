@@ -28,3 +28,9 @@ D:\Ingenieria de Sistemas\Semestre lV\C#\Nueva carpeta\ENTIDAD\obj\Debug\ENTIDAD
 D:\Ingenieria de Sistemas\Semestre lV\C#\Nueva carpeta\ENTIDAD\obj\Debug\ENTIDAD.csproj.CoreCompileInputs.cache
 D:\Ingenieria de Sistemas\Semestre lV\C#\Nueva carpeta\ENTIDAD\obj\Debug\ENTIDAD.dll
 D:\Ingenieria de Sistemas\Semestre lV\C#\Nueva carpeta\ENTIDAD\obj\Debug\ENTIDAD.pdb
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git\ENTIDAD\bin\Debug\ENTIDAD.dll
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git\ENTIDAD\bin\Debug\ENTIDAD.pdb
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git\ENTIDAD\obj\Debug\ENTIDAD.csproj.AssemblyReference.cache
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git\ENTIDAD\obj\Debug\ENTIDAD.csproj.CoreCompileInputs.cache
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git\ENTIDAD\obj\Debug\ENTIDAD.dll
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git\ENTIDAD\obj\Debug\ENTIDAD.pdb
