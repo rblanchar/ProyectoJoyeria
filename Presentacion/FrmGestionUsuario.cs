@@ -54,6 +54,7 @@ namespace Presentacion
             cmb_tipo.Text = string.Empty;
             cmb_tipo.Enabled = false;
             txt_id.Text = string.Empty;
+            txt_Cedula.Text = string.Empty;
             txt_nombre.Text = string.Empty;
             txt_apellidos.Text = string.Empty;
             txt_direccion.Text = string.Empty;
@@ -130,6 +131,7 @@ namespace Presentacion
         {
             cmb_tipo.Enabled = true;
             txt_id.Enabled = true;
+            txt_Cedula.Enabled = true;
             txt_nombre.Enabled = true;
             txt_apellidos.Enabled = true;
             txt_direccion.Enabled = true;
@@ -145,6 +147,7 @@ namespace Presentacion
         {
             cmb_tipo.Enabled = false;
             txt_id.Enabled = false;
+            txt_Cedula.Enabled = false;
             txt_nombre.Enabled = false;
             txt_apellidos.Enabled = false;
             txt_direccion.Enabled = false;
@@ -204,7 +207,7 @@ namespace Presentacion
         {
             if (btn_Guardar.Text == "Registrar")
             {
-                if (string.IsNullOrWhiteSpace(txt_id.Text) || string.IsNullOrWhiteSpace(txt_nombre.Text) ||
+                if (string.IsNullOrWhiteSpace(txt_id.Text) || string.IsNullOrWhiteSpace(txt_nombre.Text) || string.IsNullOrWhiteSpace(txt_Cedula.Text) ||
                     string.IsNullOrWhiteSpace(txt_apellidos.Text) || string.IsNullOrWhiteSpace(txt_direccion.Text) ||
                     string.IsNullOrWhiteSpace(txt_Barrio.Text) || string.IsNullOrWhiteSpace(txt_telefono.Text) || string.IsNullOrWhiteSpace(cmb_tipo.Text))
                 {
@@ -214,6 +217,7 @@ namespace Presentacion
                 {
                     Usuario usuario = new Usuario();
                     usuario.Id_Usuario = txt_id.Text;
+                    usuario.Cedula = txt_Cedula.Text;
                     usuario.Nombre = txt_nombre.Text;
                     usuario.Apellidos = txt_apellidos.Text;
                     usuario.Direccion = txt_direccion.Text;
@@ -251,6 +255,7 @@ namespace Presentacion
                 {
                     Usuario usuario = new Usuario();
                     usuario.Id_Usuario = txt_id.Text;
+                    usuario.Cedula = txt_Cedula.Text;
                     usuario.Nombre = txt_nombre.Text;
                     usuario.Apellidos = txt_apellidos.Text;
                     usuario.Direccion = txt_direccion.Text;
@@ -289,25 +294,25 @@ namespace Presentacion
 
         private void cmb_tipo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmb_tipo.SelectedItem != null)
-            {
-                string datos = cmb_tipo.SelectedItem.ToString();
-                string[] partes = datos.Split(';');
-                if (partes.Length == 2)
+            //if (cmb_tipo.SelectedItem != null)
+            //{
+            //    string datos = cmb_tipo.SelectedItem.ToString();
+            //    string[] partes = datos.Split(';');
+            //    if (partes.Length == 2)
 
-                    if (partes[1] == "CLIENTE" && (cmb_Opcion.Text=="MODIFICAR" || cmb_Opcion.Text=="REGISTRAR"))
-                    {
-                        Habilitar();
-                        txt_usuario.Enabled = false;
-                        txt_contraseña.Enabled = false;
+            //        if (partes[1] == "CLIENTE" && (cmb_Opcion.Text=="MODIFICAR" || cmb_Opcion.Text=="REGISTRAR"))
+            //        {
+            //            Habilitar();
+            //            txt_usuario.Enabled = false;
+            //            txt_contraseña.Enabled = false;
 
-                    }
-                    else
-                    {
-                        txt_usuario.Enabled = true;
-                        txt_contraseña.Enabled = true;
-                    }
-            }
+            //        }
+            //        else
+            //        {
+            //            txt_usuario.Enabled = true;
+            //            txt_contraseña.Enabled = true;
+            //        }
+            //}
         }
 
         public void txt_id_KeyDown(object sender, KeyEventArgs e)
@@ -363,6 +368,7 @@ namespace Presentacion
 
             if (usuario != null)
             {
+                txt_Cedula.Text = usuario.Cedula;
                 txt_nombre.Text = usuario.Nombre;
                 txt_apellidos.Text = usuario.Apellidos;
                 txt_direccion.Text = usuario.Direccion;

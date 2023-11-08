@@ -16,14 +16,15 @@ namespace DATOS_ORACLE
         }
         public string InsertarUsuario(Usuario usuario)
         {
-            string ssql = "INSERT INTO usuarios (id_usuario, nombre, apellidos, direccion, barrio, correo, telefono, nombre_usuario, contrasena, id_tipo) " +
-                          "VALUES (:identificacion, :nombre, :apellido, :direccion, :barrio, :correo, :numTelefono, :nombreUsuario, :contraseña, :tipoUsuario)";
+            string ssql = "INSERT INTO usuarios (id_usuario, cedula, nombre, apellidos, direccion, barrio, correo, telefono, nombre_usuario, contrasena, id_tipo) " +
+                          "VALUES (:identificacion, :cedula, :nombre, :apellido, :direccion, :barrio, :correo, :numTelefono, :nombreUsuario, :contraseña, :tipoUsuario)";
 
             AbrirConexion();
             OracleCommand orclCmd1 = conexion.CreateCommand();
             orclCmd1.CommandText = ssql;
 
             orclCmd1.Parameters.Add(new OracleParameter(":id_usuario", usuario.Id_Usuario));
+            orclCmd1.Parameters.Add(new OracleParameter(":cedula", usuario.Cedula));
             orclCmd1.Parameters.Add(new OracleParameter(":nombre", usuario.Nombre));
             orclCmd1.Parameters.Add(new OracleParameter(":apellido", usuario.Apellidos));
             orclCmd1.Parameters.Add(new OracleParameter(":direccion", usuario.Direccion));
@@ -75,6 +76,7 @@ namespace DATOS_ORACLE
             Usuario usuario = new Usuario();
 
             usuario.Id_Usuario = Convert.ToString(reader["ID_USUARIO"]);
+            usuario.Cedula = Convert.ToString(reader["CEDULA"]);
             usuario.Nombre = Convert.ToString(reader["NOMBRE"]);
             usuario.Apellidos = Convert.ToString(reader["APELLIDOS"]);
             usuario.Direccion = Convert.ToString(reader["DIRECCION"]);
@@ -151,13 +153,13 @@ namespace DATOS_ORACLE
                 return "El Usuario no existe en la base de datos.";
             }
 
-            string ssql = "UPDATE usuarios SET nombre =:nombre, apellidos =:apellidos, direccion =:direccion, barrio =:barrio,correo =:correo, telefono =:telefono, " +
+            string ssql = "UPDATE usuarios SET cedula =:cedula, nombre =:nombre, apellidos =:apellidos, direccion =:direccion, barrio =:barrio,correo =:correo, telefono =:telefono, " +
                 " nombre_usuario =:nombre_usuario, contrasena =:contrasena, id_tipo =:id_tipo WHERE id_usuario = :id_usuario";
  
             AbrirConexion();
             OracleCommand orclCmd = conexion.CreateCommand();
             orclCmd.CommandText = ssql;
-
+            orclCmd.Parameters.Add(new OracleParameter(":cedula", usuario.Cedula));
             orclCmd.Parameters.Add(new OracleParameter(":nombre", usuario.Nombre));
             orclCmd.Parameters.Add(new OracleParameter(":apellidos", usuario.Apellidos));
             orclCmd.Parameters.Add(new OracleParameter(":direccion", usuario.Direccion));
