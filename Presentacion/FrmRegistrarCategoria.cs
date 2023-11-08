@@ -10,15 +10,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using ENTIDAD;
+using LOGICA_ORACLE;
 
 namespace Presentacion
 {
     public partial class FrmRegistrarCategoria : Form
     {
-        ServiciodeLectura serviciodeLectura = new ServiciodeLectura();
-        ServicioCategoriaProducto servicioCategoriaProducto = new ServicioCategoriaProducto();
-        ModificarCateProducto modificar = new ModificarCateProducto();
-        ServicioProducto servicioProducto = new ServicioProducto();
+
+        ServicioProductoOracle serviceProducto = new ServicioProductoOracle();
+        ServicioCategoriaOracle serviceCategoria = new ServicioCategoriaOracle();
+
         public FrmRegistrarCategoria()
         {
             InitializeComponent();
@@ -56,7 +57,7 @@ namespace Presentacion
                 {
                     string Codigo = txt_Codigo.Text;
 
-                    if (servicioCategoriaProducto.BuscarCodigo(Codigo) == null)
+                    if (serviceCategoria.BuscarId(Codigo) == null)
                     {
                         Guardar(new CategoriaProducto(txt_Codigo.Text, txt_Nombre.Text));
                         Limpiar();
@@ -77,12 +78,12 @@ namespace Presentacion
                     if (respuesta == DialogResult.OK)
                     {
                         string codigo = txt_Codigo.Text;
-                        categoriaproducto = servicioCategoriaProducto.BuscarCodigo(codigo);
-                        if (categoriaproducto != null)
+
+                        if (serviceCategoria.BuscarId(codigo) != null)
                         {
                             categoriaproducto.Nombre = txt_Nombre.Text;
                             Habilitado();
-                            var msg = modificar.ModificarCategoriaProducto(categoriaproducto);
+                            var msg = serviceCategoria.ModificarCategoria(categoriaproducto);
                             MessageBox.Show(msg);
                             Limpiar();
                             Cargar();
@@ -101,7 +102,7 @@ namespace Presentacion
                         if (respuesta == DialogResult.OK)
                         {
                             int sw = 0;
-                            foreach (var item in servicioProducto.Consultar())
+                            foreach (var item in serviceProducto.Consultar())
                             {
                                 if (item.CategoriaProducto.Id_Categoria == txt_Codigo.Text)
                                 {
@@ -113,7 +114,7 @@ namespace Presentacion
                             if (sw == 0)
                             {
                                 string codigo = txt_Codigo.Text;
-                                var msg = modificar.EliminarCategoriaProducto(codigo);
+                                var msg = serviceCategoria.EliminarCategoria(codigo);
                                 MessageBox.Show(msg);
                                 Limpiar();
                                 Cargar();
@@ -131,7 +132,7 @@ namespace Presentacion
 
         void Guardar(CategoriaProducto categoriaProducto)
         {
-            var msg = servicioCategoriaProducto.Guardar(categoriaProducto);
+            var msg = serviceCategoria.InsertarCategoria(categoriaProducto);
             MessageBox.Show(msg);
 
         }
@@ -190,19 +191,14 @@ namespace Presentacion
             }
         }
 
-        public string Cargar()
+        public void Cargar()
         {
-            string filename = "Categoria.txt";
-            if (File.Exists(filename))
+            var lista = serviceCategoria.IncrementaridCategoria(); 
+            foreach (var item in lista)
             {
-                var numero = serviciodeLectura.IncrementarCodigo(filename);
-                txt_Codigo.Text = numero;
+                var idTipo = Convert.ToInt16(item.Id_Categoria) + 1;
+                txt_Codigo.Text = Convert.ToString(idTipo);
             }
-            else
-            {
-                txt_Codigo.Text = "501";
-            }
-            return null;
            
         }
         void Habilitado()
@@ -244,7 +240,7 @@ namespace Presentacion
 
         public bool consultar(string codigo)
         {
-            CategoriaProducto categoriaproducto = servicioCategoriaProducto.BuscarCodigo(codigo);
+            CategoriaProducto categoriaproducto = serviceCategoria.BuscarId(codigo);
 
             if (categoriaproducto != null)
             {

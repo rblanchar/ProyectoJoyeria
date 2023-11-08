@@ -42,6 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServicioCategoriaOracle.cs" />
+    <Compile Include="ServicioMaterialOracle.cs" />
+    <Compile Include="ServicioProductoOracle.cs" />
     <Compile Include="ServicioTipoUsuarioOracle.cs" />
     <Compile Include="ServicioUsuarioOracle.cs" />
   </ItemGroup>

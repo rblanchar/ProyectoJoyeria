@@ -10,15 +10,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using ENTIDAD;
+using LOGICA_ORACLE;
 
 namespace Presentacion
 {
     public partial class FrmRegistrarMaterial : Form
     {
-        ServicioMaterial servicioMaterial = new ServicioMaterial();
-        ServiciodeLectura serviciodeLectura = new ServiciodeLectura();
-        ModificarMaterial modificacion = new ModificarMaterial();
-        ServicioProducto servicioProducto = new ServicioProducto();
+ 
+        ServicioMaterialOracle servicioMaterial = new ServicioMaterialOracle();
+        ServicioProducto serviceProducto = new ServicioProducto();
+
         public FrmRegistrarMaterial()
         {
             InitializeComponent();
@@ -70,7 +71,7 @@ namespace Presentacion
                 {
                     string Codigo = txt_Codigo.Text;
 
-                    if (servicioMaterial.BuscarCodigo(Codigo) == null)
+                    if (servicioMaterial.BuscarId(Codigo) == null)
                     {
                         Guardar(new Material(txt_Codigo.Text, txt_Material.Text));
                         Limpiar();
@@ -93,13 +94,13 @@ namespace Presentacion
                     if (respuesta == DialogResult.OK)
                     {
                         string codigo = txt_Codigo.Text;
-                        material = servicioMaterial.BuscarCodigo(codigo);
+                        material = servicioMaterial.BuscarId(codigo);
                         if (material != null)
                         {
 
                             material.Nombre = txt_Material.Text;
                             Habilitado();
-                            var msg = modificacion.ModificarMateriales(material);
+                            var msg = servicioMaterial.ModificarMaterial(material);
                             MessageBox.Show(msg);
                             Limpiar();
 
@@ -119,7 +120,7 @@ namespace Presentacion
                         if (respuesta == DialogResult.OK)
                         {
                             int sw = 0;
-                            foreach (var item in servicioProducto.Consultar())
+                            foreach (var item in serviceProducto.Consultar())
                             {
                                 if (item.Material.Id_Material == txt_Codigo.Text)
                                 {
@@ -131,7 +132,7 @@ namespace Presentacion
                             if (sw == 0)
                             {
                                 string codigo = txt_Codigo.Text;
-                                var msg = modificacion.EliminarMateriales(codigo);
+                                var msg = servicioMaterial.EliminarMaterial(codigo);
                                 MessageBox.Show(msg);
                                 Limpiar();
                             }
@@ -148,7 +149,7 @@ namespace Presentacion
         }
         void Guardar(Material material)
         {
-            var msg = servicioMaterial.Guardar(material);
+            var msg = servicioMaterial.InsertarMaterial(material);
             MessageBox.Show(msg);
 
         }
@@ -222,7 +223,7 @@ namespace Presentacion
 
         public bool consultar(string codigo)
         {
-            Material mater = servicioMaterial.BuscarCodigo(codigo);
+            Material mater = servicioMaterial.BuscarId(codigo);
 
             if (mater != null)
             {
@@ -250,16 +251,13 @@ namespace Presentacion
 
         void Cargar()
         {
-            string filename = "Material.txt";
-            if (File.Exists(filename))
+            var lista = servicioMaterial.IncrementaridMaterial();
+            foreach (var item in lista)
             {
-                var numero = serviciodeLectura.IncrementarCodigo(filename);
-                txt_Codigo.Text = numero;
+                var idTipo = Convert.ToInt16(item.Id_Material) + 1;
+                txt_Codigo.Text = Convert.ToString(idTipo);
             }
-            else
-            {
-                txt_Codigo.Text = "501";
-            }
+
         }
     }
 }

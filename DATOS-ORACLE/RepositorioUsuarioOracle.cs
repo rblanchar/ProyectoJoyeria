@@ -151,22 +151,23 @@ namespace DATOS_ORACLE
                 return "El Usuario no existe en la base de datos.";
             }
 
-            string ssql = "UPDATE usuarios SET nombre =:nombre WHERE id_usuario = :id_usuario";
+            string ssql = "UPDATE usuarios SET nombre =:nombre, apellidos =:apellidos, direccion =:direccion, barrio =:barrio,correo =:correo, telefono =:telefono, " +
+                " nombre_usuario =:nombre_usuario, contrasena =:contrasena, id_tipo =:id_tipo WHERE id_usuario = :id_usuario";
  
             AbrirConexion();
             OracleCommand orclCmd = conexion.CreateCommand();
             orclCmd.CommandText = ssql;
 
-            orclCmd.Parameters.Add(new OracleParameter(":id_usuario", usuario.Id_Usuario));
             orclCmd.Parameters.Add(new OracleParameter(":nombre", usuario.Nombre));
-            //orclCmd.Parameters.Add(new OracleParameter(":apellido", usuario.Apellidos));
-            //orclCmd.Parameters.Add(new OracleParameter(":direccion", usuario.Direccion));
-            //orclCmd.Parameters.Add(new OracleParameter(":barrio", usuario.Barrio));
-            //orclCmd.Parameters.Add(new OracleParameter(":correo", usuario.Correo));
-            //orclCmd.Parameters.Add(new OracleParameter(":Telefono", usuario.Telefono));
-            //orclCmd.Parameters.Add(new OracleParameter(":nombre_usuario", usuario.Nombre_Usuario));
-            //orclCmd.Parameters.Add(new OracleParameter(":contrasena", usuario.Contrasena));
-            //orclCmd.Parameters.Add(new OracleParameter(":id_tipo", usuario.tipoUsuario.IdTipo));
+            orclCmd.Parameters.Add(new OracleParameter(":apellidos", usuario.Apellidos));
+            orclCmd.Parameters.Add(new OracleParameter(":direccion", usuario.Direccion));
+            orclCmd.Parameters.Add(new OracleParameter(":barrio", usuario.Barrio));
+            orclCmd.Parameters.Add(new OracleParameter(":correo", usuario.Correo));
+            orclCmd.Parameters.Add(new OracleParameter(":telefono", usuario.Telefono));
+            orclCmd.Parameters.Add(new OracleParameter(":nombre_usuario", usuario.Nombre_Usuario));
+            orclCmd.Parameters.Add(new OracleParameter(":contrasena", usuario.Contrasena));
+            orclCmd.Parameters.Add(new OracleParameter(":id_tipo", usuario.tipoUsuario.IdTipo));
+            orclCmd.Parameters.Add(new OracleParameter(":id_usuario", usuario.Id_Usuario));
 
             int i = orclCmd.ExecuteNonQuery();
 
@@ -174,11 +175,11 @@ namespace DATOS_ORACLE
 
             if (i > 0)
             {
-                return "Se modificó el Tipo de Usuario exitosamente.";
+                return "Se modificó el Usuario exitosamente.";
             }
             else
             {
-                return "No se pudo modificar el Tipo de Usuario.";
+                return "No se pudo modificar el Usuario.";
             }
         }
     }

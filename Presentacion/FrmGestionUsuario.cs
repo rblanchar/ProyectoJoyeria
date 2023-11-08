@@ -254,6 +254,7 @@ namespace Presentacion
                     usuario.Nombre = txt_nombre.Text;
                     usuario.Apellidos = txt_apellidos.Text;
                     usuario.Direccion = txt_direccion.Text;
+                    usuario.Barrio = txt_Barrio.Text;
                     usuario.Correo = txt_correo.Text;
                     usuario.Telefono = txt_telefono.Text;
                     usuario.Nombre_Usuario = txt_usuario.Text;
@@ -294,7 +295,7 @@ namespace Presentacion
                 string[] partes = datos.Split(';');
                 if (partes.Length == 2)
 
-                    if (partes[1] == "CLIENTE" && cmb_Opcion.Text=="MODIFICAR")
+                    if (partes[1] == "CLIENTE" && (cmb_Opcion.Text=="MODIFICAR" || cmb_Opcion.Text=="REGISTRAR"))
                     {
                         Habilitar();
                         txt_usuario.Enabled = false;
