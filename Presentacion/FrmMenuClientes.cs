@@ -22,5 +22,17 @@ namespace Presentacion
             this.Close();
             new FrmMenuSuper().Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            new FrmGestionCliente().Show();
+        }
+
+        private void btn_Listado_Clientes_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            new FrmListadoClientes().Show();
+        }
     }
 }

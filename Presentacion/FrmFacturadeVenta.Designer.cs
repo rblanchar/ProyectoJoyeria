@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmFacturadeVenta));
             this.btn_Guardar = new System.Windows.Forms.Button();
             this.btn_Cancelar = new System.Windows.Forms.Button();
             this.btn_Regresar = new System.Windows.Forms.Button();
@@ -42,9 +43,10 @@
             this.btn_Guardar.Enabled = false;
             this.btn_Guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Guardar.ForeColor = System.Drawing.Color.White;
-            this.btn_Guardar.Location = new System.Drawing.Point(679, 654);
+            this.btn_Guardar.Location = new System.Drawing.Point(509, 531);
+            this.btn_Guardar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_Guardar.Name = "btn_Guardar";
-            this.btn_Guardar.Size = new System.Drawing.Size(122, 43);
+            this.btn_Guardar.Size = new System.Drawing.Size(92, 35);
             this.btn_Guardar.TabIndex = 56;
             this.btn_Guardar.UseVisualStyleBackColor = false;
             // 
@@ -53,9 +55,10 @@
             this.btn_Cancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btn_Cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Cancelar.ForeColor = System.Drawing.Color.White;
-            this.btn_Cancelar.Location = new System.Drawing.Point(807, 654);
+            this.btn_Cancelar.Location = new System.Drawing.Point(605, 531);
+            this.btn_Cancelar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_Cancelar.Name = "btn_Cancelar";
-            this.btn_Cancelar.Size = new System.Drawing.Size(122, 43);
+            this.btn_Cancelar.Size = new System.Drawing.Size(92, 35);
             this.btn_Cancelar.TabIndex = 57;
             this.btn_Cancelar.Text = "Cancelar";
             this.btn_Cancelar.UseVisualStyleBackColor = false;
@@ -66,9 +69,10 @@
             this.btn_Regresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btn_Regresar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Regresar.ForeColor = System.Drawing.Color.White;
-            this.btn_Regresar.Location = new System.Drawing.Point(935, 654);
+            this.btn_Regresar.Location = new System.Drawing.Point(701, 531);
+            this.btn_Regresar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_Regresar.Name = "btn_Regresar";
-            this.btn_Regresar.Size = new System.Drawing.Size(122, 43);
+            this.btn_Regresar.Size = new System.Drawing.Size(92, 35);
             this.btn_Regresar.TabIndex = 58;
             this.btn_Regresar.Text = "Regresar";
             this.btn_Regresar.UseVisualStyleBackColor = false;
@@ -78,9 +82,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(436, 9);
+            this.label1.Location = new System.Drawing.Point(327, 7);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(139, 20);
+            this.label1.Size = new System.Drawing.Size(116, 17);
             this.label1.TabIndex = 59;
             this.label1.Text = "FACTURACION";
             // 
@@ -88,26 +93,28 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(803, 57);
+            this.label2.Location = new System.Drawing.Point(602, 46);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 20);
+            this.label2.Size = new System.Drawing.Size(52, 17);
             this.label2.TabIndex = 60;
             this.label2.Text = "Fecha";
             // 
             // txt_Fecha
             // 
             this.txt_Fecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Fecha.Location = new System.Drawing.Point(869, 57);
+            this.txt_Fecha.Location = new System.Drawing.Point(652, 46);
+            this.txt_Fecha.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txt_Fecha.Name = "txt_Fecha";
-            this.txt_Fecha.Size = new System.Drawing.Size(139, 26);
+            this.txt_Fecha.Size = new System.Drawing.Size(105, 23);
             this.txt_Fecha.TabIndex = 61;
             // 
             // FrmFacturadeVenta
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1069, 709);
+            this.ClientSize = new System.Drawing.Size(802, 576);
             this.Controls.Add(this.txt_Fecha);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -115,6 +122,8 @@
             this.Controls.Add(this.btn_Cancelar);
             this.Controls.Add(this.btn_Regresar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FrmFacturadeVenta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmFacturadeVenta";

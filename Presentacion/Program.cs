@@ -30,7 +30,7 @@ namespace Presentacion
             //FrmGestionProducto
             //FrmRegistrarMaterial
 
-            FrmFacturadeVenta main = new FrmFacturadeVenta();
+            FrmGestionCliente main = new FrmGestionCliente();
             main.Show();
             Application.Run();
 

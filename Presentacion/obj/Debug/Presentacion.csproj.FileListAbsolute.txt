@@ -299,3 +299,6 @@ D:\Ingenieria de Sistemas\Semestre lV\C#\Git\Presentacion\obj\Debug\Presentacion
 D:\Ingenieria de Sistemas\Semestre lV\C#\Git\Presentacion\obj\Debug\Presentacion.exe
 D:\Ingenieria de Sistemas\Semestre lV\C#\Git\Presentacion\obj\Debug\Presentacion.pdb
 D:\Ingenieria de Sistemas\Semestre lV\C#\Git\Presentacion\obj\Debug\Presentacion.FrmMenuClientes.resources
+C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.FrmGestionCliente.resources
+C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.FrmMenuClientes.resources
+C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.FrmListadoClientes.resources
