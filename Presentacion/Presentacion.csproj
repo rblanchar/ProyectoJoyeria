@@ -52,6 +52,12 @@
     <Compile Include="FrmFacturadeVenta.Designer.cs">
       <DependentUpon>FrmFacturadeVenta.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmGestionCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGestionCliente.Designer.cs">
+      <DependentUpon>FrmGestionCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmGestionProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +118,12 @@
     <Compile Include="FrmMenuAdmin.Designer.cs">
       <DependentUpon>FrmMenuAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmMenuClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMenuClientes.Designer.cs">
+      <DependentUpon>FrmMenuClientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMenuProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +171,9 @@
     <EmbeddedResource Include="FrmFacturadeVenta.resx">
       <DependentUpon>FrmFacturadeVenta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmGestionCliente.resx">
+      <DependentUpon>FrmGestionCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmGestionProducto.resx">
       <DependentUpon>FrmGestionProducto.cs</DependentUpon>
     </EmbeddedResource>
@@ -188,6 +203,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMenuAdmin.resx">
       <DependentUpon>FrmMenuAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMenuClientes.resx">
+      <DependentUpon>FrmMenuClientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMenuProducto.resx">
       <DependentUpon>FrmMenuProducto.cs</DependentUpon>
