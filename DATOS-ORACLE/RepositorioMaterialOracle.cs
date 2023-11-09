@@ -160,10 +160,11 @@ namespace DATOS_ORACLE
         }
 
 
-        public List<Material> IncrementarIdMaterial()
+        public string ProximoIdMaterial()
         {
-            List<Material> list = new List<Material>();
-            string ssql = "SELECT * FROM materiales ORDER BY ID_material DESC FETCH FIRST 1 ROW ONLY";
+            string proximoId = null;
+
+            string ssql = "SELECT last_number FROM USER_SEQUENCES WHERE sequence_name ='SEQ_ID_MATERIAL'";
 
             AbrirConexion();
             OracleCommand cmd = conexion.CreateCommand();
@@ -171,15 +172,16 @@ namespace DATOS_ORACLE
 
             OracleDataReader Rdr = cmd.ExecuteReader();
 
-            while (Rdr.Read())
+            if (Rdr.Read())
             {
-                list.Add(Mapear(Rdr));
+                proximoId = Rdr[0].ToString();
             }
+
             Rdr.Close();
             CerrarConexion();
 
-            return list;
-
+            return proximoId;
         }
+
     }
 }

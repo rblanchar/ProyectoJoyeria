@@ -1,5 +1,4 @@
-﻿using LOGICA;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -193,13 +192,9 @@ namespace Presentacion
 
         public void Cargar()
         {
-            var lista = serviceCategoria.IncrementaridCategoria(); 
-            foreach (var item in lista)
-            {
-                var idTipo = Convert.ToInt16(item.Id_Categoria) + 1;
-                txt_Codigo.Text = Convert.ToString(idTipo);
-            }
-           
+            var proximoId = serviceCategoria.ProximoidCategoria(); 
+            txt_Codigo.Text = Convert.ToString(proximoId);
+               
         }
         void Habilitado()
         {

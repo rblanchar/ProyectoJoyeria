@@ -24,9 +24,9 @@ namespace LOGICA_ORACLE
             return msg;
         }
 
-        public List<Material> IncrementaridMaterial()
+        public string ProximoidMaterial()
         {
-            return repositorio.IncrementarIdMaterial();
+            return repositorio.ProximoIdMaterial();
         }
 
         public Material BuscarId(string id_material)

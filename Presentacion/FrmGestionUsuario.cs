@@ -1,5 +1,4 @@
 ﻿using ENTIDAD;
-using LOGICA;
 using System;
 using System.Drawing.Text;
 using System.Windows.Forms;
@@ -53,7 +52,7 @@ namespace Presentacion
         {
             cmb_tipo.Text = string.Empty;
             cmb_tipo.Enabled = false;
-            txt_id.Text = string.Empty;
+            txt_id_Usuario.Text = string.Empty;
             txt_Cedula.Text = string.Empty;
             txt_nombre.Text = string.Empty;
             txt_apellidos.Text = string.Empty;
@@ -64,13 +63,15 @@ namespace Presentacion
             txt_usuario.Text = string.Empty;
             txt_contraseña.Text = string.Empty;
             btn_Guardar.Text = string.Empty;
-            l21.Visible = false;
+
             l22.Visible = false;
             l23.Visible = false;
             l24.Visible = false;
             l25.Visible = false;
             l26.Visible = false;
             lb27.Visible = false;
+            lb28.Visible = false;
+            
             DesHabilitar();
 
         }
@@ -130,7 +131,7 @@ namespace Presentacion
         void Habilitar()
         {
             cmb_tipo.Enabled = true;
-            txt_id.Enabled = true;
+            txt_id_Usuario.Enabled = true;
             txt_Cedula.Enabled = true;
             txt_nombre.Enabled = true;
             txt_apellidos.Enabled = true;
@@ -145,8 +146,8 @@ namespace Presentacion
 
         void DesHabilitar()
         {
+            txt_id_Usuario.Enabled = false;
             cmb_tipo.Enabled = false;
-            txt_id.Enabled = false;
             txt_Cedula.Enabled = false;
             txt_nombre.Enabled = false;
             txt_apellidos.Enabled = false;
@@ -161,10 +162,10 @@ namespace Presentacion
 
         void CamposObligatorios()
         {
-            l21.Visible = true; l22.Visible = true;
+            l22.Visible = true;
             l23.Visible = true; l24.Visible = true;
             l25.Visible = true; l26.Visible = true;
-            lb27.Visible = true;
+            lb27.Visible = true; lb28.Visible = true;
         }
 
         private void cmb_Opcion_SelectedIndexChanged(object sender, EventArgs e)
@@ -178,27 +179,32 @@ namespace Presentacion
                     CamposObligatorios();
                     btn_Guardar.Text = "Registrar";
 
+                    var proximoIdUsuario = servicioUsuario.ProximoidUsuario();
+                    txt_id_Usuario.Text = Convert.ToString(proximoIdUsuario);
+
+                    txt_id_Usuario.Enabled = false;
+
                 }
                 else if (Opcion == "CONSULTAR")
                 {
                     limpiar();
                     DesHabilitar();
-                    txt_id.Enabled = true;
-                    txt_id.Focus();
+                    txt_id_Usuario.Enabled = true;
+                    txt_id_Usuario.Focus();
                 }
                 else if (Opcion == "ELIMINAR")
                 {
                     limpiar();
                     DesHabilitar();
-                    txt_id.Enabled = true;
-                    txt_id.Focus();
+                    txt_id_Usuario.Enabled = true;
+                    txt_id_Usuario.Focus();
                 }
                 if (Opcion == "MODIFICAR")
                 {
                     limpiar();
                     DesHabilitar();
-                    txt_id.Enabled = true;
-                    txt_id.Focus();
+                    txt_id_Usuario.Enabled = true;
+                    txt_id_Usuario.Focus();
                 }
             }
         }
@@ -207,7 +213,7 @@ namespace Presentacion
         {
             if (btn_Guardar.Text == "Registrar")
             {
-                if (string.IsNullOrWhiteSpace(txt_id.Text) || string.IsNullOrWhiteSpace(txt_nombre.Text) || string.IsNullOrWhiteSpace(txt_Cedula.Text) ||
+                if (string.IsNullOrWhiteSpace(txt_id_Usuario.Text) || string.IsNullOrWhiteSpace(txt_nombre.Text) || string.IsNullOrWhiteSpace(txt_Cedula.Text) ||
                     string.IsNullOrWhiteSpace(txt_apellidos.Text) || string.IsNullOrWhiteSpace(txt_direccion.Text) ||
                     string.IsNullOrWhiteSpace(txt_Barrio.Text) || string.IsNullOrWhiteSpace(txt_telefono.Text) || string.IsNullOrWhiteSpace(cmb_tipo.Text))
                 {
@@ -216,7 +222,7 @@ namespace Presentacion
                 else
                 {
                     Usuario usuario = new Usuario();
-                    usuario.Id_Usuario = txt_id.Text;
+                    usuario.Id_Usuario = txt_id_Usuario.Text;
                     usuario.Cedula = txt_Cedula.Text;
                     usuario.Nombre = txt_nombre.Text;
                     usuario.Apellidos = txt_apellidos.Text;
@@ -254,7 +260,7 @@ namespace Presentacion
                 if (respuesta == DialogResult.OK)
                 {
                     Usuario usuario = new Usuario();
-                    usuario.Id_Usuario = txt_id.Text;
+                    usuario.Id_Usuario = txt_id_Usuario.Text;
                     usuario.Cedula = txt_Cedula.Text;
                     usuario.Nombre = txt_nombre.Text;
                     usuario.Apellidos = txt_apellidos.Text;
@@ -280,7 +286,7 @@ namespace Presentacion
                 if (respuesta == DialogResult.OK)
                 {
 
-                    var id = txt_id.Text;
+                    var id = txt_id_Usuario.Text;
                     // Usuario usuario = servicioUsuario.BuscarId(id);
 
                     var msg = servicioUsuario.EliminarUsuario(id);
@@ -319,7 +325,7 @@ namespace Presentacion
         {
             if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
             {
-                string id = txt_id.Text;
+                string id = txt_id_Usuario.Text;
 
                 if (consultar(id) != false)
                 {
@@ -346,7 +352,7 @@ namespace Presentacion
                             }
                             btn_Guardar.Text = "Modificar";
                             btn_Guardar.Enabled = true;
-                            txt_id.Enabled = false;
+                            txt_id_Usuario.Enabled = false;
                             cmb_Opcion.Enabled = false;
                         }
                         else if (Opcion == "ELIMINAR")
@@ -354,7 +360,7 @@ namespace Presentacion
                             DesHabilitar();
                             btn_Guardar.Text = "Eliminar";
                             btn_Guardar.Enabled = true;
-                            txt_id.Focus();
+                            txt_id_Usuario.Focus();
                             cmb_Opcion.Enabled = false;
                         }
                     }
@@ -408,6 +414,11 @@ namespace Presentacion
             {
                 e.KeyChar = char.ToUpper(e.KeyChar);
             }
+        }
+
+        private void label23_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

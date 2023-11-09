@@ -17,13 +17,12 @@ namespace DATOS_ORACLE
         public string InsertarUsuario(Usuario usuario)
         {
             string ssql = "INSERT INTO usuarios (id_usuario, cedula, nombre, apellidos, direccion, barrio, correo, telefono, nombre_usuario, contrasena, id_tipo) " +
-                          "VALUES (:identificacion, :cedula, :nombre, :apellido, :direccion, :barrio, :correo, :numTelefono, :nombreUsuario, :contraseña, :tipoUsuario)";
+                          " VALUES (seq_id_usuario.NEXTVAL, :cedula, :nombre, :apellido, :direccion, :barrio, :correo, :numTelefono, :nombreUsuario, :contraseña, :tipoUsuario)";
 
             AbrirConexion();
             OracleCommand orclCmd1 = conexion.CreateCommand();
             orclCmd1.CommandText = ssql;
 
-            orclCmd1.Parameters.Add(new OracleParameter(":id_usuario", usuario.Id_Usuario));
             orclCmd1.Parameters.Add(new OracleParameter(":cedula", usuario.Cedula));
             orclCmd1.Parameters.Add(new OracleParameter(":nombre", usuario.Nombre));
             orclCmd1.Parameters.Add(new OracleParameter(":apellido", usuario.Apellidos));
@@ -52,7 +51,7 @@ namespace DATOS_ORACLE
         public List<Usuario> ObtenerTodosUsuarios()
         {
             List<Usuario> listaUsuarios = new List<Usuario>();
-            string ssql = "SELECT * FROM usuarios";
+            string ssql = "SELECT * FROM usuarios ORDER BY id_usuario DESC";
 
             AbrirConexion();
             OracleCommand cmd = conexion.CreateCommand();
@@ -183,6 +182,28 @@ namespace DATOS_ORACLE
             {
                 return "No se pudo modificar el Usuario.";
             }
+        }
+        public string ProximoIdUsuario()
+        {
+            string proximoId = null;
+
+            string ssql = "SELECT last_number FROM USER_SEQUENCES WHERE sequence_name ='SEQ_ID_USUARIO'";
+
+            AbrirConexion();
+            OracleCommand cmd = conexion.CreateCommand();
+            cmd.CommandText = ssql;
+
+            OracleDataReader Rdr = cmd.ExecuteReader();
+
+            if (Rdr.Read())
+            {
+                proximoId = Rdr[0].ToString();
+            }
+
+            Rdr.Close();
+            CerrarConexion();
+
+            return proximoId;
         }
     }
 }

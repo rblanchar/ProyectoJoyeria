@@ -1,5 +1,4 @@
-﻿using LOGICA;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,7 +17,7 @@ namespace Presentacion
     {
  
         ServicioMaterialOracle servicioMaterial = new ServicioMaterialOracle();
-        ServicioProducto serviceProducto = new ServicioProducto();
+        ServicioProductoOracle serviceProducto = new ServicioProductoOracle();
 
         public FrmRegistrarMaterial()
         {
@@ -35,7 +34,6 @@ namespace Presentacion
         private void FrmRegistrarMaterial_Load(object sender, EventArgs e)
         {
             Cargar();
-
 
         }
 
@@ -164,7 +162,7 @@ namespace Presentacion
                     Habilitado();
                     Cargar();
                     btn_Guardar.Text = "Registrar";
-
+                    txt_Codigo.Enabled = false;
                 }
                 else if (Opcion == "CONSULTAR")
                 {
@@ -251,12 +249,8 @@ namespace Presentacion
 
         void Cargar()
         {
-            var lista = servicioMaterial.IncrementaridMaterial();
-            foreach (var item in lista)
-            {
-                var idTipo = Convert.ToInt16(item.Id_Material) + 1;
-                txt_Codigo.Text = Convert.ToString(idTipo);
-            }
+            var proximoId = servicioMaterial.ProximoidMaterial();
+            txt_Codigo.Text = Convert.ToString(proximoId);            
 
         }
     }

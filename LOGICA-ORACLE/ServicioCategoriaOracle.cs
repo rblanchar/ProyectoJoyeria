@@ -24,9 +24,9 @@ namespace LOGICA_ORACLE
             return msg;
         }
 
-        public List<CategoriaProducto> IncrementaridCategoria()
+        public string ProximoidCategoria()
         {
-            return repositorio.IncrementarIdCategoria();
+            return repositorio.ProximoIdCategoria();
         }
 
         public CategoriaProducto BuscarId(string id_categoria)

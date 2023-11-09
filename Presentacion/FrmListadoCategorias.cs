@@ -1,5 +1,4 @@
 ﻿using ENTIDAD;
-using LOGICA;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,12 +9,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LOGICA_ORACLE;
 
 namespace Presentacion
 {
     public partial class FrmListadoCategorias : Form
     {
-        ServicioCategoriaProducto servicioCategoriaProducto = new ServicioCategoriaProducto();
+        ServicioCategoriaOracle servicioCategoriaProducto = new ServicioCategoriaOracle();
         public FrmListadoCategorias()
         {
             InitializeComponent();

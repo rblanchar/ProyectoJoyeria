@@ -12,6 +12,7 @@ namespace LOGICA_ORACLE
     public class ServicioUsuarioOracle
     {
         RepositorioUsuarioOracle repositorio = new RepositorioUsuarioOracle();
+        ServicioTipoUsuarioOracle servicioTipoUsuario = new ServicioTipoUsuarioOracle();
         public string InsertarUsuario(Usuario usuario)
         {
             var msg = repositorio.InsertarUsuario(usuario);
@@ -48,5 +49,23 @@ namespace LOGICA_ORACLE
             return msg;
         }
 
+        public List<Usuario> BuscarFiltro(string valor)
+        {
+            List<Usuario> listaFiltrada = new List<Usuario>();
+
+            foreach (var item in usuarios)
+            {
+                TipoUsuario NombreTipo = servicioTipoUsuario.BuscarId(item.tipoUsuario.IdTipo.ToString());
+                if (item.Nombre.Contains(valor) || item.Apellidos.Contains(valor) || NombreTipo.Nombre.Contains(valor))
+                {
+                    listaFiltrada.Add(item);
+                }
+            }
+            return listaFiltrada;
+        }
+        public string ProximoidUsuario()
+        {
+            return repositorio.ProximoIdUsuario();
+        }
     }
 }

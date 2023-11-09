@@ -1,5 +1,4 @@
-﻿using LOGICA;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -28,6 +27,11 @@ namespace Presentacion
         private void FrmFacturadeVenta_Load(object sender, EventArgs e)
         {
             txt_Fecha.Text = DateTime.Now.ToString("yyyy/MM/dd");
+        }
+
+        private void btn_Cancelar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

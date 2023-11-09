@@ -1,5 +1,4 @@
 ﻿using ENTIDAD;
-using LOGICA;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,10 +15,8 @@ namespace Presentacion
     
     public partial class FrmListarUsuarios : Form
     {
-        ServicioUsuario servicioUsuario = new ServicioUsuario();
-        ServicioTipoUsuario servicioRol = new ServicioTipoUsuario();
-        ServicioTipoUsuarioOracle servicioTipoUsuarioOracle = new ServicioTipoUsuarioOracle();
-        ServicioUsuarioOracle servicioUsuarioOracle = new ServicioUsuarioOracle();
+        ServicioTipoUsuarioOracle serviceTipoUsuario = new ServicioTipoUsuarioOracle();
+        ServicioUsuarioOracle serviceUsuario = new ServicioUsuarioOracle();
         public FrmListarUsuarios()
         {
             InitializeComponent();
@@ -33,7 +30,7 @@ namespace Presentacion
 
         private void FrmListarUsuarios_Load(object sender, EventArgs e)
         {
-            CargarGrilla(servicioUsuarioOracle.Consultar());
+            CargarGrilla(serviceUsuario.Consultar());
         }
 
         void CargarGrilla(List<Usuario> lista)
@@ -42,9 +39,9 @@ namespace Presentacion
             
             foreach (var item in lista)
             {
-                TipoUsuario tipoUsuario = servicioTipoUsuarioOracle.BuscarId(item.tipoUsuario.IdTipo.ToString());
+                TipoUsuario tipoUsuario = serviceTipoUsuario.BuscarId(item.tipoUsuario.IdTipo.ToString());
 
-                Grilla_Usuarios.Rows.Add(item.Id_Usuario, item.Nombre.ToUpper(), item.Apellidos.ToUpper(), item.Direccion.ToUpper(),item.Barrio.ToUpper(),
+                Grilla_Usuarios.Rows.Add(item.Id_Usuario,item.Cedula, item.Nombre.ToUpper(), item.Apellidos.ToUpper(), item.Direccion.ToUpper(),item.Barrio.ToUpper(),
                     item.Correo.ToUpper(), item.Telefono, item.Nombre_Usuario, item.Contrasena,tipoUsuario.Nombre.ToUpper() );
             }
 
@@ -73,8 +70,8 @@ namespace Presentacion
 
         private void txt_Nombre_TextChanged(object sender, EventArgs e)
         {
-            var filtro = txt_Nombre.Text;
-            var lista = servicioUsuario.BuscarX(filtro);
+            var filtro = txt_Nombre.Text;           
+            var lista=serviceUsuario.BuscarFiltro(filtro);
             CargarGrilla(lista);
         }
     }

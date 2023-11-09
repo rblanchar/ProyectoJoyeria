@@ -160,10 +160,11 @@ namespace DATOS_ORACLE
         }
 
 
-        public List<CategoriaProducto> IncrementarIdCategoria()
+        public string ProximoIdCategoria()
         {
-            List<CategoriaProducto> list = new List<CategoriaProducto>();
-            string ssql = "SELECT * FROM categoria_productos ORDER BY ID_categoria DESC FETCH FIRST 1 ROW ONLY";
+            string proximoId = null;
+
+            string ssql = "SELECT last_number FROM USER_SEQUENCES WHERE sequence_name ='SEQ_ID_CATEGORIA_PRODUCTO'";
 
             AbrirConexion();
             OracleCommand cmd = conexion.CreateCommand();
@@ -171,15 +172,16 @@ namespace DATOS_ORACLE
 
             OracleDataReader Rdr = cmd.ExecuteReader();
 
-            while (Rdr.Read())
+            if (Rdr.Read())
             {
-                list.Add(Mapear(Rdr));
+                proximoId = Rdr[0].ToString();
             }
+
             Rdr.Close();
             CerrarConexion();
 
-            return list;
-
+            return proximoId;
         }
+
     }
 }

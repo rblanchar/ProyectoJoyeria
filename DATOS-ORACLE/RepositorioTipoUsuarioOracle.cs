@@ -17,7 +17,7 @@ namespace DATOS_ORACLE
         public string InsertarTipoUsuario(TipoUsuario tipoUsuario)
         {
             
-            string ssql = "INSERT INTO tipo_usuarios(id_tipo, nombre) VALUES(seq_tipo_usuario.NEXTVAL, :nombre)";
+            string ssql = "INSERT INTO tipo_usuarios VALUES(seq_id_tipo_usuario.NEXTVAL, :nombre)";
 
             AbrirConexion();
             OracleCommand orclCmd1 = conexion.CreateCommand();

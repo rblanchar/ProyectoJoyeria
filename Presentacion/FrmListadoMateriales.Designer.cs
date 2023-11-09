@@ -56,7 +56,7 @@
             this.Grilla_Materiales.Name = "Grilla_Materiales";
             this.Grilla_Materiales.RowHeadersWidth = 51;
             this.Grilla_Materiales.RowTemplate.Height = 24;
-            this.Grilla_Materiales.Size = new System.Drawing.Size(400, 224);
+            this.Grilla_Materiales.Size = new System.Drawing.Size(400, 332);
             this.Grilla_Materiales.TabIndex = 1;
             // 
             // Column1
@@ -78,7 +78,7 @@
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(284, 283);
+            this.button1.Location = new System.Drawing.Point(284, 391);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(118, 41);
             this.button1.TabIndex = 2;
@@ -91,7 +91,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(404, 329);
+            this.ClientSize = new System.Drawing.Size(404, 436);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.Grilla_Materiales);
             this.Controls.Add(this.label1);

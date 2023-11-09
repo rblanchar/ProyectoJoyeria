@@ -1,5 +1,5 @@
 ﻿using ENTIDAD;
-using LOGICA;
+using LOGICA_ORACLE;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,7 +15,7 @@ namespace Presentacion
 {
     public partial class FrmListadoMateriales : Form
     {
-        ServicioMaterial servicioMaterial = new ServicioMaterial();
+        ServicioMaterialOracle servicioMaterial = new ServicioMaterialOracle();
         public FrmListadoMateriales()
         {
             InitializeComponent();
