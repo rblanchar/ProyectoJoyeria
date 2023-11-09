@@ -81,9 +81,13 @@ namespace DATOS_ORACLE
             producto.Peso = Convert.ToDecimal(reader["PESO"]);
             producto.Margen_Ganancia = Convert.ToDouble(reader["MARGEN_GANANCIA"]);
             producto.Cantidad = Convert.ToInt16(reader["CANTIDAD"]);
-            producto.CategoriaProducto.Id_Categoria = Convert.ToString(reader["ID_CATEGORIA"]);
-            producto.Material.Id_Material = Convert.ToString(reader["ID_MATERIAL"]);
-
+            CategoriaProducto categoriaProducto = new CategoriaProducto();
+            categoriaProducto.Id_Categoria = Convert.ToString(reader["ID_CATEGORIA"]);
+            producto.CategoriaProducto = categoriaProducto;
+            Material material = new Material();
+            material.Id_Material = Convert.ToString(reader["ID_MATERIAL"]);
+            producto.Material = material;
+           
             return producto;
         }
 

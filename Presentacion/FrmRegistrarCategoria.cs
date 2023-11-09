@@ -160,7 +160,7 @@ namespace Presentacion
                     Cargar();
                     txt_Nombre.Focus();
                     btn_Guardar.Text = "Registrar";
-
+                    txt_Codigo.Enabled = false;
                 }
                 else if (Opcion == "CONSULTAR")
                 {

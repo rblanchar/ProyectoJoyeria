@@ -11,6 +11,8 @@ namespace LOGICA_ORACLE
     public class ServicioProductoOracle
     {
         RepositorioProductoOracle repositorio = new RepositorioProductoOracle();
+        ServicioCategoriaOracle servicioCategoria = new ServicioCategoriaOracle();
+        ServicioMaterialOracle servicioMaterial = new ServicioMaterialOracle();
 
         public List<Producto> productos;
         public List<Producto> Consultar()
@@ -40,7 +42,22 @@ namespace LOGICA_ORACLE
             }
             return null;
         }
+        public List<Producto> BuscarFiltro(string valor)
+        {
+            List<Producto> listaFiltrada = new List<Producto>();
 
+            foreach (var item in productos)
+            {
+                CategoriaProducto NombreCategoria = servicioCategoria.BuscarId(item.CategoriaProducto.Id_Categoria.ToString());
+                Material NombreMaterial = servicioMaterial.BuscarId(item.Material.Id_Material.ToString());
+
+                if (item.Descripcion.Contains(valor) || NombreCategoria.Nombre.Contains(valor) || NombreMaterial.Nombre.Contains(valor))
+                {
+                    listaFiltrada.Add(item);
+                }
+            }
+            return listaFiltrada;
+        }
         public string ModificarProducto(Producto idproducto)
         {
             var msg = repositorio.ModificarProducto(idproducto);

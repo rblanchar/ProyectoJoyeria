@@ -1,5 +1,6 @@
 ﻿using ENTIDAD;
 using LOGICA;
+using LOGICA_ORACLE;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +15,9 @@ namespace Presentacion
 {
     public partial class FrmListadoProductos : Form
     {
-        ServicioProducto servicioProducto= new ServicioProducto();
+        ServicioProductoOracle servicioProducto= new ServicioProductoOracle();
+        ServicioCategoriaOracle servicioCategoria= new ServicioCategoriaOracle();
+        ServicioMaterialOracle servicioMaterial= new ServicioMaterialOracle();
         public FrmListadoProductos()
         {
             InitializeComponent();
@@ -42,7 +45,7 @@ namespace Presentacion
         private void FrmListadoProductos_Load(object sender, EventArgs e)
         {
             CargarGrilla(servicioProducto.Consultar());
-            Grilla_Productos.Sort(Grilla_Productos.Columns["CATEGORIA"], ListSortDirection.Ascending);
+            //Grilla_Productos.Sort(Grilla_Productos.Columns["CATEGORIA"], ListSortDirection.Ascending);
         }
 
         void CargarGrilla(List<Producto> lista)
@@ -51,15 +54,19 @@ namespace Presentacion
 
             foreach (var item in lista)
             {
-                Grilla_Productos.Rows.Add(item.Id_Producto, item.CategoriaProducto.Nombre.ToUpper(), item.Material.Nombre.ToUpper(),
-                    item.Descripcion.ToUpper(), item.Peso.ToString(), item.Costo.ToString("###,###,###"), item.Margen_Ganancia.ToString(), item.Cantidad);
+
+                CategoriaProducto categoria = servicioCategoria.BuscarId(item.CategoriaProducto.Id_Categoria.ToString());
+                Material material = servicioMaterial.BuscarId(item.Material.Id_Material);
+
+                Grilla_Productos.Rows.Add(item.Id_Producto, item.Descripcion.ToUpper(), item.Costo.ToString("###,###,###"), item.Peso.ToString(), 
+                     item.Margen_Ganancia.ToString(), item.Cantidad, categoria.Nombre.ToUpper(), material.Nombre.ToUpper());
             }
         }
 
         private void txt_Nombre_TextChanged(object sender, EventArgs e)
         {
             var filtro = txt_Nombre.Text;
-            var lista = servicioProducto.BuscarX(filtro);
+            var lista = servicioProducto.BuscarFiltro(filtro);
             CargarGrilla(lista);
         }
     }
