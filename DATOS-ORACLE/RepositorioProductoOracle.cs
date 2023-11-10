@@ -18,15 +18,15 @@ namespace DATOS_ORACLE
         public string InsertarProducto(Producto producto)
         {
 
-            string ssql = "INSERT INTO productos VALUES(seq_id_producto.NEXTVAL, descripcion =:descripcion, costo =:costo, peso =:peso, " +
-                " margen_ganancia =:margen_ganancia, cantidad =:cantidad, id_categoria =:id_categoria, id_material =:id_material)";
-            
+            string ssql = "INSERT INTO productos (id_producto, descripcion, costo, peso, margen_ganancia, cantidad, id_categoria, id_material) " +
+                 "VALUES (seq_id_producto.NEXTVAL, :descripcion, :costo, :peso, :margen_ganancia, :cantidad, :id_categoria, :id_material)";
+
+
             AbrirConexion();
             OracleCommand orclCmd1 = conexion.CreateCommand();
             orclCmd1.CommandText = ssql;
 
 
-            orclCmd1.Parameters.Add(new OracleParameter(":id_producto", producto.Id_Producto));
             orclCmd1.Parameters.Add(new OracleParameter(":descripcion", producto.Descripcion));
             orclCmd1.Parameters.Add(new OracleParameter(":costo", producto.Costo));
             orclCmd1.Parameters.Add(new OracleParameter(":peso", producto.Peso));
@@ -81,13 +81,16 @@ namespace DATOS_ORACLE
             producto.Peso = Convert.ToDecimal(reader["PESO"]);
             producto.Margen_Ganancia = Convert.ToDouble(reader["MARGEN_GANANCIA"]);
             producto.Cantidad = Convert.ToInt16(reader["CANTIDAD"]);
+
             CategoriaProducto categoriaProducto = new CategoriaProducto();
             categoriaProducto.Id_Categoria = Convert.ToString(reader["ID_CATEGORIA"]);
             producto.CategoriaProducto = categoriaProducto;
+
             Material material = new Material();
             material.Id_Material = Convert.ToString(reader["ID_MATERIAL"]);
             producto.Material = material;
-           
+
+
             return producto;
         }
 
@@ -184,27 +187,27 @@ namespace DATOS_ORACLE
             }
         }
 
-        public List<Producto> IncrementarIdProducto()
+        public string IncrementarIdProducto()
         {
-            List<Producto> list = new List<Producto>();
-            string ssql = "SELECT * FROM productos ORDER BY ID_producto DESC FETCH FIRST 1 ROW ONLY";
-
+            string proximoId = null;
+            string ssql = "SELECT last_number FROM USER_SEQUENCES WHERE sequence_name ='SEQ_ID_PRODUCTO'";
             AbrirConexion();
             OracleCommand cmd = conexion.CreateCommand();
             cmd.CommandText = ssql;
 
             OracleDataReader Rdr = cmd.ExecuteReader();
 
-            while (Rdr.Read())
+            if (Rdr.Read())
             {
-                list.Add(Mapear(Rdr));
+                proximoId = Rdr[0].ToString();
             }
+
             Rdr.Close();
             CerrarConexion();
 
-            return list;
+            return proximoId;
 
         }
-
+        
     }
 }

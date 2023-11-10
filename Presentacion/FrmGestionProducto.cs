@@ -1,5 +1,6 @@
 ﻿using ENTIDAD;
 using LOGICA;
+using LOGICA_ORACLE;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,11 +17,10 @@ namespace Presentacion
 {
     public partial class FrmGestionProducto : Form
     {
-        ServicioCategoriaProducto categoriaProducto= new ServicioCategoriaProducto();
-        ServicioMaterial servicioMaterial= new ServicioMaterial();
-        ServicioProducto servicioProducto= new ServicioProducto();
-        EliminarProducto eliminarProducto = new EliminarProducto();
-        ModificarProducto modificarProducto = new ModificarProducto();
+
+        ServicioCategoriaOracle servicioCategoriaOracle = new ServicioCategoriaOracle();
+        ServicioMaterialOracle servicioMaterialOracle = new ServicioMaterialOracle();
+        ServicioProductoOracle servicioProductoOracle = new ServicioProductoOracle();
 
         public FrmGestionProducto()
         {
@@ -42,11 +42,11 @@ namespace Presentacion
         }
         void CargarCategorias()
         {
-            cmb_Categoria.DataSource = categoriaProducto.Consultar();
+            cmb_Categoria.DataSource = servicioCategoriaOracle.Consultar();
             cmb_Categoria.ValueMember = "Id_Categoria";
             cmb_Categoria.DisplayMember = "Nombre";
 
-            cmb_Material.DataSource = servicioMaterial.Consultar();
+            cmb_Material.DataSource = servicioMaterialOracle.Consultar();
             cmb_Material.ValueMember = "Id_Material";
             cmb_Material.DisplayMember = "Nombre";
 
@@ -63,6 +63,11 @@ namespace Presentacion
                 HabilitarCampos();
                 CamposObligatorios();
                 btn_Guardar.Text = "Registrar";
+
+                var proximoIdProducto = servicioProductoOracle.IncrementarIdProducto();
+                txt_Codigo.Text = Convert.ToString(proximoIdProducto);
+
+                txt_Codigo.Enabled = false;
             }
             else if(Opcion == "CONSULTAR")
             {
@@ -93,71 +98,67 @@ namespace Presentacion
 
         private void btn_Guardar_Click(object sender, EventArgs e)
         {
-            if (btn_Guardar.Text == "Registrar")
-            {
-
+             if (btn_Guardar.Text == "Registrar")
+             {
                 if (string.IsNullOrWhiteSpace(cmb_Opcion.Text) || string.IsNullOrWhiteSpace(cmb_Categoria.Text) ||
                     string.IsNullOrWhiteSpace(cmb_Material.Text) || string.IsNullOrWhiteSpace(txt_Codigo.Text) ||
-                    string.IsNullOrWhiteSpace(txt_Descripcion.Text) || string.IsNullOrWhiteSpace(txt_PrecioCosto.Text)||
-                    string.IsNullOrWhiteSpace(txt_Margen.Text)|| string.IsNullOrWhiteSpace(txt_Cantidad.Text))
+                    string.IsNullOrWhiteSpace(txt_Descripcion.Text) || string.IsNullOrWhiteSpace(txt_PrecioCosto.Text) ||
+                    string.IsNullOrWhiteSpace(txt_Margen.Text) || string.IsNullOrWhiteSpace(txt_Cantidad.Text))
                 {
                     MessageBox.Show("Por favor, completa todos los Campos Obligatorios * ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
                 }
                 else
                 {
-                    Producto producto = new Producto();
-
-                    producto.CategoriaProducto = categoriaProducto.BuscarCodigo(cmb_Categoria.SelectedValue.ToString());
-                    producto.Material = servicioMaterial.BuscarCodigo(cmb_Material.SelectedValue.ToString());
-                    producto.Id_Producto = txt_Codigo.Text;
-                    producto.Descripcion = txt_Descripcion.Text;
-                    CultureInfo culture = new CultureInfo("en-US");
-                    producto.Costo = double.Parse(txt_PrecioCosto.Text, culture);
-                    producto.Peso = decimal.Parse(txt_Peso.Text, culture);
-                    producto.Margen_Ganancia = double.Parse(txt_Margen.Text, culture);
-                    producto.Cantidad = int.Parse(txt_Cantidad.Text);
+                    Producto producto = new Producto
+                    {
+                        CategoriaProducto = servicioCategoriaOracle.BuscarId(cmb_Categoria.SelectedValue.ToString()),
+                        Material = servicioMaterialOracle.BuscarId(cmb_Material.SelectedValue.ToString()),
+                        Id_Producto = txt_Codigo.Text,
+                        Descripcion = txt_Descripcion.Text,
+                        Costo = Convert.ToDouble(txt_PrecioCosto.Text),
+                        Peso = Convert.ToDecimal(txt_Peso.Text),
+                        Margen_Ganancia = Convert.ToDouble(txt_Margen.Text),
+                        Cantidad = Convert.ToInt32(txt_Cantidad.Text)
+                    };
 
                     Guardar(producto);
                     limpiar();
                 }
-                
-            }
-            if (btn_Guardar.Text == "Modificar")
+             }
+            else if (btn_Guardar.Text == "Modificar")
             {
-                DialogResult respuesta = MessageBox.Show("¿Estas seguro de Modificar este registro?", "Advertencia", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                DialogResult respuesta = MessageBox.Show("¿Estás seguro de Modificar este registro?", "Advertencia", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
                 if (respuesta == DialogResult.OK)
                 {
-                    Producto producto = new Producto();
-                    producto.Id_Producto = txt_Codigo.Text;
-                    producto.Descripcion = txt_Descripcion.Text;
-                    producto.CategoriaProducto = categoriaProducto.BuscarCodigo(cmb_Categoria.SelectedValue.ToString());
-                    producto.Material = servicioMaterial.BuscarCodigo(cmb_Material.SelectedValue.ToString());
-                    producto.Costo = double.Parse(txt_PrecioCosto.Text);
-                    producto.Peso = decimal.Parse(txt_Peso.Text);
-                    producto.Margen_Ganancia = double.Parse(txt_Margen.Text);
-                    producto.Cantidad = int.Parse(txt_Cantidad.Text);
+                    Producto producto = new Producto
+                    {
+                        Id_Producto = txt_Codigo.Text,
+                        Descripcion = txt_Descripcion.Text,
+                        CategoriaProducto = servicioCategoriaOracle.BuscarId(cmb_Categoria.SelectedValue.ToString()),
+                        Material = servicioMaterialOracle.BuscarId(cmb_Material.SelectedValue.ToString()),
+                        Costo = Convert.ToDouble(txt_PrecioCosto.Text),
+                        Peso = Convert.ToDecimal(txt_Peso.Text),
+                        Margen_Ganancia = Convert.ToDouble(txt_Margen.Text),
+                        Cantidad = Convert.ToInt32(txt_Cantidad.Text)
+                    };
 
-                    var msg = modificarProducto.Modificar(producto);
-                    servicioProducto.RefrescarLista();
+                    var msg = servicioProductoOracle.ModificarProducto(producto);
                     MessageBox.Show(msg);
                     limpiar();
                 }
             }
             else if (btn_Guardar.Text == "Eliminar")
             {
-                DialogResult respuesta = MessageBox.Show("¿Estas seguro de Eliminar este registro?", "Advertencia", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                DialogResult respuesta = MessageBox.Show("¿Estás seguro de Eliminar este registro?", "Advertencia", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
                 if (respuesta == DialogResult.OK)
                 {
-
-                    var codigo = txt_Codigo.Text;
-                    Producto producto = servicioProducto.BuscarProducto(codigo);
+                    var id = txt_Codigo.Text;
+                    Producto producto = servicioProductoOracle.BuscarId(id);
 
                     if (producto != null)
                     {
-
                         txt_Codigo.Text = producto.Id_Producto;
                         txt_Descripcion.Text = producto.Descripcion;
                         cmb_Categoria.SelectedValue = producto.CategoriaProducto.Id_Categoria.ToString();
@@ -166,25 +167,22 @@ namespace Presentacion
                         txt_Peso.Text = Convert.ToDecimal(producto.Peso).ToString();
                         txt_Margen.Text = Convert.ToDouble(producto.Margen_Ganancia).ToString();
                         txt_Cantidad.Text = Convert.ToInt32(producto.Cantidad).ToString();
-                        
-                        
-                        var msg = eliminarProducto.Eliminar(producto);
+
+                        var msg = servicioProductoOracle.EliminarProducto(id);
                         MessageBox.Show(msg);
                         limpiar();
-
                     }
                     else
                     {
-                        MessageBox.Show("Usuario no encontrado.");
+                        MessageBox.Show("Producto no encontrado.");
                     }
                 }
             }
-
         }
-        public bool consultar(string codigo)
+        public bool consultar(string id)
         {
-           
-            Producto producto = servicioProducto.BuscarProducto(codigo);
+
+            Producto producto = servicioProductoOracle.BuscarId(id);
 
             if (producto != null)
             {
@@ -195,17 +193,21 @@ namespace Presentacion
                 txt_Margen.Text = producto.Margen_Ganancia.ToString();
                 txt_Cantidad.Text = producto.Cantidad.ToString();
 
-                cmb_Categoria.Text = producto.CategoriaProducto.Nombre.ToString();
-                cmb_Material.Text = producto.Material.Nombre.ToString();
-                return true;
-            }
-            else
-            {
-                if (cmb_Opcion.Text != "REGISTRAR")
+                CategoriaProducto categoriaProducto2 = servicioCategoriaOracle.BuscarId(producto.CategoriaProducto.Id_Categoria.ToString());
+
+                if (categoriaProducto2 != null)
                 {
-                    MessageBox.Show("Producto no encontrado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    cmb_Categoria.Text = categoriaProducto2.Nombre.ToString();
                 }
-                
+
+                Material material2 = servicioMaterialOracle.BuscarId(producto.Material.Id_Material.ToString());
+                if (material2 != null)
+                {
+                    cmb_Material.Text = material2.Nombre.ToString();
+                }
+                //cmb_Categoria.Text = producto.CategoriaProducto.Nombre.ToString();
+                //cmb_Material.Text = producto.Material.Nombre.ToString();
+                return true;
             }
 
             return false;
@@ -301,7 +303,7 @@ namespace Presentacion
 
         public void Guardar(Producto producto)
         {
-            var msg = servicioProducto.Guardar(producto);
+            var msg = servicioProductoOracle.InsertarProducto(producto);
             MessageBox.Show(msg);
         }
 
@@ -359,6 +361,8 @@ namespace Presentacion
             {
                 e.Handled = true;
             }
+          
+
         }
 
         private void txt_Codigo_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
@@ -416,10 +420,10 @@ namespace Presentacion
 
         private void txt_Peso_KeyPress_1(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
+            //if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            //{
+            //    e.Handled = true;
+            //}
         }
     }
 }
