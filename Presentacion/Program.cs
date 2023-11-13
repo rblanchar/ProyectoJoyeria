@@ -25,12 +25,8 @@ namespace Presentacion
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //FrmInicioSesion
-            //FrmGestionUsuario
-            //FrmListarUsuarios
-            //FrmGestionProducto
-            //FrmRegistrarMaterial
 
-            FrmGestionProducto main = new FrmGestionProducto();
+            FrmFacturadeVenta main = new FrmFacturadeVenta();
             main.Show();
             Application.Run();
 

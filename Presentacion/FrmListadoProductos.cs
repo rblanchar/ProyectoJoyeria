@@ -58,7 +58,7 @@ namespace Presentacion
                 Material material = servicioMaterial.BuscarId(item.Material.Id_Material);
 
                 Grilla_Productos.Rows.Add(item.Id_Producto, item.Descripcion.ToUpper(), item.Costo.ToString("###,###,###"), item.Peso.ToString(), 
-                     item.Margen_Ganancia.ToString("#.##"), item.Cantidad, categoria.Nombre.ToUpper(), material.Nombre.ToUpper());
+                     item.Margen_Ganancia.ToString("0.##"), item.Cantidad, categoria.Nombre.ToUpper(), material.Nombre.ToUpper());
             }
         }
 

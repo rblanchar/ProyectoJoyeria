@@ -27,8 +27,9 @@ namespace Presentacion
 
         private void btn_Regresar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            
             new FrmMenuClientes().Show();
+            this.Close();
         }
 
         void CargarGrilla(List<Cliente> lista)

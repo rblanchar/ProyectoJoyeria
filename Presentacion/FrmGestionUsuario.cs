@@ -27,7 +27,7 @@ namespace Presentacion
             }
         }
 
-        void CargarRoles()
+        void CargarTipoUsuarios()
         {
             cmb_tipo.DataSource = servicioTipoUsuario.Consultar();
             cmb_tipo.ValueMember = "IdTipo";
@@ -78,7 +78,7 @@ namespace Presentacion
 
         private void FrmGestionUsuario_Load(object sender, EventArgs e)
         {
-            CargarRoles();
+            CargarTipoUsuarios();
             limpiar();
         }
 
@@ -300,25 +300,7 @@ namespace Presentacion
 
         private void cmb_tipo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //if (cmb_tipo.SelectedItem != null)
-            //{
-            //    string datos = cmb_tipo.SelectedItem.ToString();
-            //    string[] partes = datos.Split(';');
-            //    if (partes.Length == 2)
 
-            //        if (partes[1] == "CLIENTE" && (cmb_Opcion.Text=="MODIFICAR" || cmb_Opcion.Text=="REGISTRAR"))
-            //        {
-            //            Habilitar();
-            //            txt_usuario.Enabled = false;
-            //            txt_contraseña.Enabled = false;
-
-            //        }
-            //        else
-            //        {
-            //            txt_usuario.Enabled = true;
-            //            txt_contraseña.Enabled = true;
-            //        }
-            //}
         }
 
         public void txt_id_KeyDown(object sender, KeyEventArgs e)
