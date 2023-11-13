@@ -1,5 +1,4 @@
 ﻿using ENTIDAD;
-using LOGICA;
 using LOGICA_ORACLE;
 using System;
 using System.Collections.Generic;

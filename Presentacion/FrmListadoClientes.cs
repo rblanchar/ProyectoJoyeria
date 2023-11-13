@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ENTIDAD;
-using LOGICA;
 using LOGICA_ORACLE;
 
 namespace Presentacion

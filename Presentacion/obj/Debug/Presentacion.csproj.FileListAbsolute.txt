@@ -302,3 +302,5 @@ D:\Ingenieria de Sistemas\Semestre lV\C#\Git\Presentacion\obj\Debug\Presentacion
 C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.FrmGestionCliente.resources
 C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.FrmMenuClientes.resources
 C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.FrmListadoClientes.resources
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git\Presentacion\obj\Debug\Presentacion.FrmGestionCliente.resources
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git\Presentacion\obj\Debug\Presentacion.FrmListadoClientes.resources

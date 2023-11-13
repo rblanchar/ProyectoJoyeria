@@ -78,6 +78,7 @@ namespace DATOS_ORACLE
             producto.Id_Producto = Convert.ToString(reader["ID_PRODUCTO"]);
             producto.Descripcion= Convert.ToString(reader["DESCRIPCION"]);
             producto.Costo = Convert.ToDouble(reader["COSTO"]);
+
             producto.Peso = Convert.ToDecimal(reader["PESO"]);
             producto.Margen_Ganancia = Convert.ToDouble(reader["MARGEN_GANANCIA"]);
             producto.Cantidad = Convert.ToInt16(reader["CANTIDAD"]);
