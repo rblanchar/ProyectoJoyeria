@@ -152,6 +152,7 @@ namespace Presentacion
                     Guardar(cliente);
                     limpiar();
                     Activar_cmb_Opcion();
+
                 }
             }
 
