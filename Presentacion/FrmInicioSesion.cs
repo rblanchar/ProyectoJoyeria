@@ -2,12 +2,15 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using LOGICA_ORACLE;
 
 namespace Presentacion
 {
     public partial class FrmInicioSesion : Form
     {
-        ServicioUsuario servicioUsuario = new ServicioUsuario();
+
+        ServicioUsuarioOracle servicioUsuarioOracle = new ServicioUsuarioOracle();
+
         public FrmInicioSesion()
         {
             InitializeComponent();
@@ -70,27 +73,7 @@ namespace Presentacion
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string contraseña = txt_pass.Text;
-            string usuario = txt_user.Text;
-
-            if (servicioUsuario.Loguin(usuario, contraseña) == 1)
-            {
-                this.Close();
-                FrmMenuSuper super = new FrmMenuSuper();
-                super.Show();
-            }
-            else if (servicioUsuario.Loguin(usuario, contraseña) == 2)
-            {
-                this.Close();
-                new FrmMenuAdmin().Show();
-
-            }
-            else if (servicioUsuario.Loguin(usuario, contraseña) == 3)
-            {
-                this.Close();
-                new FrmMenuVendedor().Show();
-            }
-
+            ValidarCredencialesYRedirigir();
 
         }
 
@@ -116,21 +99,29 @@ namespace Presentacion
             string contraseña = txt_pass.Text;
             string usuario = txt_user.Text;
 
-            if (servicioUsuario.Loguin(usuario, contraseña) == 1)
+            int idTipoUsuario = servicioUsuarioOracle.Loguin(usuario, contraseña);
+
+            switch (idTipoUsuario)
             {
-                this.Close();
-                FrmMenuSuper super = new FrmMenuSuper();
-                super.Show();
-            }
-            else if (servicioUsuario.Loguin(usuario, contraseña) == 2)
-            {
-                this.Close();
-                new FrmMenuAdmin().Show();
-            }
-            else if (servicioUsuario.Loguin(usuario, contraseña) == 3)
-            {
-                this.Close();
-                new FrmMenuVendedor().Show();
+                case 1:
+                    this.Close();
+                    FrmMenuSuper super = new FrmMenuSuper();
+                    super.Show();
+                    break;
+                case 2:
+                    this.Close();
+                    FrmMenuAdmin admin = new FrmMenuAdmin();
+                    admin.Show();
+                    break;
+                case 3:
+                    this.Close();
+                    FrmMenuVendedor vendedor = new FrmMenuVendedor();
+                    vendedor.Show();
+                    break;
+                default:
+
+                    MessageBox.Show("Usuario o contraseña incorrectos.");
+                    break;
             }
         }
 

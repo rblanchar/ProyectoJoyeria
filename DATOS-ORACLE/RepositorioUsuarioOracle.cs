@@ -205,5 +205,30 @@ namespace DATOS_ORACLE
 
             return proximoId;
         }
+        public Usuario ObtenerUsuarioPorCredenciales(string nombre_usuario, string contrasena)
+        {
+            string ssql = "SELECT * FROM usuarios WHERE nombre_usuario = :nombre_usuario AND contrasena = :contrasena";
+
+            AbrirConexion();
+            OracleCommand cmd = conexion.CreateCommand();
+            cmd.CommandText = ssql;
+
+            cmd.Parameters.Add(new OracleParameter(":nombre_usuario", nombre_usuario));
+            cmd.Parameters.Add(new OracleParameter(":contrasena", contrasena));
+
+            OracleDataReader reader = cmd.ExecuteReader();
+
+            Usuario usuario = null;
+
+            if (reader.Read())
+            {
+                usuario = MapearUsuario(reader);
+            }
+
+            reader.Close();
+            CerrarConexion();
+
+            return usuario;
+        }
     }
 }
