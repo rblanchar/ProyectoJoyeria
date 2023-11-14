@@ -29,20 +29,17 @@ namespace Presentacion
             new FrmMenuSuper().Show();
         }
 
-        void cargarUsuariosClientes()
+        void cargarUsuarios()
         {
             cmb_Usuario.DataSource = serviceUsuario.Consultar();
             cmb_Usuario.ValueMember = "Id_Usuario";
             cmb_Usuario.DisplayMember = "Nombre_Usuario";
 
-            cmb_Cliente.DataSource = serviceCliente.Consultar();
-            cmb_Cliente.ValueMember = "Id_Cliente";
-            cmb_Cliente.DisplayMember = "Cedula";
         }
         private void FrmFacturadeVenta_Load(object sender, EventArgs e)
         {
             txt_Fecha.Text = DateTime.Now.ToString("yyyy/MM/dd");
-            cargarUsuariosClientes();
+            cargarUsuarios();
         }
 
         private void btn_Cancelar_Click(object sender, EventArgs e)
@@ -65,7 +62,7 @@ namespace Presentacion
                     Factura factura = new Factura();
                     factura.Id_Factura = txt_idFactura.Text;
                     factura.Fecha = Convert.ToDateTime(txt_Fecha.Text);
-                    factura.cliente = serviceCliente.BuscarId(cmb_Cliente.SelectedValue.ToString());
+                    factura.cliente = serviceCliente.BuscarId(txt_IdCliente.Text.ToString());
                     factura.usuario = serviceUsuario.BuscarId(cmb_Usuario.SelectedValue.ToString());
       
                     //usuario.tipoUsuario = servicioTipoUsuario.BuscarId(cmb_tipo.SelectedValue.ToString());
@@ -99,6 +96,10 @@ namespace Presentacion
                 frmCliente.Close();
                 this.Show();
             }
+            else
+            {
+               // this.Show();
+            }
             
         }
 
@@ -120,17 +121,18 @@ namespace Presentacion
                 }
                 else if (Opcion == "CONSULTAR")
                 {
-
+                    btn_Guardar.Text = "Consultar";
                 }
                 else if (Opcion == "ELIMINAR")
                 {
-
+                    btn_Guardar.Text = "Eliminar";
                 }
                 else if (Opcion == "MODIFICAR")
                 {
-
+                    btn_Guardar.Text = "Modificar";
                 }
             }
         }
+
     }
 }
