@@ -1,9 +1,11 @@
 ﻿using ENTIDAD;
 using LOGICA_ORACLE;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -11,12 +13,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Presentacion
-{ 
+{
     public partial class FrmFacturadeVenta : Form
     {
         ServicioUsuarioOracle serviceUsuario = new ServicioUsuarioOracle();
         ServicioClienteOracle serviceCliente = new ServicioClienteOracle();
         ServicioFacturaOracle serviceFactura = new ServicioFacturaOracle();
+        ServicioProductoOracle ServiceProducto = new ServicioProductoOracle();
+        ServicioCategoriaOracle serviceCategoria = new ServicioCategoriaOracle();
+        ServicioMaterialOracle serviceMaterial = new ServicioMaterialOracle();
+
         public FrmFacturadeVenta()
         {
             InitializeComponent();
@@ -30,7 +36,7 @@ namespace Presentacion
 
         void cargarUsuarios()
         {
-            
+
             cmb_Usuario.DataSource = serviceUsuario.Consultar();
             cmb_Usuario.ValueMember = "Id_Usuario";
             cmb_Usuario.DisplayMember = "Nombre_Usuario";
@@ -65,9 +71,9 @@ namespace Presentacion
                 }
                 else
                 {
-                    
+
                     Cliente cliente = new Cliente();
-                  
+
                     cliente.Id_Cliente = txt_IdCliente.Text;
                     cliente.Cedula = txt_Cedula.Text;
                     cliente.Nombre = txt_Nombre.Text;
@@ -77,9 +83,9 @@ namespace Presentacion
                     cliente.Correo = txt_Correo.Text;
                     cliente.Telefono = txt_Telefono.Text;
 
-                   
+
                     GuardarCliente(cliente);
-                   
+
                     GuardarFactura();
                     limpiar();
                     Activar_cmb_Opcion();
@@ -117,12 +123,12 @@ namespace Presentacion
         private void button1_Click(object sender, EventArgs e)
         {
             // new FrmListadoClientes().Show();
-            
+
             FrmListadoClientes frmListadoClientes = new FrmListadoClientes();
             frmListadoClientes.FormClosed += FormCliente_FormClosed;
             frmListadoClientes.Show();
             this.Hide();
-            
+
         }
         private void FormCliente_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -130,44 +136,18 @@ namespace Presentacion
 
             if (frmCliente != null)
             {
-                
+
                 frmCliente.Close();
                 this.Show();
             }
             else
             {
-               // this.Show();
+                // this.Show();
             }
-            
+
         }
 
-        private void cmb_Opcion_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cmb_Opcion.SelectedItem != null)
-            {
-                string Opcion = cmb_Opcion.SelectedItem.ToString();
-                if (Opcion == "REGISTRAR")
-                {
-                    Habilitar();
-                    //limpiar();
-                    CamposObligatorios();
-                    btn_Guardar.Text = "Registrar";
-                    txt_IdCliente.Enabled = false;
-                    var proximoIdCliente = serviceCliente.ProximoIdCliente();
-                    txt_IdCliente.Text = Convert.ToString(proximoIdCliente);
-                    var proximoIdFactura = serviceFactura.ProximoidFactura();
-                    txt_idFactura.Text = Convert.ToString(proximoIdFactura);
-                    btn_Guardar.Enabled = true;
-
-                }
-               
-                else if (Opcion == "ELIMINAR")
-                {
-                    btn_Guardar.Text = "Eliminar";
-                }
-               
-            }
-        }
+       
         void Habilitar()
         {
             txt_Cedula.Enabled = true;
@@ -182,7 +162,7 @@ namespace Presentacion
 
         void DesHabilitar()
         {
-            
+
             txt_Nombre.Enabled = false;
             txt_Apellidos.Enabled = false;
             txt_Barrio.Enabled = false;
@@ -190,7 +170,7 @@ namespace Presentacion
             txt_Telefono.Enabled = false;
             txt_Correo.Enabled = false;
             txt_IdCliente.Enabled = false;
-           
+
         }
 
         void limpiar()
@@ -204,7 +184,7 @@ namespace Presentacion
             txt_Correo.Text = string.Empty;
             txt_IdCliente.Text = string.Empty;
             txt_idFactura.Text = string.Empty;
-            
+
 
             label17.Visible = false;
             label18.Visible = false;
@@ -243,11 +223,12 @@ namespace Presentacion
 
                 if (resultado == DialogResult.Yes)
                 {
-                    
+
                     Habilitar();
                     txt_IdCliente.Enabled = false;
                     var proximoIdCliente = serviceCliente.ProximoIdCliente();
                     txt_IdCliente.Text = Convert.ToString(proximoIdCliente);
+                    txt_Nombre.Focus();
                 }
                 else
                 {
@@ -310,18 +291,65 @@ namespace Presentacion
             txt_Telefono.Text = cliente.Telefono;
         }
 
-        private void btn_Buscar_Click(object sender, EventArgs e)
-        {
-            string cedula = txt_Cedula.Text.Trim();
 
-            if (!string.IsNullOrWhiteSpace(cedula))
+        private void GrillaDetalle_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            var valorIdProducto = GrillaDetalle.Rows[e.RowIndex].Cells["ID_PRODUCTO"].Value;
+            
+            if (e.RowIndex != -1 && valorIdProducto != null)
             {
-                BuscarClientePorCedula(cedula);
+
+                string columnaActual = GrillaDetalle.Columns[e.ColumnIndex].Name;
+                var cantidadP = GrillaDetalle.Rows[e.RowIndex].Cells["cantidad"].Value;
+
+                if (valorIdProducto != null)
+                {
+
+                }else
+                {
+
+                }
+                var lista = ServiceProducto.BuscarId(valorIdProducto.ToString());
+                var precioVenta = (lista.Costo * lista.Margen_Ganancia) + lista.Costo;
+                var Piva = precioVenta * 0.19;
+                var Ptotal = precioVenta + Piva;
+
+                if (columnaActual == "id_producto")
+                {
+                    
+                    CategoriaProducto categoria = serviceCategoria.BuscarId(lista.CategoriaProducto.Id_Categoria);
+                    Material material = serviceMaterial.BuscarId(lista.Material.Id_Material);
+
+                    GrillaDetalle.Rows[e.RowIndex].Cells["descripcion"].Value = lista.Descripcion.ToString().ToUpper();
+                    GrillaDetalle.Rows[e.RowIndex].Cells["categoria"].Value = categoria.Nombre.ToString().ToUpper();
+                    GrillaDetalle.Rows[e.RowIndex].Cells["material"].Value = material.Nombre.ToString().ToUpper();
+            
+                    GrillaDetalle.Rows[e.RowIndex].Cells["vr_unitario"].Value = precioVenta.ToString("###,###");
+                    GrillaDetalle.Rows[e.RowIndex].Cells["iva"].Value = Piva.ToString("###,###");
+                    GrillaDetalle.Rows[e.RowIndex].Cells["vr_total"].Value = (Ptotal).ToString("###,###");              
+
+                }
+                else if (columnaActual == "cantidad" && valorIdProducto!=null)
+                {
+                   
+                    GrillaDetalle.Rows[e.RowIndex].Cells["vr_total"].Value = (Ptotal * Convert.ToInt32(cantidadP)).ToString("###,###");
+                }
             }
-            else
-            {
-                MessageBox.Show("Ingrese un ID de cliente antes de buscar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_idFactura_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label16_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using LOGICA_ORACLE;
 using ENTIDAD;
-using LOGICA;
 
 namespace Presentacion
 {
