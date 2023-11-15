@@ -230,5 +230,7 @@ namespace DATOS_ORACLE
 
             return usuario;
         }
+
+
     }
 }

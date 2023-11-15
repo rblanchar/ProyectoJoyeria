@@ -69,5 +69,10 @@ namespace LOGICA_ORACLE
             }
             return listaFiltrada;
         }
+        public Cliente BuscarPorCedula(string cedula)
+        {
+            return repositorio.BuscarPorCedula(cedula);
+        }
+
     }
 }

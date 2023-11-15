@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Presentacion
-{
+{ 
     public partial class FrmFacturadeVenta : Form
     {
         ServicioUsuarioOracle serviceUsuario = new ServicioUsuarioOracle();
@@ -47,6 +47,7 @@ namespace Presentacion
         private void btn_Cancelar_Click(object sender, EventArgs e)
         {
             limpiar();
+            DesHabilitar();
             cmb_Opcion.Enabled = true;
             cmb_Opcion.Text = string.Empty;
             cmb_Opcion.Focus();
@@ -64,17 +65,43 @@ namespace Presentacion
                 }
                 else
                 {
-                    Factura factura = new Factura();
-                    factura.Id_Factura = txt_idFactura.Text;
-                    factura.Fecha = Convert.ToDateTime(txt_Fecha.Text);
-                    factura.cliente = serviceCliente.BuscarId(txt_IdCliente.Text.ToString());
-                    factura.usuario = serviceUsuario.BuscarId(cmb_Usuario.SelectedValue.ToString());
-      
-                    Guardar(factura);
+                    
+                    Cliente cliente = new Cliente();
+                  
+                    cliente.Id_Cliente = txt_IdCliente.Text;
+                    cliente.Cedula = txt_Cedula.Text;
+                    cliente.Nombre = txt_Nombre.Text;
+                    cliente.Apellidos = txt_Apellidos.Text;
+                    cliente.Direccion = txt_Direccion.Text;
+                    cliente.Barrio = txt_Barrio.Text;
+                    cliente.Correo = txt_Correo.Text;
+                    cliente.Telefono = txt_Telefono.Text;
+
+                   
+                    GuardarCliente(cliente);
+                   
+                    GuardarFactura();
                     limpiar();
                     Activar_cmb_Opcion();
                 }
             }
+        }
+        private void GuardarCliente(Cliente cliente)
+        {
+            var msg = serviceCliente.InsertarCliente(cliente);
+            MessageBox.Show(msg);
+        }
+
+        private void GuardarFactura()
+        {
+            Factura factura = new Factura();
+            factura.Id_Factura = txt_idFactura.Text;
+            factura.Fecha = Convert.ToDateTime(txt_Fecha.Text);
+            factura.cliente = serviceCliente.BuscarId(txt_IdCliente.Text.ToString());
+            factura.usuario = serviceUsuario.BuscarId(cmb_Usuario.SelectedValue.ToString());
+
+            var msg = serviceFactura.InsertarFactura(factura);
+            MessageBox.Show(msg);
         }
         void Activar_cmb_Opcion()
         {
@@ -95,6 +122,7 @@ namespace Presentacion
             frmListadoClientes.FormClosed += FormCliente_FormClosed;
             frmListadoClientes.Show();
             this.Hide();
+            
         }
         private void FormCliente_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -124,21 +152,15 @@ namespace Presentacion
                     //limpiar();
                     CamposObligatorios();
                     btn_Guardar.Text = "Registrar";
-
+                    txt_IdCliente.Enabled = false;
+                    var proximoIdCliente = serviceCliente.ProximoIdCliente();
+                    txt_IdCliente.Text = Convert.ToString(proximoIdCliente);
                     var proximoIdFactura = serviceFactura.ProximoidFactura();
                     txt_idFactura.Text = Convert.ToString(proximoIdFactura);
                     btn_Guardar.Enabled = true;
 
                 }
-                else if (Opcion == "CONSULTAR")
-                {
-                    limpiar();
-                    DesHabilitar();
-                    txt_IdCliente.Enabled = true;
-                    txt_IdCliente.Focus();
-                    btn_Guardar.Text = "Consultar";
-
-                }
+               
                 else if (Opcion == "ELIMINAR")
                 {
                     btn_Guardar.Text = "Eliminar";
@@ -160,13 +182,14 @@ namespace Presentacion
 
         void DesHabilitar()
         {
-            txt_Cedula.Enabled = false;
+            
             txt_Nombre.Enabled = false;
             txt_Apellidos.Enabled = false;
             txt_Barrio.Enabled = false;
             txt_Direccion.Enabled = false;
             txt_Telefono.Enabled = false;
             txt_Correo.Enabled = false;
+            txt_IdCliente.Enabled = false;
            
         }
 
@@ -203,24 +226,16 @@ namespace Presentacion
             label23.Visible = true;
         }
 
-        public bool consultar(string id)
+
+        private bool BuscarClientePorCedula(string cedula)
         {
-            Cliente cliente = serviceCliente.BuscarId(id);
+            Cliente cliente = serviceCliente.BuscarPorCedula(cedula);
 
             if (cliente != null)
             {
-                txt_Cedula.Text = cliente.Cedula;
-                txt_Nombre.Text = cliente.Nombre;
-                txt_Apellidos.Text = cliente.Apellidos;
-                txt_Direccion.Text = cliente.Direccion;
-                txt_Barrio.Text = cliente.Barrio;
-                txt_Correo.Text = cliente.Correo;
-                txt_Telefono.Text = cliente.Telefono;
-
-
-
+                MostrarDatosCliente(cliente);
+                txt_IdCliente.Enabled = false;
                 return true;
-
             }
             else
             {
@@ -228,61 +243,84 @@ namespace Presentacion
 
                 if (resultado == DialogResult.Yes)
                 {
-
-                    AbrirFormCliente();
+                    
+                    Habilitar();
+                    txt_IdCliente.Enabled = false;
+                    var proximoIdCliente = serviceCliente.ProximoIdCliente();
+                    txt_IdCliente.Text = Convert.ToString(proximoIdCliente);
                 }
+                else
+                {
+                    MessageBox.Show("No se pudo agregar el cliente");
+                }
+
+                return false;
             }
-
-            return false;
-        }
-        private void AbrirFormCliente()
-        {
-           
-            FrmGestionCliente frmGestionCliente = new FrmGestionCliente();
-
-
-            frmGestionCliente.ShowDialog();
         }
 
-        private void txt_IdCliente_KeyDown(object sender, KeyEventArgs e)
+        private void txt_Cedula_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
             if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
             {
-                string id = txt_IdCliente.Text;
+                string cedula = txt_Cedula.Text.Trim();
 
-                if (consultar(id) != false)
+                if (!string.IsNullOrWhiteSpace(cedula))
                 {
-                    if (cmb_Opcion.SelectedItem != null)
-                    {
-                        string Opcion = cmb_Opcion.SelectedItem.ToString();
+                    bool clienteEncontrado = BuscarClientePorCedula(cedula);
 
-                        if (Opcion == "REGISTRAR")
+                    if (clienteEncontrado)
+                    {
+                        if (cmb_Opcion.SelectedItem != null)
                         {
-                          
-                            cmb_Opcion.Text = string.Empty;
-                            cmb_Opcion.Enabled = true;
-                            cmb_Opcion.Focus();
-                        }
-                        else if (Opcion == "ELIMINAR")
-                        {
-                            DesHabilitar();
-                            btn_Guardar.Text = "Eliminar";
-                            btn_Guardar.Enabled = true;
-                            txt_IdCliente.Focus();
-                            cmb_Opcion.Enabled = false;
+                            string opcion = cmb_Opcion.SelectedItem.ToString();
+
+                            if (opcion == "REGISTRAR")
+                            {
+                                txt_IdCliente.Enabled = false;
+                                cmb_Opcion.Text = string.Empty;
+                                cmb_Opcion.Enabled = true;
+                                cmb_Opcion.Focus();
+                            }
+                            else if (opcion == "ELIMINAR")
+                            {
+                                DesHabilitar();
+                                btn_Guardar.Text = "Eliminar";
+                                btn_Guardar.Enabled = true;
+                                txt_IdCliente.Focus();
+                                cmb_Opcion.Enabled = false;
+                            }
                         }
                     }
-
                 }
             }
         }
 
-        private void txt_IdCliente_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+
+
+        private void MostrarDatosCliente(Cliente cliente)
         {
-            if (e.KeyCode == Keys.Tab)
+
+            txt_IdCliente.Text = cliente.Id_Cliente;
+            txt_Cedula.Text = cliente.Cedula;
+            txt_Nombre.Text = cliente.Nombre;
+            txt_Apellidos.Text = cliente.Apellidos;
+            txt_Direccion.Text = cliente.Direccion;
+            txt_Barrio.Text = cliente.Barrio;
+            txt_Correo.Text = cliente.Correo;
+            txt_Telefono.Text = cliente.Telefono;
+        }
+
+        private void btn_Buscar_Click(object sender, EventArgs e)
+        {
+            string cedula = txt_Cedula.Text.Trim();
+
+            if (!string.IsNullOrWhiteSpace(cedula))
             {
-                KeyEventArgs keyEventArgs = new KeyEventArgs(Keys.Tab);
-                this.txt_IdCliente_KeyDown(this, keyEventArgs);
+                BuscarClientePorCedula(cedula);
+            }
+            else
+            {
+                MessageBox.Show("Ingrese un ID de cliente antes de buscar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

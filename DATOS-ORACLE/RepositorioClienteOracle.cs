@@ -197,5 +197,30 @@ namespace DATOS_ORACLE
 
             return proximoId;
         }
+        public Cliente BuscarPorCedula(string cedula)
+        {
+            string ssql = "SELECT * FROM clientes WHERE cedula = :cedula";
+
+            AbrirConexion();
+            OracleCommand cmd = conexion.CreateCommand();
+            cmd.CommandText = ssql;
+
+            cmd.Parameters.Add(new OracleParameter(":cedula", cedula));
+
+            OracleDataReader reader = cmd.ExecuteReader();
+
+            Cliente cliente = null;
+
+            if (reader.Read())
+            {
+                cliente = MapearCliente(reader);
+            }
+
+            reader.Close();
+            CerrarConexion();
+
+            return cliente;
+        }
+
     }
 }

@@ -70,6 +70,7 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
+            this.btn_Buscar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -249,9 +250,7 @@
             this.cmb_Opcion.FormattingEnabled = true;
             this.cmb_Opcion.Items.AddRange(new object[] {
             "REGISTRAR",
-            "CONSULTAR",
-            "ELIMINAR",
-            "MODIFICAR"});
+            "ELIMINAR"});
             this.cmb_Opcion.Location = new System.Drawing.Point(72, 89);
             this.cmb_Opcion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmb_Opcion.Name = "cmb_Opcion";
@@ -268,8 +267,7 @@
             this.txt_IdCliente.Name = "txt_IdCliente";
             this.txt_IdCliente.Size = new System.Drawing.Size(64, 16);
             this.txt_IdCliente.TabIndex = 71;
-            this.txt_IdCliente.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_IdCliente_KeyDown);
-            this.txt_IdCliente.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.txt_IdCliente_PreviewKeyDown);
+      
             // 
             // label12
             // 
@@ -371,6 +369,7 @@
             this.txt_Cedula.Name = "txt_Cedula";
             this.txt_Cedula.Size = new System.Drawing.Size(76, 20);
             this.txt_Cedula.TabIndex = 104;
+            this.txt_Cedula.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.txt_Cedula_PreviewKeyDown);
             // 
             // txt_Nombre
             // 
@@ -551,12 +550,27 @@
             this.label23.Text = "*";
             this.label23.Visible = false;
             // 
+            // btn_Buscar
+            // 
+            this.btn_Buscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btn_Buscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Buscar.ForeColor = System.Drawing.Color.White;
+            this.btn_Buscar.Location = new System.Drawing.Point(135, 530);
+            this.btn_Buscar.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_Buscar.Name = "btn_Buscar";
+            this.btn_Buscar.Size = new System.Drawing.Size(92, 35);
+            this.btn_Buscar.TabIndex = 127;
+            this.btn_Buscar.Text = "Buscar";
+            this.btn_Buscar.UseVisualStyleBackColor = false;
+            this.btn_Buscar.Click += new System.EventHandler(this.btn_Buscar_Click);
+            // 
             // FrmFacturadeVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(838, 576);
+            this.Controls.Add(this.btn_Buscar);
             this.Controls.Add(this.label23);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.label21);
@@ -655,5 +669,6 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Button btn_Buscar;
     }
 }

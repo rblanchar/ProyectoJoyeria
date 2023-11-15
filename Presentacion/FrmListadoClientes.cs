@@ -87,6 +87,7 @@ namespace Presentacion
                 facturadeVenta.txt_Barrio.Text = $"{barrio}";
                 facturadeVenta.txt_Correo.Text = $"{correo}";
                 facturadeVenta.txt_Telefono.Text = $"{telefono}";
+                
 
                 facturadeVenta.Show();
                 this.Close();
