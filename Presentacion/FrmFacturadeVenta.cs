@@ -69,8 +69,9 @@ namespace Presentacion
             if (btn_Guardar.Text == "Registrar")
             {
                 if (string.IsNullOrWhiteSpace(txt_IdCliente.Text) || string.IsNullOrWhiteSpace(txt_Nombre.Text) || string.IsNullOrWhiteSpace(txt_Cedula.Text) ||
-                    string.IsNullOrWhiteSpace(txt_Apellidos.Text) || string.IsNullOrWhiteSpace(txt_Direccion.Text) ||
-                    string.IsNullOrWhiteSpace(txt_Barrio.Text) || string.IsNullOrWhiteSpace(txt_Telefono.Text) || string.IsNullOrWhiteSpace(cmb_Usuario.Text) )
+                    string.IsNullOrWhiteSpace(txt_Apellidos.Text) || string.IsNullOrWhiteSpace(txt_Direccion.Text) || string.IsNullOrWhiteSpace(txt_Correo.Text)||
+                    string.IsNullOrWhiteSpace(txt_Barrio.Text) || string.IsNullOrWhiteSpace(txt_Telefono.Text) || string.IsNullOrWhiteSpace(cmb_Usuario.Text)||
+                    GrillaDetalle.Rows.Count == 1)
                 {
                     MessageBox.Show("Por favor, completa todos los Campos Obligatorios *", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -336,28 +337,49 @@ namespace Presentacion
                     }
                     else if (columnaActual == "cantidad" && valorIdProducto != null)
                     {
-                        GrillaDetalle.Rows[e.RowIndex].Cells["iva"].Value = (Piva * Convert.ToDouble(cantidadP)).ToString("###,###");
-                        GrillaDetalle.Rows[e.RowIndex].Cells["vr_total"].Value = (Ptotal).ToString("###,###");
-                        double subtotal = 0;
-                        double totalIVA = 0;
-                        double totalPagar = 0;
-
-                        foreach (DataGridViewRow fila in GrillaDetalle.Rows)
+                        if (lista.Cantidad> Convert.ToInt32(cantidadP ))
                         {
-                            if (!fila.IsNewRow)
+                            GrillaDetalle.Rows[e.RowIndex].Cells["iva"].Value = (Piva * Convert.ToDouble(cantidadP)).ToString("###,###");
+                            GrillaDetalle.Rows[e.RowIndex].Cells["vr_total"].Value = (Ptotal).ToString("###,###");
+                            double subtotal = 0;
+                            double totalIVA = 0;
+                            double totalPagar = 0;
+                            int cantidadG = 0;
+
+                            foreach (DataGridViewRow fila in GrillaDetalle.Rows)
                             {
-                                double vrTotal = Convert.ToDouble(fila.Cells["vr_total"].Value);
-
-                                subtotal += vrTotal;
-                                totalIVA += Convert.ToDouble(fila.Cells["iva"].Value);
+                                if (!fila.IsNewRow)
+                                {
+                                    double vrTotal = Convert.ToDouble(fila.Cells["vr_total"].Value);
+                                    int cantd = Convert.ToInt16(fila.Cells["cantidad"].Value);
+                                    cantidadG += cantd;
+                                    subtotal += vrTotal;
+                                    totalIVA += Convert.ToDouble(fila.Cells["iva"].Value);
+                                }
                             }
+                            if (lista.Cantidad>= cantidadG)
+                            {
+                                totalPagar = subtotal + totalIVA;
+
+                                txt_Subtotal.Text = subtotal.ToString("###,###");
+                                txt_Iva.Text = totalIVA.ToString("###,###");
+                                txt_TotalPagar.Text = totalPagar.ToString("###,###");
+                                btn_Guardar.Text = "Registrar";
+                            }
+                            else
+                            {
+                                MessageBox.Show("La cantidad ingresada supera el stock");
+                                GrillaDetalle.Rows[e.RowIndex].Cells["cantidad"].Value = "";
+                                btn_Guardar.Text = "";
+                            }
+                            
                         }
-
-                        totalPagar = subtotal + totalIVA;
-
-                        txt_Subtotal.Text = subtotal.ToString("###,###");
-                        txt_Iva.Text = totalIVA.ToString("###,###");
-                        txt_TotalPagar.Text = totalPagar.ToString("###,###");
+                        else
+                        {
+                            MessageBox.Show("La cantidad ingresada supera el stock");
+                            GrillaDetalle.Rows[e.RowIndex].Cells["cantidad"].Value = "";
+                            btn_Guardar.Text = "";
+                        }
                     }
                 }
 

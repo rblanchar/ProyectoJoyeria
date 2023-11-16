@@ -61,14 +61,6 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.GrillaDetalle = new System.Windows.Forms.DataGridView();
-            this.id_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.material = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vr_unitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iva = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vr_total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -84,6 +76,14 @@
             this.txt_Iva = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
             this.txt_TotalPagar = new System.Windows.Forms.TextBox();
+            this.id_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.material = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vr_unitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iva = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vr_total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaDetalle)).BeginInit();
             this.SuspendLayout();
@@ -177,13 +177,13 @@
             // 
             this.txt_idFactura.BackColor = System.Drawing.Color.White;
             this.txt_idFactura.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_idFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_idFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_idFactura.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txt_idFactura.Location = new System.Drawing.Point(982, 30);
             this.txt_idFactura.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_idFactura.Name = "txt_idFactura";
             this.txt_idFactura.ReadOnly = true;
-            this.txt_idFactura.Size = new System.Drawing.Size(100, 29);
+            this.txt_idFactura.Size = new System.Drawing.Size(100, 36);
             this.txt_idFactura.TabIndex = 62;
             // 
             // pictureBox1
@@ -458,67 +458,6 @@
             this.GrillaDetalle.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GrillaDetalle_CellDoubleClick);
             this.GrillaDetalle.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.GrillaDetalle_CellEndEdit);
             // 
-            // id_producto
-            // 
-            this.id_producto.HeaderText = "ID_PRODUCTO";
-            this.id_producto.MinimumWidth = 6;
-            this.id_producto.Name = "id_producto";
-            this.id_producto.Width = 110;
-            // 
-            // categoria
-            // 
-            this.categoria.HeaderText = "CATEGORIA";
-            this.categoria.MinimumWidth = 6;
-            this.categoria.Name = "categoria";
-            this.categoria.ReadOnly = true;
-            this.categoria.Width = 125;
-            // 
-            // material
-            // 
-            this.material.HeaderText = "MATERIAL";
-            this.material.MinimumWidth = 6;
-            this.material.Name = "material";
-            this.material.Width = 125;
-            // 
-            // descripcion
-            // 
-            this.descripcion.HeaderText = "DESCRIPCION";
-            this.descripcion.MinimumWidth = 6;
-            this.descripcion.Name = "descripcion";
-            this.descripcion.ReadOnly = true;
-            this.descripcion.Width = 265;
-            // 
-            // cantidad
-            // 
-            this.cantidad.HeaderText = "CANTIDAD";
-            this.cantidad.MinimumWidth = 6;
-            this.cantidad.Name = "cantidad";
-            this.cantidad.Width = 90;
-            // 
-            // vr_unitario
-            // 
-            this.vr_unitario.HeaderText = "VR UNITARIO";
-            this.vr_unitario.MinimumWidth = 6;
-            this.vr_unitario.Name = "vr_unitario";
-            this.vr_unitario.ReadOnly = true;
-            this.vr_unitario.Width = 130;
-            // 
-            // iva
-            // 
-            this.iva.HeaderText = "IVA";
-            this.iva.MinimumWidth = 6;
-            this.iva.Name = "iva";
-            this.iva.ReadOnly = true;
-            this.iva.Width = 80;
-            // 
-            // vr_total
-            // 
-            this.vr_total.HeaderText = "VALOR TOTAL";
-            this.vr_total.MinimumWidth = 6;
-            this.vr_total.Name = "vr_total";
-            this.vr_total.ReadOnly = true;
-            this.vr_total.Width = 130;
-            // 
             // label17
             // 
             this.label17.AutoSize = true;
@@ -691,6 +630,67 @@
             this.txt_TotalPagar.Size = new System.Drawing.Size(100, 26);
             this.txt_TotalPagar.TabIndex = 135;
             // 
+            // id_producto
+            // 
+            this.id_producto.HeaderText = "ID_PRODUCTO";
+            this.id_producto.MinimumWidth = 6;
+            this.id_producto.Name = "id_producto";
+            this.id_producto.Width = 110;
+            // 
+            // categoria
+            // 
+            this.categoria.HeaderText = "CATEGORIA";
+            this.categoria.MinimumWidth = 6;
+            this.categoria.Name = "categoria";
+            this.categoria.ReadOnly = true;
+            this.categoria.Width = 125;
+            // 
+            // material
+            // 
+            this.material.HeaderText = "MATERIAL";
+            this.material.MinimumWidth = 6;
+            this.material.Name = "material";
+            this.material.Width = 125;
+            // 
+            // descripcion
+            // 
+            this.descripcion.HeaderText = "DESCRIPCION";
+            this.descripcion.MinimumWidth = 6;
+            this.descripcion.Name = "descripcion";
+            this.descripcion.ReadOnly = true;
+            this.descripcion.Width = 267;
+            // 
+            // cantidad
+            // 
+            this.cantidad.HeaderText = "CANTIDAD";
+            this.cantidad.MinimumWidth = 6;
+            this.cantidad.Name = "cantidad";
+            this.cantidad.Width = 90;
+            // 
+            // vr_unitario
+            // 
+            this.vr_unitario.HeaderText = "VR UNITARIO";
+            this.vr_unitario.MinimumWidth = 6;
+            this.vr_unitario.Name = "vr_unitario";
+            this.vr_unitario.ReadOnly = true;
+            this.vr_unitario.Width = 130;
+            // 
+            // iva
+            // 
+            this.iva.HeaderText = "IVA";
+            this.iva.MinimumWidth = 6;
+            this.iva.Name = "iva";
+            this.iva.ReadOnly = true;
+            this.iva.Width = 80;
+            // 
+            // vr_total
+            // 
+            this.vr_total.HeaderText = "VALOR TOTAL";
+            this.vr_total.MinimumWidth = 6;
+            this.vr_total.Name = "vr_total";
+            this.vr_total.ReadOnly = true;
+            this.vr_total.Width = 130;
+            // 
             // FrmFacturadeVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -800,6 +800,13 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label25;
+        public System.Windows.Forms.DataGridView GrillaDetalle;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txt_Subtotal;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.TextBox txt_Iva;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.TextBox txt_TotalPagar;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_producto;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn material;
@@ -808,12 +815,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn vr_unitario;
         private System.Windows.Forms.DataGridViewTextBoxColumn iva;
         private System.Windows.Forms.DataGridViewTextBoxColumn vr_total;
-        public System.Windows.Forms.DataGridView GrillaDetalle;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txt_Subtotal;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.TextBox txt_Iva;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.TextBox txt_TotalPagar;
     }
 }
