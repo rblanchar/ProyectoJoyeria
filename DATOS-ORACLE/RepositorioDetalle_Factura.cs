@@ -15,35 +15,7 @@ namespace DATOS_ORACLE
             
         }
 
-        //public string InsertarDetalleFactura(Detalle_Factura detalle_factura)
-        //{
-        //    string ssql = "INSERT INTO detalle_facturas (id_factura, id_producto, cantidad, valor_unitario, iva,valor_total) " +
-        //                  " VALUES (:v_id_factura, :v_id_producto, :v_cantidad, :v_valUnitario, :v_iva,:v_valTotal)";
-
-        //    AbrirConexion();
-        //    OracleCommand orclCmd1 = conexion.CreateCommand();
-        //    orclCmd1.CommandText = ssql;
-
-        //    orclCmd1.Parameters.Add(new OracleParameter(":v_id_factura", detalle_factura.factura.Id_Factura));
-        //    orclCmd1.Parameters.Add(new OracleParameter(":v_id_producto", detalle_factura.producto.Id_Producto));
-        //    orclCmd1.Parameters.Add(new OracleParameter(":v_cantidad", detalle_factura.Cantidad));
-        //    orclCmd1.Parameters.Add(new OracleParameter(":v_valUnitario", detalle_factura.Valor_Unitario));
-        //    orclCmd1.Parameters.Add(new OracleParameter(":v_iva", detalle_factura.iva));
-        //    orclCmd1.Parameters.Add(new OracleParameter(":v_valTotal", detalle_factura.Valor_Total));
-
-        //    int i = orclCmd1.ExecuteNonQuery();
-
-        //    CerrarConexion();
-
-        //    if (i > 0)
-        //    {
-        //        return "Registro de Factura Exitoso!";
-        //    }
-        //    else
-        //    {
-        //        return "No se pudo registrar la Factura";
-        //    }
-        //}
+     
 
         public string InsertarDetalleFactura(List<Detalle_Factura> detallesFactura)
         {
@@ -76,7 +48,7 @@ namespace DATOS_ORACLE
             }
 
             CerrarConexion();
-            return "Registro de Detalle de Factura Exitoso!";
+            return "Registro de Factura Exitoso!";
         }
 
     }

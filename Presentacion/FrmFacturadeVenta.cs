@@ -110,7 +110,7 @@ namespace Presentacion
         private void GuardarCliente(Cliente cliente)
         {
             var msg = serviceCliente.InsertarCliente(cliente);
-            //MessageBox.Show(msg);
+           
         }
 
         private void GuardarFactura()
@@ -122,7 +122,7 @@ namespace Presentacion
             factura.usuario = serviceUsuario.BuscarId(cmb_Usuario.SelectedValue.ToString());
 
             var msg = serviceFactura.InsertarFactura(factura);
-            MessageBox.Show(msg);
+           
         }
 
         public void GuardarDetalle_Factura(DataGridView grillaDetalle)
@@ -158,35 +158,22 @@ namespace Presentacion
         void Guardar(Factura factura)
         {
             var msg = serviceFactura.InsertarFactura(factura);
-           // MessageBox.Show(msg);
+           
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            // new FrmListadoClientes().Show();
+          
+            var frmListadoClientes = new FrmListadoClientes();
+            frmListadoClientes.ShowDialog();
+            
 
-            FrmListadoClientes frmListadoClientes = new FrmListadoClientes();
-            frmListadoClientes.FormClosed += FormCliente_FormClosed;
-            frmListadoClientes.Show();
-            this.Hide();
-
-        }
-        private void FormCliente_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            FrmMenuClientes frmCliente = Application.OpenForms.OfType<FrmMenuClientes>().FirstOrDefault();
-
-            if (frmCliente != null)
-            {
-
-                frmCliente.Close();
-                this.Show();
-            }
-            else
-            {
-                // this.Show();
-            }
+            Cliente ClienteSeleccionado = frmListadoClientes.ClienteSeleccionado;
+            TraerClientes(ClienteSeleccionado);
+           
+          
 
         }
-
+       
        
         void Habilitar()
         {
@@ -208,6 +195,7 @@ namespace Presentacion
             txt_Direccion.ReadOnly = true;
             txt_Telefono.ReadOnly = true;
             txt_Correo.ReadOnly = true;
+            txt_IdCliente.ReadOnly = true;
 
         }
 
@@ -337,7 +325,7 @@ namespace Presentacion
                     }
                     else if (columnaActual == "cantidad" && valorIdProducto != null)
                     {
-                        if (lista.Cantidad> Convert.ToInt32(cantidadP ))
+                        if (lista.Cantidad>= Convert.ToInt32(cantidadP ))
                         {
                             GrillaDetalle.Rows[e.RowIndex].Cells["iva"].Value = (Piva * Convert.ToDouble(cantidadP)).ToString("###,###");
                             GrillaDetalle.Rows[e.RowIndex].Cells["vr_total"].Value = (Ptotal).ToString("###,###");
@@ -417,7 +405,79 @@ namespace Presentacion
             GrillaDetalle.Rows[indiceFila].Cells["vr_unitario"].Value = precioVenta.ToString("###,###");
             var Piva = precioVenta * 0.19;
             GrillaDetalle.Rows[indiceFila].Cells["iva"].Value = Piva.ToString("###,###");
-            //GrillaDetalle.Rows[e.RowIndex].Cells["vr_total"].Value = (Ptotal).ToString("###,###");
+           
         }
+
+        public void TraerClientes(Cliente cliente)
+        {
+           
+          
+            txt_IdCliente.Text = cliente.Id_Cliente;
+            txt_Cedula.Text = cliente.Cedula;
+            txt_Nombre.Text = cliente.Nombre;
+            txt_Apellidos.Text = cliente.Apellidos;
+            txt_Direccion.Text = cliente.Direccion;
+            txt_Barrio.Text = cliente.Barrio;
+            txt_Correo.Text = cliente.Correo;
+            txt_Telefono.Text = cliente.Telefono;
+        }
+
+        private void txt_Cedula_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLower(e.KeyChar))
+            {
+                e.KeyChar = char.ToUpper(e.KeyChar);
+            }
+        }
+
+        private void txt_Nombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLower(e.KeyChar))
+            {
+                e.KeyChar = char.ToUpper(e.KeyChar);
+            }
+        }
+
+        private void txt_Apellidos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLower(e.KeyChar))
+            {
+                e.KeyChar = char.ToUpper(e.KeyChar);
+            }
+        }
+
+        private void txt_Direccion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLower(e.KeyChar))
+            {
+                e.KeyChar = char.ToUpper(e.KeyChar);
+            }
+        }
+
+        private void txt_Barrio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLower(e.KeyChar))
+            {
+                e.KeyChar = char.ToUpper(e.KeyChar);
+            }
+        }
+
+        private void txt_Correo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLower(e.KeyChar))
+            {
+                e.KeyChar = char.ToUpper(e.KeyChar);
+            }
+        }
+
+        private void txt_Telefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLower(e.KeyChar))
+            {
+                e.KeyChar = char.ToUpper(e.KeyChar);
+            }
+        }
+
+      
     }
 }

@@ -14,7 +14,9 @@ namespace Presentacion
 {
     public partial class FrmListadoClientes : Form
     {
+        public Cliente ClienteSeleccionado { get; private set; }
         ServicioClienteOracle servicioCliente = new ServicioClienteOracle();
+
         public FrmListadoClientes()
         {
             InitializeComponent();
@@ -67,7 +69,7 @@ namespace Presentacion
         private void Grilla_Clientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            if (e.RowIndex >= 0)
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
                 string id_Cliente = Grilla_Clientes.Rows[e.RowIndex].Cells["Id_Cliente"].Value.ToString();
                 string cedula = Grilla_Clientes.Rows[e.RowIndex].Cells["Cedula"].Value.ToString();
@@ -78,18 +80,18 @@ namespace Presentacion
                 string correo = Grilla_Clientes.Rows[e.RowIndex].Cells["Correo"].Value.ToString();
                 string telefono = Grilla_Clientes.Rows[e.RowIndex].Cells["Telefono"].Value.ToString();
 
-                FrmFacturadeVenta facturadeVenta = new FrmFacturadeVenta();
-                facturadeVenta.txt_IdCliente.Text = $"{id_Cliente}";
-                facturadeVenta.txt_Cedula.Text = $"{cedula}";
-                facturadeVenta.txt_Nombre.Text = $"{nombre}";
-                facturadeVenta.txt_Apellidos.Text = $"{apellidos}";
-                facturadeVenta.txt_Direccion.Text = $"{direccion}";
-                facturadeVenta.txt_Barrio.Text = $"{barrio}";
-                facturadeVenta.txt_Correo.Text = $"{correo}";
-                facturadeVenta.txt_Telefono.Text = $"{telefono}";
-                
+                ClienteSeleccionado = new Cliente
+                {
+                    Id_Cliente = id_Cliente,
+                    Cedula = cedula,
+                    Nombre = nombre,
+                    Apellidos = apellidos,
+                    Direccion = direccion,
+                    Barrio = barrio,
+                    Correo = correo,
+                    Telefono = telefono
+                };
 
-                facturadeVenta.Show();
                 this.Close();
             }
         }
