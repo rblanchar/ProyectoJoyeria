@@ -44,6 +44,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServicioCategoriaOracle.cs" />
     <Compile Include="ServicioClienteOracle.cs" />
+    <Compile Include="ServicioDetalleFacturaOracle.cs" />
     <Compile Include="ServicioFacturaOracle.cs" />
     <Compile Include="ServicioMaterialOracle.cs" />
     <Compile Include="ServicioProductoOracle.cs" />

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,8 @@ namespace Presentacion
 {
     public partial class FrmListadoProductos : Form
     {
+        public Producto ProductoSeleccionado { get; private set; }
+
         ServicioProductoOracle servicioProducto= new ServicioProductoOracle();
         ServicioCategoriaOracle servicioCategoria= new ServicioCategoriaOracle();
         ServicioMaterialOracle servicioMaterial= new ServicioMaterialOracle();
@@ -67,6 +70,36 @@ namespace Presentacion
             var filtro = txt_Nombre.Text;
             var lista = servicioProducto.BuscarFiltro(filtro);
             CargarGrilla(lista);
+        }
+
+        private void Grilla_Productos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+
+                string idProducto = Grilla_Productos.Rows[e.RowIndex].Cells["ID_PRODUCTO"].Value.ToString();
+                string descripcion = Grilla_Productos.Rows[e.RowIndex].Cells["DESCRIPCION"].Value.ToString();
+                string costo = Grilla_Productos.Rows[e.RowIndex].Cells["costo"].Value.ToString();
+                string peso = Grilla_Productos.Rows[e.RowIndex].Cells["peso"].Value.ToString();
+                string margen = Grilla_Productos.Rows[e.RowIndex].Cells["margen"].Value.ToString();
+                string cantidad = Grilla_Productos.Rows[e.RowIndex].Cells["cantidad"].Value.ToString();
+                string categoria = Grilla_Productos.Rows[e.RowIndex].Cells["CATEGORIA"].Value.ToString();
+                string material = Grilla_Productos.Rows[e.RowIndex].Cells["material"].Value.ToString();
+
+                ProductoSeleccionado = new Producto
+                {
+                    Id_Producto = idProducto,
+                    Descripcion = descripcion,
+                    Costo = Convert.ToDouble(costo),
+                    Peso = Convert.ToDecimal(peso),
+                    Margen_Ganancia = Convert.ToDouble(margen),
+                    Cantidad = Convert.ToInt16(cantidad),
+                    CategoriaProducto  = servicioCategoria.BuscarNombre(categoria),
+                    Material = servicioMaterial.BuscarNombre(material),
+                };
+
+                this.Close();
+            }
         }
     }
 }

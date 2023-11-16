@@ -78,6 +78,12 @@
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txt_Subtotal = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.txt_Iva = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.txt_TotalPagar = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaDetalle)).BeginInit();
             this.SuspendLayout();
@@ -85,10 +91,9 @@
             // btn_Guardar
             // 
             this.btn_Guardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btn_Guardar.Enabled = false;
             this.btn_Guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Guardar.ForeColor = System.Drawing.Color.White;
-            this.btn_Guardar.Location = new System.Drawing.Point(679, 654);
+            this.btn_Guardar.Location = new System.Drawing.Point(735, 670);
             this.btn_Guardar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Guardar.Name = "btn_Guardar";
             this.btn_Guardar.Size = new System.Drawing.Size(123, 43);
@@ -102,7 +107,7 @@
             this.btn_Cancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btn_Cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Cancelar.ForeColor = System.Drawing.Color.White;
-            this.btn_Cancelar.Location = new System.Drawing.Point(807, 654);
+            this.btn_Cancelar.Location = new System.Drawing.Point(863, 670);
             this.btn_Cancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Cancelar.Name = "btn_Cancelar";
             this.btn_Cancelar.Size = new System.Drawing.Size(123, 43);
@@ -116,7 +121,7 @@
             this.btn_Regresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btn_Regresar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Regresar.ForeColor = System.Drawing.Color.White;
-            this.btn_Regresar.Location = new System.Drawing.Point(935, 654);
+            this.btn_Regresar.Location = new System.Drawing.Point(991, 670);
             this.btn_Regresar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Regresar.Name = "btn_Regresar";
             this.btn_Regresar.Size = new System.Drawing.Size(123, 43);
@@ -139,7 +144,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(11, 63);
+            this.label2.Location = new System.Drawing.Point(11, 58);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(60, 20);
             this.label2.TabIndex = 60;
@@ -151,7 +156,7 @@
             this.txt_Fecha.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_Fecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Fecha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txt_Fecha.Location = new System.Drawing.Point(82, 54);
+            this.txt_Fecha.Location = new System.Drawing.Point(82, 49);
             this.txt_Fecha.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_Fecha.Name = "txt_Fecha";
             this.txt_Fecha.ReadOnly = true;
@@ -167,7 +172,6 @@
             this.label3.Size = new System.Drawing.Size(180, 20);
             this.label3.TabIndex = 60;
             this.label3.Text = "Factura de Venta N°";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // txt_idFactura
             // 
@@ -181,12 +185,11 @@
             this.txt_idFactura.ReadOnly = true;
             this.txt_idFactura.Size = new System.Drawing.Size(100, 29);
             this.txt_idFactura.TabIndex = 62;
-            this.txt_idFactura.TextChanged += new System.EventHandler(this.txt_idFactura_TextChanged);
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(3, 633);
+            this.pictureBox1.Location = new System.Drawing.Point(4, 647);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(125, 66);
@@ -240,13 +243,14 @@
             // 
             // txt_IdCliente
             // 
+            this.txt_IdCliente.BackColor = System.Drawing.Color.White;
             this.txt_IdCliente.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_IdCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_IdCliente.Location = new System.Drawing.Point(102, 106);
             this.txt_IdCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_IdCliente.Name = "txt_IdCliente";
             this.txt_IdCliente.Size = new System.Drawing.Size(85, 19);
-            this.txt_IdCliente.TabIndex = 71;
+            this.txt_IdCliente.TabIndex = 0;
             // 
             // label12
             // 
@@ -339,56 +343,68 @@
             this.txt_Cedula.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_Cedula.Name = "txt_Cedula";
             this.txt_Cedula.Size = new System.Drawing.Size(100, 22);
-            this.txt_Cedula.TabIndex = 104;
+            this.txt_Cedula.TabIndex = 1;
             this.txt_Cedula.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.txt_Cedula_PreviewKeyDown);
             // 
             // txt_Nombre
             // 
+            this.txt_Nombre.BackColor = System.Drawing.Color.White;
             this.txt_Nombre.Location = new System.Drawing.Point(352, 165);
             this.txt_Nombre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_Nombre.Name = "txt_Nombre";
+            this.txt_Nombre.ReadOnly = true;
             this.txt_Nombre.Size = new System.Drawing.Size(175, 22);
-            this.txt_Nombre.TabIndex = 105;
+            this.txt_Nombre.TabIndex = 2;
             // 
             // txt_Apellidos
             // 
+            this.txt_Apellidos.BackColor = System.Drawing.Color.White;
             this.txt_Apellidos.Location = new System.Drawing.Point(687, 165);
             this.txt_Apellidos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_Apellidos.Name = "txt_Apellidos";
+            this.txt_Apellidos.ReadOnly = true;
             this.txt_Apellidos.Size = new System.Drawing.Size(203, 22);
-            this.txt_Apellidos.TabIndex = 106;
+            this.txt_Apellidos.TabIndex = 3;
             // 
             // txt_Direccion
             // 
+            this.txt_Direccion.BackColor = System.Drawing.Color.White;
             this.txt_Direccion.Location = new System.Drawing.Point(141, 224);
             this.txt_Direccion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_Direccion.Name = "txt_Direccion";
+            this.txt_Direccion.ReadOnly = true;
             this.txt_Direccion.Size = new System.Drawing.Size(139, 22);
-            this.txt_Direccion.TabIndex = 107;
+            this.txt_Direccion.TabIndex = 4;
             // 
             // txt_Barrio
             // 
+            this.txt_Barrio.BackColor = System.Drawing.Color.White;
             this.txt_Barrio.Location = new System.Drawing.Point(387, 224);
             this.txt_Barrio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_Barrio.Name = "txt_Barrio";
+            this.txt_Barrio.ReadOnly = true;
             this.txt_Barrio.Size = new System.Drawing.Size(175, 22);
-            this.txt_Barrio.TabIndex = 108;
+            this.txt_Barrio.TabIndex = 5;
             // 
             // txt_Correo
             // 
+            this.txt_Correo.BackColor = System.Drawing.Color.White;
             this.txt_Correo.Location = new System.Drawing.Point(679, 224);
             this.txt_Correo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_Correo.Name = "txt_Correo";
+            this.txt_Correo.ReadOnly = true;
             this.txt_Correo.Size = new System.Drawing.Size(179, 22);
-            this.txt_Correo.TabIndex = 109;
+            this.txt_Correo.TabIndex = 6;
             // 
             // txt_Telefono
             // 
+            this.txt_Telefono.BackColor = System.Drawing.Color.White;
             this.txt_Telefono.Location = new System.Drawing.Point(979, 224);
             this.txt_Telefono.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_Telefono.Name = "txt_Telefono";
+            this.txt_Telefono.ReadOnly = true;
             this.txt_Telefono.Size = new System.Drawing.Size(123, 22);
-            this.txt_Telefono.TabIndex = 110;
+            this.txt_Telefono.TabIndex = 7;
             // 
             // label15
             // 
@@ -419,7 +435,6 @@
             this.label16.TabIndex = 112;
             this.label16.Text = "_________________________";
             this.label16.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.label16.Click += new System.EventHandler(this.label16_Click);
             // 
             // GrillaDetalle
             // 
@@ -440,6 +455,7 @@
             this.GrillaDetalle.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.GrillaDetalle.Size = new System.Drawing.Size(1110, 323);
             this.GrillaDetalle.TabIndex = 113;
+            this.GrillaDetalle.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GrillaDetalle_CellDoubleClick);
             this.GrillaDetalle.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.GrillaDetalle_CellEndEdit);
             // 
             // id_producto
@@ -610,19 +626,83 @@
             this.label25.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 4.9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.label25.ForeColor = System.Drawing.Color.Black;
-            this.label25.Location = new System.Drawing.Point(80, 77);
+            this.label25.Location = new System.Drawing.Point(80, 72);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(139, 6);
             this.label25.TabIndex = 129;
             this.label25.Text = "__________________________________";
             this.label25.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(470, 630);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(84, 20);
+            this.label6.TabIndex = 130;
+            this.label6.Text = "Subtotal:";
+            // 
+            // txt_Subtotal
+            // 
+            this.txt_Subtotal.BackColor = System.Drawing.Color.White;
+            this.txt_Subtotal.Location = new System.Drawing.Point(560, 628);
+            this.txt_Subtotal.Name = "txt_Subtotal";
+            this.txt_Subtotal.ReadOnly = true;
+            this.txt_Subtotal.Size = new System.Drawing.Size(100, 22);
+            this.txt_Subtotal.TabIndex = 131;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(697, 628);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(37, 18);
+            this.label26.TabIndex = 132;
+            this.label26.Text = "IVA:";
+            // 
+            // txt_Iva
+            // 
+            this.txt_Iva.BackColor = System.Drawing.Color.White;
+            this.txt_Iva.Location = new System.Drawing.Point(740, 628);
+            this.txt_Iva.Name = "txt_Iva";
+            this.txt_Iva.ReadOnly = true;
+            this.txt_Iva.Size = new System.Drawing.Size(100, 22);
+            this.txt_Iva.TabIndex = 133;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.Location = new System.Drawing.Point(871, 628);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(128, 20);
+            this.label27.TabIndex = 134;
+            this.label27.Text = "Total a Pagar:";
+            // 
+            // txt_TotalPagar
+            // 
+            this.txt_TotalPagar.BackColor = System.Drawing.Color.White;
+            this.txt_TotalPagar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_TotalPagar.Location = new System.Drawing.Point(1007, 624);
+            this.txt_TotalPagar.Name = "txt_TotalPagar";
+            this.txt_TotalPagar.ReadOnly = true;
+            this.txt_TotalPagar.Size = new System.Drawing.Size(100, 26);
+            this.txt_TotalPagar.TabIndex = 135;
+            // 
             // FrmFacturadeVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1117, 709);
+            this.ClientSize = new System.Drawing.Size(1117, 720);
+            this.Controls.Add(this.txt_TotalPagar);
+            this.Controls.Add(this.label27);
+            this.Controls.Add(this.txt_Iva);
+            this.Controls.Add(this.label26);
+            this.Controls.Add(this.txt_Subtotal);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label25);
             this.Controls.Add(this.label24);
             this.Controls.Add(this.label23);
@@ -711,7 +791,6 @@
         public System.Windows.Forms.TextBox txt_Telefono;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.DataGridView GrillaDetalle;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
@@ -729,5 +808,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn vr_unitario;
         private System.Windows.Forms.DataGridViewTextBoxColumn iva;
         private System.Windows.Forms.DataGridViewTextBoxColumn vr_total;
+        public System.Windows.Forms.DataGridView GrillaDetalle;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txt_Subtotal;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.TextBox txt_Iva;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.TextBox txt_TotalPagar;
     }
 }

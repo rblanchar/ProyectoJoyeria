@@ -40,7 +40,17 @@ namespace LOGICA_ORACLE
             }
             return null;
         }
-
+        public CategoriaProducto BuscarNombre(string nom_categoria)
+        {
+            foreach (var categoria in Consultar())
+            {
+                if (categoria.Nombre == nom_categoria)
+                {
+                    return categoria;
+                }
+            }
+            return null;
+        }
         public string ModificarCategoria(CategoriaProducto categoriaProducto)
         {
             var msg = repositorio.ModificarCategoria(categoriaProducto);

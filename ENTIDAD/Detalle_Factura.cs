@@ -12,6 +12,7 @@ namespace ENTIDAD
         public Producto producto { get; set; }
         public double Cantidad { get; set; }
         public double Valor_Unitario { get; set; }
+        public double iva {  get; set; }
         public double Valor_Total { get; set; }
 
 
@@ -19,18 +20,19 @@ namespace ENTIDAD
         {
         }
 
-        public Detalle_Factura(Factura factura, Producto producto, double cantidad, double valor_Unitario, double valor_Total)
+        public Detalle_Factura(Factura factura, Producto producto, double cantidad, double valor_Unitario, double iva, double valor_Total)
         {
             this.factura = factura;
             this.producto = producto;
             Cantidad = cantidad;
             Valor_Unitario = valor_Unitario;
+            this.iva = iva;
             Valor_Total = valor_Total;
         }
 
         public override string ToString()
         {
-            return $"{factura.Id_Factura}; {producto.Id_Producto}; {Cantidad};{Valor_Unitario}; {Valor_Total}";
+            return $"{factura.Id_Factura}; {producto.Id_Producto}; {Cantidad};{Valor_Unitario};{iva};{Valor_Total}";
         }
     }
 }

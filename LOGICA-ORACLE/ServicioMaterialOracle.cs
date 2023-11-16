@@ -41,6 +41,17 @@ namespace LOGICA_ORACLE
             return null;
         }
 
+        public Material BuscarNombre(string nom_material)
+        {
+            foreach (var material in Consultar())
+            {
+                if (material.Nombre == nom_material)
+                {
+                    return material;
+                }
+            }
+            return null;
+        }
         public string ModificarMaterial(Material material)
         {
             var msg = repositorio.ModificarMaterial(material);

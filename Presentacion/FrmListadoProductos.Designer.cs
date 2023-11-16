@@ -31,20 +31,20 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmListadoProductos));
             this.label1 = new System.Windows.Forms.Label();
             this.Grilla_Productos = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CATEGORIA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.txt_Nombre = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.id_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.peso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.margen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CATEGORIA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.material = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_Productos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,14 +62,14 @@
             // 
             this.Grilla_Productos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Grilla_Productos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column5,
-            this.Column7,
-            this.Column6,
-            this.Column8,
+            this.id_producto,
+            this.descripcion,
+            this.costo,
+            this.peso,
+            this.margen,
+            this.cantidad,
             this.CATEGORIA,
-            this.Column4});
+            this.material});
             this.Grilla_Productos.Location = new System.Drawing.Point(1, 96);
             this.Grilla_Productos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Grilla_Productos.Name = "Grilla_Productos";
@@ -77,70 +77,7 @@
             this.Grilla_Productos.RowTemplate.Height = 24;
             this.Grilla_Productos.Size = new System.Drawing.Size(1531, 450);
             this.Grilla_Productos.TabIndex = 1;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "ID_PRODUCTO";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 125;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "DESCRIPCION";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 350;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "COSTO";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 125;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "PESO";
-            this.Column7.MinimumWidth = 6;
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            this.Column7.Width = 125;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "MARGEN GANANCIA";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Width = 125;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "CANTIDAD";
-            this.Column8.MinimumWidth = 6;
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            this.Column8.Width = 125;
-            // 
-            // CATEGORIA
-            // 
-            this.CATEGORIA.HeaderText = "CATEGORIA";
-            this.CATEGORIA.MinimumWidth = 6;
-            this.CATEGORIA.Name = "CATEGORIA";
-            this.CATEGORIA.ReadOnly = true;
-            this.CATEGORIA.Width = 250;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "MATERIAL";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 250;
+            this.Grilla_Productos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Grilla_Productos_CellDoubleClick);
             // 
             // button1
             // 
@@ -206,6 +143,70 @@
             this.label5.TabIndex = 4;
             this.label5.Text = "Material/Descripcion";
             // 
+            // id_producto
+            // 
+            this.id_producto.HeaderText = "ID_PRODUCTO";
+            this.id_producto.MinimumWidth = 6;
+            this.id_producto.Name = "id_producto";
+            this.id_producto.ReadOnly = true;
+            this.id_producto.Width = 125;
+            // 
+            // descripcion
+            // 
+            this.descripcion.HeaderText = "DESCRIPCION";
+            this.descripcion.MinimumWidth = 6;
+            this.descripcion.Name = "descripcion";
+            this.descripcion.ReadOnly = true;
+            this.descripcion.Width = 350;
+            // 
+            // costo
+            // 
+            this.costo.HeaderText = "COSTO";
+            this.costo.MinimumWidth = 6;
+            this.costo.Name = "costo";
+            this.costo.ReadOnly = true;
+            this.costo.Width = 125;
+            // 
+            // peso
+            // 
+            this.peso.HeaderText = "PESO";
+            this.peso.MinimumWidth = 6;
+            this.peso.Name = "peso";
+            this.peso.ReadOnly = true;
+            this.peso.Width = 125;
+            // 
+            // margen
+            // 
+            this.margen.HeaderText = "MARGEN GANANCIA";
+            this.margen.MinimumWidth = 6;
+            this.margen.Name = "margen";
+            this.margen.ReadOnly = true;
+            this.margen.Width = 125;
+            // 
+            // cantidad
+            // 
+            this.cantidad.HeaderText = "CANTIDAD";
+            this.cantidad.MinimumWidth = 6;
+            this.cantidad.Name = "cantidad";
+            this.cantidad.ReadOnly = true;
+            this.cantidad.Width = 125;
+            // 
+            // CATEGORIA
+            // 
+            this.CATEGORIA.HeaderText = "CATEGORIA";
+            this.CATEGORIA.MinimumWidth = 6;
+            this.CATEGORIA.Name = "CATEGORIA";
+            this.CATEGORIA.ReadOnly = true;
+            this.CATEGORIA.Width = 250;
+            // 
+            // material
+            // 
+            this.material.HeaderText = "MATERIAL";
+            this.material.MinimumWidth = 6;
+            this.material.Name = "material";
+            this.material.ReadOnly = true;
+            this.material.Width = 250;
+            // 
             // FrmListadoProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -243,13 +244,13 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_producto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn costo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn peso;
+        private System.Windows.Forms.DataGridViewTextBoxColumn margen;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn CATEGORIA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn material;
     }
 }
