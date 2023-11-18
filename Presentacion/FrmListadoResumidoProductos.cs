@@ -1,5 +1,5 @@
 ﻿using ENTIDAD;
-using LOGICA;
+using LOGICA_ORACLE;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -16,7 +16,7 @@ namespace Presentacion
 {
     public partial class FrmListadoResumidoProductos : Form
     {
-        ServicioProducto servicioProducto = new ServicioProducto();
+        ServicioProductoOracle servicioProducto = new ServicioProductoOracle();
         public FrmListadoResumidoProductos()
         {
             InitializeComponent();
@@ -30,35 +30,37 @@ namespace Presentacion
 
         private void FrmListadoResumidoProductos_Load(object sender, EventArgs e)
         {
-            CargarGrilla(servicioProducto.Consultar());
-            Grilla_Productos.Sort(Grilla_Productos.Columns["CATEGORIA"], ListSortDirection.Ascending);
+            CargarGrilla();
         }
 
 
-        void CargarGrilla(List<Producto> lista)
+        public void CargarGrilla()
         {
-            Grilla_Productos.Rows.Clear();
+            DataTable datos = servicioProducto.GrupoCategoriaMaterial();
 
-            var productosAgrupados = lista
-                .GroupBy(producto => new { Categoria = producto.CategoriaProducto.Nombre, Material = producto.Material.Nombre })
-                .Select(group => new
-                {
-                    Categoria = group.Key.Categoria,
-                    Material = group.Key.Material,
-                    TotalCantidad = group.Sum(producto => producto.Cantidad)
-                });
-
-            foreach (var grupo in productosAgrupados)
+            if (datos != null && datos.Rows.Count > 0)
             {
-                Grilla_Productos.Rows.Add(grupo.Categoria.ToUpper(), grupo.Material.ToUpper(), grupo.TotalCantidad);
+                foreach (DataRow fila in datos.Rows)
+                {
+                    int indiceFila = Grilla_Productos.Rows.Add();
+                    DataGridViewRow nuevaFila = Grilla_Productos.Rows[indiceFila];
+                    
+                    nuevaFila.Cells["CATEGORIA"].Value = fila["nombre"];
+                    nuevaFila.Cells["MATERIAL"].Value = fila["nombre1"];
+                    nuevaFila.Cells["CANTIDAD"].Value = fila["SUM(p.cantidad)"];
+                }
+            }
+            else
+            {
+
+                MessageBox.Show("No hay datos para mostrar.");
             }
         }
 
         private void txt_Nombre_TextChanged(object sender, EventArgs e)
         {
-            var filtro = txt_Nombre.Text;
-            var lista = servicioProducto.BuscarX(filtro);
-            CargarGrilla(lista);
+
+            FiltrarGrilla();
         }
 
         private void txt_Nombre_KeyPress(object sender, KeyPressEventArgs e)
@@ -71,6 +73,28 @@ namespace Presentacion
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && !char.IsLetter(e.KeyChar) && e.KeyChar != ' ' && e.KeyChar != (char)Keys.Back)
             {
                 e.Handled = true;
+            }
+        }
+
+        private void FiltrarGrilla()
+        {
+            string filtro = txt_Nombre.Text;
+
+            foreach (DataGridViewRow fila in Grilla_Productos.Rows )
+            {
+
+                bool mostrarFila = true;
+                if (!fila.IsNewRow) 
+                {
+                    if (!string.IsNullOrEmpty(filtro) &&
+                    !fila.Cells["CATEGORIA"].Value.ToString().Contains(filtro) &&
+                    !fila.Cells["MATERIAL"].Value.ToString().Contains(filtro))
+                    {
+                        mostrarFila = false;
+                    }
+                }
+
+                fila.Visible = mostrarFila;
             }
         }
     }

@@ -2,6 +2,7 @@
 using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -209,6 +210,37 @@ namespace DATOS_ORACLE
             return proximoId;
 
         }
-        
+
+        public DataTable ObtenerResultados()
+        {
+            DataTable tablaResultados = new DataTable();
+
+            try
+            {
+                string ssql = "SELECT c.nombre, m.nombre , SUM(p.cantidad) " +
+                              "FROM productos p " +
+                              "JOIN categoria_productos c ON p.id_categoria = c.id_categoria " +
+                              "JOIN materiales m ON p.id_material = m.id_material " +
+                              "GROUP BY c.nombre, m.nombre";
+
+                AbrirConexion();
+                OracleCommand cmd = conexion.CreateCommand();
+                cmd.CommandText = ssql;
+
+                OracleDataAdapter adaptador = new OracleDataAdapter(cmd);
+                adaptador.Fill(tablaResultados);
+
+                CerrarConexion();
+            }
+            catch (Exception ex)
+            {
+                // Manejo de excepciones si ocurre algún error en la consulta a la base de datos
+                Console.WriteLine("Error: " + ex.Message);
+            }
+
+            return tablaResultados;
+        }
+
+
     }
 }

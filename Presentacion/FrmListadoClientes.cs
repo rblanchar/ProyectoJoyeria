@@ -15,6 +15,8 @@ namespace Presentacion
     public partial class FrmListadoClientes : Form
     {
         public Cliente ClienteSeleccionado { get; private set; }
+        public bool cargado { get; set; }
+
         ServicioClienteOracle servicioCliente = new ServicioClienteOracle();
 
         public FrmListadoClientes()
@@ -68,31 +70,34 @@ namespace Presentacion
 
         private void Grilla_Clientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-
-            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            if (cargado == true)
             {
-                string id_Cliente = Grilla_Clientes.Rows[e.RowIndex].Cells["Id_Cliente"].Value.ToString();
-                string cedula = Grilla_Clientes.Rows[e.RowIndex].Cells["Cedula"].Value.ToString();
-                string nombre = Grilla_Clientes.Rows[e.RowIndex].Cells["Nombre"].Value.ToString();
-                string apellidos = Grilla_Clientes.Rows[e.RowIndex].Cells["Apellidos"].Value.ToString();
-                string direccion = Grilla_Clientes.Rows[e.RowIndex].Cells["Direccion"].Value.ToString();
-                string barrio = Grilla_Clientes.Rows[e.RowIndex].Cells["Barrio"].Value.ToString();
-                string correo = Grilla_Clientes.Rows[e.RowIndex].Cells["Correo"].Value.ToString();
-                string telefono = Grilla_Clientes.Rows[e.RowIndex].Cells["Telefono"].Value.ToString();
 
-                ClienteSeleccionado = new Cliente
+                if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
                 {
-                    Id_Cliente = id_Cliente,
-                    Cedula = cedula,
-                    Nombre = nombre,
-                    Apellidos = apellidos,
-                    Direccion = direccion,
-                    Barrio = barrio,
-                    Correo = correo,
-                    Telefono = telefono
-                };
+                    string id_Cliente = Grilla_Clientes.Rows[e.RowIndex].Cells["Id_Cliente"].Value.ToString();
+                    string cedula = Grilla_Clientes.Rows[e.RowIndex].Cells["Cedula"].Value.ToString();
+                    string nombre = Grilla_Clientes.Rows[e.RowIndex].Cells["Nombre"].Value.ToString();
+                    string apellidos = Grilla_Clientes.Rows[e.RowIndex].Cells["Apellidos"].Value.ToString();
+                    string direccion = Grilla_Clientes.Rows[e.RowIndex].Cells["Direccion"].Value.ToString();
+                    string barrio = Grilla_Clientes.Rows[e.RowIndex].Cells["Barrio"].Value.ToString();
+                    string correo = Grilla_Clientes.Rows[e.RowIndex].Cells["Correo"].Value.ToString();
+                    string telefono = Grilla_Clientes.Rows[e.RowIndex].Cells["Telefono"].Value.ToString();
 
-                this.Close();
+                    ClienteSeleccionado = new Cliente
+                    {
+                        Id_Cliente = id_Cliente,
+                        Cedula = cedula,
+                        Nombre = nombre,
+                        Apellidos = apellidos,
+                        Direccion = direccion,
+                        Barrio = barrio,
+                        Correo = correo,
+                        Telefono = telefono
+                    };
+
+                    this.Close();
+                }
             }
         }
     }

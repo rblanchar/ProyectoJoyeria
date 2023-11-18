@@ -2,6 +2,7 @@
 using ENTIDAD;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -69,6 +70,12 @@ namespace LOGICA_ORACLE
         {
             var msg = repositorio.EliminarProducto(idProducto);
             return msg;
+        }
+
+        public DataTable GrupoCategoriaMaterial()
+        {
+            DataTable resultados = repositorio.ObtenerResultados();
+            return resultados;
         }
 
 

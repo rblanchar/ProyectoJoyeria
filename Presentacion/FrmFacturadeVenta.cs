@@ -102,6 +102,7 @@ namespace Presentacion
                         GuardarFactura();
                         GuardarDetalle_Factura(GrillaDetalle);
                         limpiar();
+                        txt_idFactura.Text = serviceFactura.ProximoidFactura();
                         Activar_cmb_Opcion();
                     }
                 }
@@ -164,13 +165,12 @@ namespace Presentacion
         {
           
             var frmListadoClientes = new FrmListadoClientes();
-            frmListadoClientes.ShowDialog();
-            
+            frmListadoClientes.cargado = true;
+            frmListadoClientes.btn_Regresar.Visible = false;
+            frmListadoClientes.ShowDialog();            
 
             Cliente ClienteSeleccionado = frmListadoClientes.ClienteSeleccionado;
-            TraerClientes(ClienteSeleccionado);
-           
-          
+            TraerClientes(ClienteSeleccionado);        
 
         }
        
@@ -293,12 +293,12 @@ namespace Presentacion
         private void GrillaDetalle_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             var valorIdProducto = GrillaDetalle.Rows[e.RowIndex].Cells["ID_PRODUCTO"].Value;
-
-            if (e.RowIndex != -1 && valorIdProducto != null)
+            var cantidadP = GrillaDetalle.Rows[e.RowIndex].Cells["cantidad"].Value;
+            if (e.RowIndex != -1 && valorIdProducto != null && Convert.ToInt16(cantidadP)>0 && cantidadP !=null)
             {
 
                 string columnaActual = GrillaDetalle.Columns[e.ColumnIndex].Name;
-                var cantidadP = GrillaDetalle.Rows[e.RowIndex].Cells["cantidad"].Value;
+                
 
                 var lista = ServiceProducto.BuscarId(valorIdProducto.ToString());
                 if (lista != null)
@@ -323,7 +323,7 @@ namespace Presentacion
                         GrillaDetalle.Rows[e.RowIndex].Cells["vr_total"].Value = (Ptotal).ToString("###,###");
 
                     }
-                    else if (columnaActual == "cantidad" && valorIdProducto != null)
+                    else if (columnaActual == "cantidad" && valorIdProducto != null && Convert.ToInt16(cantidadP)>0)
                     {
                         if (lista.Cantidad>= Convert.ToInt32(cantidadP ))
                         {
@@ -332,27 +332,31 @@ namespace Presentacion
                             double subtotal = 0;
                             double totalIVA = 0;
                             double totalPagar = 0;
-                            int cantidadG = 0;
 
                             foreach (DataGridViewRow fila in GrillaDetalle.Rows)
                             {
-                                if (!fila.IsNewRow)
+                                if (!fila.IsNewRow && Convert.ToString(fila.Cells["cantidad"].Value)!="")
                                 {
                                     double vrTotal = Convert.ToDouble(fila.Cells["vr_total"].Value);
-                                    int cantd = Convert.ToInt16(fila.Cells["cantidad"].Value);
-                                    cantidadG += cantd;
+
                                     subtotal += vrTotal;
                                     totalIVA += Convert.ToDouble(fila.Cells["iva"].Value);
                                 }
                             }
-                            if (lista.Cantidad>= cantidadG)
+                            if (lista.Cantidad>= Convert.ToInt16(cantidadP ))
                             {
+                                
                                 totalPagar = subtotal + totalIVA;
 
                                 txt_Subtotal.Text = subtotal.ToString("###,###");
                                 txt_Iva.Text = totalIVA.ToString("###,###");
                                 txt_TotalPagar.Text = totalPagar.ToString("###,###");
-                                btn_Guardar.Text = "Registrar";
+
+                                bool todasLasFilasTienenCantidad = VerificarCantidadEnFilas();
+
+ 
+                                btn_Guardar.Text = todasLasFilasTienenCantidad ? "Registrar" : "";
+
                             }
                             else
                             {
@@ -372,17 +376,43 @@ namespace Presentacion
                 }
 
             }
+            else
+            {
+                GrillaDetalle.Rows[e.RowIndex].Cells["cantidad"].Value = "";
+                GrillaDetalle.Rows[e.RowIndex].Cells["iva"].Value = "";
+                GrillaDetalle.Rows[e.RowIndex].Cells["vr_total"].Value = "";
+                btn_Guardar.Text = "";
+            }
         }
 
+        private bool VerificarCantidadEnFilas()
+        {
+            int lastRowIndex = GrillaDetalle.Rows.Count - 1;
+
+            for (int i = 0; i < lastRowIndex; i++)
+            {
+                object valorCantidad = GrillaDetalle.Rows[i].Cells["cantidad"].Value;
+
+                if (valorCantidad == null || string.IsNullOrWhiteSpace(valorCantidad.ToString()))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
         private void GrillaDetalle_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
 
                 var frmProductos = new FrmListadoProductos();
+                frmProductos.cargado = true;
+                frmProductos.button1.Visible = false;
                 frmProductos.ShowDialog();
 
                 Producto productoSeleccionado = frmProductos.ProductoSeleccionado;
+                
 
                 if (productoSeleccionado != null)
                 {
@@ -405,7 +435,9 @@ namespace Presentacion
             GrillaDetalle.Rows[indiceFila].Cells["vr_unitario"].Value = precioVenta.ToString("###,###");
             var Piva = precioVenta * 0.19;
             GrillaDetalle.Rows[indiceFila].Cells["iva"].Value = Piva.ToString("###,###");
-           
+            GrillaDetalle.CurrentCell = GrillaDetalle["cantidad", indiceFila];
+            GrillaDetalle.BeginEdit(true);
+
         }
 
         public void TraerClientes(Cliente cliente)
@@ -478,6 +510,21 @@ namespace Presentacion
             }
         }
 
-      
+        private void GrillaDetalle_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                DataGridViewCell currentCell = GrillaDetalle.CurrentCell;
+
+                if (currentCell != null)
+                {
+                    btn_Guardar.Text = "";
+                    if (currentCell.ReadOnly == false)
+                    {
+                        currentCell.Value = null; 
+                    }
+                }
+            }
+        }
     }
 }

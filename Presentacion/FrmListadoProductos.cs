@@ -16,6 +16,7 @@ namespace Presentacion
     public partial class FrmListadoProductos : Form
     {
         public Producto ProductoSeleccionado { get; private set; }
+        public bool cargado { get; set; }
 
         ServicioProductoOracle servicioProducto= new ServicioProductoOracle();
         ServicioCategoriaOracle servicioCategoria= new ServicioCategoriaOracle();
@@ -47,7 +48,6 @@ namespace Presentacion
         private void FrmListadoProductos_Load(object sender, EventArgs e)
         {
             CargarGrilla(servicioProducto.Consultar());
-            //Grilla_Productos.Sort(Grilla_Productos.Columns["CATEGORIA"], ListSortDirection.Ascending);
         }
 
         void CargarGrilla(List<Producto> lista)
@@ -74,31 +74,36 @@ namespace Presentacion
 
         private void Grilla_Productos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            if (cargado==true)
             {
 
-                string idProducto = Grilla_Productos.Rows[e.RowIndex].Cells["ID_PRODUCTO"].Value.ToString();
-                string descripcion = Grilla_Productos.Rows[e.RowIndex].Cells["DESCRIPCION"].Value.ToString();
-                string costo = Grilla_Productos.Rows[e.RowIndex].Cells["costo"].Value.ToString();
-                string peso = Grilla_Productos.Rows[e.RowIndex].Cells["peso"].Value.ToString();
-                string margen = Grilla_Productos.Rows[e.RowIndex].Cells["margen"].Value.ToString();
-                string cantidad = Grilla_Productos.Rows[e.RowIndex].Cells["cantidad"].Value.ToString();
-                string categoria = Grilla_Productos.Rows[e.RowIndex].Cells["CATEGORIA"].Value.ToString();
-                string material = Grilla_Productos.Rows[e.RowIndex].Cells["material"].Value.ToString();
-
-                ProductoSeleccionado = new Producto
+                if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
                 {
-                    Id_Producto = idProducto,
-                    Descripcion = descripcion,
-                    Costo = Convert.ToDouble(costo),
-                    Peso = Convert.ToDecimal(peso),
-                    Margen_Ganancia = Convert.ToDouble(margen),
-                    Cantidad = Convert.ToInt16(cantidad),
-                    CategoriaProducto  = servicioCategoria.BuscarNombre(categoria),
-                    Material = servicioMaterial.BuscarNombre(material),
-                };
 
-                this.Close();
+                    string idProducto = Grilla_Productos.Rows[e.RowIndex].Cells["ID_PRODUCTO"].Value.ToString();
+                    string descripcion = Grilla_Productos.Rows[e.RowIndex].Cells["DESCRIPCION"].Value.ToString();
+                    string costo = Grilla_Productos.Rows[e.RowIndex].Cells["costo"].Value.ToString();
+                    string peso = Grilla_Productos.Rows[e.RowIndex].Cells["peso"].Value.ToString();
+                    string margen = Grilla_Productos.Rows[e.RowIndex].Cells["margen"].Value.ToString();
+                    string cantidad = Grilla_Productos.Rows[e.RowIndex].Cells["cantidad"].Value.ToString();
+                    string categoria = Grilla_Productos.Rows[e.RowIndex].Cells["CATEGORIA"].Value.ToString();
+                    string material = Grilla_Productos.Rows[e.RowIndex].Cells["material"].Value.ToString();
+
+                    ProductoSeleccionado = new Producto
+                    {
+                        Id_Producto = idProducto,
+                        Descripcion = descripcion,
+                        Costo = Convert.ToDouble(costo),
+                        Peso = Convert.ToDecimal(peso),
+                        Margen_Ganancia = Convert.ToDouble(margen),
+                        Cantidad = Convert.ToInt16(cantidad),
+                        CategoriaProducto = servicioCategoria.BuscarNombre(categoria),
+                        Material = servicioMaterial.BuscarNombre(material),
+                    };
+
+                    this.Close();
+
+                }
             }
         }
     }

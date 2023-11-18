@@ -239,11 +239,12 @@ D:\Ingenieria de Sistemas\Semestre lV\C#\Nueva carpeta\Presentacion\bin\Debug\Mi
 D:\Ingenieria de Sistemas\Semestre lV\C#\Nueva carpeta\Presentacion\bin\Debug\System.Buffers.xml
 D:\Ingenieria de Sistemas\Semestre lV\C#\Nueva carpeta\Presentacion\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 D:\Ingenieria de Sistemas\Semestre lV\C#\Nueva carpeta\Presentacion\obj\Debug\Presentacion.csproj.CopyComplete
-D:\Ingenieria de Sistemas\Semestre lV\C#\Git\Presentacion\bin\Debug\Presentacion.exe
 C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.FrmGestionCliente.resources
 C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.FrmMenuClientes.resources
 C:\Users\hp\source\repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.FrmListadoClientes.resources
 D:\Ingenieria de Sistemas\Semestre lV\C#\Git\Presentacion\bin\Debug\Presentacion.exe.config
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git\Presentacion\bin\Debug\Presentacion.exe
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git\Presentacion\bin\Debug\Presentacion.pdb
 D:\Ingenieria de Sistemas\Semestre lV\C#\Git\Presentacion\bin\Debug\ENTIDAD.dll
 D:\Ingenieria de Sistemas\Semestre lV\C#\Git\Presentacion\bin\Debug\LOGICA-ORACLE.dll
 D:\Ingenieria de Sistemas\Semestre lV\C#\Git\Presentacion\bin\Debug\LOGICA.dll
@@ -303,4 +304,3 @@ D:\Ingenieria de Sistemas\Semestre lV\C#\Git\Presentacion\obj\Debug\Presentacion
 D:\Ingenieria de Sistemas\Semestre lV\C#\Git\Presentacion\obj\Debug\Presentacion.csproj.CopyComplete
 D:\Ingenieria de Sistemas\Semestre lV\C#\Git\Presentacion\obj\Debug\Presentacion.exe
 D:\Ingenieria de Sistemas\Semestre lV\C#\Git\Presentacion\obj\Debug\Presentacion.pdb
-D:\Ingenieria de Sistemas\Semestre lV\C#\Git\Presentacion\bin\Debug\Presentacion.pdb
