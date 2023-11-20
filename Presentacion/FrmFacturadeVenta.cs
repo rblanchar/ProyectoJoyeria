@@ -23,7 +23,7 @@ namespace Presentacion
         ServicioCategoriaOracle serviceCategoria = new ServicioCategoriaOracle();
         ServicioMaterialOracle serviceMaterial = new ServicioMaterialOracle();
         ServicioDetalleFacturaOracle serviceDetalleFactura = new ServicioDetalleFacturaOracle();
-
+        public Usuario UsuarioSeleccionado { get; private set; }
         public FrmFacturadeVenta()
         {
             InitializeComponent();

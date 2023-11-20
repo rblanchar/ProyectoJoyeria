@@ -2,6 +2,7 @@
 using ENTIDAD;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,12 @@ namespace LOGICA_ORACLE
         public string ProximoidFactura()
         {
             return repositorio.ProximoIdFactura();
+        }
+
+        public DataTable GrupoFacturas()
+        {
+            DataTable resultados = repositorio.ObtenerResultados();
+            return resultados;
         }
     }
 

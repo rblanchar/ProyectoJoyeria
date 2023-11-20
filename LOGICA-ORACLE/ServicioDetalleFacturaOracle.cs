@@ -2,6 +2,7 @@
 using ENTIDAD;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,5 +22,12 @@ namespace LOGICA_ORACLE
             var msg = repositorio.InsertarDetalleFactura(detallesFactura);
             return msg;
         }
+
+        public DataTable GrupoFacturas(int idFactura)
+        {
+            DataTable resultados = repositorio.ObtenerDetalleFactura(idFactura);
+            return resultados;
+        }
+
     }
 }

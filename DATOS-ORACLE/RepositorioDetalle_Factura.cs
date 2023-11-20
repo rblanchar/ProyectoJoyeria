@@ -2,6 +2,7 @@
 using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -49,6 +50,40 @@ namespace DATOS_ORACLE
 
             CerrarConexion();
             return "Registro de Factura Exitoso!";
+        }
+
+        public DataTable ObtenerDetalleFactura(int idFactura)
+        {
+            DataTable tablaDetalleFactura = new DataTable();
+
+            try
+            {
+                using (OracleConnection conexion = new OracleConnection("tu_cadena_de_conexion"))
+                {
+                    conexion.Open();
+
+                   
+                    string consulta = "SELECT df.id_factura, p.descripcion, df.cantidad, df.valor_unitario, df.iva, df.valor_total " +
+                                      "FROM detalle_facturas df " +
+                                      "JOIN productos p ON df.id_producto = p.id_producto " +
+                                      "WHERE df.id_factura = :IdFactura";
+
+                    OracleCommand comando = new OracleCommand(consulta, conexion);
+
+                   
+                    comando.Parameters.Add(new OracleParameter(":IdFactura", OracleDbType.Int32)).Value = idFactura;
+
+                   
+                    OracleDataAdapter adaptador = new OracleDataAdapter(comando);
+                    adaptador.Fill(tablaDetalleFactura);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+
+            return tablaDetalleFactura;
         }
 
     }

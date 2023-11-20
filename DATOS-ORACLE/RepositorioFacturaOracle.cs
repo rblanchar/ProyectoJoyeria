@@ -68,5 +68,36 @@ namespace DATOS_ORACLE
 
             return proximoId;
         }
+
+        public DataTable ObtenerResultados()
+        {
+            DataTable tablaResultados = new DataTable();
+
+            try
+            {
+                string ssql = "select f.id_factura,f.fecha,c.cedula,c.nombre,c.apellidos,u.nombre_usuario,f.subtotal,f.total_pagar " +
+                              " from facturas f" +
+                              " join clientes c" +
+                              " on f.id_cliente = c.id_cliente" +
+                              " join usuarios u " +
+                              " on f.id_usuario = u.id_usuario";
+
+                AbrirConexion();
+                OracleCommand cmd = conexion.CreateCommand();
+                cmd.CommandText = ssql;
+
+                OracleDataAdapter adaptador = new OracleDataAdapter(cmd);
+                adaptador.Fill(tablaResultados);
+
+                CerrarConexion();
+            }
+            catch (Exception ex)
+            {
+                // Manejo de excepciones si ocurre algún error en la consulta a la base de datos
+                Console.WriteLine("Error: " + ex.Message);
+            }
+
+            return tablaResultados;
+        }
     }
 }

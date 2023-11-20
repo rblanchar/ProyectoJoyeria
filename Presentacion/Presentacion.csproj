@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormListadoDetalleFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormListadoDetalleFactura.Designer.cs">
+      <DependentUpon>FormListadoDetalleFactura.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmFacturadeVenta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +93,12 @@
     </Compile>
     <Compile Include="FrmListadoClientes.Designer.cs">
       <DependentUpon>FrmListadoClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmListadoFacturas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListadoFacturas.Designer.cs">
+      <DependentUpon>FrmListadoFacturas.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmListadoMateriales.cs">
       <SubType>Form</SubType>
@@ -172,8 +184,17 @@
     <Compile Include="FrmRegistrarRol.Designer.cs">
       <DependentUpon>FrmRegistrarRol.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReporte.Designer.cs">
+      <DependentUpon>FrmReporte.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormListadoDetalleFactura.resx">
+      <DependentUpon>FormListadoDetalleFactura.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmFacturadeVenta.resx">
       <DependentUpon>FrmFacturadeVenta.cs</DependentUpon>
     </EmbeddedResource>
@@ -194,6 +215,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoClientes.resx">
       <DependentUpon>FrmListadoClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoFacturas.resx">
+      <DependentUpon>FrmListadoFacturas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoMateriales.resx">
       <DependentUpon>FrmListadoMateriales.cs</DependentUpon>
@@ -236,6 +260,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRegistrarRol.resx">
       <DependentUpon>FrmRegistrarRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReporte.resx">
+      <DependentUpon>FrmReporte.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
