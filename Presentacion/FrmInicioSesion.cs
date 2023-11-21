@@ -98,30 +98,38 @@ namespace Presentacion
             string contraseña = txt_pass.Text;
             string usuario = txt_user.Text;
 
-            int idTipoUsuario = servicioUsuarioOracle.Loguin(usuario, contraseña);
-
-            switch (idTipoUsuario)
+            var encontrado = servicioUsuarioOracle.Loguin(usuario, contraseña);
+            if (encontrado !=null)
             {
-                case 1:
-                    this.Close();
-                    FrmMenuSuper super = new FrmMenuSuper();
-                    super.Show();
-                    break;
-                case 2:
-                    this.Close();
-                    FrmMenuAdmin admin = new FrmMenuAdmin();
-                    admin.Show();
-                    break;
-                case 3:
-                    this.Close();
-                    FrmMenuVendedor vendedor = new FrmMenuVendedor();
-                    vendedor.Show();
-                    break;
-                default:
+                UsuarioLogueado.Usuario = Convert.ToString(encontrado.Nombre_Usuario);
+                UsuarioLogueado.idUsuario = Convert.ToString(encontrado.Id_Usuario);
+                UsuarioLogueado.Tipo = Convert.ToString(encontrado.tipoUsuario);
 
-                    MessageBox.Show("Usuario o contraseña incorrectos.");
-                    break;
+                switch (Convert.ToString(encontrado.tipoUsuario))
+                {
+                    case "1;":
+                        this.Close();
+                        FrmMenuSuper super = new FrmMenuSuper();
+                        super.Show();
+                        break;
+                    case "2;":
+                        this.Close();
+                        FrmMenuAdmin admin = new FrmMenuAdmin();
+                        admin.Show();
+                        break;
+                    case "3;":
+                        this.Close();
+                        FrmMenuVendedor vendedor = new FrmMenuVendedor();
+                        vendedor.Show();
+                        break;
+
+                }
+            }else
+            {
+                MessageBox.Show("Usuario o contraseña incorrectos.");
             }
+            
+
         }
 
     }

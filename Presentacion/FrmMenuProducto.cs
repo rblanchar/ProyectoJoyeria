@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LOGICA_ORACLE;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,7 +27,18 @@ namespace Presentacion
         private void btn_Salir_Click(object sender, EventArgs e)
         {
             this.Close();
-            new FrmMenuSuper().Show();
+            if (UsuarioLogueado.Tipo == "1;")
+            {
+                new FrmMenuSuper().Show();
+            }
+            else if (UsuarioLogueado.Tipo == "2;")
+            {
+                new FrmMenuAdmin().Show();
+            }
+            else
+            {
+                new FrmMenuVendedor().Show();
+            }
         }
 
         private void button8_Click(object sender, EventArgs e)

@@ -23,32 +23,42 @@ namespace Presentacion
         ServicioCategoriaOracle serviceCategoria = new ServicioCategoriaOracle();
         ServicioMaterialOracle serviceMaterial = new ServicioMaterialOracle();
         ServicioDetalleFacturaOracle serviceDetalleFactura = new ServicioDetalleFacturaOracle();
-        public Usuario UsuarioSeleccionado { get; private set; }
+
         public FrmFacturadeVenta()
         {
             InitializeComponent();
+            
         }
 
         private void btn_Regresar_Click(object sender, EventArgs e)
         {
             this.Close();
-            new FrmMenuSuper().Show();
+            if (UsuarioLogueado.Tipo=="1;")
+            {
+                new FrmMenuSuper().Show();
+            }else if (UsuarioLogueado.Tipo=="2;")
+            {
+                new FrmMenuAdmin().Show();
+            }else
+            {
+                new FrmMenuVendedor().Show();
+            }
+            
         }
 
         void cargarUsuarios()
         {
-
-            cmb_Usuario.DataSource = serviceUsuario.Consultar();
-            cmb_Usuario.ValueMember = "Id_Usuario";
-            cmb_Usuario.DisplayMember = "Nombre_Usuario";
+            
 
 
         }
         private void FrmFacturadeVenta_Load(object sender, EventArgs e)
         {
+            string usuarioLogueado = UsuarioLogueado.Usuario;
             DesHabilitar();
             txt_Fecha.Text = DateTime.Now.ToString("yyyy/MM/dd");
-            cargarUsuarios();
+            
+            txt_NombreUsuario.Text= usuarioLogueado;
 
             var proximoIdFactura = serviceFactura.ProximoidFactura();
             txt_idFactura.Text = Convert.ToString(proximoIdFactura);
@@ -70,7 +80,7 @@ namespace Presentacion
             {
                 if (string.IsNullOrWhiteSpace(txt_IdCliente.Text) || string.IsNullOrWhiteSpace(txt_Nombre.Text) || string.IsNullOrWhiteSpace(txt_Cedula.Text) ||
                     string.IsNullOrWhiteSpace(txt_Apellidos.Text) || string.IsNullOrWhiteSpace(txt_Direccion.Text) || string.IsNullOrWhiteSpace(txt_Correo.Text)||
-                    string.IsNullOrWhiteSpace(txt_Barrio.Text) || string.IsNullOrWhiteSpace(txt_Telefono.Text) || string.IsNullOrWhiteSpace(cmb_Usuario.Text)||
+                    string.IsNullOrWhiteSpace(txt_Barrio.Text) || string.IsNullOrWhiteSpace(txt_Telefono.Text) ||
                     GrillaDetalle.Rows.Count == 1)
                 {
                     MessageBox.Show("Por favor, completa todos los Campos Obligatorios *", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -120,7 +130,9 @@ namespace Presentacion
             factura.Id_Factura = txt_idFactura.Text;
             factura.Fecha = Convert.ToDateTime(txt_Fecha.Text);
             factura.cliente = serviceCliente.BuscarId(txt_IdCliente.Text.ToString());
-            factura.usuario = serviceUsuario.BuscarId(cmb_Usuario.SelectedValue.ToString());
+            
+            string usuarioLogueado = UsuarioLogueado.idUsuario;
+            factura.usuario = serviceUsuario.BuscarId(usuarioLogueado);
 
             var msg = serviceFactura.InsertarFactura(factura);
            

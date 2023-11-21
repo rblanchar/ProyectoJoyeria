@@ -26,7 +26,7 @@ namespace Presentacion
             Application.SetCompatibleTextRenderingDefault(false);
             //FrmInicioSesion
 
-            FrmListadoFacturas main = new FrmListadoFacturas();
+            FrmInicioSesion main = new FrmInicioSesion();
             main.Show();
             Application.Run();
 

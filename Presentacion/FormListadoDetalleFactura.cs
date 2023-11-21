@@ -27,7 +27,7 @@ namespace Presentacion
             this.idFactura = idFactura;
         }
         public void CargarGrilla(int idFactura)
-        {
+        { 
             try
             {
                 DataTable datos = servicioDetalleFacturaOracle.GrupoFacturas(idFactura);
@@ -39,7 +39,7 @@ namespace Presentacion
                         int indiceFila = GrillaDetalleFactura.Rows.Add();
                         DataGridViewRow nuevaFila = GrillaDetalleFactura.Rows[indiceFila];
 
-                        nuevaFila.Cells["IDFACTURA"].Value = fila["id_factura"];
+                        nuevaFila.Cells["Column1"].Value = fila["id_factura"];
                         nuevaFila.Cells["DESCRIPCION"].Value = fila["descripcion"];
                         nuevaFila.Cells["CANTIDAD"].Value = fila["cantidad"];
                         nuevaFila.Cells["VALOR_UNITARIO"].Value = fila["valor_unitario"];

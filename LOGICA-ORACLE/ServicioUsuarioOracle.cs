@@ -68,28 +68,16 @@ namespace LOGICA_ORACLE
             return repositorio.ProximoIdUsuario();
         }
 
-        public int Loguin(string user, string pass)
+        public Usuario Loguin(string user, string pass)
         {
-            Usuario usuario = repositorio.ObtenerUsuarioPorCredenciales(user, pass);
+            var usuario = repositorio.ObtenerUsuarioPorCredenciales(user, pass);
 
             if (usuario != null)
             {
-                int idTipo = Convert.ToInt32(usuario.tipoUsuario.IdTipo);
-
-                switch (idTipo)
-                {
-                    case 1:
-                        return 1;
-                    case 2:
-                        return 2;
-                    case 3:
-                        return 3;
-                    default:
-                        return 0;
-                }
+                return usuario;
             }
 
-            return 0;
+            return null;
         }
     }
 }

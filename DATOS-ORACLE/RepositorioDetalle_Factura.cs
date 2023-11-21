@@ -58,25 +58,26 @@ namespace DATOS_ORACLE
 
             try
             {
-                using (OracleConnection conexion = new OracleConnection("tu_cadena_de_conexion"))
-                {
-                    conexion.Open();
+               
+                   
+                string ssql = "SELECT df.id_factura, p.descripcion, df.cantidad, df.valor_unitario, df.iva, df.valor_total " +
+                                    " FROM detalle_facturas df " +
+                                    " JOIN productos p ON df.id_producto = p.id_producto " +
+                                    " WHERE df.id_factura = :Id_Factura";
+
+                AbrirConexion();
+                OracleCommand cmd = conexion.CreateCommand();
+                cmd.CommandText = ssql;
+
+                cmd.Parameters.Add(new OracleParameter(":Id_Factura", OracleDbType.Int32)).Value = idFactura;
 
                    
-                    string consulta = "SELECT df.id_factura, p.descripcion, df.cantidad, df.valor_unitario, df.iva, df.valor_total " +
-                                      "FROM detalle_facturas df " +
-                                      "JOIN productos p ON df.id_producto = p.id_producto " +
-                                      "WHERE df.id_factura = :IdFactura";
+                OracleDataAdapter adaptador = new OracleDataAdapter(cmd);
+                adaptador.Fill(tablaDetalleFactura);
 
-                    OracleCommand comando = new OracleCommand(consulta, conexion);
 
-                   
-                    comando.Parameters.Add(new OracleParameter(":IdFactura", OracleDbType.Int32)).Value = idFactura;
+                CerrarConexion();
 
-                   
-                    OracleDataAdapter adaptador = new OracleDataAdapter(comando);
-                    adaptador.Fill(tablaDetalleFactura);
-                }
             }
             catch (Exception ex)
             {

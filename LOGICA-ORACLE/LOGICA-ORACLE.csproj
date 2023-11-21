@@ -50,6 +50,7 @@
     <Compile Include="ServicioProductoOracle.cs" />
     <Compile Include="ServicioTipoUsuarioOracle.cs" />
     <Compile Include="ServicioUsuarioOracle.cs" />
+    <Compile Include="UsuarioLogueado.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DATOS-ORACLE\DATOS-ORACLE.csproj">

@@ -100,6 +100,7 @@
             this.button3.TabIndex = 25;
             this.button3.Text = "Reportes";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -113,6 +114,7 @@
             this.button2.TabIndex = 24;
             this.button2.Text = "Facturacion";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // btn_Gestion
             // 
@@ -126,6 +128,7 @@
             this.btn_Gestion.TabIndex = 23;
             this.btn_Gestion.Text = "Gestion de Clientes";
             this.btn_Gestion.UseVisualStyleBackColor = false;
+            this.btn_Gestion.Click += new System.EventHandler(this.btn_Gestion_Click);
             // 
             // label1
             // 
