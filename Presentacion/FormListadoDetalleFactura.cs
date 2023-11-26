@@ -42,9 +42,15 @@ namespace Presentacion
                         nuevaFila.Cells["Column1"].Value = fila["id_factura"];
                         nuevaFila.Cells["DESCRIPCION"].Value = fila["descripcion"];
                         nuevaFila.Cells["CANTIDAD"].Value = fila["cantidad"];
-                        nuevaFila.Cells["VALOR_UNITARIO"].Value = fila["valor_unitario"];
-                        nuevaFila.Cells["IVA"].Value = fila["iva"];
-                        nuevaFila.Cells["VALOR_TOTAL"].Value = fila["valor_total"];
+
+                        double valorUnitario = Convert.ToDouble(fila["valor_unitario"]);
+                        nuevaFila.Cells["VALOR_UNITARIO"].Value = valorUnitario.ToString("###,###,###");
+
+                        double iva = Convert.ToDouble(fila["iva"]);
+                        nuevaFila.Cells["IVA"].Value = iva.ToString("###,###,###"); 
+
+                        double valorTotal = Convert.ToDouble(fila["valor_total"]);
+                        nuevaFila.Cells["VALOR_TOTAL"].Value = valorTotal.ToString("###,###,###"); 
                      
                     }
                 }

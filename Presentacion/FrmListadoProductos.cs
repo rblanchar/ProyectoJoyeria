@@ -106,5 +106,10 @@ namespace Presentacion
                 }
             }
         }
+
+        private void btn_Regresar2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

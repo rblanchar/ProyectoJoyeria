@@ -369,5 +369,10 @@ namespace Presentacion
             cmb_Opcion.Text = string.Empty;
             cmb_Opcion.Focus();
         }
+
+        private void FrmGestionCliente_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

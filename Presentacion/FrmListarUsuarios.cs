@@ -42,7 +42,7 @@ namespace Presentacion
                 TipoUsuario tipoUsuario = serviceTipoUsuario.BuscarId(item.tipoUsuario.IdTipo.ToString());
 
                 Grilla_Usuarios.Rows.Add(item.Id_Usuario,item.Cedula, item.Nombre.ToUpper(), item.Apellidos.ToUpper(), item.Direccion.ToUpper(),item.Barrio.ToUpper(),
-                    item.Correo.ToUpper(), item.Telefono, item.Nombre_Usuario, item.Contrasena,tipoUsuario.Nombre.ToUpper() );
+                    item.Correo.ToLower(), item.Telefono, item.Nombre_Usuario, item.Contrasena,tipoUsuario.Nombre.ToUpper() );
             }
 
         }

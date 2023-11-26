@@ -40,5 +40,11 @@ namespace Presentacion
             this.Close();
             new FrmListadoFacturas().Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            new FrmVentasVendedor().Show();
+        }
     }
 }

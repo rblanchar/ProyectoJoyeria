@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace DATOS_ORACLE
@@ -69,35 +70,66 @@ namespace DATOS_ORACLE
             return proximoId;
         }
 
-        public DataTable ObtenerResultados()
+        public DataTable ObtenerFacturas()
         {
-            DataTable tablaResultados = new DataTable();
+            DataTable tablaFacturas = new DataTable();
 
             try
             {
-                string ssql = "select f.id_factura,f.fecha,c.cedula,c.nombre,c.apellidos,u.nombre_usuario,f.subtotal,f.total_pagar " +
-                              " from facturas f" +
-                              " join clientes c" +
-                              " on f.id_cliente = c.id_cliente" +
-                              " join usuarios u " +
-                              " on f.id_usuario = u.id_usuario";
+                string ssql = "SELECT f.id_factura,f.fecha,c.cedula,c.nombre,c.apellidos,u.nombre_usuario,f.subtotal,f.total_pagar " +
+                              " FROM facturas f" +
+                              " JOIN clientes c" +
+                              " ON f.id_cliente = c.id_cliente" +
+                              " JOIN usuarios u " +
+                              " ON f.id_usuario = u.id_usuario";
 
                 AbrirConexion();
                 OracleCommand cmd = conexion.CreateCommand();
                 cmd.CommandText = ssql;
 
                 OracleDataAdapter adaptador = new OracleDataAdapter(cmd);
-                adaptador.Fill(tablaResultados);
+                adaptador.Fill(tablaFacturas);
 
                 CerrarConexion();
             }
             catch (Exception ex)
             {
-                // Manejo de excepciones si ocurre algún error en la consulta a la base de datos
                 Console.WriteLine("Error: " + ex.Message);
             }
 
-            return tablaResultados;
+            return tablaFacturas;
+        }
+
+        public DataTable ObtenerVentasVendedor()
+        {
+            DataTable tablaVentasVendedor = new DataTable();
+
+            try
+            {
+
+                string ssql = "SELECT u.id_usuario, u.nombre_usuario, SUM(f.total_pagar) AS TOTAL_VENTAS " +
+                              " FROM usuarios u" +
+                              " LEFT JOIN facturas f" +
+                              " ON u.id_usuario = f.id_usuario" +
+                              " WHERE EXTRACT(MONTH FROM f.fecha) = EXTRACT(MONTH FROM SYSDATE)" +
+                              " GROUP BY u.id_usuario, u.nombre_usuario " +
+                              " ORDER BY u.id_usuario";
+
+                AbrirConexion();
+                OracleCommand cmd = conexion.CreateCommand();
+                cmd.CommandText = ssql;
+
+                OracleDataAdapter adaptador = new OracleDataAdapter(cmd);
+                adaptador.Fill(tablaVentasVendedor);
+
+                CerrarConexion();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+
+            return tablaVentasVendedor;
         }
     }
 }

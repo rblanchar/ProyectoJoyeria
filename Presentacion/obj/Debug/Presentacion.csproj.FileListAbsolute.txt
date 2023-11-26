@@ -310,3 +310,4 @@ C:\Users\hp\Source\Repos\ProyectoJoyeria\Presentacion\obj\Debug\Presentacion.For
 D:\Ingenieria de Sistemas\Semestre lV\C#\Git\Presentacion\obj\Debug\Presentacion.FormListadoDetalleFactura.resources
 D:\Ingenieria de Sistemas\Semestre lV\C#\Git\Presentacion\obj\Debug\Presentacion.FrmListadoFacturas.resources
 D:\Ingenieria de Sistemas\Semestre lV\C#\Git\Presentacion\obj\Debug\Presentacion.FrmReporte.resources
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git\Presentacion\obj\Debug\Presentacion.FrmVentasVendedor.resources

@@ -26,7 +26,7 @@ namespace Presentacion
             Application.SetCompatibleTextRenderingDefault(false);
             //FrmInicioSesion
 
-            FrmInicioSesion main = new FrmInicioSesion();
+            FrmMenuSuper main = new FrmMenuSuper();
             main.Show();
             Application.Run();
 

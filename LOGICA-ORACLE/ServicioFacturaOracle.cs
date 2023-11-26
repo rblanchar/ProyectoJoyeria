@@ -29,10 +29,17 @@ namespace LOGICA_ORACLE
 
         public DataTable GrupoFacturas()
         {
-            DataTable resultados = repositorio.ObtenerResultados();
+            DataTable resultados = repositorio.ObtenerFacturas();
             return resultados;
         }
+
+        public DataTable GrupoVentasVendedor() 
+        {
+            DataTable resultados = repositorio.ObtenerVentasVendedor();
+            return resultados;
+        }
+
     }
 
-    
+
 }

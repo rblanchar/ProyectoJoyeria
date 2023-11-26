@@ -38,13 +38,20 @@ namespace Presentacion
                     DataGridViewRow nuevaFila = GrillaListadoFacturas.Rows[indiceFila];
 
                     nuevaFila.Cells["IDFACTURA"].Value = fila["id_factura"];
-                    nuevaFila.Cells["FECHA"].Value = fila["fecha"];
+
+                    DateTime fecha = Convert.ToDateTime(fila["fecha"]);
+                    nuevaFila.Cells["FECHA"].Value = fecha.ToString("dd/MM/yyyy");
+
                     nuevaFila.Cells["CEDULA"].Value = fila["cedula"];
                     nuevaFila.Cells["NOMBRE"].Value = fila["nombre"];
                     nuevaFila.Cells["APELLIDOS"].Value = fila["apellidos"];
                     nuevaFila.Cells["NOMBRE_USUARIO"].Value = fila["nombre_usuario"];
-                    nuevaFila.Cells["SUBTOTAL"].Value = fila["subtotal"];
-                    nuevaFila.Cells["TOTALPAGAR"].Value = fila["total_pagar"];
+
+                    double subtotal = Convert.ToDouble(fila["subtotal"]);
+                    nuevaFila.Cells["SUBTOTAL"].Value = subtotal.ToString("###,###,###");
+
+                    double totalPagar = Convert.ToDouble(fila["total_pagar"]);
+                    nuevaFila.Cells["TOTALPAGAR"].Value = totalPagar.ToString("###,###,###");
 
 
                 }

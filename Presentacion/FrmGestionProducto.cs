@@ -424,5 +424,15 @@ namespace Presentacion
             //    e.Handled = true;
             //}
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lb22_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
