@@ -276,8 +276,6 @@ D:\Ingenieria de Sistemas\Semestre lV\C#\Git\Presentacion\bin\Debug\Microsoft.Bc
 D:\Ingenieria de Sistemas\Semestre lV\C#\Git\Presentacion\bin\Debug\System.Buffers.xml
 D:\Ingenieria de Sistemas\Semestre lV\C#\Git\Presentacion\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 D:\Ingenieria de Sistemas\Semestre lV\C#\Git\Presentacion\obj\Debug\Presentacion.csproj.AssemblyReference.cache
-D:\Ingenieria de Sistemas\Semestre lV\C#\Git\Presentacion\obj\Debug\Presentacion.csproj.SuggestedBindingRedirects.cache
-D:\Ingenieria de Sistemas\Semestre lV\C#\Git\Presentacion\obj\Debug\Presentacion.exe.config
 D:\Ingenieria de Sistemas\Semestre lV\C#\Git\Presentacion\obj\Debug\Presentacion.FrmFacturadeVenta.resources
 D:\Ingenieria de Sistemas\Semestre lV\C#\Git\Presentacion\obj\Debug\Presentacion.FrmGestionCliente.resources
 D:\Ingenieria de Sistemas\Semestre lV\C#\Git\Presentacion\obj\Debug\Presentacion.FrmGestionProducto.resources
@@ -311,3 +309,6 @@ D:\Ingenieria de Sistemas\Semestre lV\C#\Git\Presentacion\obj\Debug\Presentacion
 D:\Ingenieria de Sistemas\Semestre lV\C#\Git\Presentacion\obj\Debug\Presentacion.FrmListadoFacturas.resources
 D:\Ingenieria de Sistemas\Semestre lV\C#\Git\Presentacion\obj\Debug\Presentacion.FrmReporte.resources
 D:\Ingenieria de Sistemas\Semestre lV\C#\Git\Presentacion\obj\Debug\Presentacion.FrmVentasVendedor.resources
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git\Presentacion\bin\Debug\BouncyCastle.Crypto.dll
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git\Presentacion\bin\Debug\itextsharp.dll
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git\Presentacion\bin\Debug\itextsharp.xml

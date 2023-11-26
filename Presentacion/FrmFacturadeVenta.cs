@@ -7,10 +7,14 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 
 namespace Presentacion
 {
@@ -113,6 +117,7 @@ namespace Presentacion
                         }
                         GuardarFactura();
                         GuardarDetalle_Factura(GrillaDetalle);
+                        //GenerarPDFFactura();
                         limpiar();
                         txt_idFactura.Text = serviceFactura.ProximoidFactura();
                         Activar_cmb_Opcion();
@@ -125,6 +130,47 @@ namespace Presentacion
             var msg = serviceCliente.InsertarCliente(cliente);
 
         }
+
+        private void GenerarPDFFactura()
+        {
+            Document doc = new Document();
+            try
+            {
+                // Dirección donde se guardará el archivo PDF (cambiar según tu necesidad)
+                string path = Path.Combine(Directory.GetCurrentDirectory(), "factura.pdf");
+
+                PdfWriter.GetInstance(doc, new FileStream(path, FileMode.Create));
+                doc.Open();
+
+                // Añadir contenido al PDF
+                Paragraph encabezado = new Paragraph("Factura de Venta");
+                encabezado.Alignment = Element.ALIGN_CENTER;
+                doc.Add(encabezado);
+
+                // Aquí puedes añadir la información de la factura: ID, fecha, cliente, detalles, etc.
+                // Por ejemplo:
+                doc.Add(new Paragraph("ID Factura: " + txt_idFactura.Text));
+                doc.Add(new Paragraph("Fecha: " + txt_Fecha.Text));
+                
+
+
+                // ... (añade más detalles de la factura según tus campos)
+
+                // Cerrar el documento PDF
+                doc.Close();
+
+                MessageBox.Show("Factura generada correctamente en: " + path, "PDF Creado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al generar el PDF: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                doc.Close();
+            }
+        }
+
 
         private void GuardarFactura()
         {
@@ -586,5 +632,9 @@ namespace Presentacion
             txt_TotalPagar.Text = totalPagar.ToString("###,###");
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            GenerarPDFFactura();
+        }
     }
 }
