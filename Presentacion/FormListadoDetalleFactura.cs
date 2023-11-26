@@ -39,7 +39,7 @@ namespace Presentacion
                         int indiceFila = GrillaDetalleFactura.Rows.Add();
                         DataGridViewRow nuevaFila = GrillaDetalleFactura.Rows[indiceFila];
 
-                        nuevaFila.Cells["Column1"].Value = fila["id_factura"];
+                        nuevaFila.Cells["id_factura"].Value = fila["id_factura"];
                         nuevaFila.Cells["DESCRIPCION"].Value = fila["descripcion"];
                         nuevaFila.Cells["CANTIDAD"].Value = fila["cantidad"];
 
@@ -74,6 +74,23 @@ namespace Presentacion
         private void FormListadoDetalleFactura_Load(object sender, EventArgs e)
         {
             CargarGrilla(idFactura);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show("Por favor, confirma la devolucion de esta factura?", "Devolucion de Factura", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (resultado == DialogResult.Yes)
+            {
+                if (idFactura > 0)
+                {
+                    var msg = servicioDetalleFacturaOracle.DevolucionFactura(Convert.ToString(idFactura));
+                    MessageBox.Show(msg);
+                    GrillaDetalleFactura.Rows.Clear();
+                }
+                
+
+            }
         }
     }
 }

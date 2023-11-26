@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net.Configuration;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -29,5 +30,10 @@ namespace LOGICA_ORACLE
             return resultados;
         }
 
+        public string DevolucionFactura(string idFactura)
+        {
+            var msg = repositorio.EliminarDetalleFactura(idFactura);
+            return msg; 
+        }
     }
 }

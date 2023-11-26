@@ -79,6 +79,7 @@
     <Compile Include="RepositorioCategoriaOracle.cs" />
     <Compile Include="RepositorioClienteOracle.cs" />
     <Compile Include="RepositorioDetalle_Factura.cs" />
+    <Compile Include="RepositorioDevolucionesOracle.cs" />
     <Compile Include="RepositorioFacturaOracle.cs" />
     <Compile Include="RepositorioMaterialOracle.cs" />
     <Compile Include="RepositorioProductoOracle.cs" />

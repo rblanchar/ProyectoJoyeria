@@ -45,6 +45,7 @@
     <Compile Include="ServicioCategoriaOracle.cs" />
     <Compile Include="ServicioClienteOracle.cs" />
     <Compile Include="ServicioDetalleFacturaOracle.cs" />
+    <Compile Include="ServicioDevolucionFacturaOracle.cs" />
     <Compile Include="ServicioFacturaOracle.cs" />
     <Compile Include="ServicioMaterialOracle.cs" />
     <Compile Include="ServicioProductoOracle.cs" />

@@ -44,6 +44,7 @@
     <Compile Include="CategoriaProducto.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="Detalle_Factura.cs" />
+    <Compile Include="DevolucionFactura.cs" />
     <Compile Include="Empresa.cs" />
     <Compile Include="Factura.cs" />
     <Compile Include="Material.cs" />

@@ -34,26 +34,27 @@ namespace Presentacion
             {
                 foreach (DataRow fila in datos.Rows)
                 {
-                    int indiceFila = GrillaListadoFacturas.Rows.Add();
-                    DataGridViewRow nuevaFila = GrillaListadoFacturas.Rows[indiceFila];
+                    if (Convert.ToInt32(fila["total_Pagar"])>0)
+                    {
+                        int indiceFila = GrillaListadoFacturas.Rows.Add();
+                        DataGridViewRow nuevaFila = GrillaListadoFacturas.Rows[indiceFila];
 
-                    nuevaFila.Cells["IDFACTURA"].Value = fila["id_factura"];
+                        nuevaFila.Cells["IDFACTURA"].Value = fila["id_factura"];
 
-                    DateTime fecha = Convert.ToDateTime(fila["fecha"]);
-                    nuevaFila.Cells["FECHA"].Value = fecha.ToString("dd/MM/yyyy");
+                        DateTime fecha = Convert.ToDateTime(fila["fecha"]);
+                        nuevaFila.Cells["FECHA"].Value = fecha.ToString("dd/MM/yyyy");
 
-                    nuevaFila.Cells["CEDULA"].Value = fila["cedula"];
-                    nuevaFila.Cells["NOMBRE"].Value = fila["nombre"];
-                    nuevaFila.Cells["APELLIDOS"].Value = fila["apellidos"];
-                    nuevaFila.Cells["NOMBRE_USUARIO"].Value = fila["nombre_usuario"];
+                        nuevaFila.Cells["CEDULA"].Value = fila["cedula"];
+                        nuevaFila.Cells["NOMBRE"].Value = fila["nombre"];
+                        nuevaFila.Cells["APELLIDOS"].Value = fila["apellidos"];
+                        nuevaFila.Cells["NOMBRE_USUARIO"].Value = fila["nombre_usuario"];
 
-                    double subtotal = Convert.ToDouble(fila["subtotal"]);
-                    nuevaFila.Cells["SUBTOTAL"].Value = subtotal.ToString("###,###,###");
+                        double subtotal = Convert.ToDouble(fila["subtotal"]);
+                        nuevaFila.Cells["SUBTOTAL"].Value = subtotal.ToString("###,###,###");
 
-                    double totalPagar = Convert.ToDouble(fila["total_pagar"]);
-                    nuevaFila.Cells["TOTALPAGAR"].Value = totalPagar.ToString("###,###,###");
-
-
+                        double totalPagar = Convert.ToDouble(fila["total_pagar"]);
+                        nuevaFila.Cells["TOTALPAGAR"].Value = totalPagar.ToString("###,###,###");
+                    }                    
                 }
             }
             else

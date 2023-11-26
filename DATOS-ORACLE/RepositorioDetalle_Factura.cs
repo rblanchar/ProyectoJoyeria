@@ -87,5 +87,29 @@ namespace DATOS_ORACLE
             return tablaDetalleFactura;
         }
 
+        public string EliminarDetalleFactura(string idFactura)
+        {
+
+            AbrirConexion();
+
+            string ssql = "DELETE FROM detalle_facturas WHERE id_factura= :idFactura";
+
+            OracleCommand orclCmd1 = conexion.CreateCommand();
+            orclCmd1.CommandText = ssql;
+
+            orclCmd1.Parameters.Add(new OracleParameter(":id_Factura", idFactura));
+
+            int i = orclCmd1.ExecuteNonQuery();
+
+
+            if (i <= 0)
+            {
+                CerrarConexion();
+                return "No se pudo Eliminar el detalle de la factura";
+            }
+            
+            CerrarConexion();
+            return "Devolucion de Factura Exitoso!";
+        }
     }
 }
