@@ -117,7 +117,16 @@ namespace Presentacion
                         }
                         GuardarFactura();
                         GuardarDetalle_Factura(GrillaDetalle);
-                        //GenerarPDFFactura();
+                        GenerarPDFFactura(
+                            txt_idFactura.Text,
+                            txt_Fecha.Text,
+                            serviceCliente.BuscarId(txt_IdCliente.Text),
+                            GrillaDetalle,
+                            Convert.ToDouble(txt_Subtotal.Text),
+                            Convert.ToDouble(txt_Iva.Text),
+                            Convert.ToDouble(txt_TotalPagar.Text),
+                            UsuarioLogueado.Usuario
+          );
                         limpiar();
                         txt_idFactura.Text = serviceFactura.ProximoidFactura();
                         Activar_cmb_Opcion();
@@ -131,43 +140,64 @@ namespace Presentacion
 
         }
 
-        private void GenerarPDFFactura()
+        private void GenerarPDFFactura(string idFactura, string fecha, Cliente cliente, DataGridView grillaDetalle, double subtotal, double totalIVA, double totalPagar, string nombreUsuario)
         {
             Document doc = new Document();
+
+
+            string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads", $"factura_{idFactura}.pdf");
+
             try
             {
-                // Dirección donde se guardará el archivo PDF (cambiar según tu necesidad)
-                string path = Path.Combine(Directory.GetCurrentDirectory(), "factura.pdf");
-
                 PdfWriter.GetInstance(doc, new FileStream(path, FileMode.Create));
                 doc.Open();
 
-                // Añadir contenido al PDF
-                Paragraph encabezado = new Paragraph("Factura de Venta");
-                encabezado.Alignment = Element.ALIGN_CENTER;
+                Paragraph encabezado = new Paragraph("Factura de Venta GemPro") { Alignment = Element.ALIGN_CENTER, SpacingAfter = 25f };
                 doc.Add(encabezado);
 
-                // Aquí puedes añadir la información de la factura: ID, fecha, cliente, detalles, etc.
-                // Por ejemplo:
-                doc.Add(new Paragraph("ID Factura: " + txt_idFactura.Text));
-                doc.Add(new Paragraph("Fecha: " + txt_Fecha.Text));
-                
+
+                Paragraph idFechaParagraph = new Paragraph($"ID Factura: {idFactura.PadRight(100)}Fecha: {fecha}") { Alignment = Element.ALIGN_LEFT };
+                doc.Add(idFechaParagraph);
 
 
-                // ... (añade más detalles de la factura según tus campos)
+                Paragraph usuarioParagraph = new Paragraph($"Vendedor: {nombreUsuario}") { Alignment = Element.ALIGN_LEFT, SpacingAfter = 15f };
+                doc.Add(usuarioParagraph);
 
-                // Cerrar el documento PDF
-                doc.Close();
+                doc.Add(new Paragraph($"Cliente: {cliente.Nombre} {cliente.Apellidos}\nCédula: {cliente.Cedula}\nDirección: {cliente.Direccion}\nBarrio: {cliente.Barrio}\nCorreo: {cliente.Correo}\nTeléfono: {cliente.Telefono}\n\n\n") { SpacingAfter = 15f });
 
-                MessageBox.Show("Factura generada correctamente en: " + path, "PDF Creado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                PdfPTable tablaDetalle = new PdfPTable(6) { SpacingBefore = 10f, SpacingAfter = 10f };
+                tablaDetalle.AddCell("ID Producto");
+                tablaDetalle.AddCell("Descripción");
+                tablaDetalle.AddCell("Categoría");
+                tablaDetalle.AddCell("Material");
+                tablaDetalle.AddCell("Cantidad");
+                tablaDetalle.AddCell("Valor Total");
+
+                foreach (DataGridViewRow fila in grillaDetalle.Rows)
+                {
+                    if (!fila.IsNewRow)
+                    {
+                        tablaDetalle.AddCell(fila.Cells["id_producto"].Value.ToString());
+                        tablaDetalle.AddCell(fila.Cells["descripcion"].Value.ToString());
+                        tablaDetalle.AddCell(fila.Cells["categoria"].Value.ToString());
+                        tablaDetalle.AddCell(fila.Cells["material"].Value.ToString());
+                        tablaDetalle.AddCell(fila.Cells["cantidad"].Value.ToString());
+                        tablaDetalle.AddCell($"{fila.Cells["vr_total"].Value:###,###}");
+                    }
+                }
+
+                doc.Add(tablaDetalle);
+
+                doc.Add(new Paragraph($"\nSubtotal: {subtotal:###,###}\nTotal IVA: {totalIVA:###,###}\nTotal a Pagar: {totalPagar:###,###}") { SpacingBefore = 15f });
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al generar el PDF: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error al generar el PDF: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
                 doc.Close();
+                MessageBox.Show($"Factura generada correctamente en: {path}", "PDF Creado", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -634,7 +664,7 @@ namespace Presentacion
 
         private void button2_Click(object sender, EventArgs e)
         {
-            GenerarPDFFactura();
+           
         }
     }
 }

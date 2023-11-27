@@ -85,3 +85,32 @@ D:\Ingenieria de Sistemas\Semestre lV\C#\Nueva carpeta\DATOS-ORACLE\obj\Debug\DA
 D:\Ingenieria de Sistemas\Semestre lV\C#\Nueva carpeta\DATOS-ORACLE\obj\Debug\DATOS-ORACLE.csproj.CopyComplete
 D:\Ingenieria de Sistemas\Semestre lV\C#\Nueva carpeta\DATOS-ORACLE\obj\Debug\DATOS-ORACLE.dll
 D:\Ingenieria de Sistemas\Semestre lV\C#\Nueva carpeta\DATOS-ORACLE\obj\Debug\DATOS-ORACLE.pdb
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git\DATOS-ORACLE\bin\Debug\DATOS-ORACLE.dll.config
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git\DATOS-ORACLE\bin\Debug\DATOS-ORACLE.dll
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git\DATOS-ORACLE\bin\Debug\DATOS-ORACLE.pdb
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git\DATOS-ORACLE\bin\Debug\ENTIDAD.dll
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git\DATOS-ORACLE\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git\DATOS-ORACLE\bin\Debug\Oracle.ManagedDataAccess.dll
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git\DATOS-ORACLE\bin\Debug\System.Buffers.dll
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git\DATOS-ORACLE\bin\Debug\System.Memory.dll
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git\DATOS-ORACLE\bin\Debug\System.Numerics.Vectors.dll
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git\DATOS-ORACLE\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git\DATOS-ORACLE\bin\Debug\System.Text.Encodings.Web.dll
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git\DATOS-ORACLE\bin\Debug\System.Text.Json.dll
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git\DATOS-ORACLE\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git\DATOS-ORACLE\bin\Debug\System.ValueTuple.dll
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git\DATOS-ORACLE\bin\Debug\ENTIDAD.pdb
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git\DATOS-ORACLE\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git\DATOS-ORACLE\bin\Debug\System.Buffers.xml
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git\DATOS-ORACLE\bin\Debug\System.Memory.xml
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git\DATOS-ORACLE\bin\Debug\System.Numerics.Vectors.xml
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git\DATOS-ORACLE\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git\DATOS-ORACLE\bin\Debug\System.Text.Encodings.Web.xml
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git\DATOS-ORACLE\bin\Debug\System.Text.Json.xml
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git\DATOS-ORACLE\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git\DATOS-ORACLE\bin\Debug\System.ValueTuple.xml
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git\DATOS-ORACLE\obj\Debug\DATOS-ORACLE.csproj.AssemblyReference.cache
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git\DATOS-ORACLE\obj\Debug\DATOS-ORACLE.csproj.CoreCompileInputs.cache
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git\DATOS-ORACLE\obj\Debug\DATOS-ORACLE.csproj.CopyComplete
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git\DATOS-ORACLE\obj\Debug\DATOS-ORACLE.dll
+D:\Ingenieria de Sistemas\Semestre lV\C#\Git\DATOS-ORACLE\obj\Debug\DATOS-ORACLE.pdb
